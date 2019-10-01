@@ -100,5 +100,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</ul>
 		</div>
 	</div>
-
 </article><!-- #post-## -->

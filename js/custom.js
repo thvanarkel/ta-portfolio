@@ -336,25 +336,25 @@ jQuery(document).ready(function($) {
 
 
 
-  var transEffect = Barba.BaseTransition.extend({
-    start: function() {
-      this.newContainerLoading.then(val => this.fadeInNewcontent($(this.newContainer)));
-    },
-    fadeInNewcontent: function(nc) {
-      nc.hide();
-      var _this = this;
-      $(this.oldContainer).fadeOut(500).promise().done(() => {
-        $(document).scrollTop(0);
-        nc.css('visibility', 'visible');
-        nc.fadeIn(500, function() {
-          _this.done();
-        })
-      });
-    }
-  });
-  Barba.Pjax.getTransition = function() {
-    return transEffect;
-  }
+  // var transEffect = Barba.BaseTransition.extend({
+  //   start: function() {
+  //     this.newContainerLoading.then(val => this.fadeInNewcontent($(this.newContainer)));
+  //   },
+  //   fadeInNewcontent: function(nc) {
+  //     nc.hide();
+  //     var _this = this;
+  //     $(this.oldContainer).fadeOut(500).promise().done(() => {
+  //       $(document).scrollTop(0);
+  //       nc.css('visibility', 'visible');
+  //       nc.fadeIn(500, function() {
+  //         _this.done();
+  //       })
+  //     });
+  //   }
+  // });
+  // Barba.Pjax.getTransition = function() {
+  //   return transEffect;
+  // }
 
 
 
