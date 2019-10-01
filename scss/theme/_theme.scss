@@ -159,10 +159,23 @@ body {
 }
 
 * {
-  cursor: none !important;
+  // cursor: none !important;
   @include respond-below(xs) {
-    cursor: auto !important;
+    // cursor: auto !important;
   }
+}
+
+body {
+  font-smooth: always;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  cursor: url('../img/cursor-normal@1x.png') 0 0, auto;
+  cursor:-webkit-image-set(url('../img/cursor-normal@1x.png') 1x, url('../img/cursor-normal@2x.png') 2x) 0 0, auto
+}
+
+body a, body .project-card, .gallery figure {
+  cursor: url('../img/cursor-pointer@1x.png') 0 0, auto;
+  cursor:-webkit-image-set(url('../img/cursor-pointer@1x.png') 1x, url('../img/cursor-pointer@2x.png') 2x) 0 0, auto;
 }
 
 a {

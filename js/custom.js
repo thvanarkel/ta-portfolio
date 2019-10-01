@@ -415,7 +415,7 @@ jQuery(document).ready(function($) {
   Barba.Pjax.Dom.wrapperId = "wrapper";
   Barba.Pjax.Dom.containerClass = "site-container";
   Barba.Pjax.start();
-  
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   Barba.Dispatcher.on('initStateChange', function() {
@@ -462,58 +462,58 @@ jQuery(document).ready(function($) {
     });
   });
 
-  $(document).on('mousemove', function(e) {
-
-    const cursor = $('.cursor');
-    const target = $(e.target);
-    // update position of cursor
-    cursor.css('left', e.clientX - 10).css('top', e.clientY - 10);
-
-    const isLinkTag = target.is('a') || target.parents('a').length || target.hasClass('cursor-link') || target.parents('.cursor-link').length || target.hasClass('minimise') || target.parents('.gallery').length || target.hasClass('gallery');
-    const isHovered = cursor.hasClass('is-active');
-
-    var link = target.closest('.cursor-link');
-    var linkTitle;
-
-    if (target.hasClass('minimise')) {
-      linkTitle = "X";
-    } else if (link.length) {
-      linkTitle = link.attr('cursor-text');
-    } else {
-      linkTitle = "";
-    }
-
-    cursor.find('p').text(linkTitle);
-    if(linkTitle.length > 0) {
-      cursor.addClass('has-text');
-    } else {
-      cursor.removeClass('has-text');
-    }
-
-    // toggle the cursor class if necessary
-    if (isLinkTag && !isHovered) {
-      cursor.addClass('is-active');
-    } else if (!isLinkTag && isHovered) {
-      cursor.removeClass('is-active has-text');
-      cursor.find('.cursor-circle').css("transform", "");
-      cursor.find('.cursor-text').css("font-size", "");
-      cursor.find('p').text("");
-    }
-  });
-
-  $(document).mouseleave(function(e) {
-
-    const cursor = $('#cursor');
-    cursor.hide()
-
-  });
-
-  $(document).mouseenter(function(e) {
-
-    const cursor = $('#cursor');
-    cursor.show()
-
-  });
+  // $(document).on('mousemove', function(e) {
+  //
+  //   const cursor = $('.cursor');
+  //   const target = $(e.target);
+  //   // update position of cursor
+  //   cursor.css('left', e.clientX - 10).css('top', e.clientY - 10);
+  //
+  //   const isLinkTag = target.is('a') || target.parents('a').length || target.hasClass('cursor-link') || target.parents('.cursor-link').length || target.hasClass('minimise') || target.parents('.gallery').length || target.hasClass('gallery');
+  //   const isHovered = cursor.hasClass('is-active');
+  //
+  //   var link = target.closest('.cursor-link');
+  //   var linkTitle;
+  //
+  //   if (target.hasClass('minimise')) {
+  //     linkTitle = "X";
+  //   } else if (link.length) {
+  //     linkTitle = link.attr('cursor-text');
+  //   } else {
+  //     linkTitle = "";
+  //   }
+  //
+  //   cursor.find('p').text(linkTitle);
+  //   if(linkTitle.length > 0) {
+  //     cursor.addClass('has-text');
+  //   } else {
+  //     cursor.removeClass('has-text');
+  //   }
+  //
+  //   // toggle the cursor class if necessary
+  //   if (isLinkTag && !isHovered) {
+  //     cursor.addClass('is-active');
+  //   } else if (!isLinkTag && isHovered) {
+  //     cursor.removeClass('is-active has-text');
+  //     cursor.find('.cursor-circle').css("transform", "");
+  //     cursor.find('.cursor-text').css("font-size", "");
+  //     cursor.find('p').text("");
+  //   }
+  // });
+  //
+  // $(document).mouseleave(function(e) {
+  //
+  //   const cursor = $('#cursor');
+  //   cursor.hide()
+  //
+  // });
+  //
+  // $(document).mouseenter(function(e) {
+  //
+  //   const cursor = $('#cursor');
+  //   cursor.show()
+  //
+  // });
 
 
 
