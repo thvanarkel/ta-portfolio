@@ -20,7 +20,8 @@ if ( ! function_exists( 'understrap_scripts' ) ) {
 
 		$css_version = $theme_version . '.' . filemtime(get_template_directory() . '/css/theme.css');
 		wp_enqueue_style( 'open-iconic', 'https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css', array(), $css_version );
-		wp_enqueue_style( 'understrap-styles', get_stylesheet_directory_uri() . '/css/theme.css?v='.time(), array('open-iconic'), false );
+		wp_enqueue_style( 'web-font', "https://use.typekit.net/nry6cas.css", array(), false );
+		wp_enqueue_style( 'understrap-styles', get_stylesheet_directory_uri() . '/css/theme.css?v='.time(), array('open-iconic', 'web-font'), false );
 
 		wp_enqueue_script( 'jquery');
 
