@@ -87,12 +87,6 @@ body {
         border-bottom: none !important;
       }
     }
-    .site-border {
-      background-color: $color-dark;
-    }
-    .site-frame {
-      border-color: $color-light;
-    }
     .project-menu {
       background-color: $color-dark;
     }
@@ -173,7 +167,7 @@ body {
   cursor:-webkit-image-set(url('../img/cursor-normal@1x.png') 1x, url('../img/cursor-normal@2x.png') 2x) 0 0, auto
 }
 
-body a, body .project-card, .gallery figure {
+body a, body .project-card, .gallery figure, .button {
   cursor: url('../img/cursor-pointer@1x.png') 0 0, auto;
   cursor:-webkit-image-set(url('../img/cursor-pointer@1x.png') 1x, url('../img/cursor-pointer@2x.png') 2x) 0 0, auto;
 }
@@ -264,77 +258,29 @@ figcaption {
   }
 }
 
-.site-border {
-  position: fixed;
-  background-color: $white;
-  z-index: 90;
-  &--left {
-    left: 0;
-    top:0;
-    bottom: 0;
-    width: $site-border-width;
-    @include respond-below(sm) {
-      visibility: hidden;
-    }
-  }
-  &--top {
-    left: 0;
-    top: 0;
-    right: 0;
-    height: $site-border-width;
-    @include respond-below(sm) {
-      border-bottom: $border-width $border-color solid;
-    }
-  }
-  &--bottom {
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: $site-border-width;
-    @include respond-below(sm) {
-      visibility: hidden;
-    }
-  }
-  &--right {
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: $site-border-width;
-    @include respond-below(sm) {
-      visibility: hidden;
-    }
-  }
-}
-.site-frame {
-  position: fixed;
-  z-index: 91;
-  top: $site-border-width;
-  left: $site-border-width;
-  right: $site-border-width;
-  bottom: $site-border-width;
-  border: $border-width $border-color solid;
-  pointer-events: none;
-  @include respond-below(sm) {
-    visibility: hidden;
-  }
-}
-
 .site-container {
   @include respond-above(md) {
-    width: calc(100vw - 2 * #{$site-border-width});
+    // width: calc(100vw - 2 * #{$site-border-width});
   }
-
-
-  margin-left: auto;
-  margin-right: auto;
+  width: calc(100vw - #{$navbar-width});
+  margin-left: $navbar-width;
 }
 
-// .site-main {
-//   height: calc(100vh - #{$site-border-width});
-//   width: calc(100vw - #{$site-border-width});
-//   border: $border-width $border-color solid;
-//   overflow: hidden;
-// }
+#project {
+  background-color: $white;
+}
+
+.container-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: $navbar-width;
+  right: 0;
+  z-index: -1;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='20 20 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23aaaaaa' fill-opacity='1.0'%3E%3Cpath d='M46,44v-4h-2v4h-4v2h4v4h2v-4h4v-2H46z M46,14v-4h-2v4h-4v2h4v4h2v-4h4v-2H46z M16,44v-4h-2v4h-4v2h4v4h2v-4 h4v-2H16z M16,14v-4h-2v4h-4v2h4v4h2v-4h4v-2H16z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-position: center center;
+}
 
 .bg-none {
   background-color: rgba(0, 0, 0, 0);
@@ -348,12 +294,43 @@ figcaption {
   padding: 0;
 }
 
+.button {
+  font-weight: 300;
+}
+
+.nav {
+  position: fixed;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+  height: 100vh;
+  width: $navbar-width;
+  border-right: $border-width solid $border-color;
+  background-color: $white;
+  font-size: 1.8em;
+  .nav-brand {
+    letter-spacing: 3px;
+    font-kerning: none;
+  }
+  .open-button {
+    transform: scale(1.8);
+    transform-origin: 47% 50%;
+    transition: transform 0.5s ease-in-out;
+    &.opened {
+      transform: scale(1.8) rotate(-135deg) translateX(4px) translateY(7px);
+    }
+  }
+}
+
 .navbar {
   // visibility: hidden;
   z-index: 100;
   font-size: 1rem;
-  max-height: $site-border-width;
-  padding: 0 $site-border-width;
+  // max-height: $site-border-width;
+  // padding: 0 $site-border-width;
   .navbar-brand {
     letter-spacing: 3px;
     font-kerning: none;
@@ -521,6 +498,7 @@ figcaption {
 }
 
 #main {
+  // @extend .row;
   .main-header {
     position: fixed;
     z-index: 300;
@@ -532,17 +510,50 @@ figcaption {
     }
   }
 
+.about-me-old {
+  display: none;
+}
+
+.about-me {
+  @extend .col-md-6;
+  position: relative;
+  z-index: 1000;
+  padding: 0;
+  border-right: $border-width solid $border-color;
+  background-color: $white;
+  transition: 0.7s ease-in;
+  margin-left: -$navbar-width;
+  div {
+    padding: 15px;
+  }
+  .about-header {
+    border-bottom: $border-width solid $border-color;
+    h1 {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.8em;
+      .close-button {
+        transform: scale(1.8) translateY(4px);
+      }
+    }
+  }
+  &.collapsed {
+    transform: translate(-150%);
+  }
+}
+
   .about-me {
-    @extend .row;
-    margin: 0;
-    // width: 100vw;
-    margin-top: 10%;
-    position: relative;
-    z-index: 0;
-    text-indent: 15%;
-    font-size: 1.8rem;
-    line-height: normal;
-    align-items: stretch;
+
+    // @extend .row;
+    // margin: 0;
+    // // width: 100vw;
+    // margin-top: 10%;
+    // position: relative;
+    // z-index: 0;
+    // text-indent: 15%;
+    // font-size: 1.8rem;
+    // line-height: normal;
+    // align-items: stretch;
     .about-block {
       z-index: 0;
       border-bottom: $border-width solid $border-color;
@@ -775,7 +786,7 @@ figcaption {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  max-height: $site-border-width;
+  // max-height: $site-border-width;
   width: 50vw;
   z-index: 200;
   padding-top: 0.2rem;
@@ -1170,10 +1181,10 @@ figcaption {
   @extend .row;
   @extend .justify-content-end;
   padding-top: 10vh;
-  @include respond-above(md) {
-    width: calc(100vw - 2 * #{$site-border-width});
-    margin-left: $site-border-width;
-  }
+  // @include respond-above(md) {
+  //   width: calc(100vw - 2 * #{$site-border-width});
+  //   margin-left: $site-border-width;
+  // }
 
 
   .details {

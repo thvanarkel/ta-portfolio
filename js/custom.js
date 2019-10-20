@@ -28,20 +28,38 @@ jQuery(document).ready(function($) {
 
   });
 
+  $('.close-button').click( function(e) {
+    $('.about-me').toggleClass("collapsed");
+  });
+
   $('.dark-mode-toggle').click( function(e) {
     e.preventDefault();
-    $target = $('.dark-mode-toggle');
-    $('body').toggleClass('dark-mode');
-    $icon = $target.find('span');
-    if ($('body').hasClass('dark-mode')) {
-      $icon.removeClass('oi-moon');
-      $icon.addClass('oi-sun');
-    } else {
-      $icon.removeClass('oi-sun');
-      $icon.addClass('oi-moon');
-    }
-    return false;
+    // $target = $('.dark-mode-toggle');
+    // $('body').toggleClass('dark-mode');
+    // $icon = $target.find('span');
+    // if ($('body').hasClass('dark-mode')) {
+    //   $icon.removeClass('oi-moon');
+    //   $icon.addClass('oi-sun');
+    // } else {
+    //   $icon.removeClass('oi-sun');
+    //   $icon.addClass('oi-moon');
+    // }
+    // return false;
+    $('.about-me').toggleClass("collapsed");
   } );
+
+  $('.open-button').click( function(e) {
+    console.log("test");
+    if ($(e.target).hasClass('opened')) {
+      Barba.Pjax.goTo('/');
+    } else {
+      $('.about-me').toggleClass("collapsed");
+    }
+  });
+
+  $('.close-button').click( function(e) {
+    $('.about-me').toggleClass("collapsed");
+  })
 
   $('.about-me-toggle').click( function(e) {
     e.preventDefault();
@@ -363,6 +381,7 @@ jQuery(document).ready(function($) {
     namespace: "single-project",
     onEnter: function() {
       // The new Container is ready and attached to the DOM.
+      $('.open-button').addClass("opened");
       splitTitles('.display-title');
       createGalleries();
       createVideos();
@@ -376,6 +395,7 @@ jQuery(document).ready(function($) {
     onLeave: function() {
       // A new Transition toward a new page has just started.
       // splitTitles('.display-title');
+      $('.open-button').removeClass('opened');
     },
     onLeaveCompleted: function() {
       // The Container has just been removed from the DOM.
@@ -398,10 +418,14 @@ jQuery(document).ready(function($) {
     onEnterCompleted: function() {
       // The Transition has just finished.
       // splitTitles('.project-title');
+      $('.close-button').click( function(e) {
+        $('.about-me').toggleClass("collapsed");
+      });
     },
     onLeave: function() {
       // A new Transition toward a new page has just started.
       // splitTitles('.project-title');
+      $('.open-button').addClass('opened');
     },
     onLeaveCompleted: function() {
       // The Container has just been removed from the DOM.
