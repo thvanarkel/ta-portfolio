@@ -35,9 +35,22 @@ $container   = get_theme_mod( 'understrap_container_type' );
 
 	<div class="site-container" id="content" tabindex="-1" data-namespace="<?php echo get_current_template() ?>">
 			<main class="site-main" id="main">
+				<div class="navigation"></div>
+				<div class="about-me collapsed">
+					<div class="about-header">
+						<h1><span>Thomas van Arkel</span><span class="button close-button">↖︎</span></h1>
+					</div>
+					<div>
+					<?php
+						$page = get_page_by_title( 'About me' );
+						echo $page->post_content;
+					?>
+					</div>
+				</div>
+				<div class="content"></div>
 
 
-			<div class="about-me">
+			<div class="about-me-old">
 				<div class="about-block hero">
 					<p>I am Thomas van Arkel, a design student from Delft who works at the intersection of design, research and technology—making things for our future</p>
 					<span>Currently looking for <a href="mailto:hello@thomasvanarkel.nl?Subject=About that internship..">an internship</a></span>
@@ -113,7 +126,7 @@ $container   = get_theme_mod( 'understrap_container_type' );
 
 			<!-- The pagination component -->
 			<?php understrap_pagination(); ?>
-
+			
 </div><!-- Container end -->
 
 </div><!-- Wrapper end -->

@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // move admin bar to bottom
 function fb_move_admin_bar() { ?>
 	<style type="text/css">
-		body {
+		/* body {
 			margin-top: -28px;
 			padding-bottom: 28px;
 		}
@@ -28,7 +28,7 @@ function fb_move_admin_bar() { ?>
 		}
 		#wpadminbar .quicklinks .menupop ul {
 			bottom: 28px;
-		}
+		} */
 	</style>
 <?php }
 // on backend area
