@@ -13332,7 +13332,7 @@ figcaption {
 
 .nav {
   position: fixed;
-  z-index: 50;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -13358,7 +13358,7 @@ figcaption {
 }
 
 .navbar {
-  z-index: 100;
+  z-index: 1000;
   font-size: 1rem;
 }
 .navbar .navbar-brand {
@@ -13559,6 +13559,11 @@ figcaption {
 #main .about-me.collapsed {
   transform: translate(-150%);
 }
+#main .about-me .wp-block-image {
+  margin: 0 -15px;
+  width: calc(100% + 30px);
+  max-width: none !important;
+}
 #main .about-me .about-block {
   z-index: 0;
   border-bottom: 2px solid black;
@@ -13570,7 +13575,6 @@ figcaption {
   padding-bottom: 30px;
 }
 #main .about-me figure {
-  height: 80vh;
   background-size: cover;
   background-position: center center;
   margin-bottom: 0;
@@ -13979,7 +13983,7 @@ figcaption {
   margin: 0;
   height: 200px;
   padding: 15px;
-  font-size: 3.4rem;
+  font-size: 2.6rem;
   line-height: auto;
   text-indent: 20%;
   background-color: white;
