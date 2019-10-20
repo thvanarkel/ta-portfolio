@@ -35,25 +35,24 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 		<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e( 'Skip to content', 'understrap' ); ?></a>
 
-		<nav class="navbar fixed-top navbar-expand-md navbar-light bg-none justify-content-between">
-				<h1 class="navbar-brand mb-0"><a rel="home" class="cursor-link" href="<?php echo esc_url( home_url( '/' ) ); ?>"  cursor-text="🏡" cursor-size="4" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url">TvA</a></h1>
-				<div class="nav">
-					<a class="nav-link about-me-toggle" state="off">about me</a>
-					<a class="nav-link dark-mode-toggle"><span class="oi oi-moon" aria-hidden="true"></span></a>
-				</div>
-
+		<nav class="nav">
+			<a rel="home" class="cursor-link" href="<?php echo esc_url( home_url( '/' ) ); ?>"><span class="nav-brand">TvA</span></a>
+			<span class="button open-button">↗︎</span>
+				<!-- <h1 class="navbar-brand mb-0"><a rel="home" class="cursor-link" href="<?php echo esc_url( home_url( '/' ) ); ?>"  cursor-text="🏡" cursor-size="4" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url">TvA</a></h1> -->
+				<!-- <div class="nav"> -->
+					<!-- <a class="nav-link about-me-toggle" state="off">about me</a> -->
+					<!-- <a class="nav-link dark-mode-toggle"><span class="oi oi-moon" aria-hidden="true"></span></a> -->
+				<!-- </div> -->
 				<!-- The WordPress Menu goes here -->
-
-
 		</nav><!-- .site-navigation -->
 
 	</div><!-- #wrapper-navbar end -->
 
-	<div class="site-border site-border--left"></div>
+	<!-- <div class="site-border site-border--left"></div>
 	<div class="site-border site-border--right"></div>
 	<div class="site-border site-border--top"></div>
-	<div class="site-border site-border--bottom"></div>
-	<div class="site-frame"></div>
+	<div class="site-border site-border--bottom"></div> -->
+	<!-- <div class="site-frame"></div> -->
 
 	<div class="card-stack">
 		<div class="content-card about-card">

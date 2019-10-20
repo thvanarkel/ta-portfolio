@@ -28,20 +28,38 @@ jQuery(document).ready(function($) {
 
   });
 
+  $('.close-button').click( function(e) {
+    $('.about-me').toggleClass("collapsed");
+  });
+
   $('.dark-mode-toggle').click( function(e) {
     e.preventDefault();
-    $target = $('.dark-mode-toggle');
-    $('body').toggleClass('dark-mode');
-    $icon = $target.find('span');
-    if ($('body').hasClass('dark-mode')) {
-      $icon.removeClass('oi-moon');
-      $icon.addClass('oi-sun');
-    } else {
-      $icon.removeClass('oi-sun');
-      $icon.addClass('oi-moon');
-    }
-    return false;
+    // $target = $('.dark-mode-toggle');
+    // $('body').toggleClass('dark-mode');
+    // $icon = $target.find('span');
+    // if ($('body').hasClass('dark-mode')) {
+    //   $icon.removeClass('oi-moon');
+    //   $icon.addClass('oi-sun');
+    // } else {
+    //   $icon.removeClass('oi-sun');
+    //   $icon.addClass('oi-moon');
+    // }
+    // return false;
+    $('.about-me').toggleClass("collapsed");
   } );
+
+  $('.open-button').click( function(e) {
+    console.log("test");
+    if ($(e.target).hasClass('opened')) {
+      Barba.Pjax.goTo('/');
+    } else {
+      $('.about-me').toggleClass("collapsed");
+    }
+  });
+
+  $('.close-button').click( function(e) {
+    $('.about-me').toggleClass("collapsed");
+  })
 
   $('.about-me-toggle').click( function(e) {
     e.preventDefault();
@@ -336,25 +354,25 @@ jQuery(document).ready(function($) {
 
 
 
-  var transEffect = Barba.BaseTransition.extend({
-    start: function() {
-      this.newContainerLoading.then(val => this.fadeInNewcontent($(this.newContainer)));
-    },
-    fadeInNewcontent: function(nc) {
-      nc.hide();
-      var _this = this;
-      $(this.oldContainer).fadeOut(500).promise().done(() => {
-        $(document).scrollTop(0);
-        nc.css('visibility', 'visible');
-        nc.fadeIn(500, function() {
-          _this.done();
-        })
-      });
-    }
-  });
-  Barba.Pjax.getTransition = function() {
-    return transEffect;
-  }
+  // var transEffect = Barba.BaseTransition.extend({
+  //   start: function() {
+  //     this.newContainerLoading.then(val => this.fadeInNewcontent($(this.newContainer)));
+  //   },
+  //   fadeInNewcontent: function(nc) {
+  //     nc.hide();
+  //     var _this = this;
+  //     $(this.oldContainer).fadeOut(500).promise().done(() => {
+  //       $(document).scrollTop(0);
+  //       nc.css('visibility', 'visible');
+  //       nc.fadeIn(500, function() {
+  //         _this.done();
+  //       })
+  //     });
+  //   }
+  // });
+  // Barba.Pjax.getTransition = function() {
+  //   return transEffect;
+  // }
 
 
 
@@ -363,6 +381,7 @@ jQuery(document).ready(function($) {
     namespace: "single-project",
     onEnter: function() {
       // The new Container is ready and attached to the DOM.
+      $('.open-button').addClass("opened");
       splitTitles('.display-title');
       createGalleries();
       createVideos();
@@ -376,6 +395,7 @@ jQuery(document).ready(function($) {
     onLeave: function() {
       // A new Transition toward a new page has just started.
       // splitTitles('.display-title');
+      $('.open-button').removeClass('opened');
     },
     onLeaveCompleted: function() {
       // The Container has just been removed from the DOM.
@@ -398,10 +418,14 @@ jQuery(document).ready(function($) {
     onEnterCompleted: function() {
       // The Transition has just finished.
       // splitTitles('.project-title');
+      $('.close-button').click( function(e) {
+        $('.about-me').toggleClass("collapsed");
+      });
     },
     onLeave: function() {
       // A new Transition toward a new page has just started.
       // splitTitles('.project-title');
+      $('.open-button').addClass('opened');
     },
     onLeaveCompleted: function() {
       // The Container has just been removed from the DOM.
@@ -415,7 +439,7 @@ jQuery(document).ready(function($) {
   Barba.Pjax.Dom.wrapperId = "wrapper";
   Barba.Pjax.Dom.containerClass = "site-container";
   Barba.Pjax.start();
-  
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   Barba.Dispatcher.on('initStateChange', function() {
@@ -462,58 +486,58 @@ jQuery(document).ready(function($) {
     });
   });
 
-  $(document).on('mousemove', function(e) {
-
-    const cursor = $('.cursor');
-    const target = $(e.target);
-    // update position of cursor
-    cursor.css('left', e.clientX - 10).css('top', e.clientY - 10);
-
-    const isLinkTag = target.is('a') || target.parents('a').length || target.hasClass('cursor-link') || target.parents('.cursor-link').length || target.hasClass('minimise') || target.parents('.gallery').length || target.hasClass('gallery');
-    const isHovered = cursor.hasClass('is-active');
-
-    var link = target.closest('.cursor-link');
-    var linkTitle;
-
-    if (target.hasClass('minimise')) {
-      linkTitle = "X";
-    } else if (link.length) {
-      linkTitle = link.attr('cursor-text');
-    } else {
-      linkTitle = "";
-    }
-
-    cursor.find('p').text(linkTitle);
-    if(linkTitle.length > 0) {
-      cursor.addClass('has-text');
-    } else {
-      cursor.removeClass('has-text');
-    }
-
-    // toggle the cursor class if necessary
-    if (isLinkTag && !isHovered) {
-      cursor.addClass('is-active');
-    } else if (!isLinkTag && isHovered) {
-      cursor.removeClass('is-active has-text');
-      cursor.find('.cursor-circle').css("transform", "");
-      cursor.find('.cursor-text').css("font-size", "");
-      cursor.find('p').text("");
-    }
-  });
-
-  $(document).mouseleave(function(e) {
-
-    const cursor = $('#cursor');
-    cursor.hide()
-
-  });
-
-  $(document).mouseenter(function(e) {
-
-    const cursor = $('#cursor');
-    cursor.show()
-
-  });
+  // $(document).on('mousemove', function(e) {
+  //
+  //   const cursor = $('.cursor');
+  //   const target = $(e.target);
+  //   // update position of cursor
+  //   cursor.css('left', e.clientX - 10).css('top', e.clientY - 10);
+  //
+  //   const isLinkTag = target.is('a') || target.parents('a').length || target.hasClass('cursor-link') || target.parents('.cursor-link').length || target.hasClass('minimise') || target.parents('.gallery').length || target.hasClass('gallery');
+  //   const isHovered = cursor.hasClass('is-active');
+  //
+  //   var link = target.closest('.cursor-link');
+  //   var linkTitle;
+  //
+  //   if (target.hasClass('minimise')) {
+  //     linkTitle = "X";
+  //   } else if (link.length) {
+  //     linkTitle = link.attr('cursor-text');
+  //   } else {
+  //     linkTitle = "";
+  //   }
+  //
+  //   cursor.find('p').text(linkTitle);
+  //   if(linkTitle.length > 0) {
+  //     cursor.addClass('has-text');
+  //   } else {
+  //     cursor.removeClass('has-text');
+  //   }
+  //
+  //   // toggle the cursor class if necessary
+  //   if (isLinkTag && !isHovered) {
+  //     cursor.addClass('is-active');
+  //   } else if (!isLinkTag && isHovered) {
+  //     cursor.removeClass('is-active has-text');
+  //     cursor.find('.cursor-circle').css("transform", "");
+  //     cursor.find('.cursor-text').css("font-size", "");
+  //     cursor.find('p').text("");
+  //   }
+  // });
+  //
+  // $(document).mouseleave(function(e) {
+  //
+  //   const cursor = $('#cursor');
+  //   cursor.hide()
+  //
+  // });
+  //
+  // $(document).mouseenter(function(e) {
+  //
+  //   const cursor = $('#cursor');
+  //   cursor.show()
+  //
+  // });
 
 
 
