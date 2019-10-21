@@ -315,6 +315,7 @@ figcaption {
   .nav-brand {
     letter-spacing: 3px;
     font-kerning: none;
+    border: none;
   }
   .open-button {
     transform: scale(1.8);
@@ -516,7 +517,9 @@ figcaption {
 }
 
 .about-me {
-  @extend .col-md-6;
+  // @extend .col-md-6;
+  flex-basis: calc(50% +  0.5 * #{$navbar-width});
+  max-width: calc(50% + 0.5 * #{$navbar-width});
   position: relative;
   z-index: 1000;
   padding: 0;
