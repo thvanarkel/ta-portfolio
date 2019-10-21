@@ -685,7 +685,7 @@ pre code {
 .col-xl,
 .col-xl-auto, .col-xl-12, .col-xl-11, .col-xl-10, .col-xl-9, .col-xl-8, .col-xl-7, .col-xl-6, .col-xl-5, .col-xl-4, .col-xl-3, .col-xl-2, .col-xl-1, .col-lg,
 .col-lg-auto, .col-lg-12, .col-lg-11, .col-lg-10, .col-lg-9, .col-lg-8, .col-lg-7, .col-lg-6, .col-lg-5, .col-lg-4, .col-lg-3, .col-lg-2, .col-lg-1, .col-md,
-.col-md-auto, .col-md-12, .wp-block-file, .entry-content .gallery.fullscreen, .entry-content .wp-block-separator, .entry-content h1, #main .about-me .hero, #main .about-me .about-block.w-12, .col-md-11, .col-md-10, #main .about-me .about-block.w-10, .col-md-9, .col-md-8, .entry-content blockquote p, .entry-header .entry-thumbnail, #main-taxonomy .projects, #main .about-me .about-block.w-8, .col-md-7, .col-md-6, .entry-content .gallery, .entry-content .wp-block-embed-vimeo, .entry-content .wp-block-image.img-side, .entry-content .wp-block-pullquote, .entry-content .filler, .entry-content .project-summary, .entry-content p, #main-taxonomy .taxonomy-header, #main .about-me .about-block.w-6, #main .about-me, .content-card.weight-5, .col-md-5, .content-card.weight-4, .col-md-4, .site-footer .details, .project-details .project-detail, .entry-header .entry-excerpt, #main .about-me .marquee, #main .about-me .about-block.w-4, .content-card.weight-3, .col-md-3, .content-card.weight-2, .col-md-2, #main .about-me .about-block.w-2, .content-card.weight-1, .col-md-1, .col-sm,
+.col-md-auto, .col-md-12, .wp-block-file, .entry-content .gallery.fullscreen, .entry-content .wp-block-separator, .entry-content h1, #main .about-me .hero, #main .about-me .about-block.w-12, .col-md-11, .col-md-10, #main .about-me .about-block.w-10, .col-md-9, .col-md-8, .entry-content blockquote p, .entry-header .entry-thumbnail, #main-taxonomy .projects, #main .about-me .about-block.w-8, .col-md-7, .col-md-6, .entry-content .gallery, .entry-content .wp-block-embed-vimeo, .entry-content .wp-block-image.img-side, .entry-content .wp-block-pullquote, .entry-content .filler, .entry-content .project-summary, .entry-content p, #main-taxonomy .taxonomy-header, #main .about-me .about-block.w-6, .content-card.weight-5, .col-md-5, .content-card.weight-4, .col-md-4, .site-footer .details, .project-details .project-detail, .entry-header .entry-excerpt, #main .about-me .marquee, #main .about-me .about-block.w-4, .content-card.weight-3, .col-md-3, .content-card.weight-2, .col-md-2, #main .about-me .about-block.w-2, .content-card.weight-1, .col-md-1, .col-sm,
 .col-sm-auto, .col-sm-12, .col-sm-11, .col-sm-10, .col-sm-9, .col-sm-8, .col-sm-7, .col-sm-6, .col-sm-5, .col-sm-4, .col-sm-3, .col-sm-2, .col-sm-1, .col,
 .col-auto, .col-12, .col-11, .col-10, .col-9, .col-8, .col-7, .col-6, .col-5, .col-4, .col-3, .col-2, .col-1 {
   position: relative;
@@ -1090,7 +1090,7 @@ pre code {
     max-width: 41.6666666667%;
   }
 
-  .col-md-6, .entry-content .gallery, .entry-content .wp-block-embed-vimeo, .entry-content .wp-block-image.img-side, .entry-content .wp-block-pullquote, .entry-content .filler, .entry-content .project-summary, .entry-content p, #main-taxonomy .taxonomy-header, #main .about-me .about-block.w-6, #main .about-me, .content-card.weight-5 {
+  .col-md-6, .entry-content .gallery, .entry-content .wp-block-embed-vimeo, .entry-content .wp-block-image.img-side, .entry-content .wp-block-pullquote, .entry-content .filler, .entry-content .project-summary, .entry-content p, #main-taxonomy .taxonomy-header, #main .about-me .about-block.w-6, .content-card.weight-5 {
     flex: 0 0 50%;
     max-width: 50%;
   }
@@ -13248,7 +13248,7 @@ figcaption {
 .display-4,
 #main .main-contents .project-thumbnail .project-title,
 .display-5 {
-  font-family: "Neue Haas Grotesk Display Pro", "Favorit";
+  font-family: "neue-haas-grotesk-text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .cursor {
@@ -13348,6 +13348,7 @@ figcaption {
 .nav .nav-brand {
   letter-spacing: 3px;
   font-kerning: none;
+  border: none;
 }
 .nav .open-button {
   transform: scale(1.8);
@@ -13535,6 +13536,8 @@ figcaption {
   display: none;
 }
 #main .about-me {
+  flex-basis: calc(50% + 0.5 * 100px);
+  max-width: calc(50% + 0.5 * 100px);
   position: relative;
   z-index: 1000;
   padding: 0;

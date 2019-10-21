@@ -36,7 +36,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 		<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e( 'Skip to content', 'understrap' ); ?></a>
 
 		<nav class="nav">
-			<a rel="home" class="cursor-link" href="<?php echo esc_url( home_url( '/' ) ); ?>"><span class="nav-brand">TvA</span></a>
+			<a rel="home" class="nav-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><span class="">TvA</span></a>
 			<span class="button open-button">↗︎</span>
 				<!-- <h1 class="navbar-brand mb-0"><a rel="home" class="cursor-link" href="<?php echo esc_url( home_url( '/' ) ); ?>"  cursor-text="🏡" cursor-size="4" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url">TvA</a></h1> -->
 				<!-- <div class="nav"> -->
