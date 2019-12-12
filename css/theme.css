@@ -1,93 +1,9 @@
 @charset "UTF-8";
 @font-face {
-  font-family: "Favorit Light Lining";
-  src: url("../fonts/Favorit-LightLining.eot");
-  src: local("Favorit Light Lining"), local("../fonts/Favorit-LightLining"), url("../fonts/Favorit-LightLining.eot?#iefix") format("embedded-opentype"), url("../fonts/Favorit-LightLining.woff2") format("woff2"), url("../fonts/Favorit-LightLining.woff") format("woff"), url("../fonts/Favorit-LightLining.ttf") format("truetype"), url("../fonts/Favorit-LightLining.svg#../fonts/Favorit-LightLining") format("svg");
-  font-weight: 300;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Favorit";
-  src: url("../fonts/Favorit-MediumItalic.eot");
-  src: local("Favorit Medium Italic"), local("../fonts/Favorit-MediumItalic"), url("../fonts/Favorit-MediumItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/Favorit-MediumItalic.woff2") format("woff2"), url("../fonts/Favorit-MediumItalic.woff") format("woff"), url("../fonts/Favorit-MediumItalic.ttf") format("truetype"), url("../fonts/Favorit-MediumItalic.svg#../fonts/Favorit-MediumItalic") format("svg");
-  font-weight: 500;
-  font-style: italic;
-}
-@font-face {
   font-family: "Favorit";
   src: url("../fonts/Favorit-Light.eot");
   src: local("Favorit Light"), local("../fonts/Favorit-Light"), url("../fonts/Favorit-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/Favorit-Light.woff2") format("woff2"), url("../fonts/Favorit-Light.woff") format("woff"), url("../fonts/Favorit-Light.ttf") format("truetype"), url("../fonts/Favorit-Light.svg#../fonts/Favorit-Light") format("svg");
   font-weight: 300;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Favorit Regular Lining";
-  src: url("../fonts/Favorit-RegularLining.eot");
-  src: local("Favorit Regular Lining"), local("../fonts/Favorit-RegularLining"), url("../fonts/Favorit-RegularLining.eot?#iefix") format("embedded-opentype"), url("../fonts/Favorit-RegularLining.woff2") format("woff2"), url("../fonts/Favorit-RegularLining.woff") format("woff"), url("../fonts/Favorit-RegularLining.ttf") format("truetype"), url("../fonts/Favorit-RegularLining.svg#../fonts/Favorit-RegularLining") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Favorit Mono";
-  src: url("../fonts/Favorit-MonoBeta.eot");
-  src: local("Favorit Mono Beta"), local("../fonts/Favorit-MonoBeta"), url("../fonts/Favorit-MonoBeta.eot?#iefix") format("embedded-opentype"), url("../fonts/Favorit-MonoBeta.woff2") format("woff2"), url("../fonts/Favorit-MonoBeta.woff") format("woff"), url("../fonts/Favorit-MonoBeta.ttf") format("truetype"), url("../fonts/Favorit-MonoBeta.svg#../fonts/Favorit-MonoBeta") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Favorit Bold Lining";
-  src: url("../fonts/Favorit-BoldLining.eot");
-  src: local("Favorit Bold Lining"), local("../fonts/Favorit-BoldLining"), url("../fonts/Favorit-BoldLining.eot?#iefix") format("embedded-opentype"), url("../fonts/Favorit-BoldLining.woff2") format("woff2"), url("../fonts/Favorit-BoldLining.woff") format("woff"), url("../fonts/Favorit-BoldLining.ttf") format("truetype"), url("../fonts/Favorit-BoldLining.svg#../fonts/Favorit-BoldLining") format("svg");
-  font-weight: bold;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Favorit";
-  src: url("../fonts/Favorit-Regular.eot");
-  src: local("Favorit Regular"), local("../fonts/Favorit-Regular"), url("../fonts/Favorit-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Favorit-Regular.woff2") format("woff2"), url("../fonts/Favorit-Regular.woff") format("woff"), url("../fonts/Favorit-Regular.ttf") format("truetype"), url("../fonts/Favorit-Regular.svg#../fonts/Favorit-Regular") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Favorit";
-  src: url("../fonts/Favorit-RegularItalic.eot");
-  src: local("Favorit Regular Italic"), local("../fonts/Favorit-RegularItalic"), url("../fonts/Favorit-RegularItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/Favorit-RegularItalic.woff2") format("woff2"), url("../fonts/Favorit-RegularItalic.woff") format("woff"), url("../fonts/Favorit-RegularItalic.ttf") format("truetype"), url("../fonts/Favorit-RegularItalic.svg#../fonts/Favorit-RegularItalic") format("svg");
-  font-weight: normal;
-  font-style: italic;
-}
-@font-face {
-  font-family: "Favorit";
-  src: url("../fonts/Favorit-Bold.eot");
-  src: local("Favorit Bold"), local("../fonts/Favorit-Bold"), url("../fonts/Favorit-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Favorit-Bold.woff2") format("woff2"), url("../fonts/Favorit-Bold.woff") format("woff"), url("../fonts/Favorit-Bold.ttf") format("truetype"), url("../fonts/Favorit-Bold.svg#../fonts/Favorit-Bold") format("svg");
-  font-weight: bold;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Favorit";
-  src: url("../fonts/Favorit-LightItalic.eot");
-  src: local("Favorit Light Italic"), local("../fonts/Favorit-LightItalic"), url("../fonts/Favorit-LightItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/Favorit-LightItalic.woff2") format("woff2"), url("../fonts/Favorit-LightItalic.woff") format("woff"), url("../fonts/Favorit-LightItalic.ttf") format("truetype"), url("../fonts/Favorit-LightItalic.svg#../fonts/Favorit-LightItalic") format("svg");
-  font-weight: 300;
-  font-style: italic;
-}
-@font-face {
-  font-family: "Favorit Medium Lining";
-  src: url("../fonts/Favorit-MediumLining.eot");
-  src: local("Favorit Medium Lining"), local("../fonts/Favorit-MediumLining"), url("../fonts/Favorit-MediumLining.eot?#iefix") format("embedded-opentype"), url("../fonts/Favorit-MediumLining.woff2") format("woff2"), url("../fonts/Favorit-MediumLining.woff") format("woff"), url("../fonts/Favorit-MediumLining.ttf") format("truetype"), url("../fonts/Favorit-MediumLining.svg#../fonts/Favorit-MediumLining") format("svg");
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Favorit";
-  src: url("../fonts/Favorit-BoldItalic.eot");
-  src: local("Favorit Bold Italic"), local("../fonts/Favorit-BoldItalic"), url("../fonts/Favorit-BoldItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/Favorit-BoldItalic.woff2") format("woff2"), url("../fonts/Favorit-BoldItalic.woff") format("woff"), url("../fonts/Favorit-BoldItalic.ttf") format("truetype"), url("../fonts/Favorit-BoldItalic.svg#../fonts/Favorit-BoldItalic") format("svg");
-  font-weight: bold;
-  font-style: italic;
-}
-@font-face {
-  font-family: "Favorit";
-  src: url("../fonts/Favorit-Medium.eot");
-  src: local("Favorit Medium"), local("../fonts/Favorit-Medium"), url("../fonts/Favorit-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/Favorit-Medium.woff2") format("woff2"), url("../fonts/Favorit-Medium.woff") format("woff"), url("../fonts/Favorit-Medium.ttf") format("truetype"), url("../fonts/Favorit-Medium.svg#../fonts/Favorit-Medium") format("svg");
-  font-weight: 500;
   font-style: normal;
 }
 /*!
