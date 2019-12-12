@@ -148,6 +148,10 @@ body {
   }
 }
 
+h1, h2 {
+  font-weight: 200;
+}
+
 .wrapper {
   padding:0 !important;
 }
@@ -527,11 +531,20 @@ figcaption {
   background-color: $white;
   transition: 0.7s ease-in;
   margin-left: -$navbar-width;
+  h2 {
+    border-top: $border-width solid $black;
+    border-bottom: $border-width solid $black;
+    margin: 0px -15px;
+    padding: 15px;
+  }
   div {
     padding: 15px;
   }
   .about-header {
     border-bottom: $border-width solid $border-color;
+    position: sticky;
+    top: 0;
+    background-color: $white;
     h1 {
       display: flex;
       justify-content: space-between;
