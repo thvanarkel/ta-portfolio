@@ -11925,7 +11925,7 @@ body {
   cursor: -webkit-image-set(url("../img/cursor-normal@1x.png") 1x, url("../img/cursor-normal@2x.png") 2x) 0 0, auto;
 }
 
-body a, body .project-card, .gallery figure, .button {
+body a, body .project-card, .gallery figure, .button, .minimise {
   cursor: url("../img/cursor-pointer@1x.png") 0 0, auto;
   cursor: -webkit-image-set(url("../img/cursor-pointer@1x.png") 1x, url("../img/cursor-pointer@2x.png") 2x) 0 0, auto;
 }
@@ -12110,6 +12110,7 @@ figcaption {
   border: 2px black solid;
   opacity: 1;
   transition: visible 0s linear 0.3s;
+  color: white;
 }
 .content-card.card-hidden {
   visibility: hidden;
@@ -12119,11 +12120,10 @@ figcaption {
   position: absolute;
   right: 0;
   top: 0;
-  width: 75px;
-  height: 75px;
-  background-color: none;
+  width: 40px;
+  height: 40px;
   z-index: 1000;
-  opacity: 0;
+  opacity: 1;
   text-align: center;
   display: flex;
   justify-content: center;
