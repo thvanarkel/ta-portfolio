@@ -171,7 +171,7 @@ body {
   cursor:-webkit-image-set(url('../img/cursor-normal@1x.png') 1x, url('../img/cursor-normal@2x.png') 2x) 0 0, auto
 }
 
-body a, body .project-card, .gallery figure, .button {
+body a, body .project-card, .gallery figure, .button, .minimise {
   cursor: url('../img/cursor-pointer@1x.png') 0 0, auto;
   cursor:-webkit-image-set(url('../img/cursor-pointer@1x.png') 1x, url('../img/cursor-pointer@2x.png') 2x) 0 0, auto;
 }
@@ -367,6 +367,7 @@ figcaption {
   border: $border-width $border-color solid;
   opacity: 1;
   transition: visible 0s linear 0.3s;
+  color: $white;
 
   &.card-hidden {
     visibility: hidden;
@@ -376,11 +377,11 @@ figcaption {
     position: absolute;
     right: 0;
     top: 0;
-    width: 75px;
-    height: 75px;
-    background-color: none;
+    width: 40px;
+    height: 40px;
+    // background-color: red;
     z-index: 1000;
-    opacity: 0;
+    opacity: 1;
     @include respond-below(md) {
       opacity: 1;
     }
