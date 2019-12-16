@@ -44,7 +44,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  ?>
 
 <div class="content-card project-card weight-<?php echo $weight; ?> <?php if ($show_front == "false") echo $string; ?> cursor-link" id="post-<?php the_ID(); ?>" link="<?php echo get_permalink() ?>" tools="<?php echo $tools ?>" cursor-text="" skills="<?php echo $skills ?>">
-		<div class="minimise"><span>X</span></div>
+		<div class="minimise"><span>●</span></div>
 		<figure class="js-image" style="background-image: url('<?php echo get_the_post_thumbnail_url($post->ID, 'full') ?>')"></figure>
 </div><!-- #post-## -->
 
