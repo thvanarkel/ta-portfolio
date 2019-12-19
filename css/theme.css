@@ -400,7 +400,7 @@ h6, .h6 {
   font-weight: 300;
 }
 
-.display-1, .entry-header .entry-title {
+.display-1 {
   font-size: 6rem;
   font-weight: 300;
   line-height: 1.2;
@@ -581,7 +581,7 @@ pre code {
   margin-left: auto;
 }
 
-.row, .site-footer, .project-details, .entry-content .wp-block-columns, .entry-header, #main-taxonomy, #main .main-contents {
+.row, .site-footer, .project-details, .entry-content .wp-block-columns, #main-taxonomy, #main .main-contents {
   display: flex;
   flex-wrap: wrap;
   margin-right: -15px;
@@ -601,7 +601,7 @@ pre code {
 .col-xl,
 .col-xl-auto, .col-xl-12, .col-xl-11, .col-xl-10, .col-xl-9, .col-xl-8, .col-xl-7, .col-xl-6, .col-xl-5, .col-xl-4, .col-xl-3, .col-xl-2, .col-xl-1, .col-lg,
 .col-lg-auto, .col-lg-12, .col-lg-11, .col-lg-10, .col-lg-9, .col-lg-8, .col-lg-7, .col-lg-6, .col-lg-5, .col-lg-4, .col-lg-3, .col-lg-2, .col-lg-1, .col-md,
-.col-md-auto, .col-md-12, .wp-block-file, .entry-content .gallery.fullscreen, .entry-content .wp-block-separator, .entry-content h1, #main .about-me .hero, #main .about-me .about-block.w-12, .col-md-11, .col-md-10, #main .about-me .about-block.w-10, .col-md-9, .col-md-8, .entry-content blockquote p, .entry-header .entry-thumbnail, #main-taxonomy .projects, #main .about-me .about-block.w-8, .col-md-7, .col-md-6, .entry-content .gallery, .entry-content .wp-block-embed-vimeo, .entry-content .wp-block-image.img-side, .entry-content .wp-block-pullquote, .entry-content .filler, .entry-content .project-summary, .entry-content p, #main-taxonomy .taxonomy-header, #main .about-me .about-block.w-6, .content-card.weight-5, .col-md-5, .content-card.weight-4, .col-md-4, .site-footer .details, .project-details .project-detail, .entry-header .entry-excerpt, #main .about-me .marquee, #main .about-me .about-block.w-4, .content-card.weight-3, .col-md-3, .content-card.weight-2, .col-md-2, #main .about-me .about-block.w-2, .content-card.weight-1, .col-md-1, .col-sm,
+.col-md-auto, .col-md-12, .wp-block-file, .entry-content .gallery.fullscreen, .entry-content .gallery, .entry-content .wp-block-embed-vimeo, .entry-content .wp-block-separator, .entry-content .wp-block-image.img-side, .entry-content h1, .entry-content p, #main .about-me .hero, #main .about-me .about-block.w-12, .col-md-11, .col-md-10, .project-thumbnail, #main .about-me .about-block.w-10, .col-md-9, .col-md-8, #main-taxonomy .projects, #main .about-me .about-block.w-8, .col-md-7, .entry-content, .col-md-6, #main-taxonomy .taxonomy-header, #main .about-me .about-block.w-6, .content-card.weight-5, .col-md-5, .project-summary, .content-card.weight-4, .col-md-4, .site-footer .details, .project-details .project-detail, #main .about-me .marquee, #main .about-me .about-block.w-4, .content-card.weight-3, .col-md-3, .content-card.weight-2, .col-md-2, #main .about-me .about-block.w-2, .content-card.weight-1, .col-md-1, .col-sm,
 .col-sm-auto, .col-sm-12, .col-sm-11, .col-sm-10, .col-sm-9, .col-sm-8, .col-sm-7, .col-sm-6, .col-sm-5, .col-sm-4, .col-sm-3, .col-sm-2, .col-sm-1, .col,
 .col-auto, .col-12, .col-11, .col-10, .col-9, .col-8, .col-7, .col-6, .col-5, .col-4, .col-3, .col-2, .col-1 {
   position: relative;
@@ -996,27 +996,27 @@ pre code {
     max-width: 25%;
   }
 
-  .col-md-4, .site-footer .details, .project-details .project-detail, .entry-header .entry-excerpt, #main .about-me .marquee, #main .about-me .about-block.w-4, .content-card.weight-3 {
+  .col-md-4, .site-footer .details, .project-details .project-detail, #main .about-me .marquee, #main .about-me .about-block.w-4, .content-card.weight-3 {
     flex: 0 0 33.3333333333%;
     max-width: 33.3333333333%;
   }
 
-  .col-md-5, .content-card.weight-4 {
+  .col-md-5, .project-summary, .content-card.weight-4 {
     flex: 0 0 41.6666666667%;
     max-width: 41.6666666667%;
   }
 
-  .col-md-6, .entry-content .gallery, .entry-content .wp-block-embed-vimeo, .entry-content .wp-block-image.img-side, .entry-content .wp-block-pullquote, .entry-content .filler, .entry-content .project-summary, .entry-content p, #main-taxonomy .taxonomy-header, #main .about-me .about-block.w-6, .content-card.weight-5 {
+  .col-md-6, #main-taxonomy .taxonomy-header, #main .about-me .about-block.w-6, .content-card.weight-5 {
     flex: 0 0 50%;
     max-width: 50%;
   }
 
-  .col-md-7 {
+  .col-md-7, .entry-content {
     flex: 0 0 58.3333333333%;
     max-width: 58.3333333333%;
   }
 
-  .col-md-8, .entry-content blockquote p, .entry-header .entry-thumbnail, #main-taxonomy .projects, #main .about-me .about-block.w-8 {
+  .col-md-8, #main-taxonomy .projects, #main .about-me .about-block.w-8 {
     flex: 0 0 66.6666666667%;
     max-width: 66.6666666667%;
   }
@@ -1026,7 +1026,7 @@ pre code {
     max-width: 75%;
   }
 
-  .col-md-10, #main .about-me .about-block.w-10 {
+  .col-md-10, .project-thumbnail, #main .about-me .about-block.w-10 {
     flex: 0 0 83.3333333333%;
     max-width: 83.3333333333%;
   }
@@ -1036,7 +1036,7 @@ pre code {
     max-width: 91.6666666667%;
   }
 
-  .col-md-12, .wp-block-file, .entry-content .gallery.fullscreen, .entry-content .wp-block-separator, .entry-content h1, #main .about-me .hero, #main .about-me .about-block.w-12 {
+  .col-md-12, .wp-block-file, .entry-content .gallery.fullscreen, .entry-content .gallery, .entry-content .wp-block-embed-vimeo, .entry-content .wp-block-separator, .entry-content .wp-block-image.img-side, .entry-content h1, .entry-content p, #main .about-me .hero, #main .about-me .about-block.w-12 {
     flex: 0 0 100%;
     max-width: 100%;
   }
@@ -1121,11 +1121,11 @@ pre code {
     margin-left: 33.3333333333%;
   }
 
-  .offset-md-5 {
+  .offset-md-5, .entry-content {
     margin-left: 41.6666666667%;
   }
 
-  .offset-md-6, .entry-content .wp-block-pullquote {
+  .offset-md-6 {
     margin-left: 50%;
   }
 
@@ -5639,7 +5639,7 @@ button.bg-dark:focus {
   display: table-cell !important;
 }
 
-.d-flex, .entry-content {
+.d-flex {
   display: flex !important;
 }
 
@@ -5925,7 +5925,7 @@ button.bg-dark:focus {
   justify-content: flex-start !important;
 }
 
-.justify-content-end, .site-footer, .entry-content, #main-taxonomy .project-thumbnail {
+.justify-content-end, .site-footer, #main-taxonomy .project-thumbnail {
   justify-content: flex-end !important;
 }
 
@@ -5949,7 +5949,7 @@ button.bg-dark:focus {
   align-items: flex-end !important;
 }
 
-.align-items-center, .entry-content {
+.align-items-center {
   align-items: center !important;
 }
 
@@ -11834,7 +11834,7 @@ body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body
 body.dark-mode .navbar-brand {
   background: none;
 }
-body.dark-mode .display-1, body.dark-mode .entry-header .entry-title, .entry-header body.dark-mode .entry-title {
+body.dark-mode .display-1 {
   background-image: none;
 }
 body.dark-mode .wp-block-file {
@@ -11913,6 +11913,13 @@ h1, h2 {
   font-weight: 200;
 }
 
+h2 {
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  margin: 0px -15px;
+  padding: 15px;
+}
+
 .wrapper {
   padding: 0 !important;
 }
@@ -11961,7 +11968,7 @@ figcaption {
   background-size: 80px;
 }
 
-.display-1, .entry-header .entry-title,
+.display-1,
 .display-2,
 .display-3,
 .display-4,
@@ -12017,10 +12024,6 @@ figcaption {
   width: calc(100vw - 100px);
   margin-left: 100px;
 }
-#project {
-  background-color: white;
-}
-
 .container-background {
   position: fixed;
   top: 0;
@@ -12029,7 +12032,7 @@ figcaption {
   right: 0;
   z-index: -1;
   background-color: #ffffff;
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='20 20 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23aaaaaa' fill-opacity='1.0'%3E%3Cpath d='M46,44v-4h-2v4h-4v2h4v4h2v-4h4v-2H46z M46,14v-4h-2v4h-4v2h4v4h2v-4h4v-2H46z M16,44v-4h-2v4h-4v2h4v4h2v-4 h4v-2H16z M16,14v-4h-2v4h-4v2h4v4h2v-4h4v-2H16z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='20 20 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23dddddd' fill-opacity='1.0'%3E%3Cpath d='M46,44v-4h-2v4h-4v2h4v4h2v-4h4v-2H46z M46,14v-4h-2v4h-4v2h4v4h2v-4h4v-2H46z M16,44v-4h-2v4h-4v2h4v4h2v-4 h4v-2H16z M16,14v-4h-2v4h-4v2h4v4h2v-4h4v-2H16z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   background-position: center center;
 }
 
@@ -12402,45 +12405,28 @@ figcaption {
   width: 100%;
 }
 
-.entry-header {
-  padding-top: 55vh;
-  transform: translateY(10vh);
-  padding-left: 15px;
+.project-thumbnail {
+  padding: 0;
+  transform: translateY(5vh);
   flex-direction: row-reverse;
-}
-@media (min-width: 1200px) {
-  .entry-header .entry-title {
-    font-size: 7rem;
-    padding-right: 20%;
-  }
-}
-.entry-header .entry-title span {
   position: relative;
-}
-.entry-header .entry-title span:last-child {
-  z-index: 50;
-}
-.entry-header .entry-excerpt {
-  font-size: 1.2rem;
-}
-.entry-header .entry-thumbnail {
-  position: relative;
-  z-index: 5;
+  z-index: 0;
   overflow: hidden;
-  height: 50vh;
+  height: 60vh;
+  margin-left: 2%;
   width: auto;
 }
 @media (min-width: 1200px) {
-  .entry-header .entry-thumbnail {
-    height: 60vh;
+  .project-thumbnail {
+    height: 80vh;
   }
 }
 @media (min-width: 1450px) {
-  .entry-header .entry-thumbnail {
+  .project-thumbnail {
     height: 40vw;
   }
 }
-.entry-header .entry-thumbnail figure {
+.project-thumbnail figure {
   margin: 0;
   height: 100%;
   width: 100%;
@@ -12449,87 +12435,64 @@ figcaption {
 }
 
 .project-menu {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50vw;
   z-index: 200;
   padding-top: 0.2rem;
   background-color: white;
   text-align: center;
 }
 .project-menu p {
-  color: #0000ff;
+  color: #000;
   font-size: 16px;
 }
 
-.entry-content {
-  flex-wrap: wrap;
-  position: relative;
-  padding-bottom: 80px;
-  border-top: black 2px solid;
+article > div {
+  border: black 2px solid;
+  -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
+  background-color: white;
 }
-.entry-content p {
-  text-indent: 10%;
-}
-.entry-content .project-summary {
-  margin-right: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
+
+.project-summary {
+  margin-right: calc(50vw - 60px);
+  margin-left: auto;
+  transform: translateY(30vh);
   font-size: 1.2rem;
-  display: flex;
-  align-self: flex-end;
+  padding: 30px;
 }
-.entry-content .project-summary ul {
+.project-summary ul {
   list-style: none;
-  width: calc(50vw - 30px);
   padding-inline-start: 0;
   margin-bottom: 4px;
 }
-.entry-content .project-summary ul li {
+.project-summary ul li {
   display: flex;
   justify-content: space-between;
 }
-.entry-content .project-summary ul li span {
+.project-summary ul li span {
   font-size: 1.4rem;
 }
-.entry-content .project-summary ul li p {
+.project-summary ul li p {
   text-align: right;
   padding: 0;
   margin: 0 !important;
   text-indent: 0;
 }
-.entry-content h1 {
-  margin: 0;
-  border-top: 2px black solid;
-  border-bottom: 2px black solid;
-  background-color: white;
-  padding-left: calc(50% + 15px);
-  padding-top: 12px;
+
+.entry-content {
+  position: relative;
+  padding: 30px;
+  padding-bottom: 80px;
+  margin-top: -350px;
+}
+.entry-content p {
   text-indent: 10%;
-  color: #0000ff;
-  height: 70px;
-  background-image: url("../img/arrow.svg");
-  background-repeat: no-repeat;
-  background-position: center center;
-  font-size: 2rem;
-  vertical-align: middle;
+}
+.entry-content h1 {
+  color: #000;
+  font-size: 4rem;
   z-index: 8;
-}
-.entry-content .divider {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  left: 50%;
-  z-index: 5;
-  background-color: black;
-}
-@media (max-width: 768px) {
-  .entry-content .divider {
-    visibility: hidden;
-  }
 }
 .entry-content h4 {
   font-size: 1.3rem;
