@@ -34,11 +34,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 <?php wp_footer(); ?>
 
-<div class="cursor js-cursor">
-	<p class="cursor-text"></p>
-	<div class="cursor-circle">
-	</div>
-</div>
 </body>
 
 </html>

@@ -22,8 +22,7 @@ $container   = get_theme_mod( 'understrap_container_type' );
 				}
 			?>
 	<div class="site-container" id="content" data-namespace="<?php echo get_current_template() ?>">
-
-
+		
 			<main class="site-main" id="publication" >
 
 				<?php while ( have_posts() ) : the_post(); ?>
