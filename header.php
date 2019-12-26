@@ -38,21 +38,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 		<nav class="nav">
 			<a rel="home" class="nav-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><span class="">TvA</span></a>
 			<span class="button open-button">↗︎</span>
-				<!-- <h1 class="navbar-brand mb-0"><a rel="home" class="cursor-link" href="<?php echo esc_url( home_url( '/' ) ); ?>"  cursor-text="🏡" cursor-size="4" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url">TvA</a></h1> -->
-				<!-- <div class="nav"> -->
-					<!-- <a class="nav-link about-me-toggle" state="off">about me</a> -->
-					<!-- <a class="nav-link dark-mode-toggle"><span class="oi oi-moon" aria-hidden="true"></span></a> -->
-				<!-- </div> -->
-				<!-- The WordPress Menu goes here -->
 		</nav><!-- .site-navigation -->
 
 	</div><!-- #wrapper-navbar end -->
-
-	<!-- <div class="site-border site-border--left"></div>
-	<div class="site-border site-border--right"></div>
-	<div class="site-border site-border--top"></div>
-	<div class="site-border site-border--bottom"></div> -->
-	<!-- <div class="site-frame"></div> -->
 
 	<div class="card-stack">
 		<div class="content-card about-card">
@@ -70,16 +58,15 @@ $container = get_theme_mod( 'understrap_container_type' );
 				<li class="secondary"><a class="cursor-link" href="https://vimeo.com/user43488666" cursor-text="📼" cursor-text-size="40px" cursor-size="6">Vi</a></li>
 				<li class="secondary"><a class="cursor-link" href="https://github.com/thvanarkel" cursor-text="👨🏻‍💻" cursor-text-size="40px" cursor-size="6" >Gi</a></li>
 			</ul>
-				<!-- <figure class="js-image" style="background-image: url('<?php echo get_the_post_thumbnail_url($post->ID, 'full') ?>')"></figure> -->
 		</div>
 		<?php
 			$args = array(
 				'post_type' => 'publication',
 				'order'			=> 'ASC'
 			);
-			
+
 			$the_query = new WP_Query( $args );
-			
+
 			if ( $the_query->have_posts() ) : ?>
 		<div class="content-card publications-card">
 			<div class="minimise"><span>●</span></div>
