@@ -12406,15 +12406,14 @@ figcaption {
 }
 
 .project-thumbnail {
+  position: absolute;
   padding: 0;
+  width: 80vw;
   transform: translateY(5vh);
-  flex-direction: row-reverse;
-  position: relative;
   z-index: 0;
   overflow: hidden;
   height: 60vh;
   margin-left: 2%;
-  width: auto;
 }
 @media (min-width: 1200px) {
   .project-thumbnail {
@@ -12457,7 +12456,7 @@ article > div {
 .project-summary {
   margin-right: calc(50vw - 60px);
   margin-left: auto;
-  transform: translateY(30vh);
+  transform: translateY(110vh);
   font-size: 1.2rem;
   padding: 30px;
 }
@@ -12484,14 +12483,14 @@ article > div {
   position: relative;
   padding: 30px;
   padding-bottom: 80px;
-  margin-top: -350px;
+  margin-top: 30vh;
 }
 .entry-content p {
   text-indent: 10%;
 }
 .entry-content h1 {
   color: #000;
-  font-size: 4rem;
+  font-size: 4.5rem;
   z-index: 8;
 }
 .entry-content h4 {
