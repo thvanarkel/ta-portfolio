@@ -48,6 +48,33 @@ $container = get_theme_mod( 'understrap_container_type' );
 			<p>Portfolio/<br>Thomas van Arkel</p>
 				<!-- <figure class="js-image" style="background-image: url('<?php echo get_the_post_thumbnail_url($post->ID, 'full') ?>')"></figure> -->
 		</div>
+		<?php
+			$args = array(
+				'post_type'=> 'project',
+				'order'    => 'ASC'
+				);
+
+				$the_query = new WP_Query( $args );
+
+			if ( $the_query->have_posts() ) : ?>
+
+			<?php /* Start the Loop */ ?>
+
+			<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
+				<?php
+
+				/*
+				 * Include the Post-Format-specific template for the content.
+				 * If you want to override this in a child theme, then include a file
+				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+				 */
+				get_template_part( 'loop-templates/content', get_post_format() );
+				?>
+
+			<?php endwhile; ?>
+
+		<?php endif; wp_reset_query(); ?>
 		<div class="content-card contact-card">
 			<div class="minimise"><span>●</span></div>
 			<p>Send me an email or follow me around the worldwide web.</p>
@@ -78,31 +105,5 @@ $container = get_theme_mod( 'understrap_container_type' );
 			</ul>
 		</div>
 		<?php endif; wp_reset_query(); ?>
-	<?php
-		$args = array(
-			'post_type'=> 'project',
-			'order'    => 'ASC'
-			);
 
-			$the_query = new WP_Query( $args );
-
-		if ( $the_query->have_posts() ) : ?>
-
-		<?php /* Start the Loop */ ?>
-
-		<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-
-			<?php
-
-			/*
-			 * Include the Post-Format-specific template for the content.
-			 * If you want to override this in a child theme, then include a file
-			 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-			 */
-			get_template_part( 'loop-templates/content', get_post_format() );
-			?>
-
-		<?php endwhile; ?>
-
-	<?php endif; wp_reset_query(); ?>
 </div>
