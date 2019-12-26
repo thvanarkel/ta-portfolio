@@ -2,6 +2,14 @@ console.log("Made with 🎈 in Delft, the Netherlands");
 
 var previousElement;
 
+var breakpoints = {
+  "xs": 576,
+  "sm": 768,
+  "md": 992,
+  "lg": 1200,
+  "xl": 1450
+};
+
 
 
 jQuery(document).ready(function($) {
@@ -314,8 +322,9 @@ jQuery(document).ready(function($) {
     }
   });
 
-
-  layCards();
+  if ($(window).width() > breakpoints["sm"]) {
+    layCards();
+  }
 
   // var splitTitles = function(t) {
   //   $(t).each(function() {
