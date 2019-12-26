@@ -755,11 +755,11 @@ figcaption {
 }
 
 .project-thumbnail {
+  position: absolute;
   @extend .col-md-10;
   padding: 0;
+  width: 80vw;
   transform: translateY(5vh);
-  flex-direction: row-reverse;
-  position: relative;
   z-index: 0;
   overflow: hidden;
   height: 60vh;
@@ -770,7 +770,6 @@ figcaption {
   @include respond-above(xl) {
     height: 40vw;
   }
-  width: auto;
 
   figure {
     margin: 0;
@@ -809,9 +808,10 @@ article > div {
 
 .project-summary {
   @extend .col-md-5;
+  // position: absolute;
   margin-right: calc(50vw - 60px);
   margin-left: auto;
-  transform: translateY(30vh);
+  transform: translateY(110vh);
   font-size: 1.2rem;
   padding: 30px;
   // display: flex;
@@ -847,7 +847,7 @@ article > div {
   position: relative;
   padding: 30px;
   padding-bottom: 80px;
-  margin-top: -350px;
+  margin-top: 30vh;
   p {
     @extend .col-md-12;
     // @extend .offset-md-6;
@@ -865,7 +865,7 @@ article > div {
     @extend .col-md-12;
     // @extend .bg-a;
     color: $black;
-    font-size: 4rem;
+    font-size: 4.5rem;
     z-index: 8;
   }
 
