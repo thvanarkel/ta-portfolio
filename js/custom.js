@@ -432,6 +432,30 @@ jQuery(document).ready(function($) {
     }
   });
 
+  var Project = Barba.BaseView.extend({
+    namespace: "single-publication",
+    onEnter: function() {
+      // The new Container is ready and attached to the DOM.
+      $('.open-button').addClass("opened");
+      createGalleries();
+      createVideos();
+      hideAllCards();
+      $('.about-me-toggle').text("projects").attr("state", "on");
+    },
+    onEnterCompleted: function() {
+      // The Transition has just finished.
+      // splitTitles('.display-title');
+    },
+    onLeave: function() {
+      // A new Transition toward a new page has just started.
+      // splitTitles('.display-title');
+      $('.open-button').removeClass('opened');
+    },
+    onLeaveCompleted: function() {
+      // The Container has just been removed from the DOM.
+    }
+  });
+
   // Don't forget to init the view!
   Index.init();
   Project.init();
