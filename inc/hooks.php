@@ -54,6 +54,24 @@ function create_post_types() {
 	);
 
 	register_post_type( 'project', $args);
+	
+	$labels = array(
+		'name' => 'Publications',
+		'singular_name' => 'Publication'
+	);
+	
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'has_archive' => true,
+		'show_in_rest' => true,
+		'taxonomies' => array('category', 'post_tag'),
+		'supports' => array('title', 'thumbnail', 'editor', 'excerpt', 'custom-fields', 'revisions'),
+		'rewrite' => array('slug' => 'publications'),
+		'menu_icon' => 'dashicons-welcome-learn-more'
+	);
+
+	register_post_type( 'publication', $args);
 }
 
 add_action( 'init', 'create_post_types');
