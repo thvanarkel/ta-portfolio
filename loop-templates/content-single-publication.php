@@ -11,53 +11,50 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-	
-	<!-- <header class="entry-header"> -->
 
-		
+	<h1>Test</h1>
+	<header class="entry-header">
 
-		<div class="project-thumbnail">
+		<?php the_title( '<h1 class="entry-title display-title">', '</h1>' ); ?>
+
+		<div class="entry-thumbnail js-image js-dynamic">
 			<figure style="background-image: url('<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full') ?>')"></figure>
 		</div>
-		
-		
-		
 
-	
-	<?php
-		$meta = get_post_meta( get_the_ID() );
-		if (!empty($meta['project_timeframe'])) :
-			$timeframe = ($meta['project_timeframe'])[0];
-		endif;
-		if (!empty($meta['project_team'])) :
-			$team = ($meta['project_team'])[0];
-		endif;
-		if (!empty($meta['project_team_members'])) :
-			$team_members = ($meta['project_team_members'])[0];
-		endif;
-		if (!empty($meta['project_roles'])) :
-			$roles = ($meta['project_roles'])[0];
-		endif;
-		if (!empty($meta['project_other'])) :
-			$other = ($meta['project_other'])[0];
-		endif;
-	 ?>
-	<div class="project-summary">
-		<ul class="">
-			<?php if($timeframe) : ?><li><span>Timeframe</span><p><?php echo nl2br($timeframe) ?></p></li><?php endif; ?>
-			<?php if($team) : ?><li><span>Team</span><p><?php echo $team ?></p></li><?php endif; ?>
-			<?php if($roles) : ?><li><span>Role</span><p><?php echo nl2br($roles) ?></p></li><?php endif; ?>
-			<?php if($other) : ?><li><span>Other</span><p><?php echo nl2br($other) ?></p></li><?php endif; ?>
-		</ul>
+	</header><!-- .entry-header -->
+
+	<div class="project-menu">
+		<?php the_title( '<p class="project-name">', '</p>' ); ?>
 	</div>
 
 
 	<div class="entry-content">
-		
-		<!-- <div class="project-menu">
-			<?php //the_title( '<p class="project-name">', '</p>' ); ?>
-		</div> -->
-		<?php the_title( '<h1 class="project-title display-title">', '</h1>' ); ?>
+		<?php
+			$meta = get_post_meta( get_the_ID() );
+			if (!empty($meta['project_timeframe'])) :
+				$timeframe = ($meta['project_timeframe'])[0];
+			endif;
+			if (!empty($meta['project_team'])) :
+				$team = ($meta['project_team'])[0];
+			endif;
+			if (!empty($meta['project_team_members'])) :
+				$team_members = ($meta['project_team_members'])[0];
+			endif;
+			if (!empty($meta['project_roles'])) :
+				$roles = ($meta['project_roles'])[0];
+			endif;
+			if (!empty($meta['project_other'])) :
+				$other = ($meta['project_other'])[0];
+			endif;
+		 ?>
+		<div class="project-summary">
+			<ul class="">
+				<?php if($timeframe) : ?><li><span>Timeframe</span><p><?php echo nl2br($timeframe) ?></p></li><?php endif; ?>
+				<?php if($team) : ?><li><span>Team</span><p><?php echo $team ?></p></li><?php endif; ?>
+				<?php if($roles) : ?><li><span>Role</span><p><?php echo nl2br($roles) ?></p></li><?php endif; ?>
+				<?php if($other) : ?><li><span>Other</span><p><?php echo nl2br($other) ?></p></li><?php endif; ?>
+			</ul>
+		</div>
 
 
 		<?php the_content(); ?>

@@ -317,39 +317,39 @@ jQuery(document).ready(function($) {
 
   layCards();
 
-  var splitTitles = function(t) {
-    $(t).each(function() {
-      $this = $(this);
-      $this.each(function(i, title) {
-        var width = 0;
-        var originalHeight = $(title).height();
-        var spacer = $('<div class="spacer" style="float:right;height:1px;"/>').prependTo(title);
-        while (originalHeight == $(title).height()) {
-          spacer.width(++width);
-        }
-        spacer.width(--width);
-      });
-      var html = $this.html().split("</div>");
-      var spanInserted = html[1].split(" ").join(" </span><span>");
-      var wrapped = ("<span>").concat(spanInserted, "</span>");
-      var contents = html[0] + "</div>" + wrapped;
-      $this.html(contents);
-      var refPos = $this.find('span').first().position().top;
-      var newPos;
-      $this.find('span').each(function(index) {
-        newPos = $(this).position().top
-        if (index == 0) {
-          return;
-        }
-        if (newPos == refPos) {
-          $(this).prepend($(this).prev().text() + " ");
-          $(this).prev().remove();
-        }
-        refPos = newPos;
-      });
-    });
-
-  }
+  // var splitTitles = function(t) {
+  //   $(t).each(function() {
+  //     $this = $(this);
+  //     $this.each(function(i, title) {
+  //       var width = 0;
+  //       var originalHeight = $(title).height();
+  //       var spacer = $('<div class="spacer" style="float:right;height:1px;"/>').prependTo(title);
+  //       while (originalHeight == $(title).height()) {
+  //         spacer.width(++width);
+  //       }
+  //       spacer.width(--width);
+  //     });
+  //     var html = $this.html().split("</div>");
+  //     var spanInserted = html[1].split(" ").join(" </span><span>");
+  //     var wrapped = ("<span>").concat(spanInserted, "</span>");
+  //     var contents = html[0] + "</div>" + wrapped;
+  //     $this.html(contents);
+  //     var refPos = $this.find('span').first().position().top;
+  //     var newPos;
+  //     $this.find('span').each(function(index) {
+  //       newPos = $(this).position().top
+  //       if (index == 0) {
+  //         return;
+  //       }
+  //       if (newPos == refPos) {
+  //         $(this).prepend($(this).prev().text() + " ");
+  //         $(this).prev().remove();
+  //       }
+  //       refPos = newPos;
+  //     });
+  //   });
+  //
+  // }
 
 
 
@@ -382,7 +382,7 @@ jQuery(document).ready(function($) {
     onEnter: function() {
       // The new Container is ready and attached to the DOM.
       $('.open-button').addClass("opened");
-      splitTitles('.display-title');
+      // splitTitles('.display-title');
       createGalleries();
       createVideos();
       hideAllCards();
@@ -432,6 +432,30 @@ jQuery(document).ready(function($) {
     }
   });
 
+  var Project = Barba.BaseView.extend({
+    namespace: "single-publication",
+    onEnter: function() {
+      // The new Container is ready and attached to the DOM.
+      $('.open-button').addClass("opened");
+      createGalleries();
+      createVideos();
+      hideAllCards();
+      $('.about-me-toggle').text("projects").attr("state", "on");
+    },
+    onEnterCompleted: function() {
+      // The Transition has just finished.
+      // splitTitles('.display-title');
+    },
+    onLeave: function() {
+      // A new Transition toward a new page has just started.
+      // splitTitles('.display-title');
+      $('.open-button').removeClass('opened');
+    },
+    onLeaveCompleted: function() {
+      // The Container has just been removed from the DOM.
+    }
+  });
+
   // Don't forget to init the view!
   Index.init();
   Project.init();
@@ -464,27 +488,27 @@ jQuery(document).ready(function($) {
   };
 
   // var prevOffset = 0;
-  $(window).on('load resize scroll', function() {
-    $('.js-image').each(function(i) {
-      if ($(this).isInViewport(i)) {
-
-        var $image = $(this).find('img, figure');
-        var currentOffset = $(this).offset().top - $(document).scrollTop();
-        var lowerBound = -$(this).outerHeight();
-        var upperBound = $(window).outerHeight();
-        if ($image) {
-          var translate = convertRange(currentOffset, [lowerBound, upperBound], [0.15 * $(this).outerHeight(), -0.15 * $(this).outerHeight()]);
-          var dX = -(($image.outerWidth() - $(this).outerWidth()) / 2);
-          var dY = translate - (($image.outerHeight() - $(this).outerHeight()) / 2);
-          $image.css('transform', 'translate3D(0px, ' + dY + 'px, 0)');
-        }
-        if ($(this).hasClass('js-dynamic')) {
-          var translate = convertRange(currentOffset, [lowerBound, upperBound], [-500, 0]);
-          $(this).css('transform', 'translate3D(0px, ' + translate + 'px, 0px)');
-        }
-      }
-    });
-  });
+  // $(window).on('load resize scroll', function() {
+  //   $('.js-image').each(function(i) {
+  //     if ($(this).isInViewport(i)) {
+  //
+  //       var $image = $(this).find('img, figure');
+  //       var currentOffset = $(this).offset().top - $(document).scrollTop();
+  //       var lowerBound = -$(this).outerHeight();
+  //       var upperBound = $(window).outerHeight();
+  //       if ($image) {
+  //         var translate = convertRange(currentOffset, [lowerBound, upperBound], [0.15 * $(this).outerHeight(), -0.15 * $(this).outerHeight()]);
+  //         var dX = -(($image.outerWidth() - $(this).outerWidth()) / 2);
+  //         var dY = translate - (($image.outerHeight() - $(this).outerHeight()) / 2);
+  //         $image.css('transform', 'translate3D(0px, ' + dY + 'px, 0)');
+  //       }
+  //       if ($(this).hasClass('js-dynamic')) {
+  //         var translate = convertRange(currentOffset, [lowerBound, upperBound], [-500, 0]);
+  //         $(this).css('transform', 'translate3D(0px, ' + translate + 'px, 0px)');
+  //       }
+  //     }
+  //   });
+  // });
 
   // $(document).on('mousemove', function(e) {
   //

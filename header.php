@@ -72,6 +72,25 @@ $container = get_theme_mod( 'understrap_container_type' );
 			</ul>
 				<!-- <figure class="js-image" style="background-image: url('<?php echo get_the_post_thumbnail_url($post->ID, 'full') ?>')"></figure> -->
 		</div>
+		<?php
+			$args = array(
+				'post_type' => 'publication',
+				'order'			=> 'ASC'
+			);
+			
+			$the_query = new WP_Query( $args );
+			
+			if ( $the_query->have_posts() ) : ?>
+		<div class="content-card publications-card">
+			<div class="minimise"><span>●</span></div>
+			<h3>Publications</h3>
+			<ul>
+				<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+				<li><a href="<?php echo get_permalink() ?>"><?php echo get_the_title() ?></a><p><?php echo get_the_date( 'Y' )?><span>↗︎</span></p></li>
+				<?php endwhile; ?>
+			</ul>
+		</div>
+		<?php endif; wp_reset_query(); ?>
 	<?php
 		$args = array(
 			'post_type'=> 'project',
@@ -98,5 +117,5 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 		<?php endwhile; ?>
 
-	<?php endif; ?>
+	<?php endif; wp_reset_query(); ?>
 </div>
