@@ -432,7 +432,7 @@ jQuery(document).ready(function($) {
     }
   });
 
-  var Project = Barba.BaseView.extend({
+  var Publication = Barba.BaseView.extend({
     namespace: "single-publication",
     onEnter: function() {
       // The new Container is ready and attached to the DOM.
@@ -459,6 +459,7 @@ jQuery(document).ready(function($) {
   // Don't forget to init the view!
   Index.init();
   Project.init();
+  Publication.init();
   // splitTitles('.display-title');
   Barba.Pjax.Dom.wrapperId = "wrapper";
   Barba.Pjax.Dom.containerClass = "site-container";
