@@ -55,6 +55,22 @@ jQuery(document).ready(function($) {
     $('.about-me').toggleClass("collapsed");
   });
 
+  $('.about-me').on("transitionend", function() {
+    if ($(window).width() < breakpoints["sm"]) {
+      if (!$('.card-stack').hasClass("hidden") && !$('.about-me').hasClass("collapsed")) {
+        $('.card-stack').addClass("hidden");
+      }
+    }
+  });
+
+  $('.about-me').on("transitionstart", function() {
+    if ($(window).width() < breakpoints["sm"]) {
+      if ($('.card-stack').hasClass("hidden")) {
+        $('.card-stack').removeClass("hidden");
+      }
+    }
+  });
+
   $('.dark-mode-toggle').click( function(e) {
     e.preventDefault();
     // $target = $('.dark-mode-toggle');
@@ -72,7 +88,6 @@ jQuery(document).ready(function($) {
   } );
 
   $('.open-button').click( function(e) {
-    console.log("test");
     if ($(e.target).hasClass('opened')) {
       Barba.Pjax.goTo('/');
     } else {

@@ -38,7 +38,8 @@ $container   = get_theme_mod( 'understrap_container_type' );
 				<div class="navigation"></div>
 				<div class="about-me collapsed">
 					<div class="about-header">
-						<h1><span>Thomas van Arkel</span><span class="button close-button">↖︎</span></h1>
+						<span>Thomas van Arkel</span><span class="button close-button">↖︎</span>
+						<!-- <h1>Test</h1><h1>Test</h1> -->
 					</div>
 					<div>
 					<?php
