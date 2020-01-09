@@ -58,17 +58,14 @@ jQuery(document).ready(function($) {
   $('.about-me').on("transitionend", function() {
     if ($(window).width() < breakpoints["sm"]) {
       if (!$('.card-stack').hasClass("hidden") && !$('.about-me').hasClass("collapsed")) {
-        console.log("hide")
         $('.card-stack').addClass("hidden");
       }
     }
   });
 
   $('.about-me').on("transition_start", function() {
-    console.log("transition start")
     if ($(window).width() < breakpoints["sm"]) {
       if ($('.card-stack').hasClass("hidden")) {
-        console.log("unhide")
         $('.card-stack').removeClass("hidden");
       }
     }
