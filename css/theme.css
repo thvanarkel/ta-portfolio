@@ -12145,17 +12145,21 @@ figcaption {
   list-style: none;
   padding: 0 !important;
   margin-top: 30px;
+  font-size: 0.9em;
 }
 .content-card.publications-card ul li {
   width: auto;
   display: flex;
+  wrap: nowrap;
   justify-content: space-between;
+  align-items: flex-start;
   border-bottom: black 2px solid;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 .content-card.publications-card ul li p {
   margin-bottom: 0px;
+  min-width: 77px;
 }
 .content-card.publications-card ul li a {
   border-bottom: none;

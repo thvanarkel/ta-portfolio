@@ -483,7 +483,6 @@ figcaption {
 
   &.publications-card {
     @extend .weight-4;
-    // padding: 30px !important;
     background-color: white;
     color: $black;
     height: 70vh;
@@ -492,19 +491,24 @@ figcaption {
       list-style: none;
       padding: 0 !important;
       margin-top: 30px;
+      font-size: 0.9em;
       li {
         width: auto;
         display: flex;
+        wrap: nowrap;
         justify-content: space-between;
+        align-items: flex-start;
         border-bottom: $border-color $border-width solid;
         padding-top: 5px;
         padding-bottom: 5px;
         p {
           // margin-top: 10px;
           margin-bottom: 0px;
+          min-width: 77px;
         }
         a {
           border-bottom: none;
+
         }
         span {
           display: inline-block;
