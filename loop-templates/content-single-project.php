@@ -43,6 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		endif;
 	 ?>
 	<div class="project-summary">
+		<span class="summary-handle">Project details</span>
 		<ul class="">
 			<?php if($timeframe) : ?><li><span>Timeframe</span><p><?php echo nl2br($timeframe) ?></p></li><?php endif; ?>
 			<?php if($team) : ?><li><span>Team</span><p><?php echo $team ?></p></li><?php endif; ?>

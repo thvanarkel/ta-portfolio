@@ -51,8 +51,8 @@ jQuery(document).ready(function($) {
 
   });
 
-  $('.close-button').click( function(e) {
-    $('.about-me').toggleClass("collapsed");
+  $('.close-button').on('click tap',  function(e) {
+    $('.about-me').toggleClass("collapsed").trigger("transition_start");
   });
 
   $('.about-me').on("transitionend", function() {
@@ -63,7 +63,7 @@ jQuery(document).ready(function($) {
     }
   });
 
-  $('.about-me').on("transitionstart", function() {
+  $('.about-me').on("transition_start", function() {
     if ($(window).width() < breakpoints["sm"]) {
       if ($('.card-stack').hasClass("hidden")) {
         $('.card-stack').removeClass("hidden");
@@ -71,7 +71,7 @@ jQuery(document).ready(function($) {
     }
   });
 
-  $('.dark-mode-toggle').click( function(e) {
+  $('.dark-mode-toggle').on('click tap',  function(e) {
     e.preventDefault();
     // $target = $('.dark-mode-toggle');
     // $('body').toggleClass('dark-mode');
@@ -87,7 +87,7 @@ jQuery(document).ready(function($) {
     $('.about-me').toggleClass("collapsed");
   } );
 
-  $('.open-button').click( function(e) {
+  $('.open-button').on('click tap',  function(e) {
     if ($(e.target).hasClass('opened')) {
       Barba.Pjax.goTo('/');
     } else {
@@ -95,11 +95,11 @@ jQuery(document).ready(function($) {
     }
   });
 
-  $('.close-button').click( function(e) {
+  $('.close-button').on('click tap',  function(e) {
     $('.about-me').toggleClass("collapsed");
   })
 
-  $('.about-me-toggle').click( function(e) {
+  $('.about-me-toggle').on('click tap',  function(e) {
     e.preventDefault();
     $target = $(e.target);
     if ($target.attr('state') == "off") {
@@ -125,7 +125,7 @@ jQuery(document).ready(function($) {
       if (!$e.attr('index')) $e.attr('index', '0');
       $('<p class="slider-index">1/2</p>').insertBefore($e);
       $e.parents('.gallery').find('p').text(1 + "/" + $e.find('li').length);
-      $e.click(function(e) {
+      $e.on('click tap', function(e) {
         $target = $(e.target).parents('ul');
         let index = parseInt($target.attr('index'));
         $i = $target.find('li').eq(index);
@@ -161,7 +161,7 @@ jQuery(document).ready(function($) {
       var player = new Vimeo.Player(iframe);
 
       $link = $e.find('a');
-      $link.click(function(e) {
+      $link.on('click tap', function(e) {
         $e.toggleClass('playing');
         if ($e.hasClass('playing')) {
           player.play();
@@ -172,13 +172,6 @@ jQuery(document).ready(function($) {
     });
 
   }
-
-
-
-
-  $('body').on('click', '.wp-block-gallery', function() {
-    // do something
-});
 
   var lockScroll = function() {
       $html = $('html');
@@ -323,11 +316,11 @@ jQuery(document).ready(function($) {
     });
   }
 
-  $('.content-card').click( function(e) {
+  $('.content-card').on('click tap',  function(e) {
     e.preventDefault();
   });
 
-  $('body').on('click', '.card-link', function(e) {
+  $('body').on('click tap', '.card-link', function(e) {
     var id = $(e.target).attr('current-post');
     var slug = $(e.target).attr('slug');
     if ($(e.target).hasClass('skill')) {
@@ -355,6 +348,13 @@ jQuery(document).ready(function($) {
   if ($(window).width() > breakpoints["sm"]) {
     layCards();
   }
+
+  $('.project-summary').on('click tap', function(e) {
+    // e.target.toggleClass("collapsed");
+    $('.project-summary').toggleClass("show")
+    console.log($(e.target))
+    console.log("toggle")
+  });
 
   // var splitTitles = function(t) {
   //   $(t).each(function() {
@@ -433,7 +433,7 @@ jQuery(document).ready(function($) {
     onEnterCompleted: function() {
       // The Transition has just finished.
       // splitTitles('.project-title');
-      $('.close-button').click( function(e) {
+      $('.close-button').on('click tap',  function(e) {
         $('.about-me').toggleClass("collapsed");
       });
     },
@@ -441,6 +441,37 @@ jQuery(document).ready(function($) {
       // A new Transition toward a new page has just started.
       // splitTitles('.project-title');
       $('.open-button').addClass('opened');
+    },
+    onLeaveCompleted: function() {
+      // The Container has just been removed from the DOM.
+    }
+  });
+
+  var Project = Barba.BaseView.extend({
+    namespace: "single-project",
+    onEnter: function() {
+      console.log("Will show project")
+      // The new Container is ready and attached to the DOM.
+      $('.open-button').addClass("opened");
+      createGalleries();
+      createVideos();
+      hideAllCards();
+      if($(window).width() < breakpoints["sm"]) {
+        $('.card-stack').addClass("hidden");
+      }
+      window.scrollTo(0,0)
+    },
+    onEnterCompleted: function() {
+      // The Transition has just finished.
+      // splitTitles('.display-title');
+    },
+    onLeave: function() {
+      // A new Transition toward a new page has just started.
+      // splitTitles('.display-title');
+      $('.open-button').removeClass('opened');
+      if($(window).width() < breakpoints["sm"]) {
+        $('.card-stack').removeClass("hidden");
+      }
     },
     onLeaveCompleted: function() {
       // The Container has just been removed from the DOM.
@@ -456,6 +487,10 @@ jQuery(document).ready(function($) {
       createGalleries();
       createVideos();
       hideAllCards();
+      if($(window).width() < breakpoints["sm"]) {
+        $('.card-stack').addClass("hidden");
+      }
+      window.scrollTo(0,0)
     },
     onEnterCompleted: function() {
       // The Transition has just finished.
@@ -465,6 +500,9 @@ jQuery(document).ready(function($) {
       // A new Transition toward a new page has just started.
       // splitTitles('.display-title');
       $('.open-button').removeClass('opened');
+      if($(window).width() < breakpoints["sm"]) {
+        $('.card-stack').removeClass("hidden");
+      }
     },
     onLeaveCompleted: function() {
       // The Container has just been removed from the DOM.
