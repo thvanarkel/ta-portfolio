@@ -12143,6 +12143,7 @@ figcaption {
     position: relative !important;
     width: 100vw;
     height: 40vh;
+    border: 1px black solid;
   }
 }
 .content-card.card-hidden {
