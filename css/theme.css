@@ -601,7 +601,7 @@ pre code {
 .col-xl,
 .col-xl-auto, .col-xl-12, .col-xl-11, .col-xl-10, .col-xl-9, .col-xl-8, .col-xl-7, .col-xl-6, .col-xl-5, .col-xl-4, .col-xl-3, .col-xl-2, .col-xl-1, .col-lg,
 .col-lg-auto, .col-lg-12, .col-lg-11, .col-lg-10, .col-lg-9, .col-lg-8, .col-lg-7, .col-lg-6, .col-lg-5, .col-lg-4, .col-lg-3, .col-lg-2, .col-lg-1, .col-md,
-.col-md-auto, .col-md-12, .wp-block-file, .entry-content .gallery.fullscreen, .entry-content .gallery, .entry-content .wp-block-embed-vimeo, .entry-content .wp-block-separator, .entry-content .wp-block-image.img-side, .entry-content h1, .entry-content p, #main .about-me .hero, #main .about-me .about-block.w-12, .col-md-11, .col-md-10, .project-thumbnail, #main .about-me .about-block.w-10, .col-md-9, .col-md-8, #main-taxonomy .projects, #main .about-me .about-block.w-8, .col-md-7, .entry-content, .col-md-6, #main-taxonomy .taxonomy-header, #main .about-me .about-block.w-6, .content-card.weight-5, .col-md-5, .project-summary, .content-card.weight-4, .content-card.publications-card, .col-md-4, .site-footer .details, .project-details .project-detail, #main .about-me .marquee, #main .about-me .about-block.w-4, .content-card.weight-3, .col-md-3, .content-card.weight-2, .col-md-2, #main .about-me .about-block.w-2, .content-card.weight-1, .col-md-1, .col-sm,
+.col-md-auto, .col-md-12, .wp-block-file, .entry-content .gallery.fullscreen, .entry-content .gallery, .entry-content .wp-block-embed-vimeo, .entry-content .wp-block-separator, .entry-content .wp-block-image.img-side, .entry-content h1, .entry-content p, #main .about-me .hero, #main .about-me .about-block.w-12, .col-md-11, .col-md-10, .project-thumbnail, #main .about-me .about-block.w-10, .col-md-9, .col-md-8, #main-taxonomy .projects, #main .about-me .about-block.w-8, .col-md-7, .entry-content, .col-md-6, #main-taxonomy .taxonomy-header, #main .about-me .about-block.w-6, .col-md-5, .project-summary, .col-md-4, .site-footer .details, .project-details .project-detail, #main .about-me .marquee, #main .about-me .about-block.w-4, .col-md-3, .col-md-2, #main .about-me .about-block.w-2, .col-md-1, .col-sm,
 .col-sm-auto, .col-sm-12, .col-sm-11, .col-sm-10, .col-sm-9, .col-sm-8, .col-sm-7, .col-sm-6, .col-sm-5, .col-sm-4, .col-sm-3, .col-sm-2, .col-sm-1, .col,
 .col-auto, .col-12, .col-11, .col-10, .col-9, .col-8, .col-7, .col-6, .col-5, .col-4, .col-3, .col-2, .col-1 {
   position: relative;
@@ -986,27 +986,27 @@ pre code {
     max-width: 8.3333333333%;
   }
 
-  .col-md-2, #main .about-me .about-block.w-2, .content-card.weight-1 {
+  .col-md-2, #main .about-me .about-block.w-2 {
     flex: 0 0 16.6666666667%;
     max-width: 16.6666666667%;
   }
 
-  .col-md-3, .content-card.weight-2 {
+  .col-md-3 {
     flex: 0 0 25%;
     max-width: 25%;
   }
 
-  .col-md-4, .site-footer .details, .project-details .project-detail, #main .about-me .marquee, #main .about-me .about-block.w-4, .content-card.weight-3 {
+  .col-md-4, .site-footer .details, .project-details .project-detail, #main .about-me .marquee, #main .about-me .about-block.w-4 {
     flex: 0 0 33.3333333333%;
     max-width: 33.3333333333%;
   }
 
-  .col-md-5, .project-summary, .content-card.weight-4, .content-card.publications-card {
+  .col-md-5, .project-summary {
     flex: 0 0 41.6666666667%;
     max-width: 41.6666666667%;
   }
 
-  .col-md-6, #main-taxonomy .taxonomy-header, #main .about-me .about-block.w-6, .content-card.weight-5 {
+  .col-md-6, #main-taxonomy .taxonomy-header, #main .about-me .about-block.w-6 {
     flex: 0 0 50%;
     max-width: 50%;
   }
@@ -11813,102 +11813,6 @@ a.skip-link {
   display: block;
 }
 
-body {
-  overflow-x: hidden;
-}
-body > * {
-  transition: background-color 0.5s, color 0.5s;
-}
-body.dark-mode {
-  background-color: #000000;
-}
-body.dark-mode .cursor.is-active .cursor-circle {
-  background-color: #ecf0f1;
-}
-body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 {
-  color: #ecf0f1;
-  background-color: #000000;
-  border-color: #ecf0f1;
-  background-image: url("../img/arrow-l.svg");
-}
-body.dark-mode .navbar-brand {
-  background: none;
-}
-body.dark-mode .display-1 {
-  background-image: none;
-}
-body.dark-mode .wp-block-file {
-  background-color: #000000;
-  background-image: url("../img/file-l.svg");
-}
-body.dark-mode p {
-  color: #ecf0f1;
-}
-body.dark-mode div {
-  color: #ecf0f1;
-  border-color: #ecf0f1 !important;
-}
-body.dark-mode figure {
-  border-color: #ecf0f1 !important;
-}
-body.dark-mode span {
-  color: #ecf0f1;
-}
-body.dark-mode a {
-  color: #ecf0f1 !important;
-  border-bottom: 1px #ecf0f1 solid !important;
-}
-body.dark-mode nav a {
-  border-bottom: none !important;
-}
-body.dark-mode .project-menu {
-  background-color: #000000;
-}
-body.dark-mode .content-card {
-  border-color: #ecf0f1;
-}
-body.dark-mode .wp-block-image {
-  background-color: #000000;
-}
-body.dark-mode .contact-card {
-  background-color: #000000 !important;
-}
-body.dark-mode .bg-a, body.dark-mode #main .about-me .left, #main .about-me body.dark-mode .left {
-  background-image: url("../img/bg-a-d.svg") !important;
-  background-size: 85px;
-}
-body.dark-mode .bg-b {
-  background-image: url("../img/bg-b-d.svg") !important;
-  background-size: 80px;
-}
-body.dark-mode .entry-content .divider {
-  background-color: #ecf0f1;
-}
-body.dark-mode .entry-content figure {
-  border-color: #ecf0f1;
-}
-body.dark-mode .entry-content > div, body.dark-mode .entry-content > p {
-  border-color: #ecf0f1 !important;
-}
-body.dark-mode .entry-content hr {
-  border-color: #ecf0f1 !important;
-}
-body.dark-mode .entry-content .slider-index {
-  background-color: #000000;
-}
-body.dark-mode .entry-content .wp-block-gallery .blocks-gallery-item figcaption {
-  background-color: #000000;
-}
-body.dark-mode .entry-content .wp-block-embed-vimeo figcaption {
-  background-color: #000000;
-}
-body.dark-mode .project-details {
-  border-color: #ecf0f1;
-}
-body.dark-mode .project-details .project-detail {
-  border-color: #ecf0f1;
-}
-
 h1, h2, h3 {
   font-weight: 200;
 }
@@ -11922,6 +11826,10 @@ h2 {
 
 .wrapper {
   padding: 0 !important;
+}
+
+.hidden {
+  display: none !important;
 }
 
 body {
@@ -11977,49 +11885,6 @@ figcaption {
   font-family: "neue-haas-grotesk-text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-.cursor {
-  position: fixed;
-  z-index: 10000;
-  pointer-events: none;
-  overflow: visible;
-  transform: translateX(-25%) translateY(-25%);
-}
-@media (max-width: 576px) {
-  .cursor {
-    visibility: hidden;
-  }
-}
-.cursor .cursor-text {
-  position: absolute;
-  z-index: 10;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #000000;
-  font-size: 60px;
-  text-align: center;
-  transition: linear all 0.2s;
-}
-.cursor .cursor-circle {
-  position: relative;
-  background-color: #0000ff;
-  width: 30px;
-  height: 30px;
-  border: none;
-  border-radius: 100% 100%;
-  color: #fff;
-  backface-visibility: hidden;
-  -webkit-font-smoothing: subpixel-antialiased;
-  transform: translateZ(0);
-  transition: linear transform 0.2s;
-}
-.cursor.is-active .cursor-circle {
-  background-color: #000;
-}
-.cursor.has-text .cursor-circle {
-  visibility: hidden;
-}
-
 .site-container {
   width: calc(100vw - 100px);
   margin-left: 100px;
@@ -12067,6 +11932,16 @@ figcaption {
   background-color: white;
   font-size: 1.8em;
 }
+@media (max-width: 768px) {
+  .nav {
+    height: 100px;
+    width: 100vw;
+    flex-direction: row;
+    border-bottom: 2px solid black;
+    border-right: none;
+    padding: 0px 10px;
+  }
+}
 .nav .nav-brand {
   letter-spacing: 3px;
   font-kerning: none;
@@ -12077,27 +11952,21 @@ figcaption {
   transform-origin: 47% 50%;
   transition: transform 0.5s ease-in-out;
 }
+@media (max-width: 768px) {
+  .nav .open-button {
+    transform: scale(1.5) rotate(90deg) translateX(-2px) translateY(10px);
+  }
+}
 .nav .open-button.opened {
   transform: scale(1.8) rotate(-135deg) translateX(4px) translateY(7px);
 }
 
-.navbar {
-  z-index: 1000;
-  font-size: 1rem;
-}
-.navbar .navbar-brand {
-  letter-spacing: 3px;
-  font-kerning: none;
-}
-.navbar .navbar-title {
-  margin: 0;
-  color: #0000ff;
-}
-.navbar a {
-  border-bottom: none;
-}
-.navbar .nav-link {
-  padding-right: 0;
+@media (max-width: 768px) {
+  .card-stack {
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+  }
 }
 
 .content-card {
@@ -12114,6 +11983,14 @@ figcaption {
   opacity: 1;
   transition: visible 0s linear 0.3s;
   color: white;
+}
+@media (max-width: 768px) {
+  .content-card {
+    position: relative !important;
+    width: 100vw;
+    height: 40vh;
+    border: 1px black solid;
+  }
 }
 .content-card.card-hidden {
   visibility: hidden;
@@ -12137,6 +12014,11 @@ figcaption {
     opacity: 1;
   }
 }
+@media (max-width: 768px) {
+  .content-card .minimise {
+    visibility: hidden;
+  }
+}
 .content-card .minimise span {
   font-size: 2rem;
   pointer-events: none;
@@ -12150,7 +12032,6 @@ figcaption {
   height: 100%;
 }
 .content-card.weight-1 {
-  height: 20%;
   z-index: 101;
 }
 @media (min-width: 1200px) {
@@ -12159,7 +12040,6 @@ figcaption {
   }
 }
 .content-card.weight-2 {
-  height: 25%;
   z-index: 102;
 }
 @media (min-width: 1200px) {
@@ -12168,7 +12048,6 @@ figcaption {
   }
 }
 .content-card.weight-3 {
-  height: 35%;
   z-index: 103;
 }
 @media (min-width: 1200px) {
@@ -12177,7 +12056,6 @@ figcaption {
   }
 }
 .content-card.weight-4, .content-card.publications-card {
-  height: 40%;
   z-index: 104;
 }
 @media (min-width: 1200px) {
@@ -12186,7 +12064,6 @@ figcaption {
   }
 }
 .content-card.weight-5 {
-  height: 50%;
   z-index: 105;
 }
 @media (min-width: 1200px) {
@@ -12204,6 +12081,11 @@ figcaption {
   background-color: #0000ff;
   width: 400px;
   height: 200px;
+}
+@media (max-width: 768px) {
+  .content-card.about-card {
+    display: none;
+  }
 }
 .content-card.about-card p {
   margin: 30px;
@@ -12286,9 +12168,6 @@ figcaption {
 #main .main-header h1 {
   margin-left: -40px;
 }
-#main .about-me-old {
-  display: none;
-}
 #main .about-me {
   flex-basis: calc(50% + 0.5 * 100px);
   max-width: calc(50% + 0.5 * 100px);
@@ -12299,6 +12178,13 @@ figcaption {
   background-color: white;
   transition: 0.7s ease-in;
   margin-left: -100px;
+}
+@media (max-width: 768px) {
+  #main .about-me {
+    max-width: 100vw;
+    position: absolute;
+    top: 0;
+  }
 }
 #main .about-me h2 {
   border-top: 2px solid #000;
@@ -12314,14 +12200,25 @@ figcaption {
   position: sticky;
   top: 0;
   background-color: white;
-}
-#main .about-me .about-header h1 {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+}
+#main .about-me .about-header span {
   font-size: 1.8em;
 }
-#main .about-me .about-header h1 .close-button {
-  transform: scale(1.8) translateY(4px);
+#main .about-me .about-header span.close-button {
+  transform: scale(1.6) translateY(4px);
+}
+@media (max-width: 768px) {
+  #main .about-me .about-header {
+    height: 100px;
+    border-bottom: 2px solid black;
+    border-right: none;
+  }
+  #main .about-me .about-header span {
+    font-size: 1.6em;
+  }
 }
 #main .about-me.collapsed {
   transform: translate(-150%);
