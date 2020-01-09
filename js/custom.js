@@ -416,30 +416,7 @@ jQuery(document).ready(function($) {
 
 
 
-  var Project = Barba.BaseView.extend({
-    namespace: "single-project",
-    onEnter: function() {
-      // The new Container is ready and attached to the DOM.
-      $('.open-button').addClass("opened");
-      // splitTitles('.display-title');
-      createGalleries();
-      createVideos();
-      hideAllCards();
-      $('.about-me-toggle').text("projects").attr("state", "on");
-    },
-    onEnterCompleted: function() {
-      // The Transition has just finished.
-      // splitTitles('.display-title');
-    },
-    onLeave: function() {
-      // A new Transition toward a new page has just started.
-      // splitTitles('.display-title');
-      $('.open-button').removeClass('opened');
-    },
-    onLeaveCompleted: function() {
-      // The Container has just been removed from the DOM.
-    }
-  });
+
 
   var Index = Barba.BaseView.extend({
     namespace: "index",
@@ -452,7 +429,6 @@ jQuery(document).ready(function($) {
       $.each($('.project-hidden'), function() {
         $(this).addClass('card-hidden');
       });
-      $('.about-me-toggle').text("about me").attr("state", "off");
     },
     onEnterCompleted: function() {
       // The Transition has just finished.
@@ -474,12 +450,12 @@ jQuery(document).ready(function($) {
   var Publication = Barba.BaseView.extend({
     namespace: "single-publication",
     onEnter: function() {
+      console.log("Will show publication")
       // The new Container is ready and attached to the DOM.
       $('.open-button').addClass("opened");
       createGalleries();
       createVideos();
       hideAllCards();
-      $('.about-me-toggle').text("projects").attr("state", "on");
     },
     onEnterCompleted: function() {
       // The Transition has just finished.

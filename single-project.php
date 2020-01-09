@@ -21,8 +21,7 @@ $container   = get_theme_mod( 'understrap_container_type' );
 					return basename($template, '.php');
 				}
 			?>
-	<div class="site-container" id="content" data-namespace="<?php echo get_current_template() ?>">
-
+	<div class="site-container" id="content" data-namespace="single-project<?php //echo get_current_template() ?>">
 
 			<main class="site-main" id="project" >
 
