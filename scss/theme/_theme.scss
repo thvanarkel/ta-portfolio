@@ -234,6 +234,14 @@ figcaption {
   }
   width: calc(100vw - #{$navbar-width});
   margin-left: $navbar-width;
+  @include respond-below(sm) {
+    width: 100vw;
+    margin-left: 0;
+  }
+}
+
+.site {
+  margin-top: -30px;
 }
 
 .container-background {
@@ -299,7 +307,7 @@ figcaption {
       transform: scale(1.5) rotate(90deg) translateX(-2px) translateY(10px);
     }
     &.opened {
-      transform: scale(1.8) rotate(-135deg) translateX(4px) translateY(7px);
+      transform: scale(1.6) rotate(-135deg) translateX(4px) translateY(0px);
     }
   }
 }
@@ -320,13 +328,15 @@ figcaption {
   left: 0;
   width: 500px;
   height: 350px;
-  padding: 0 !important;
+  // padding: 0 !important;
+  padding: 15px;
   box-shadow: 0 5px 20px 0 rgba(0,0,0,0.2);
   overflow: hidden;
   border: $border-width $border-color solid;
   opacity: 1;
   transition: visible 0s linear 0.3s;
   color: $white;
+  background-color: $white;
   @include respond-below(sm) {
     position: relative !important;
     width: 100vw;
@@ -342,8 +352,8 @@ figcaption {
     position: absolute;
     right: 0;
     top: 0;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     // background-color: red;
     z-index: 1000;
     opacity: 1;
@@ -364,7 +374,10 @@ figcaption {
   }
 
   figure {
-    position: relative;
+    position: absolute;
+    margin: -15px;
+    top: 15px;
+    left: 15px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -443,9 +456,8 @@ figcaption {
     background-color: $white;
     width: 800px;
     height: 500px;
-
     p {
-      margin: 30px;
+      // margin: 30px;
       width: 70%;
     }
     ul {
@@ -471,11 +483,14 @@ figcaption {
         padding-right: 15px;
       }
     }
+    @include respond-below(sm) {
+      max-width: 100vw;
+      font-size: 2.8rem;
+    }
   }
 
   &.publications-card {
     @extend .weight-4;
-    padding: 30px !important;
     background-color: white;
     color: $black;
     height: 70vh;
@@ -484,19 +499,24 @@ figcaption {
       list-style: none;
       padding: 0 !important;
       margin-top: 30px;
+      font-size: 0.9em;
       li {
         width: auto;
         display: flex;
+        wrap: nowrap;
         justify-content: space-between;
+        align-items: flex-start;
         border-bottom: $border-color $border-width solid;
         padding-top: 5px;
         padding-bottom: 5px;
         p {
           // margin-top: 10px;
           margin-bottom: 0px;
+          min-width: 77px;
         }
         a {
           border-bottom: none;
+
         }
         span {
           display: inline-block;
@@ -506,7 +526,9 @@ figcaption {
         }
       }
     }
-
+    @include respond-below(sm) {
+      z-index: 98;
+    }
   }
 }
 
@@ -533,7 +555,6 @@ figcaption {
   border-right: $border-width solid $border-color;
   background-color: $white;
   transition: 0.7s ease-in;
-  margin-left: -$navbar-width;
   @include respond-below(sm) {
     max-width: 100vw;
     position: absolute;
@@ -787,6 +808,12 @@ figcaption {
   @include respond-above(xl) {
     height: 40vw;
   }
+  @include respond-below(sm) {
+    position: relative;
+    width: 100vw;
+    margin-left: 0;
+    margin-top: 30px;
+  }
 
   figure {
     margin: 0;
@@ -830,9 +857,29 @@ article > div {
   margin-left: auto;
   transform: translateY(110vh);
   font-size: 1.2rem;
-  padding: 30px;
+  padding: 15px;
   // display: flex;
   // align-self: flex-end;
+  transition: all ease-in-out 0.5s;
+  .summary-handle {
+    display: none;
+    font-size: 0.8em;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  @include respond-below(sm) {
+    position: absolute;
+    transform: translateY(-50px);
+    .summary-handle {
+      display: block;
+    }
+    &.show {
+      transform: translateY(-100%) translateY(2px);
+    }
+  }
+
   ul {
     list-style: none;
     // width: calc(50vw - 30px);
@@ -862,9 +909,14 @@ article > div {
   @extend .col-md-7;
   @extend .offset-md-5;
   position: relative;
-  padding: 30px;
+  padding: 15px;
   padding-bottom: 80px;
   margin-top: 30vh;
+  @include respond-below(sm) {
+    margin-top: 0;
+  }
+
+
   p {
     @extend .col-md-12;
     // @extend .offset-md-6;
