@@ -2,9 +2,32 @@ console.log("Made with 🎈 in Delft, the Netherlands");
 
 var previousElement;
 
+var breakpoints = {
+  "xs": 576,
+  "sm": 768,
+  "md": 992,
+  "lg": 1200,
+  "xl": 1450
+};
+
+var layouted = false;
+
+
+
 
 
 jQuery(document).ready(function($) {
+  $( window ).resize(function() {
+    if ($(window).width() > breakpoints["sm"] && !layouted) {
+      console.log("relayout");
+      layCards(); // TODO: only do this once!
+      layouted = true;
+    } else if ($(window).width() < breakpoints["sm"]) {
+      $('.content-card').css("transform","");
+      layouted = false;
+    }
+  });
+
     $.fn.infiniteScrollUp=function(){
 
       var self=this,kids=self.children()
@@ -32,6 +55,22 @@ jQuery(document).ready(function($) {
     $('.about-me').toggleClass("collapsed");
   });
 
+  $('.about-me').on("transitionend", function() {
+    if ($(window).width() < breakpoints["sm"]) {
+      if (!$('.card-stack').hasClass("hidden") && !$('.about-me').hasClass("collapsed")) {
+        $('.card-stack').addClass("hidden");
+      }
+    }
+  });
+
+  $('.about-me').on("transitionstart", function() {
+    if ($(window).width() < breakpoints["sm"]) {
+      if ($('.card-stack').hasClass("hidden")) {
+        $('.card-stack').removeClass("hidden");
+      }
+    }
+  });
+
   $('.dark-mode-toggle').click( function(e) {
     e.preventDefault();
     // $target = $('.dark-mode-toggle');
@@ -49,7 +88,6 @@ jQuery(document).ready(function($) {
   } );
 
   $('.open-button').click( function(e) {
-    console.log("test");
     if ($(e.target).hasClass('opened')) {
       Barba.Pjax.goTo('/');
     } else {
@@ -314,8 +352,9 @@ jQuery(document).ready(function($) {
     }
   });
 
-
-  layCards();
+  if ($(window).width() > breakpoints["sm"]) {
+    layCards();
+  }
 
   // var splitTitles = function(t) {
   //   $(t).each(function() {
@@ -402,32 +441,6 @@ jQuery(document).ready(function($) {
       // A new Transition toward a new page has just started.
       // splitTitles('.project-title');
       $('.open-button').addClass('opened');
-    },
-    onLeaveCompleted: function() {
-      // The Container has just been removed from the DOM.
-    }
-  });
-
-  var Project = Barba.BaseView.extend({
-    namespace: "single-project",
-    onEnter: function() {
-      console.log("Will show project")
-      // The new Container is ready and attached to the DOM.
-      $('.open-button').addClass("opened");
-      // splitTitles('.display-title');
-
-      hideAllCards();
-      createGalleries();
-      createVideos();
-    },
-    onEnterCompleted: function() {
-      // The Transition has just finished.
-      // splitTitles('.display-title');
-    },
-    onLeave: function() {
-      // A new Transition toward a new page has just started.
-      // splitTitles('.display-title');
-      $('.open-button').removeClass('opened');
     },
     onLeaveCompleted: function() {
       // The Container has just been removed from the DOM.
