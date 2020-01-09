@@ -10,9 +10,24 @@ var breakpoints = {
   "xl": 1450
 };
 
+var layouted = false;
+
+
+
 
 
 jQuery(document).ready(function($) {
+  $( window ).resize(function() {
+    if ($(window).width() > breakpoints["sm"] && !layouted) {
+      console.log("relayout");
+      layCards(); // TODO: only do this once!
+      layouted = true;
+    } else if ($(window).width() < breakpoints["sm"]) {
+      $('.content-card').css("transform","");
+      layouted = false;
+    }
+  });
+
     $.fn.infiniteScrollUp=function(){
 
       var self=this,kids=self.children()

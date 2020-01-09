@@ -394,7 +394,7 @@ figcaption {
     position: relative !important;
     width: 100vw;
     height: 40vh;
-    // top: auto;
+    border: $border-width/2 $border-color solid;
   }
 
   &.card-hidden {
