@@ -52,20 +52,23 @@ jQuery(document).ready(function($) {
   });
 
   $('.close-button').click( function(e) {
-    $('.about-me').toggleClass("collapsed");
+    $('.about-me').toggleClass("collapsed").trigger("transition_start");
   });
 
   $('.about-me').on("transitionend", function() {
     if ($(window).width() < breakpoints["sm"]) {
       if (!$('.card-stack').hasClass("hidden") && !$('.about-me').hasClass("collapsed")) {
+        console.log("hide")
         $('.card-stack').addClass("hidden");
       }
     }
   });
 
-  $('.about-me').on("transitionstart", function() {
+  $('.about-me').on("transition_start", function() {
+    console.log("transition start")
     if ($(window).width() < breakpoints["sm"]) {
       if ($('.card-stack').hasClass("hidden")) {
+        console.log("unhide")
         $('.card-stack').removeClass("hidden");
       }
     }
@@ -441,6 +444,30 @@ jQuery(document).ready(function($) {
       // A new Transition toward a new page has just started.
       // splitTitles('.project-title');
       $('.open-button').addClass('opened');
+    },
+    onLeaveCompleted: function() {
+      // The Container has just been removed from the DOM.
+    }
+  });
+
+  var Project = Barba.BaseView.extend({
+    namespace: "single-project",
+    onEnter: function() {
+      console.log("Will show project")
+      // The new Container is ready and attached to the DOM.
+      $('.open-button').addClass("opened");
+      createGalleries();
+      createVideos();
+      hideAllCards();
+    },
+    onEnterCompleted: function() {
+      // The Transition has just finished.
+      // splitTitles('.display-title');
+    },
+    onLeave: function() {
+      // A new Transition toward a new page has just started.
+      // splitTitles('.display-title');
+      $('.open-button').removeClass('opened');
     },
     onLeaveCompleted: function() {
       // The Container has just been removed from the DOM.
