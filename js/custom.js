@@ -233,11 +233,16 @@ jQuery(document).ready(function($) {
       unlockScroll();
     });
 
-  function dragMoveListener(event) {
-    var target = event.target,
+  function dragMoveListener(e) {
+    if (document.selection) {
+      document.selection.empty()
+    } else {
+      window.getSelection().removeAllRanges()
+    }
+    var target = e.target,
       // keep the dragged position in the data-x/data-y attributes
-      x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-      y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+      x = (parseFloat(target.getAttribute('data-x')) || 0) + e.dx,
+      y = (parseFloat(target.getAttribute('data-y')) || 0) + e.dy;
 
     // translate the element
     target.style.webkitTransform =
