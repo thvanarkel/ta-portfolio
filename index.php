@@ -33,7 +33,13 @@ $container   = get_theme_mod( 'understrap_container_type' );
 		}
 	 ?>
 
+
+
 	<div class="site-container" id="content" tabindex="-1" data-namespace="<?php echo get_current_template() ?>">
+			<div class="title">TvA</div>
+			<div class="site-description">
+				<p>Portfolio/<br>Thomas van Arkel</p>
+			</div>
 			<main class="site-main" id="main">
 				<div class="navigation"></div>
 				<div class="about-me collapsed">
@@ -48,6 +54,7 @@ $container   = get_theme_mod( 'understrap_container_type' );
 					?>
 					</div>
 				</div>
+
 			</main><!-- #main -->
 
 			<!-- The pagination component -->

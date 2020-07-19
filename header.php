@@ -40,11 +40,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 	</div><!-- #wrapper-navbar end -->
 
 	<div class="card-stack">
-		<div class="content-card about-card">
-			<!-- <div class="minimise"><span>●</span></div> -->
-			<p>Portfolio/<br>Thomas van Arkel</p>
-				<!-- <figure class="js-image" style="background-image: url('<?php echo get_the_post_thumbnail_url($post->ID, 'full') ?>')"></figure> -->
-		</div>
 		<?php
 			$args = array(
 				'post_type'=> 'project',
