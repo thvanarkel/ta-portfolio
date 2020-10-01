@@ -11856,7 +11856,6 @@ body a, body .project-card, .gallery figure, .button, .minimise {
 a {
   text-decoration: none !important;
   border-bottom: 1px solid;
-  color: #000000 !important;
 }
 a:hover {
   border-bottom: none;
@@ -11995,10 +11994,41 @@ figcaption {
   }
 }
 
+.site-contact {
+  grid-area: 29/2/span 8/span 11;
+  background-color: #FCFAF3;
+  padding: 10px;
+  padding-top: 20px;
+}
+.site-contact h3 {
+  font-family: "neue-haas-grotesk-text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.site-contact ul {
+  margin-top: 10px;
+  list-style: none;
+  padding: 0;
+}
+.site-contact ul li {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 5px;
+}
+.site-contact ul li a {
+  padding-top: 3px;
+  font-family: "Favorit Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+  color: #0000ff;
+  font-size: 0.8em;
+}
+
 .site-featured-image {
   grid-area: 20/2/span 8/span 11;
   background-position: right center;
   background-size: cover;
+}
+
+.card-stack {
+  display: none;
 }
 
 .site {
@@ -12085,7 +12115,6 @@ figcaption {
   z-index: 102;
   top: 0;
   left: 0;
-  width: 500px;
   height: 350px;
   padding: 15px;
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
@@ -12152,6 +12181,7 @@ figcaption {
 @media (min-width: 1200px) {
   .content-card.weight-1 {
     height: 10vw;
+    width: 20vw;
   }
 }
 .content-card.weight-2 {
@@ -12160,6 +12190,7 @@ figcaption {
 @media (min-width: 1200px) {
   .content-card.weight-2 {
     height: 15vw;
+    width: 20vw;
   }
 }
 .content-card.weight-3 {
@@ -12168,6 +12199,7 @@ figcaption {
 @media (min-width: 1200px) {
   .content-card.weight-3 {
     height: 20vw;
+    width: 30vw;
   }
 }
 .content-card.weight-4, .content-card.publications-card {
@@ -12176,6 +12208,7 @@ figcaption {
 @media (min-width: 1200px) {
   .content-card.weight-4, .content-card.publications-card {
     height: 25vw;
+    width: 35vw;
   }
 }
 .content-card.weight-5 {
@@ -12184,6 +12217,7 @@ figcaption {
 @media (min-width: 1200px) {
   .content-card.weight-5 {
     height: 30vw;
+    width: 45vw;
   }
 }
 .content-card.about-card {
