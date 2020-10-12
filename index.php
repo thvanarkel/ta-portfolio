@@ -39,7 +39,7 @@ $container   = get_theme_mod( 'understrap_container_type' );
 		 	<div class="site-description">
 			 	<p>Portfolio/<br>Thomas van Arkel</p>
 		 	</div>
-		 	<div class="site-about">
+		 	<div class="site-about auto-space">
 		 	<?php
 			 	$page = get_page_by_title( 'About me' );
 			 	echo $page->post_content;
