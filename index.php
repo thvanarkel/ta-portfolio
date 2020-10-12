@@ -24,7 +24,6 @@ $container   = get_theme_mod( 'understrap_container_type' );
 	<?php get_template_part( 'global-templates/hero' ); ?>
 <?php endif; ?>
 
-<div class="wrapper" id="wrapper">
 
 	<?php
 		function get_current_template() {
@@ -36,8 +35,7 @@ $container   = get_theme_mod( 'understrap_container_type' );
 
 
 
-	 <div class="site-container" id="content" tabindex="-1" data-namespace="<?php echo get_current_template() ?>">
-		 <div class="title"><a rel="home" class="nav-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><span class="">TvA</span></a></div>
+
 		 	<div class="site-description">
 			 	<p>Portfolio/<br>Thomas van Arkel</p>
 		 	</div>

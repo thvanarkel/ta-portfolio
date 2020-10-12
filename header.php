@@ -29,12 +29,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 <body>
 
 <div class="hfeed site" id="page">
+	<div class="wrapper" id="wrapper">
 
-	<!-- ******************* The Navbar Area ******************* -->
-	<div id="wrapper-navbar">
-		<nav class="nav">
-			<a rel="home" class="nav-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><span class="">TvA</span></a>
-			<span class="button open-button">↗︎</span>
-		</nav><!-- .site-navigation -->
-
-	</div><!-- #wrapper-navbar end -->
+		<div class="site-container" id="content" tabindex="-1" data-namespace="<?php echo get_current_template() ?>">
+			<div class="title"><a rel="home" class="nav-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><span class="">TvA</span></a></div>

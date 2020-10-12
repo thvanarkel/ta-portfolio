@@ -581,7 +581,7 @@ pre code {
   margin-left: auto;
 }
 
-.row, .site-footer, .project-details, .entry-content .wp-block-columns, #main-taxonomy, #main .main-contents {
+.row, .site-footer, .project-details, .entry-content .wp-block-columns, #main-taxonomy {
   display: flex;
   flex-wrap: wrap;
   margin-right: -15px;
@@ -601,7 +601,7 @@ pre code {
 .col-xl,
 .col-xl-auto, .col-xl-12, .col-xl-11, .col-xl-10, .col-xl-9, .col-xl-8, .col-xl-7, .col-xl-6, .col-xl-5, .col-xl-4, .col-xl-3, .col-xl-2, .col-xl-1, .col-lg,
 .col-lg-auto, .col-lg-12, .col-lg-11, .col-lg-10, .col-lg-9, .col-lg-8, .col-lg-7, .col-lg-6, .col-lg-5, .col-lg-4, .col-lg-3, .col-lg-2, .col-lg-1, .col-md,
-.col-md-auto, .col-md-12, .wp-block-file, .entry-content .gallery.fullscreen, .entry-content .gallery, .entry-content .wp-block-embed-vimeo, .entry-content .wp-block-separator, .entry-content h1, .entry-content p, #main .about-me .hero, #main .about-me .about-block.w-12, .col-md-11, .col-md-10, .project-thumbnail, #main .about-me .about-block.w-10, .col-md-9, .col-md-8, #main-taxonomy .projects, #main .about-me .about-block.w-8, .col-md-7, .entry-content, .col-md-6, #main-taxonomy .taxonomy-header, #main .about-me .about-block.w-6, .col-md-5, .project-summary, .col-md-4, .site-footer .details, .project-details .project-detail, #main .about-me .marquee, #main .about-me .about-block.w-4, .col-md-3, .col-md-2, #main .about-me .about-block.w-2, .col-md-1, .col-sm,
+.col-md-auto, .col-md-12, .wp-block-file, .entry-content .gallery.fullscreen, .entry-content .gallery, .entry-content .wp-block-embed-vimeo, .entry-content .wp-block-separator, .entry-content h1, .entry-content p, #main .about-me .hero, #main .about-me .about-block.w-12, .col-md-11, .col-md-10, #main .about-me .about-block.w-10, .col-md-9, .col-md-8, #main-taxonomy .projects, #main .about-me .about-block.w-8, .col-md-7, .entry-content, .col-md-6, #main-taxonomy .taxonomy-header, #main .about-me .about-block.w-6, .col-md-5, .project-summary, .col-md-4, .site-footer .details, .project-details .project-detail, #main .about-me .marquee, #main .about-me .about-block.w-4, .col-md-3, .col-md-2, #main .about-me .about-block.w-2, .col-md-1, .col-sm,
 .col-sm-auto, .col-sm-12, .col-sm-11, .col-sm-10, .col-sm-9, .col-sm-8, .col-sm-7, .col-sm-6, .col-sm-5, .col-sm-4, .col-sm-3, .col-sm-2, .col-sm-1, .col,
 .col-auto, .col-12, .col-11, .col-10, .col-9, .col-8, .col-7, .col-6, .col-5, .col-4, .col-3, .col-2, .col-1 {
   position: relative;
@@ -1026,7 +1026,7 @@ pre code {
     max-width: 75%;
   }
 
-  .col-md-10, .project-thumbnail, #main .about-me .about-block.w-10 {
+  .col-md-10, #main .about-me .about-block.w-10 {
     flex: 0 0 83.3333333333%;
     max-width: 83.3333333333%;
   }
@@ -5937,7 +5937,7 @@ button.bg-dark:focus {
   justify-content: space-between !important;
 }
 
-.justify-content-around, #main .main-contents {
+.justify-content-around {
   justify-content: space-around !important;
 }
 
@@ -5997,7 +5997,7 @@ button.bg-dark:focus {
   align-self: flex-end !important;
 }
 
-.align-self-center, .entry-content p, #main .main-contents .project-thumbnail {
+.align-self-center, .entry-content p {
   align-self: center !important;
 }
 
@@ -6561,7 +6561,7 @@ button.bg-dark:focus {
   float: left !important;
 }
 
-.float-right, #main .main-contents {
+.float-right {
   float: right !important;
 }
 
@@ -11922,12 +11922,23 @@ figcaption {
   visibility: hidden;
 }
 
+.site-main {
+  display: contents;
+}
+
+article {
+  display: contents;
+}
+
 .title {
   grid-area: 2/2/3/4;
   font-size: 1.5em;
   letter-spacing: 3px;
   text-align: center;
   background-color: #FCFAF3;
+}
+.title a {
+  border: none;
 }
 .title:hover {
   background-color: #292829;
@@ -12031,10 +12042,6 @@ figcaption {
   background-size: cover;
 }
 
-.card-stack {
-  display: none;
-}
-
 .site {
   height: 100%;
 }
@@ -12059,51 +12066,6 @@ figcaption {
 .button {
   font-weight: 300;
   font-family: "Favorit", "Helvetica Neue", sans-serif;
-}
-
-.nav {
-  display: none !important;
-  position: fixed;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0px;
-  height: 100vh;
-  width: 100px;
-  border-right: 2px solid #292829;
-  background-color: #FCFAF3;
-  font-size: 1.8em;
-}
-@media (max-width: 768px) {
-  .nav {
-    height: 100px;
-    width: 100vw;
-    flex-direction: row;
-    border-bottom: 2px solid #292829;
-    border-right: none;
-    padding: 0px 10px;
-  }
-}
-.nav .nav-brand {
-  letter-spacing: 3px;
-  font-kerning: none;
-  border: none;
-}
-.nav .open-button {
-  font-weight: 100;
-  transform: scale(1.8);
-  transform-origin: 47% 50%;
-  transition: transform 0.5s ease-in-out;
-}
-@media (max-width: 768px) {
-  .nav .open-button {
-    transform: scale(1.5) rotate(90deg) translateX(-2px) translateY(10px);
-  }
-}
-.nav .open-button.opened {
-  transform: scale(1.6) rotate(-135deg) translateX(4px) translateY(0px);
 }
 
 @media (max-width: 768px) {
@@ -12441,10 +12403,6 @@ figcaption {
   text-align: center;
   text-indent: 0;
 }
-#main .main-contents {
-  width: 60vw;
-  padding-top: 50vh;
-}
 #main .main-contents .project-thumbnail .project-title {
   position: relative;
   height: 100%;
@@ -12500,32 +12458,36 @@ figcaption {
 }
 
 .project-thumbnail {
-  position: absolute;
+  grid-column-start: 2;
+  grid-column-end: 18;
+  grid-row: 4/span 10;
+}
+
+.project-summary {
+  grid-column-start: 2;
+  grid-column-end: 18;
+  grid-row: 4/span 10;
+}
+
+.entry-content {
+  grid-column-start: 2;
+  grid-column-end: 18;
+  grid-row: 4/span 10;
+}
+
+.project-details {
+  grid-column-start: 2;
+  grid-column-end: 18;
+  grid-row: 4/span 10;
+}
+
+.project-thumbnail {
+  grid-column-start: 2;
+  grid-column-end: 18;
+  grid-row: 4/span 10;
   padding: 0;
-  width: 80vw;
-  transform: translateY(5vh);
   z-index: 0;
   overflow: hidden;
-  height: 60vh;
-  margin-left: 2%;
-}
-@media (min-width: 1200px) {
-  .project-thumbnail {
-    height: 80vh;
-  }
-}
-@media (min-width: 1450px) {
-  .project-thumbnail {
-    height: 40vw;
-  }
-}
-@media (max-width: 768px) {
-  .project-thumbnail {
-    position: relative;
-    width: 100vw;
-    margin-left: 0;
-    margin-top: 30px;
-  }
 }
 .project-thumbnail figure {
   margin: 0;
