@@ -267,6 +267,11 @@ figcaption {
   & > div {
     border: 1px solid $black;
   }
+
+  .spacer {
+    grid-area: 37 / 2 / span 2 / span 1;
+    visibility: hidden;
+  }
 }
 
 .title {
@@ -363,7 +368,7 @@ figcaption {
 }
 
 .site-contact {
-  grid-area: 29 / 2 / span 8 / span 11;
+  grid-area: 30 / 2 / span 8 / span 11;
   // grid-column: 1 / 3;
   // grid-row: 1 / 3;
   background-color: $white;
