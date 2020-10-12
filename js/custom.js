@@ -47,6 +47,8 @@ jQuery(document).ready(function($) {
 
     var blocks = Math.floor(($(".site-about").prop('scrollHeight') + $(".site-about").outerHeight()) / 45) - 6;
     $(".site-about").css("grid-row", `6 / span ${blocks}`);
+    const spacer = (blocks + 5 + 1) > 39 ? blocks + 5 + 1 : 39;
+    $("#footer-spacer").css("grid-row", `${spacer} / span 1`);
   }
 
   updateHeight();

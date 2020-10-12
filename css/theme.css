@@ -11917,6 +11917,10 @@ figcaption {
 .site-container > div {
   border: 1px solid #292829;
 }
+.site-container .spacer {
+  grid-area: 37/2/span 2/span 1;
+  visibility: hidden;
+}
 
 .title {
   grid-area: 2/2/3/4;
@@ -11995,7 +11999,7 @@ figcaption {
 }
 
 .site-contact {
-  grid-area: 29/2/span 8/span 11;
+  grid-area: 30/2/span 8/span 11;
   background-color: #FCFAF3;
   padding: 10px;
   padding-top: 20px;
