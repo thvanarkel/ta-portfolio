@@ -31,27 +31,23 @@ jQuery(document).ready(function($) {
     // updateHeight();
   });
 
-  var updateHeight = function() {
+  $(window).load(function() {
+      autoHeight();
+  })
 
-    // const gridHeight = 45;
-    // var height = $('.site-about').height()
-    // var extra = height % 45
-    // console.log(`height: ${height} remainder: ${extra} added: ${gridHeight - extra}`)
-    // $('.site-about').height(height + gridHeight - extra)
-
-
-    console.log($(".site-about :last-child")[0].getBoundingClientRect().bottom)
-    console.log($(window)['scrollTop']())
-
-
-
-    var blocks = Math.floor(($(".site-about").prop('scrollHeight') + $(".site-about").outerHeight()) / 45) - 6;
-    $(".site-about").css("grid-row", `6 / span ${blocks}`);
-    const spacer = (blocks + 5 + 1) > 39 ? blocks + 5 + 1 : 39;
-    $("#footer-spacer").css("grid-row", `${spacer} / span 1`);
+  var autoHeight = function() {
+    $(".auto-space").each(function(i, obj) {
+      var height = 0;
+      height += $(obj).innerHeight() - $(obj).height();
+      $(obj).children().each(function () {
+        height += $(this).outerHeight(true);
+        height += $(this).outerHeight(true) - $(this).outerHeight();
+      })
+      var blocks = Math.floor(height / 45) + 1;
+      var start = $(obj).css('grid-row-start')
+      $(obj).css("grid-row", `${start} / span ${blocks}`);
+    });
   }
-
-  updateHeight();
 
   $.fn.infiniteScrollUp=function(){
     var self=this,kids=self.children()
@@ -452,6 +448,7 @@ jQuery(document).ready(function($) {
     onEnter: function() {
       // The new Container is ready and attached to the DOM.
       // layCards();
+      autoHeight();
       showAllCards();
       // splitTitles('.display-title');
       $('#nav').load(document.URL +  ' #nav');
@@ -481,6 +478,7 @@ jQuery(document).ready(function($) {
     onEnter: function() {
       console.log("Will show project")
       // The new Container is ready and attached to the DOM.
+      autoHeight();
       $('.open-button').addClass("opened");
       createGalleries();
       createVideos();
@@ -511,6 +509,7 @@ jQuery(document).ready(function($) {
     namespace: "single-publication",
     onEnter: function() {
       console.log("Will show publication")
+      autoHeight();
       // The new Container is ready and attached to the DOM.
       $('.open-button').addClass("opened");
       createGalleries();
@@ -552,7 +551,7 @@ jQuery(document).ready(function($) {
   Barba.Dispatcher.on('initStateChange', function() {
     // modify to your needs
     Barba.Dispatcher.on('initStateChange', function() {
-      __gaTracker('send', 'pageview', location.pathname);
+      if (typeof __gaTracker === "function") __gaTracker('send', 'pageview', location.pathname);
     });
   });
 
