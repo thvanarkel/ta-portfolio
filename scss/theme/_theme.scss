@@ -274,6 +274,24 @@ figcaption {
   }
 }
 
+.site-main {
+  display: contents;
+}
+
+article {
+  display: contents;
+}
+
+// .site-main {
+//   grid-column-start: 10;
+//   grid-column-end: 30;
+//   grid-row-start: 6;
+//   grid-row: 6 / span 10;
+// }
+
+
+// FRONT PAGE
+
 .title {
   // margin-left: $grid-width + $grid-border-width;
   // margin-top: $grid-width + $grid-border-width;
@@ -288,6 +306,9 @@ figcaption {
   letter-spacing: 3px;
   text-align: center;
   background-color: $white;
+  a {
+    border: none;
+  }
   &:hover {
     background-color: $black;
     span {
@@ -403,7 +424,7 @@ figcaption {
 }
 
 .card-stack {
-  display: none;
+  // display: none;
 }
 
 .site {
@@ -428,47 +449,6 @@ figcaption {
 .button {
   font-weight: 300;
   font-family: "Favorit", "Helvetica Neue", sans-serif;
-}
-
-.nav {
-  display: none !important;
-  position: fixed;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0px;
-  height: 100vh;
-  width: $navbar-width;
-  border-right: $border-width solid $border-color;
-  background-color: $white;
-  @include respond-below(sm) {
-    height: $navbar-width;
-    width: 100vw;
-    flex-direction: row;
-    border-bottom: $border-width solid $border-color;
-    border-right: none;
-    padding: 0px 10px;
-  }
-  font-size: 1.8em;
-  .nav-brand {
-    letter-spacing: 3px;
-    font-kerning: none;
-    border: none;
-  }
-  .open-button {
-    font-weight: 100;
-    transform: scale(1.8);
-    transform-origin: 47% 50%;
-    transition: transform 0.5s ease-in-out;
-    @include respond-below(sm) {
-      transform: scale(1.5) rotate(90deg) translateX(-2px) translateY(10px);
-    }
-    &.opened {
-      transform: scale(1.6) rotate(-135deg) translateX(4px) translateY(0px);
-    }
-  }
 }
 
 .card-stack {
@@ -849,15 +829,16 @@ figcaption {
 
   // }
   .main-contents {
-    width: 60vw;
-    @extend .float-right;
-    @extend .row;
-    @extend .justify-content-around;
-    padding-top: 50vh;
+    // width: 60vw;
+    // @extend .float-right;
+    // @extend .row;
+    // @extend .justify-content-around;
+    // padding-top: 50vh;
 
     .project-thumbnail {
       // overflow: hidden;
-      @extend .align-self-center;
+      // @extend .align-self-center;
+
 
       .project-title {
         @extend .display-4;
@@ -945,28 +926,56 @@ figcaption {
 }
 
 .project-thumbnail {
-  position: absolute;
-  @extend .col-md-10;
+  grid-column-start: 2;
+  grid-column-end: 18;
+  grid-row: 4 / span 10;
+}
+
+.project-summary {
+  grid-column-start: 2;
+  grid-column-end: 18;
+  grid-row: 4 / span 10;
+}
+
+.entry-content {
+  grid-column-start: 2;
+  grid-column-end: 18;
+  grid-row: 4 / span 10;
+}
+
+.project-details {
+  grid-column-start: 2;
+  grid-column-end: 18;
+  grid-row: 4 / span 10;
+}
+
+
+.project-thumbnail {
+  grid-column-start: 2;
+  grid-column-end: 18;
+  grid-row: 4 / span 10;
+  // position: absolute;
+  // @extend .col-md-10;
   padding: 0;
-  width: 80vw;
-  transform: translateY(5vh);
+  // width: 80vw;
+  // transform: translateY(5vh);
   z-index: 0;
   overflow: hidden;
-  height: 60vh;
-  margin-left: 2%;
-  @include respond-above(lg) {
-    height: 80vh;
-  }
-  @include respond-above(xl) {
-    height: 40vw;
-  }
-  @include respond-below(sm) {
-    position: relative;
-    width: 100vw;
-    margin-left: 0;
-    margin-top: 30px;
-  }
-
+  // height: 60vh;
+  // margin-left: 2%;
+  // @include respond-above(lg) {
+  //   height: 80vh;
+  // }
+  // @include respond-above(xl) {
+  //   height: 40vw;
+  // }
+  // @include respond-below(sm) {
+  //   position: relative;
+  //   width: 100vw;
+  //   margin-left: 0;
+  //   margin-top: 30px;
+  // }
+  //
   figure {
     margin: 0;
     height: 100%;
