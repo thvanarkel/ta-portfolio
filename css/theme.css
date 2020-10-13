@@ -581,7 +581,7 @@ pre code {
   margin-left: auto;
 }
 
-.row, .site-footer, .project-details, .entry-content .wp-block-columns, #main-taxonomy {
+.row, .site-footer, .entry-content .wp-block-columns, #main-taxonomy {
   display: flex;
   flex-wrap: wrap;
   margin-right: -15px;
@@ -601,7 +601,7 @@ pre code {
 .col-xl,
 .col-xl-auto, .col-xl-12, .col-xl-11, .col-xl-10, .col-xl-9, .col-xl-8, .col-xl-7, .col-xl-6, .col-xl-5, .col-xl-4, .col-xl-3, .col-xl-2, .col-xl-1, .col-lg,
 .col-lg-auto, .col-lg-12, .col-lg-11, .col-lg-10, .col-lg-9, .col-lg-8, .col-lg-7, .col-lg-6, .col-lg-5, .col-lg-4, .col-lg-3, .col-lg-2, .col-lg-1, .col-md,
-.col-md-auto, .col-md-12, .wp-block-file, .entry-content .wp-block-embed-vimeo, .entry-content .wp-block-separator, .entry-content h1, .entry-content p, #main .about-me .hero, #main .about-me .about-block.w-12, .col-md-11, .col-md-10, #main .about-me .about-block.w-10, .col-md-9, .col-md-8, #main-taxonomy .projects, #main .about-me .about-block.w-8, .col-md-7, .col-md-6, #main-taxonomy .taxonomy-header, #main .about-me .about-block.w-6, .col-md-5, .col-md-4, .site-footer .details, .project-details .project-detail, #main .about-me .marquee, #main .about-me .about-block.w-4, .col-md-3, .col-md-2, #main .about-me .about-block.w-2, .col-md-1, .col-sm,
+.col-md-auto, .col-md-12, .wp-block-file, .entry-content .wp-block-embed-vimeo, .entry-content .wp-block-separator, .entry-content h1, .entry-content p, #main .about-me .hero, #main .about-me .about-block.w-12, .col-md-11, .col-md-10, #main .about-me .about-block.w-10, .col-md-9, .col-md-8, #main-taxonomy .projects, #main .about-me .about-block.w-8, .col-md-7, .col-md-6, #main-taxonomy .taxonomy-header, #main .about-me .about-block.w-6, .col-md-5, .col-md-4, .site-footer .details, #main .about-me .marquee, #main .about-me .about-block.w-4, .col-md-3, .col-md-2, #main .about-me .about-block.w-2, .col-md-1, .col-sm,
 .col-sm-auto, .col-sm-12, .col-sm-11, .col-sm-10, .col-sm-9, .col-sm-8, .col-sm-7, .col-sm-6, .col-sm-5, .col-sm-4, .col-sm-3, .col-sm-2, .col-sm-1, .col,
 .col-auto, .col-12, .col-11, .col-10, .col-9, .col-8, .col-7, .col-6, .col-5, .col-4, .col-3, .col-2, .col-1 {
   position: relative;
@@ -996,7 +996,7 @@ pre code {
     max-width: 25%;
   }
 
-  .col-md-4, .site-footer .details, .project-details .project-detail, #main .about-me .marquee, #main .about-me .about-block.w-4 {
+  .col-md-4, .site-footer .details, #main .about-me .marquee, #main .about-me .about-block.w-4 {
     flex: 0 0 33.3333333333%;
     max-width: 33.3333333333%;
   }
@@ -11848,7 +11848,7 @@ body {
   cursor: -webkit-image-set(url("../img/cursor-normal@1x.png") 1x, url("../img/cursor-normal@2x.png") 2x) 0 0, auto;
 }
 
-body a, body .project-card, .gallery figure, .button, .minimise {
+body a, body .project-card, .gallery figure, .button, .nav-brand, .minimise {
   cursor: url("../img/cursor-pointer@1x.png") 0 0, auto;
   cursor: -webkit-image-set(url("../img/cursor-pointer@1x.png") 1x, url("../img/cursor-pointer@2x.png") 2x) 0 0, auto;
 }
@@ -11908,6 +11908,7 @@ figcaption:before {
   margin-top: 45px;
   display: grid;
   padding: 1px;
+  padding-bottom: 45px;
   grid-template-columns: repeat(30, 45px);
   grid-auto-rows: 45px;
   column-gap: 0px;
@@ -11940,21 +11941,41 @@ article {
   display: contents;
 }
 
-.title {
-  grid-area: 2/2/3/4;
-  font-size: 1.5em;
-  letter-spacing: 3px;
+.button, .nav-brand {
+  line-height: 42px;
+  font-family: "neue-haas-grotesk-text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
   text-align: center;
   background-color: #FCFAF3;
 }
-.title a {
+.button a, .nav-brand a {
   border: none;
 }
-.title:hover {
+.button:hover, .nav-brand:hover {
   background-color: #292829;
 }
-.title:hover span {
+.button:hover span, .nav-brand:hover span {
   color: #FCFAF3;
+}
+.button.toggled, .toggled.nav-brand {
+  background-color: #292829;
+}
+.button.toggled span, .toggled.nav-brand span {
+  color: #FCFAF3;
+}
+.button.projects, .projects.nav-brand {
+  grid-area: 2/26/span 1/span 3;
+}
+.button.publications, .publications.nav-brand {
+  grid-area: 2/22/span 1/span 3;
+}
+
+.nav-brand {
+  grid-area: 2/2/3/4;
+  font-size: 1.5em;
+  line-height: normal;
+  letter-spacing: 3px;
 }
 
 .site-description {
@@ -12071,11 +12092,6 @@ article {
 
 .container {
   padding: 0;
-}
-
-.button {
-  font-weight: 300;
-  font-family: "Favorit", "Helvetica Neue", sans-serif;
 }
 
 @media (max-width: 768px) {
@@ -12418,10 +12434,17 @@ article {
   grid-row: 11/span 100;
 }
 
-.project-details {
-  grid-column-start: 2;
-  grid-column-end: 18;
-  grid-row: 50/span 10;
+.project-detail.skills {
+  grid-column-start: 3;
+  grid-column-end: 11;
+}
+.project-detail.tools {
+  grid-column-start: 12;
+  grid-column-end: 20;
+}
+.project-detail.team {
+  grid-column-start: 21;
+  grid-column-end: 29;
 }
 
 .project-thumbnail {
@@ -12515,7 +12538,7 @@ article {
 }
 .entry-content h1 {
   color: #292829;
-  font-size: 4.5rem;
+  font-size: 4.3rem;
   z-index: 8;
 }
 .entry-content h4 {
@@ -12735,21 +12758,18 @@ article {
   background-origin: content-box;
 }
 
-.project-details {
-  margin-left: 0;
-  margin-right: 0;
-  border-top: 1px solid #292829;
-  border-bottom: 1px solid #292829;
+.project-detail {
+  padding: 15px;
 }
-.project-details .project-detail:not(:last-child) {
+.project-detail:not(:last-child) {
   border-right: 1px solid #000000;
 }
-.project-details .project-detail ul {
+.project-detail ul {
   padding-left: 0;
   padding-top: 10px;
   list-style: none;
 }
-.project-details .project-detail ul li:first-child {
+.project-detail ul li:first-child {
   margin-bottom: 4px;
   color: #0000ff;
 }

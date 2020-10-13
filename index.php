@@ -32,10 +32,6 @@ $container   = get_theme_mod( 'understrap_container_type' );
 		}
 	 ?>
 
-
-
-
-
 		 	<div class="site-description">
 			 	<p>Portfolio/<br>Thomas van Arkel</p>
 		 	</div>
@@ -78,7 +74,6 @@ $container   = get_theme_mod( 'understrap_container_type' );
 					</li>
 				</ul>
 			</div>
-			<div id="footer-spacer" class="spacer"></div>
 
  			<!-- </main> -->
 			<!-- <div class="home"></div> -->

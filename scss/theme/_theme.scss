@@ -263,6 +263,7 @@ figcaption {
   margin-top: $grid-width;
   display: grid;
   padding: 1px;
+  padding-bottom: 45px;
   grid-template-columns: repeat(30, 45px);
   grid-auto-rows: 45px;
   // grid-template-rows: repeat(auto-fit, minmax(max-content, 1fr));
@@ -304,22 +305,27 @@ article {
 
 // FRONT PAGE
 
-.title {
+.button {
   // margin-left: $grid-width + $grid-border-width;
   // margin-top: $grid-width + $grid-border-width;
   // height: $grid-width - $grid-border-width;
   // width: 2 * $grid-width - $grid-border-width;
-  grid-area: 2 / 2 / 3 / 4;
+  // grid-area: 2 / 2 / 3 / 4;
   // grid-column-start: 2;
   // grid-column-end: 4;
   // grid-row-start: 3;
   // grid-row-end: 4;
-  font-size: 1.5em;
-  letter-spacing: 3px;
+  line-height: 42px;
+  font-family: $font-family-sans-serif;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+
   text-align: center;
   background-color: $white;
   a {
     border: none;
+  }
+  span {
   }
   &:hover {
     background-color: $black;
@@ -327,7 +333,30 @@ article {
       color: $white;
     }
   }
+  &.toggled {
+    background-color: $black;
+    span {
+      color: $white;
+    }
+  }
+
+  &.projects {
+    grid-area: 2 / 26 / span 1 / span 3;
+  }
+  &.publications {
+    grid-area: 2 / 22 / span 1 / span 3;
+  }
 }
+
+.nav-brand {
+  @extend .button;
+  grid-area: 2 / 2 / 3 / 4;
+  font-size: 1.5em;
+  line-height: normal;
+  letter-spacing: 3px;
+}
+
+
 
 .site-description {
   grid-area: 13 / 2 / span 3 / span 7;
@@ -456,11 +485,6 @@ article {
 
 .container {
   padding: 0;
-}
-
-.button {
-  font-weight: 300;
-  font-family: "Favorit", "Helvetica Neue", sans-serif;
 }
 
 .card-stack {
@@ -908,7 +932,6 @@ article {
   grid-row-start: 17;
 }
 
-
 // grid-column-start: 14;
 // grid-column-end: 29;
 // grid-row-start: 6;
@@ -921,10 +944,19 @@ article {
   grid-row: 11 / span 100;
 }
 
-.project-details {
-  grid-column-start: 2;
-  grid-column-end: 18;
-  grid-row: 50 / span 10;
+.project-detail {
+  &.skills {
+    grid-column-start: 3;
+    grid-column-end: 11;
+  }
+  &.tools {
+    grid-column-start: 12;
+    grid-column-end: 20;
+  }
+  &.team {
+    grid-column-start: 21;
+    grid-column-end: 29;
+  }
 }
 
 
@@ -1061,7 +1093,7 @@ article {
     @extend .col-md-12;
     // @extend .bg-a;
     color: $black;
-    font-size: 4.5rem;
+    font-size: 4.3rem;
     z-index: 8;
   }
 
@@ -1414,14 +1446,15 @@ article {
   background-origin: content-box;
 }
 
-.project-details {
-  @extend .row;
-  margin-left: 0;
-  margin-right: 0;
-  border-top: $border-width solid $border-color;
-  border-bottom: $border-width solid $border-color;
+// .project-details {
+  // @extend .row;
+  // margin-left: 0;
+  // margin-right: 0;
+  // border-top: $border-width solid $border-color;
+  // border-bottom: $border-width solid $border-color;
   .project-detail {
-    @extend .col-md-4;
+    // @extend .col-md-4;
+    padding: 15px;
     &:not(:last-child) {
       border-right: $border-width solid $color-dark;
     }
@@ -1436,7 +1469,7 @@ article {
       }
     }
   }
-}
+// }
 
 .site-footer {
   background-color: $color-highlight;

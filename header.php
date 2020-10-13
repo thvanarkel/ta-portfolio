@@ -32,4 +32,17 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<div class="wrapper" id="wrapper">
 
 		<div class="site-container" id="content" tabindex="-1" data-namespace="<?php echo get_current_template() ?>">
-			<div class="title"><a rel="home" class="nav-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><span class="">TvA</span></a></div>
+				<div class="nav-brand"><a rel="home" class="" href="<?php echo esc_url( home_url( '/' ) ); ?>"><span class="">TvA</span></a></div>
+				<div class="button projects"><a class="nav-toggle"><span class="">projects</span></a></div>
+
+				<?php
+					$args = array(
+						'post_type' => 'publication',
+						'order'			=> 'ASC'
+					);
+
+					$the_query = new WP_Query( $args );
+
+					if ( $the_query->have_posts() ) : ?>
+				<div class="button publications"><a class="nav-toggle"><span class="">publications</span></a></div>
+				<?php endif; wp_reset_query(); ?>
