@@ -418,7 +418,7 @@ h6, .h6 {
   line-height: 1.2;
 }
 
-.display-4, #main .main-contents .project-thumbnail .project-title {
+.display-4 {
   font-size: 3.5rem;
   font-weight: 300;
   line-height: 1.2;
@@ -11863,14 +11863,24 @@ a:hover {
 }
 
 figcaption {
+  display: table;
   white-space: normal;
-  font-family: "Favorit Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: "Para", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   text-align: left !important;
-  padding-left: 15px;
+  padding-left: 20px;
   background-image: none !important;
-  color: #0000ff !important;
+  color: #878787 !important;
   margin-bottom: 1em !important;
   margin-top: 0.5em !important;
+}
+figcaption:before {
+  content: "←";
+  display: table-cell;
+  font-family: "Favorit", "Helvetica Neue", sans-serif;
+  transform: scale(1.1) translateY(1px);
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 100%;
 }
 
 .bg-a, #main .about-me .left {
@@ -11887,7 +11897,6 @@ figcaption {
 .display-2,
 .display-3,
 .display-4,
-#main .main-contents .project-thumbnail .project-title,
 .display-5 {
   font-family: "neue-haas-grotesk-text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
@@ -12362,32 +12371,6 @@ article {
   text-align: center;
   text-indent: 0;
 }
-#main .main-contents .project-thumbnail .project-title {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  padding-left: 10px;
-}
-#main .main-contents .project-thumbnail .project-title span {
-  z-index: 30;
-  color: black;
-  opacity: 1;
-  transition: all 0.2s linear;
-}
-#main .main-contents .project-thumbnail figure {
-  position: relative;
-  z-index: 20;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 0;
-  padding-top: 66.64%;
-  margin: 50px 0;
-}
-#main .main-contents .project-thumbnail:hover .project-title span {
-  opacity: 1;
-  transform: translateY(2px);
-}
 
 #main-taxonomy .taxonomy-header {
   position: fixed;
@@ -12425,8 +12408,7 @@ article {
 .project-summary {
   grid-column-start: 2;
   grid-column-end: 11;
-  grid-row-start: 20;
-  grid-row: 20/span 20;
+  grid-row-start: 17;
 }
 
 .entry-content {
@@ -12484,6 +12466,7 @@ article {
 }
 .project-summary .summary-contents {
   align-self: center;
+  width: 100%;
 }
 .project-summary ul {
   margin-top: 10px;
@@ -12503,11 +12486,16 @@ article {
   color: #0000ff;
   font-size: 0.8em;
 }
+.project-summary ul li span {
+  color: #878787;
+}
 
 .entry-content {
+  position: relative;
   padding: 15px;
   padding-bottom: 80px;
   z-index: 10;
+  transform-style: preserve-3d;
 }
 @media (max-width: 768px) {
   .entry-content {
@@ -12516,6 +12504,9 @@ article {
 }
 .entry-content p + p {
   text-indent: 20px;
+}
+.entry-content p:first-of-type {
+  font-size: 1.2em;
 }
 .entry-content h1 {
   color: #292829;
@@ -12564,29 +12555,21 @@ article {
   font-weight: 300;
   font-size: 2rem;
 }
-.entry-content .wp-block-image {
-  z-index: -1;
+.entry-content .wp-block-image img {
   margin: 0;
-  width: 60%;
+  width: 80%;
   position: absolute;
-  margin-left: -50%;
-  transform: translateY(-100%);
-  border-top: 1px #292829 solid;
-  border-bottom: 1px #292829 solid;
+  margin-left: -65%;
+  -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
   object-fit: cover;
   padding: 0 !important;
   background-color: #FCFAF3;
   border: 1px solid #292829;
+  transform: translateZ(-10px) translateY(-50%);
 }
-.entry-content .wp-block-image img {
-  max-height: 115%;
-  max-width: auto;
-}
-.entry-content .wp-block-image.alignfull {
-  z-index: 6;
-}
-.entry-content .wp-block-image:hover {
-  z-index: 10;
+.entry-content .wp-block-image img:hover {
+  transform: translateZ(100px) translateY(-50%);
 }
 .entry-content .wp-block-separator {
   border-color: #292829;
