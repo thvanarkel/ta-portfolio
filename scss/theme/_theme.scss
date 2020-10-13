@@ -154,8 +154,8 @@ h1, h2, h3 {
 }
 
 h2 {
-  border-top: $border-width solid $black;
-  border-bottom: $border-width solid $black;
+  // border-top: $border-width solid $black;
+  // border-bottom: $border-width solid $black;
   margin: 0px -15px;
   padding: 15px;
 }
@@ -392,10 +392,13 @@ article {
   background-color: $white;
   // display: grid;
   h2 {
-    border-top: $border-width solid $black;
-    border-bottom: $border-width solid $black;
+    // border-top: $border-width solid $black;
+    // border-bottom: $border-width solid $black;
     margin: 0px -15px;
     padding: 15px;
+    &:first-of-type {
+      margin-top: 50px;
+    }
   }
   div {
     padding: 15px;
@@ -688,8 +691,8 @@ article {
     top: 0;
   }
   h2 {
-    border-top: $border-width solid $black;
-    border-bottom: $border-width solid $black;
+    // border-top: $border-width solid $black;
+    // border-bottom: $border-width solid $black;
     margin: 0px -15px;
     padding: 15px;
   }
