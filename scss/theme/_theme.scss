@@ -305,6 +305,24 @@ article {
 
 // FRONT PAGE
 
+nav {
+  position: absolute;
+  width: 30 * $grid-width + $grid-border-width;
+  left: 0; right: 0;
+  margin: 0 auto;
+  margin-top: $grid-width;
+  display: flex;
+  z-index: 100;
+  height: $grid-width;
+  justify-content: space-between;
+  .buttons {
+    display: flex;
+    flex-direction: row-reverse;
+    max-height: $grid-width;
+    padding-right: 2px;
+  }
+}
+
 .button {
   // margin-left: $grid-width + $grid-border-width;
   // margin-top: $grid-width + $grid-border-width;
@@ -315,10 +333,15 @@ article {
   // grid-column-end: 4;
   // grid-row-start: 3;
   // grid-row-end: 4;
+  border: $grid-border-width solid $border-color;
+  border-right: none;
+  border-bottom: none;
   line-height: 42px;
   font-family: $font-family-sans-serif;
   font-size: 0.9em;
   letter-spacing: 0.5px;
+  width: 3 * $grid-width;
+  margin-right: $grid-width;
 
   text-align: center;
   background-color: $white;
@@ -350,6 +373,9 @@ article {
 
 .nav-brand {
   @extend .button;
+  border-right: $grid-border-width $border-color solid;
+  margin-left: $grid-width;
+  width: 2 * $grid-width + $grid-border-width;
   grid-area: 2 / 2 / 3 / 4;
   font-size: 1.5em;
   line-height: normal;
