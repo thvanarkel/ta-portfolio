@@ -13,9 +13,6 @@ var breakpoints = {
 var layouted = false;
 
 
-
-
-
 jQuery(document).ready(function($) {
 
 
@@ -32,7 +29,7 @@ jQuery(document).ready(function($) {
   });
 
   $(window).load(function() {
-      autoHeight();
+      // autoHeight();
   })
 
   var autoHeight = function() {
@@ -47,7 +44,54 @@ jQuery(document).ready(function($) {
       var start = $(obj).css('grid-row-start')
       $(obj).css("grid-row", `${start} / span ${blocks}`);
     });
+
+    var end = 0;
+
+    $(".auto-footer").each(function() {
+      //$(this).
+      var blocks = 0;
+      if (end == 0) end = Math.floor($(".site-container").outerHeight() / 45);
+      console.log(end)
+      // console.log($(".site-container").outerHeight(true))
+      console.log($(this).css("grid-row"))
+      var span = $(this).css("grid-row")
+      span = span.match(/[0-9]+/g)
+      $(this).css("grid-row", `${end-3} / span ${span[(span.length-1)]}`);
+    })
   }
+
+  $('.button').on('click tap',  function(e) {
+    e.preventDefault();
+    // $target = $('.dark-mode-toggle');
+    // $('body').toggleClass('dark-mode');
+    // $icon = $target.find('span');
+    // if ($('body').hasClass('dark-mode')) {
+    //   $icon.removeClass('oi-moon');
+    //   $icon.addClass('oi-sun');
+    // } else {
+    //   $icon.removeClass('oi-sun');
+    //   $icon.addClass('oi-moon');
+    // }
+    // return false;
+    $(this).toggleClass("toggled");
+
+    if ($(this).hasClass("projects")) {
+      console.log($(this).hasClass("toggled"))
+      if ($(this).hasClass("toggled")) {
+        showAllCards();
+      } else {
+        hideAllCards();
+      }
+    } else if ($(this).hasClass("publications")) {
+      if ($(this).hasClass("toggled")) {
+        if (!$(".publications-card").hasClass('project-hidden')) {
+          $(".publications-card").removeClass('card-hidden');
+        }
+      } else {
+        $(".publications-card").addClass('card-hidden');
+      }
+    }
+  } );
 
   $.fn.infiniteScrollUp=function(){
     var self=this,kids=self.children()
@@ -462,7 +506,7 @@ jQuery(document).ready(function($) {
       // The new Container is ready and attached to the DOM.
       // layCards();
 
-      showAllCards();
+      hideAllCards();
       // splitTitles('.display-title');
       $('#nav').load(document.URL +  ' #nav');
       $.each($('.project-hidden'), function() {
