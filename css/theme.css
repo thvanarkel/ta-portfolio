@@ -11819,8 +11819,6 @@ h1, h2, h3 {
 }
 
 h2 {
-  border-top: 1px solid #292829;
-  border-bottom: 1px solid #292829;
   margin: 0px -15px;
   padding: 15px;
 }
@@ -12006,10 +12004,11 @@ article {
   background-color: #FCFAF3;
 }
 .site-about h2 {
-  border-top: 1px solid #292829;
-  border-bottom: 1px solid #292829;
   margin: 0px -15px;
   padding: 15px;
+}
+.site-about h2:first-of-type {
+  margin-top: 50px;
 }
 .site-about div {
   padding: 15px;
@@ -12299,8 +12298,6 @@ article {
   }
 }
 #main .about-me h2 {
-  border-top: 1px solid #292829;
-  border-bottom: 1px solid #292829;
   margin: 0px -15px;
   padding: 15px;
 }
