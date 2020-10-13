@@ -115,17 +115,6 @@ $container   = get_theme_mod( 'understrap_container_type' );
 		<?php endwhile; ?>
 
 	<?php endif; wp_reset_query(); ?>
-	<div class="content-card contact-card">
-		<div class="minimise"><span>●</span></div>
-		<p>Send me an email or follow me around the worldwide web.</p>
-		<ul class="">
-			<li class="primary"><a class="cursor-link" href="mailto:hello@thomasvanarkel.nl" cursor-text="✉️" cursor-text-size="40px" cursor-size="6">hello@thomasvanarkel.nl</a></li>
-			<li class="secondary"><a class="cursor-link" href="https://twitter.com/thvanarkel" cursor-text="🐦" cursor-text-size="40px" cursor-size="6">Tw</a></li>
-			<li class="secondary"><a class="cursor-link" href="https://nl.linkedin.com/in/thomas-van-arkel-01384468"  cursor-text-size="40px" cursor-text="👨🏻‍💼" cursor-size="6">Li</a></li>
-			<li class="secondary"><a class="cursor-link" href="https://vimeo.com/user43488666" cursor-text="📼" cursor-text-size="40px" cursor-size="6">Vi</a></li>
-			<li class="secondary"><a class="cursor-link" href="https://github.com/thvanarkel" cursor-text="👨🏻‍💻" cursor-text-size="40px" cursor-size="6" >Gi</a></li>
-		</ul>
-	</div>
 	<?php
 		$args = array(
 			'post_type' => 'publication',

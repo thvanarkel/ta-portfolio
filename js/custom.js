@@ -448,7 +448,7 @@ jQuery(document).ready(function($) {
     onEnter: function() {
       // The new Container is ready and attached to the DOM.
       // layCards();
-      autoHeight();
+
       showAllCards();
       // splitTitles('.display-title');
       $('#nav').load(document.URL +  ' #nav');
@@ -459,6 +459,7 @@ jQuery(document).ready(function($) {
     onEnterCompleted: function() {
       // The Transition has just finished.
       // splitTitles('.project-title');
+      autoHeight();
       $('.close-button').on('click tap',  function(e) {
         $('.about-me').toggleClass("collapsed");
       });
@@ -478,7 +479,7 @@ jQuery(document).ready(function($) {
     onEnter: function() {
       console.log("Will show project")
       // The new Container is ready and attached to the DOM.
-      autoHeight();
+
       $('.open-button').addClass("opened");
       createGalleries();
       createVideos();
@@ -491,6 +492,7 @@ jQuery(document).ready(function($) {
     onEnterCompleted: function() {
       // The Transition has just finished.
       // splitTitles('.display-title');
+      autoHeight();
     },
     onLeave: function() {
       // A new Transition toward a new page has just started.
@@ -509,7 +511,6 @@ jQuery(document).ready(function($) {
     namespace: "single-publication",
     onEnter: function() {
       console.log("Will show publication")
-      autoHeight();
       // The new Container is ready and attached to the DOM.
       $('.open-button').addClass("opened");
       createGalleries();
@@ -523,6 +524,7 @@ jQuery(document).ready(function($) {
     onEnterCompleted: function() {
       // The Transition has just finished.
       // splitTitles('.display-title');
+      autoHeight();
     },
     onLeave: function() {
       // A new Transition toward a new page has just started.
