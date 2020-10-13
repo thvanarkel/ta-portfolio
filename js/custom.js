@@ -28,9 +28,7 @@ jQuery(document).ready(function($) {
     // updateHeight();
   });
 
-  $(window).load(function() {
-      // autoHeight();
-  })
+
 
   var autoHeight = function() {
     $(".auto-space").each(function(i, obj) {
@@ -59,39 +57,6 @@ jQuery(document).ready(function($) {
       $(this).css("grid-row", `${end-3} / span ${span[(span.length-1)]}`);
     })
   }
-
-  $('.button').on('click tap',  function(e) {
-    e.preventDefault();
-    // $target = $('.dark-mode-toggle');
-    // $('body').toggleClass('dark-mode');
-    // $icon = $target.find('span');
-    // if ($('body').hasClass('dark-mode')) {
-    //   $icon.removeClass('oi-moon');
-    //   $icon.addClass('oi-sun');
-    // } else {
-    //   $icon.removeClass('oi-sun');
-    //   $icon.addClass('oi-moon');
-    // }
-    // return false;
-    $(this).toggleClass("toggled");
-
-    if ($(this).hasClass("projects")) {
-      console.log($(this).hasClass("toggled"))
-      if ($(this).hasClass("toggled")) {
-        showAllCards();
-      } else {
-        hideAllCards();
-      }
-    } else if ($(this).hasClass("publications")) {
-      if ($(this).hasClass("toggled")) {
-        if (!$(".publications-card").hasClass('project-hidden')) {
-          $(".publications-card").removeClass('card-hidden');
-        }
-      } else {
-        $(".publications-card").addClass('card-hidden');
-      }
-    }
-  } );
 
   $.fn.infiniteScrollUp=function(){
     var self=this,kids=self.children()
@@ -438,6 +403,51 @@ jQuery(document).ready(function($) {
     console.log("toggle")
   });
 
+
+
+
+  function registerButtons() {
+    $('.button').on('click tap',  function(e) {
+      e.preventDefault();
+      // $target = $('.dark-mode-toggle');
+      // $('body').toggleClass('dark-mode');
+      // $icon = $target.find('span');
+      // if ($('body').hasClass('dark-mode')) {
+      //   $icon.removeClass('oi-moon');
+      //   $icon.addClass('oi-sun');
+      // } else {
+      //   $icon.removeClass('oi-sun');
+      //   $icon.addClass('oi-moon');
+      // }
+      // return false;
+      $(this).toggleClass("toggled");
+
+      if ($(this).hasClass("projects")) {
+        console.log($(this).hasClass("toggled"))
+        if ($(this).hasClass("toggled")) {
+          showAllCards();
+        } else {
+          hideAllCards();
+        }
+      } else if ($(this).hasClass("publications")) {
+        if ($(this).hasClass("toggled")) {
+          if (!$(".publications-card").hasClass('project-hidden')) {
+            $(".publications-card").removeClass('card-hidden');
+          }
+        } else {
+          $(".publications-card").addClass('card-hidden');
+        }
+      }
+    } );
+  }
+
+  registerButtons();
+
+  $(window).load(function() {
+      // autoHeight();
+
+  })
+
   // var splitTitles = function(t) {
   //   $(t).each(function() {
   //     $this = $(this);
@@ -544,6 +554,7 @@ jQuery(document).ready(function($) {
       if($(window).width() < breakpoints["sm"]) {
         $('.card-stack').addClass("hidden");
       }
+      $('.button.projects').removeClass("toggled");
       window.scrollTo(0,0)
     },
     onEnterCompleted: function() {
