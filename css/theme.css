@@ -601,7 +601,7 @@ pre code {
 .col-xl,
 .col-xl-auto, .col-xl-12, .col-xl-11, .col-xl-10, .col-xl-9, .col-xl-8, .col-xl-7, .col-xl-6, .col-xl-5, .col-xl-4, .col-xl-3, .col-xl-2, .col-xl-1, .col-lg,
 .col-lg-auto, .col-lg-12, .col-lg-11, .col-lg-10, .col-lg-9, .col-lg-8, .col-lg-7, .col-lg-6, .col-lg-5, .col-lg-4, .col-lg-3, .col-lg-2, .col-lg-1, .col-md,
-.col-md-auto, .col-md-12, .wp-block-file, .entry-content .gallery.fullscreen, .entry-content .gallery, .entry-content .wp-block-embed-vimeo, .entry-content .wp-block-separator, .entry-content h1, .entry-content p, #main .about-me .hero, #main .about-me .about-block.w-12, .col-md-11, .col-md-10, #main .about-me .about-block.w-10, .col-md-9, .col-md-8, #main-taxonomy .projects, #main .about-me .about-block.w-8, .col-md-7, .col-md-6, #main-taxonomy .taxonomy-header, #main .about-me .about-block.w-6, .col-md-5, .col-md-4, .site-footer .details, .project-details .project-detail, #main .about-me .marquee, #main .about-me .about-block.w-4, .col-md-3, .col-md-2, #main .about-me .about-block.w-2, .col-md-1, .col-sm,
+.col-md-auto, .col-md-12, .wp-block-file, .entry-content .wp-block-embed-vimeo, .entry-content .wp-block-separator, .entry-content h1, .entry-content p, #main .about-me .hero, #main .about-me .about-block.w-12, .col-md-11, .col-md-10, #main .about-me .about-block.w-10, .col-md-9, .col-md-8, #main-taxonomy .projects, #main .about-me .about-block.w-8, .col-md-7, .col-md-6, #main-taxonomy .taxonomy-header, #main .about-me .about-block.w-6, .col-md-5, .col-md-4, .site-footer .details, .project-details .project-detail, #main .about-me .marquee, #main .about-me .about-block.w-4, .col-md-3, .col-md-2, #main .about-me .about-block.w-2, .col-md-1, .col-sm,
 .col-sm-auto, .col-sm-12, .col-sm-11, .col-sm-10, .col-sm-9, .col-sm-8, .col-sm-7, .col-sm-6, .col-sm-5, .col-sm-4, .col-sm-3, .col-sm-2, .col-sm-1, .col,
 .col-auto, .col-12, .col-11, .col-10, .col-9, .col-8, .col-7, .col-6, .col-5, .col-4, .col-3, .col-2, .col-1 {
   position: relative;
@@ -1036,7 +1036,7 @@ pre code {
     max-width: 91.6666666667%;
   }
 
-  .col-md-12, .wp-block-file, .entry-content .gallery.fullscreen, .entry-content .gallery, .entry-content .wp-block-embed-vimeo, .entry-content .wp-block-separator, .entry-content h1, .entry-content p, #main .about-me .hero, #main .about-me .about-block.w-12 {
+  .col-md-12, .wp-block-file, .entry-content .wp-block-embed-vimeo, .entry-content .wp-block-separator, .entry-content h1, .entry-content p, #main .about-me .hero, #main .about-me .about-block.w-12 {
     flex: 0 0 100%;
     max-width: 100%;
   }
@@ -5997,7 +5997,7 @@ button.bg-dark:focus {
   align-self: flex-end !important;
 }
 
-.align-self-center, .entry-content p {
+.align-self-center {
   align-self: center !important;
 }
 
@@ -7056,7 +7056,7 @@ button.bg-dark:focus {
   margin-bottom: auto !important;
 }
 
-.ml-auto, .entry-content p,
+.ml-auto,
 .mx-auto {
   margin-left: auto !important;
 }
@@ -11866,6 +11866,7 @@ figcaption {
   display: table;
   white-space: normal;
   font-family: "Para", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1.3rem !important;
   text-align: left !important;
   padding-left: 20px;
   background-image: none !important;
@@ -12407,12 +12408,12 @@ article {
 
 .project-summary {
   grid-column-start: 2;
-  grid-column-end: 11;
+  grid-column-end: 12;
   grid-row-start: 17;
 }
 
 .entry-content {
-  grid-column-start: 13;
+  grid-column-start: 15;
   grid-column-end: 30;
   grid-row: 11/span 100;
 }
@@ -12488,6 +12489,7 @@ article {
 }
 .project-summary ul li span {
   color: #878787;
+  margin-right: 50px;
 }
 
 .entry-content {
@@ -12501,6 +12503,9 @@ article {
   .entry-content {
     margin-top: 0;
   }
+}
+.entry-content p {
+  margin-top: 50px;
 }
 .entry-content p + p {
   text-indent: 20px;
@@ -12557,19 +12562,20 @@ article {
 }
 .entry-content .wp-block-image img {
   margin: 0;
-  width: 80%;
+  width: 110%;
+  max-width: none;
   position: absolute;
-  margin-left: -65%;
+  margin-left: -92.5%;
   -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
   object-fit: cover;
   padding: 0 !important;
   background-color: #FCFAF3;
   border: 1px solid #292829;
-  transform: translateZ(-10px) translateY(-50%);
+  transform: translateZ(-10px) translateY(-25px);
 }
 .entry-content .wp-block-image img:hover {
-  transform: translateZ(100px) translateY(-50%);
+  transform: translateZ(100px) translateY(-25px);
 }
 .entry-content .wp-block-separator {
   border-color: #292829;
@@ -12639,57 +12645,78 @@ article {
   bottom: 0;
   transform: translateY(40px);
 }
-.entry-content .gallery {
-  position: relative;
-  margin-top: 70px;
-  margin-bottom: 50px;
+.entry-content .wp-block-gallery {
+  padding-left: 20px;
+}
+.entry-content .wp-block-gallery .blocks-gallery-item {
   background-color: #FCFAF3;
+  height: auto;
+  width: 100%;
+  background: none !important;
+  margin: 0;
+  margin-bottom: 10px;
 }
-.entry-content .gallery.fullscreen li:first-child {
-  z-index: 6 !important;
-}
-.entry-content .gallery p {
-  margin-top: -70px;
-  font-size: 3rem;
-  text-align: right;
-  color: #0000ff;
-  background-color: #FCFAF3;
-}
-.entry-content .gallery .wp-block-gallery {
-  height: 50vh;
+.entry-content .wp-block-gallery .blocks-gallery-item figure {
+  display: inline;
+  width: 100%;
   overflow: hidden;
-  white-space: nowrap;
 }
-.entry-content .gallery .wp-block-gallery.fullscreen {
-  height: calc(100vh - 200px);
-}
-.entry-content .gallery .wp-block-gallery li {
+.entry-content .wp-block-gallery .blocks-gallery-item figure img {
+  object-fit: cover;
+  margin: 0;
+  margin-top: 5px;
+  width: 630px;
+  height: 405px;
   position: absolute;
-  z-index: 0;
-  width: 100% !important;
-  height: 100% !important;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
+  object-fit: cover;
+  padding: 0 !important;
+  background-color: #FCFAF3;
+  border: 1px solid #292829;
+}
+.entry-content .wp-block-gallery .blocks-gallery-item figure img:hover {
+  transform: translateZ(100px) translateY(-25px) translateX(-95%);
+  opacity: 1;
+}
+.entry-content .wp-block-gallery .blocks-gallery-item figure figcaption {
+  display: table;
+  position: relative;
+  padding: 0;
+  overflow: hidden;
   margin: 0 !important;
 }
-.entry-content .gallery .wp-block-gallery .blocks-gallery-item {
-  background-color: #FCFAF3;
+.entry-content .wp-block-gallery .blocks-gallery-item:nth-child(1) img {
+  transform: translateZ(-1px) translateY(-25px) translateX(-95%);
 }
-.entry-content .gallery .wp-block-gallery .blocks-gallery-item img {
-  object-fit: cover;
+.entry-content .wp-block-gallery .blocks-gallery-item:nth-child(2) img {
+  transform: translateZ(-2px) translateY(-25px) translateX(-95%);
 }
-.entry-content .gallery .wp-block-gallery .blocks-gallery-item:first-child {
-  z-index: 1;
+.entry-content .wp-block-gallery .blocks-gallery-item:nth-child(3) img {
+  transform: translateZ(-3px) translateY(-25px) translateX(-95%);
 }
-.entry-content .gallery .wp-block-gallery .blocks-gallery-item figcaption {
-  padding: 0;
-  padding-top: 0.5em;
-  padding-left: 15px;
-  transform: translateY(100%);
-  background-color: white;
+.entry-content .wp-block-gallery .blocks-gallery-item:nth-child(4) img {
+  transform: translateZ(-4px) translateY(-25px) translateX(-95%);
 }
-.entry-content .gallery .wp-block-gallery.contain img {
+.entry-content .wp-block-gallery .blocks-gallery-item:nth-child(5) img {
+  transform: translateZ(-5px) translateY(-25px) translateX(-95%);
+}
+.entry-content .wp-block-gallery .blocks-gallery-item:nth-child(6) img {
+  transform: translateZ(-6px) translateY(-25px) translateX(-95%);
+}
+.entry-content .wp-block-gallery .blocks-gallery-item:nth-child(7) img {
+  transform: translateZ(-7px) translateY(-25px) translateX(-95%);
+}
+.entry-content .wp-block-gallery .blocks-gallery-item:nth-child(8) img {
+  transform: translateZ(-8px) translateY(-25px) translateX(-95%);
+}
+.entry-content .wp-block-gallery .blocks-gallery-item:nth-child(9) img {
+  transform: translateZ(-9px) translateY(-25px) translateX(-95%);
+}
+.entry-content .wp-block-gallery .blocks-gallery-item:nth-child(10) img {
+  transform: translateZ(-10px) translateY(-25px) translateX(-95%);
+}
+.entry-content .wp-block-gallery.contain img {
   object-fit: contain;
 }
 

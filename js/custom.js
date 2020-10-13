@@ -134,33 +134,46 @@ jQuery(document).ready(function($) {
   } );
 
   var createGalleries = function() {
-    $.each( $('.wp-block-gallery'), function() {
-      $e = $(this);
-      if ($e.hasClass('fullscreen')) {
-        $e.wrap("<div class='gallery fullscreen'></div>");
-      } else {
-        $e.wrap("<div class='gallery'></div>");
-      }
-      // $e.addClass('cursor-link');
-      if (!$e.attr('index')) $e.attr('index', '0');
-      $('<p class="slider-index">1/2</p>').insertBefore($e);
-      $e.parents('.gallery').find('p').text(1 + "/" + $e.find('li').length);
-      $e.on('click tap', function(e) {
-        $target = $(e.target).parents('ul');
-        let index = parseInt($target.attr('index'));
-        $i = $target.find('li').eq(index);
-        $i.css('z-index', '0');
-        index = index + 1;
-        if (index == $target.find('li').length) index = 0;
-        $target.attr('index', index);
-        $nI = $target.find('li').eq(index);
-        if($target.parent().hasClass('fullscreen')) {
-          $nI.css('z-index', '6');
-        } else {
-          $nI.css('z-index', '1');
-        }
-        $target.parents('.gallery').find('p').text((index + 1) + "/" + $target.find('li').length);
-      });
+  //   $.each( $('.wp-block-gallery'), function() {
+  //     $e = $(this);
+  //     if ($e.hasClass('fullscreen')) {
+  //       $e.wrap("<div class='gallery fullscreen'></div>");
+  //     } else {
+  //       $e.wrap("<div class='gallery'></div>");
+  //     }
+  //     // $e.addClass('cursor-link');
+  //     if (!$e.attr('index')) $e.attr('index', '0');
+  //     $('<p class="slider-index">1/2</p>').insertBefore($e);
+  //     $e.parents('.gallery').find('p').text(1 + "/" + $e.find('li').length);
+  //     $e.on('click tap', function(e) {
+  //       $target = $(e.target).parents('ul');
+  //       let index = parseInt($target.attr('index'));
+  //       $i = $target.find('li').eq(index);
+  //       $i.css('z-index', '0');
+  //       index = index + 1;
+  //       if (index == $target.find('li').length) index = 0;
+  //       $target.attr('index', index);
+  //       $nI = $target.find('li').eq(index);
+  //       if($target.parent().hasClass('fullscreen')) {
+  //         $nI.css('z-index', '6');
+  //       } else {
+  //         $nI.css('z-index', '1');
+  //       }
+  //       $target.parents('.gallery').find('p').text((index + 1) + "/" + $target.find('li').length);
+  //     });
+  //   });
+    $('.wp-block-gallery').each(function() {
+      $gallery = $(this);
+      $gallery.find(".blocks-gallery-item").each(function(i, obj) {
+        $(obj).find("figure").css("width", `calc(100% - ${i * 45}px)`)
+        console.log(obj)
+        // $(obj).css("top", `${i*25}px`);
+        $(obj).css("left", `${i*45}px`)
+
+        console.log($(obj).find("img").css("transform"))
+        // $(obj).find("img").css("transform", `translateZ(${i}px)`)
+      })
+
     });
   }
 
