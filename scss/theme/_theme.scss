@@ -405,8 +405,8 @@ nav {
 }
 
 .site-about {
-  grid-column-start: 14;
-  grid-column-end: 29;
+  grid-column-start: 15;
+  grid-column-end: 30;
   grid-row-start: 6;
   grid-row: 6 / span 10;
   align-self: stretch;
@@ -1054,8 +1054,8 @@ article {
 
 .project-summary {
   display: flex;
-  padding: 10px;
-  padding-top: 20px;
+  padding: 15px;
+  // padding-top: 20px;
   .summary-contents {
     align-self: center;
     width: 100%;
@@ -1261,50 +1261,17 @@ article {
 
 
 
-  .wp-block-embed-vimeo {
-    // display: none;
-    @extend .col-md-12;
-    padding: 0;
-    margin-bottom: 50px;
-    .player-link:hover {
-      &:hover {
-        svg {
-          transform: translateX(10px);
-        }
-      }
-
-    }
-    &.playing {
-      svg {
-        opacity: 0;
-      }
-      .player-placeholder {
-        opacity: 0;
-      }
-    }
-    svg {
-      position: absolute;
-      z-index: 11;
-      opacity: 1.0;
-      width: 10%;
-      margin: auto;
-      top: 0; left: 0; bottom: 0; right: 0;
-      transition: all 0.2s linear;
-      rect {
-        fill: $white;
-      }
-    }
-    .player-placeholder {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      opacity: 0.8;
-      backdrop-filter: blur(3px);
-      z-index: 10;
-      background-color: $color-highlight;
-      transition: all 0.2s linear;
-    }
+  .wp-block-embed.is-type-video {
+    padding: 50px 0;
     .wp-block-embed__wrapper {
       position: relative;
+      margin: 0;
+      margin-left: -60%;
+      -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
+      object-fit: cover;
+      background-color: $white;
+      border: $border-width solid $border-color;
       padding-bottom: 56.25%;
       height: 0;
       z-index: 0;
@@ -1321,10 +1288,10 @@ article {
     figcaption {
       padding: 0;
       padding-left: 15px;
-      padding-top: 0.5em;
-      position: absolute;
-      bottom: 0;
-      transform: translateY(40px);
+      // padding-top: 0.5em;
+      // position: absolute;
+      // bottom: 0;
+      transform: translateY(0px);
       // position: absolute;
       // padding: 0;
       // white-space: normal;
@@ -1334,6 +1301,9 @@ article {
       // background-image: none;
       // background-color: white;
       // color: $color-highlight;
+      &:before {
+        content: "↖︎";
+      }
     }
   }
 
