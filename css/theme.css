@@ -2,9 +2,17 @@
 @font-face {
   font-family: "Favorit";
   src: url("../fonts/Favorit-Light.eot");
-  src: local("Favorit Light"), local("../fonts/Favorit-Light"), url("../fonts/Favorit-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/Favorit-Light.woff2") format("woff2"), url("../fonts/Favorit-Light.woff") format("woff"), url("../fonts/Favorit-Light.ttf") format("truetype"), url("../fonts/Favorit-Light.svg#../fonts/Favorit-Light") format("svg");
+  src: local("Favorit Light"), local("../fonts/Favorit-Light"), url("../fonts/Favorit-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/Favorit-Light.woff2") format("woff2"), url("../fonts/Favorit-Light.woff") format("woff"), url("../fonts/Favorit-Light.ttf") format("truetype"), url("../fonts/Favorit-Light.svg#Favorit-Light") format("svg");
   font-weight: 300;
   font-style: normal;
+}
+@font-face {
+  font-family: "Para";
+  src: url("../fonts/Para-LightCentral.eot");
+  src: local("Para Light Central"), local("../fonts/Para-LightCentral"), url("../fonts/Para-LightCentral.eot?#iefix") format("embedded-opentype"), url("../fonts/Para-LightCentral.woff2") format("woff2"), url("../fonts/Para-LightCentral.woff") format("woff"), url("../fonts/Para-LightCentral.ttf") format("truetype"), url("../fonts/Para-LightCentral.svg#Para-LightCentral") format("svg");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 /*!
  * Bootstrap v4.1.0 (https://getbootstrap.com/)
@@ -11813,6 +11821,12 @@ a.skip-link {
   display: block;
 }
 
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 h1, h2, h3 {
   font-family: "Para", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 200;
@@ -11829,12 +11843,6 @@ h2 {
 
 .hidden {
   display: none !important;
-}
-
-html, body {
-  height: 100%;
-  padding: 0;
-  margin: 0;
 }
 
 body {
