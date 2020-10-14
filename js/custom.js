@@ -54,7 +54,7 @@ jQuery(document).ready(function($) {
       console.log($(this).css("grid-row"))
       var span = $(this).css("grid-row")
       span = span.match(/[0-9]+/g)
-      $(this).css("grid-row", `${end-3} / span ${span[(span.length-1)]}`);
+      $(this).css("grid-row", `${end+1} / span ${span[(span.length-1)]}`);
     })
   }
 
@@ -184,35 +184,6 @@ jQuery(document).ready(function($) {
       })
 
     });
-  }
-
-  var createVideos = function() {
-    $.each( $('.wp-block-embed-vimeo'), function() {
-      $e = $(this);
-      svg = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 11 21\"><title>Asset 1</title><g id=\"Layer_2\" data-name=\"Layer 2\"><g id=\"Layer_1-2\" data-name=\"Layer 1\"><rect width=\"1\" height=\"21\"/><rect x=\"1\" y=\"19\" width=\"1\" height=\"1\"/><rect x=\"2\" y=\"18\" width=\"1\" height=\"1\"/><rect x=\"3\" y=\"17\" width=\"1\" height=\"1\"/><rect x=\"4\" y=\"16\" width=\"1\" height=\"1\"/><rect x=\"5\" y=\"15\" width=\"1\" height=\"1\"/><rect x=\"6\" y=\"14\" width=\"1\" height=\"1\"/><rect x=\"7\" y=\"13\" width=\"1\" height=\"1\"/><rect x=\"1\"y=\"1\" width=\"1\" height=\"1\"/><rect x=\"2\" y=\"2\" width=\"1\" height=\"1\"/><rect x=\"3\" y=\"3\" width=\"1\" height=\"1\"/><rect x=\"4\" y=\"4\" width=\"1\" height=\"1\"/><rect x=\"5\" y=\"5\" width=\"1\" height=\"1\"/><rect x=\"6\" y=\"6\" width=\"1\" height=\"1\"/><rect x=\"7\" y=\"7\" width=\"1\" height=\"1\"/><rect x=\"8\" y=\"8\" width=\"1\" height=\"1\"/><rect x=\"8\" y=\"12\" width=\"1\" height=\"1\"/><rect x=\"9\" y=\"11\" width=\"1\" height=\"1\"/><rect x=\"9\" y=\"9\" width=\"1\" height=\"1\"/><rect x=\"10\" y=\"10\" width=\"1\" height=\"1\"/></g></g></svg>"
-      $e.prepend("<a class='player-link'>" + svg + "<div class='player-placeholder'></div></a>");
-      $i = $e.find('iframe');
-      src = $i.attr('src');
-      src = src.substring(0, src.indexOf('?'));
-      src = src + "?title=0&byline=0&portrait=0&sidedock=0";
-      $i.attr('src', src);
-      $( '#iframe' ).attr( 'src', function ( i, val ) { return val; });
-
-      var iframe = document.querySelector('iframe');
-
-      var player = new Vimeo.Player(iframe);
-
-      $link = $e.find('a');
-      $link.on('click tap', function(e) {
-        $e.toggleClass('playing');
-        if ($e.hasClass('playing')) {
-          player.play();
-        } else {
-          player.pause();
-        }
-      });
-    });
-
   }
 
   var lockScroll = function() {
@@ -549,7 +520,6 @@ jQuery(document).ready(function($) {
 
       $('.open-button').addClass("opened");
       createGalleries();
-      createVideos();
       hideAllCards();
       if($(window).width() < breakpoints["sm"]) {
         $('.card-stack').addClass("hidden");
@@ -582,7 +552,6 @@ jQuery(document).ready(function($) {
       // The new Container is ready and attached to the DOM.
       $('.open-button').addClass("opened");
       createGalleries();
-      createVideos();
       hideAllCards();
       if($(window).width() < breakpoints["sm"]) {
         $('.card-stack').addClass("hidden");
