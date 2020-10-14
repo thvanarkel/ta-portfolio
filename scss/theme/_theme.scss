@@ -325,7 +325,7 @@ nav {
     grid-area: 30 / 2 / span 8 / span 9;
   }
   @include respond-below(lg) {
-    grid-area: 30 / 9 / span 8 / span 13;
+    grid-area: 30 / 2 / span 8 / span 13;
   }
   @include respond-below(md) {
     grid-column-start: 2;
@@ -620,24 +620,54 @@ nav {
   grid-column-start: 2;
   grid-column-end: 20;
   grid-row: 4 / span 12;
+  @include respond-below(xl) {
+    grid-column-end: 18;
+    grid-row: 4 / span 11;
+  }
+  @include respond-below(lg) {
+    grid-row-start: 12;
+    grid-row: 4 / span 9;
+  }
 }
 
 .project-summary {
   grid-column-start: 2;
   grid-column-end: 12;
-  grid-row-start: 17;
+  grid-row-start: 18;
+  @include respond-below(xl) {
+    grid-row-start: 17;
+    grid-column-end: 12;
+  }
+  @include respond-below(lg) {
+    grid-row-start: 15;
+    grid-column-end: 8;
+  }
+  @include respond-below(md) {
+    grid-row-start: 15;
+    grid-column-start: 1;
+    grid-column-end: 7;
+  }
 }
 
-// grid-column-start: 14;
-// grid-column-end: 29;
-// grid-row-start: 6;
-// grid-row: 6 / span 10;
-// align-self: stretch;
-
 .entry-content {
-  grid-column-start: 15;
-  grid-column-end: 30;
+  grid-column-start: 0.5 * $max-columns;
+  grid-column-end: $max-columns;
   grid-row: 11 / span 100;
+  @include respond-below(xl) {
+    grid-row-start: 11;
+    grid-column-start: 0.5 * $xl-columns;
+    grid-column-end: $xl-columns;
+  }
+  @include respond-below(lg) {
+    grid-row-start: 11;
+    grid-column-start: 0.5 * $lg-columns - 2;
+    grid-column-end: $lg-columns;
+  }
+  @include respond-below(md) {
+    grid-row-start: 11;
+    grid-column-start: 8;
+    grid-column-end: span 11;
+  }
 }
 
 .project-detail {
@@ -737,6 +767,9 @@ article {
       width: 100%;
       margin-bottom: 1px;
       text-align: right;
+      @include respond-below(lg) {
+        font-size: 0.8em;
+      }
       a {
         padding-top: 3px;
         font-family: $font-family-mono;
@@ -746,18 +779,20 @@ article {
       span {
         color: $dark-gray;
         margin-right: 50px;
+        @include respond-below(lg) {
+          margin-right: 15px;
+        }
       }
+    }
+  }
+  @include respond-below(lg) {
+    h3 {
+      font-size: 1.4em;
     }
   }
 }
 
 .entry-content {
-  // @extend .d-flex;
-  // flex-wrap: wrap;
-  // @extend .justify-content-end;
-  // @extend .align-items-center;
-  // @extend .col-md-7;
-  // @extend .offset-md-5;
   position: relative;
   padding: 15px;
   padding-bottom: 80px;
@@ -791,6 +826,9 @@ article {
     color: $black;
     font-size: 4.3rem;
     z-index: 8;
+    @include respond-below(xl) {
+      font-size: 3.5rem;
+    }
   }
 
   // .divider {
