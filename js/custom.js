@@ -7,21 +7,48 @@ var breakpoints = {
   "sm": 768,
   "md": 992,
   "lg": 1200,
-  "xl": 1450
+  "xl": 1450,
+  "inf": 999999999999
 };
 
 var layouted = false;
 
 
 jQuery(document).ready(function($) {
+
+  function getNextHighest(obj, value) {
+    var diff = Infinity;
+    return Object.keys(obj).reduce(function(acc, key) {
+      var d = obj[key] - value;
+      if (d > 0 && d < diff) {
+  	  diff = d;
+  	  acc = [key];
+  	} else if (d == diff) {
+  	  acc.push(key)
+  	}
+  	return acc;
+    }, [])
+  }
+
+  console.log(getNextHighest(breakpoints, 1500))
+
+
+  var lastBreakpoint = "inf";
   $( window ).resize(function() {
-    if ($(window).width() > breakpoints["sm"] && !layouted) {
+    var width = $(window).width();
+    if (width > breakpoints["sm"] && !layouted) {
       console.log("relayout");
       layCards(); // TODO: only do this once!
       layouted = true;
-    } else if ($(window).width() < breakpoints["sm"]) {
+    } else if (width < breakpoints["sm"]) {
       $('.content-card').css("transform","");
       layouted = false;
+    }
+    var current = getNextHighest(breakpoints, width)[0];
+    if (lastBreakpoint !== current) {
+      console.log("breakpoint changed")
+      blocksEnd = 0;
+      lastBreakpoint = current;
     }
     updateLayout();
   });
@@ -37,22 +64,21 @@ jQuery(document).ready(function($) {
         height += $(this).outerHeight(true) - $(this).outerHeight();
       })
       var blocks = Math.floor(height / 45) + 1;
-      var start = $(obj).css('grid-row-start')
-      $(obj).css("grid-row", `${start} / span ${blocks}`);
+      $(obj).css("grid-row-end", `span ${blocks}`);
     });
 
     $(".auto-footer").each(function() {
       //$(this).
       var blocks = 0;
       if (blocksEnd == 0) {
-        console.log($(".site-container").outerHeight())
+        $(".auto-footer").toggleClass("hidden");
         blocksEnd = Math.floor($(".site-container").outerHeight() / 45);
+        $(".auto-footer").toggleClass("hidden");
       }
       var span = $(this).css("grid-row")
       span = span.match(/[0-9]+/g)
       $(this).css("grid-row", `${blocksEnd+1} / span ${span[(span.length-1)]}`);
     })
-    console.log("updated grid")
   }
 
   var updateLayout = function() {

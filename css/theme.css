@@ -12121,7 +12121,7 @@ nav .buttons {
 }
 @media (max-width: 1200px) {
   .site-contact {
-    grid-area: 30/9/span 8/span 13;
+    grid-area: 30/2/span 8/span 13;
   }
 }
 @media (max-width: 992px) {
@@ -12413,17 +12413,69 @@ nav .buttons {
   grid-column-end: 20;
   grid-row: 4/span 12;
 }
+@media (max-width: 1450px) {
+  .project-thumbnail {
+    grid-column-end: 18;
+    grid-row: 4/span 11;
+  }
+}
+@media (max-width: 1200px) {
+  .project-thumbnail {
+    grid-row-start: 12;
+    grid-row: 4/span 9;
+  }
+}
 
 .project-summary {
   grid-column-start: 2;
   grid-column-end: 12;
-  grid-row-start: 17;
+  grid-row-start: 18;
+}
+@media (max-width: 1450px) {
+  .project-summary {
+    grid-row-start: 17;
+    grid-column-end: 12;
+  }
+}
+@media (max-width: 1200px) {
+  .project-summary {
+    grid-row-start: 15;
+    grid-column-end: 8;
+  }
+}
+@media (max-width: 992px) {
+  .project-summary {
+    grid-row-start: 15;
+    grid-column-start: 1;
+    grid-column-end: 7;
+  }
 }
 
 .entry-content {
   grid-column-start: 15;
   grid-column-end: 30;
   grid-row: 11/span 100;
+}
+@media (max-width: 1450px) {
+  .entry-content {
+    grid-row-start: 11;
+    grid-column-start: 13;
+    grid-column-end: 26;
+  }
+}
+@media (max-width: 1200px) {
+  .entry-content {
+    grid-row-start: 11;
+    grid-column-start: 9;
+    grid-column-end: 22;
+  }
+}
+@media (max-width: 992px) {
+  .entry-content {
+    grid-row-start: 11;
+    grid-column-start: 8;
+    grid-column-end: span 11;
+  }
 }
 
 .project-detail.skills {
@@ -12495,6 +12547,11 @@ article {
   margin-bottom: 1px;
   text-align: right;
 }
+@media (max-width: 1200px) {
+  .project-summary ul li {
+    font-size: 0.8em;
+  }
+}
 .project-summary ul li a {
   padding-top: 3px;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -12504,6 +12561,16 @@ article {
 .project-summary ul li span {
   color: #878787;
   margin-right: 50px;
+}
+@media (max-width: 1200px) {
+  .project-summary ul li span {
+    margin-right: 15px;
+  }
+}
+@media (max-width: 1200px) {
+  .project-summary h3 {
+    font-size: 1.4em;
+  }
 }
 
 .entry-content {
@@ -12531,6 +12598,11 @@ article {
   color: #292829;
   font-size: 4.3rem;
   z-index: 8;
+}
+@media (max-width: 1450px) {
+  .entry-content h1 {
+    font-size: 3.5rem;
+  }
 }
 .entry-content h4 {
   font-size: 1.3rem;
