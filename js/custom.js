@@ -14,8 +14,6 @@ var layouted = false;
 
 
 jQuery(document).ready(function($) {
-
-
   $( window ).resize(function() {
     if ($(window).width() > breakpoints["sm"] && !layouted) {
       console.log("relayout");
@@ -25,10 +23,10 @@ jQuery(document).ready(function($) {
       $('.content-card').css("transform","");
       layouted = false;
     }
-    // updateHeight();
+    updateLayout();
   });
 
-
+  var blocksEnd = 0;
 
   var autoHeight = function() {
     $(".auto-space").each(function(i, obj) {
@@ -43,18 +41,30 @@ jQuery(document).ready(function($) {
       $(obj).css("grid-row", `${start} / span ${blocks}`);
     });
 
-    var end = 0;
-
     $(".auto-footer").each(function() {
       //$(this).
       var blocks = 0;
-      if (end == 0) end = Math.floor($(".site-container").outerHeight() / 45);
+      if (blocksEnd == 0) {
+        console.log($(".site-container").outerHeight())
+        blocksEnd = Math.floor($(".site-container").outerHeight() / 45);
+      }
       var span = $(this).css("grid-row")
       span = span.match(/[0-9]+/g)
-      $(this).css("grid-row", `${end+1} / span ${span[(span.length-1)]}`);
+      $(this).css("grid-row", `${blocksEnd+1} / span ${span[(span.length-1)]}`);
     })
     console.log("updated grid")
   }
+
+  var updateLayout = function() {
+    if ($(window).width() < breakpoints["lg"]) {
+      $(".site-contact").addClass("auto-footer")
+    } else {
+      $(".site-contact").removeClass("auto-footer");
+      $(".site-contact").css("grid-row", "");
+    }
+    autoHeight();
+  }
+  updateLayout();
 
   $.fn.infiniteScrollUp=function(){
     var self=this,kids=self.children()
@@ -498,6 +508,7 @@ jQuery(document).ready(function($) {
       // A new Transition toward a new page has just started.
       // splitTitles('.project-title');
       $('.open-button').addClass('opened');
+      blocksEnd = 0;
     },
     onLeaveCompleted: function() {
       // The Container has just been removed from the DOM.
@@ -517,7 +528,7 @@ jQuery(document).ready(function($) {
         $('.card-stack').addClass("hidden");
       }
       $('.button.projects').removeClass("toggled");
-      window.scrollTo(0,0)
+      window.scrollTo(0,0);
     },
     onEnterCompleted: function() {
       // The Transition has just finished.
@@ -531,6 +542,7 @@ jQuery(document).ready(function($) {
       if($(window).width() < breakpoints["sm"]) {
         $('.card-stack').removeClass("hidden");
       }
+      blocksEnd = 0;
     },
     onLeaveCompleted: function() {
       // The Container has just been removed from the DOM.
@@ -562,6 +574,7 @@ jQuery(document).ready(function($) {
       if($(window).width() < breakpoints["sm"]) {
         $('.card-stack').removeClass("hidden");
       }
+      blocksEnd = 0;
     },
     onLeaveCompleted: function() {
       // The Container has just been removed from the DOM.
