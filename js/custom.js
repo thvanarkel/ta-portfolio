@@ -49,13 +49,11 @@ jQuery(document).ready(function($) {
       //$(this).
       var blocks = 0;
       if (end == 0) end = Math.floor($(".site-container").outerHeight() / 45);
-      console.log(end)
-      // console.log($(".site-container").outerHeight(true))
-      console.log($(this).css("grid-row"))
       var span = $(this).css("grid-row")
       span = span.match(/[0-9]+/g)
       $(this).css("grid-row", `${end+1} / span ${span[(span.length-1)]}`);
     })
+    console.log("updated grid")
   }
 
   $.fn.infiniteScrollUp=function(){
@@ -178,8 +176,6 @@ jQuery(document).ready(function($) {
         console.log(obj)
         // $(obj).css("top", `${i*25}px`);
         $(obj).css("left", `${i*45}px`)
-
-        console.log($(obj).find("img").css("transform"))
         // $(obj).find("img").css("transform", `translateZ(${i}px)`)
       })
 
@@ -368,10 +364,7 @@ jQuery(document).ready(function($) {
   }
 
   $('.project-summary').on('click tap', function(e) {
-    // e.target.toggleClass("collapsed");
     $('.project-summary').toggleClass("show")
-    console.log($(e.target))
-    console.log("toggle")
   });
 
 
@@ -394,7 +387,6 @@ jQuery(document).ready(function($) {
       $(this).toggleClass("toggled");
 
       if ($(this).hasClass("projects")) {
-        console.log($(this).hasClass("toggled"))
         if ($(this).hasClass("toggled")) {
           showAllCards();
         } else {

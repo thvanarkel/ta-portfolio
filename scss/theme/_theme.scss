@@ -30,123 +30,11 @@
   }
 }
 
-// * { border: 1px solid black; }
-
-// body {
-//   overflow-x: hidden;
-//   & > * {
-//     transition: background-color 0.5s, color 0.5s;
-//   }
-//   &.dark-mode {
-//     background-color: $color-dark;
-//     .cursor {
-//       &.is-active {
-//         .cursor-circle {
-//           background-color: $color-light;
-//         }
-//       }
-//     }
-//     h1, h2, h3, h4, h5, h6 {
-//       color: $color-light;
-//       background-color: $color-dark;
-//       border-color: $color-light;
-//       background-image: url('../img/arrow-l.svg');
-//     }
-//     .navbar-brand {
-//       background: none;
-//     }
-//     .display-1 {
-//       background-image: none;
-//     }
-//     .wp-block-file {
-//       background-color: $color-dark;
-//       background-image: url('../img/file-l.svg');
-//     }
-//     p {
-//       color: $color-light;
-//     }
-//     div {
-//       color: $color-light;
-//       border-color: $color-light !important;
-//     }
-//     figure {
-//       border-color: $color-light !important;
-//     }
-//     li {
-//       // color: $color-light;
-//     }
-//     span {
-//       color: $color-light;
-//     }
-//     a {
-//       color: $color-light !important;
-//       border-bottom: 1px $color-light solid !important;
-//     }
-//     nav {
-//       a {
-//         border-bottom: none !important;
-//       }
-//     }
-//     .project-menu {
-//       background-color: $color-dark;
-//     }
-//     .content-card {
-//       border-color: $color-light;
-//     }
-//     .wp-block-image {
-//       background-color: $color-dark;
-//     }
-//     .contact-card {
-//       background-color: $color-dark !important;
-//     }
-//     .bg-a {
-//       background-image: url('../img/bg-a-d.svg') !important;
-//       background-size: 85px;
-//     }
-//     .bg-b {
-//       background-image: url('../img/bg-b-d.svg') !important;
-//       background-size: 80px;
-//     }
-//     .entry-content{
-//       .divider {
-//         background-color: $color-light;
-//       }
-//       figure {
-//         border-color: $color-light;
-//       }
-//       & > div, & > p {
-//         border-color: $color-light !important;
-//       }
-//       hr {
-//         border-color: $color-light !important;
-//       }
-//       .slider-index {
-//         background-color: $color-dark;
-//       }
-//     .wp-block-gallery {
-//       .blocks-gallery-item {
-//         figcaption {
-//           background-color: $color-dark;
-//         }
-//       }
-//     }
-//     .wp-block-embed-vimeo {
-//       figcaption {
-//         background-color: $color-dark;
-//       }
-//     }
-//
-//   }
-//
-//
-//   .project-details {
-//     border-color: $color-light;
-//     .project-detail {
-//       border-color: $color-light;
-//     }
-//   }
-//   }
-// }
+html,body {
+  height:100%;
+  padding:0;
+  margin:0;
+}
 
 h1, h2, h3 {
   font-family: $font-family-serif;
@@ -154,8 +42,6 @@ h1, h2, h3 {
 }
 
 h2 {
-  // border-top: $border-width solid $black;
-  // border-bottom: $border-width solid $black;
   margin: 0px -15px;
   padding: 15px;
 }
@@ -175,11 +61,7 @@ h2 {
   }
 }
 
-html,body {
-  height:100%;
-  padding:0;
-  margin:0;
-}
+
 
 body {
   font-smooth: always;
