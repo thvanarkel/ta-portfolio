@@ -11847,7 +11847,6 @@ h1, h2, h3 {
 }
 
 h2 {
-  margin: 0px -15px;
   padding: 15px;
 }
 
@@ -11877,7 +11876,7 @@ figcaption {
   padding-left: 20px;
   background-image: none !important;
   color: #878787 !important;
-  margin-bottom: 1em !important;
+  margin-bottom: 150px !important;
   margin-top: 0.5em !important;
 }
 figcaption:before {
@@ -12577,16 +12576,12 @@ article {
   position: relative;
   padding: 15px;
   padding-bottom: 80px;
-  z-index: 10;
   transform-style: preserve-3d;
 }
 @media (max-width: 768px) {
   .entry-content {
     margin-top: 0;
   }
-}
-.entry-content p {
-  margin-top: 50px;
 }
 .entry-content p + p {
   text-indent: 20px;
@@ -12597,7 +12592,6 @@ article {
 .entry-content h1 {
   color: #292829;
   font-size: 4.3rem;
-  z-index: 8;
 }
 @media (max-width: 1450px) {
   .entry-content h1 {
@@ -12663,18 +12657,40 @@ article {
 .entry-content .wp-block-image img:hover {
   transform: translateZ(100px) translateY(-25px);
 }
+.entry-content .wp-block-image.inline img {
+  position: relative;
+  margin: 0;
+  margin-left: -40%;
+  -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
+  object-fit: cover;
+  background-color: #FCFAF3;
+  border: 1px solid #292829;
+  transform: translateZ(0px) translateY(0px);
+  overflow: hidden;
+  max-width: 100%;
+}
+.entry-content .wp-block-image.inline figcaption {
+  padding: 0;
+  padding-left: 15px;
+  margin-bottom: 0px !important;
+  transform: translateY(0px);
+}
+.entry-content .wp-block-image.inline figcaption:before {
+  content: "↖︎";
+}
 .entry-content .wp-block-separator {
   border-color: #292829;
   margin: 0;
   transform: translateY(1px);
 }
 .entry-content .wp-block-embed.is-type-video {
-  padding: 50px 0;
+  padding: 30px 0;
 }
 .entry-content .wp-block-embed.is-type-video .wp-block-embed__wrapper {
   position: relative;
   margin: 0;
-  margin-left: -60%;
+  margin-left: -50%;
   -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
   object-fit: cover;
@@ -12696,6 +12712,7 @@ article {
 .entry-content .wp-block-embed.is-type-video figcaption {
   padding: 0;
   padding-left: 15px;
+  margin-bottom: 0px !important;
   transform: translateY(0px);
 }
 .entry-content .wp-block-embed.is-type-video figcaption:before {
@@ -12771,6 +12788,9 @@ article {
 }
 .entry-content .wp-block-gallery .blocks-gallery-item:nth-child(10) img {
   transform: translateZ(-10px) translateY(-25px) translateX(-95%);
+}
+.entry-content .wp-block-gallery .blocks-gallery-item:last-child {
+  margin-bottom: 150px;
 }
 .entry-content .wp-block-gallery.contain img {
   object-fit: contain;
