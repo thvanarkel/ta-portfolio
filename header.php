@@ -50,3 +50,4 @@ $container = get_theme_mod( 'understrap_container_type' );
 	<div class="wrapper" id="wrapper">
 
 		<div class="site-container" id="content" tabindex="-1" data-namespace="<?php echo get_current_template() ?>">
+			<b class="spacer"></b>

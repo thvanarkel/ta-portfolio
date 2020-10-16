@@ -65,12 +65,19 @@ body a, body .project-card, .gallery figure, .button, .minimise {
 h1, h2, h3 {
   font-family: $font-family-serif;
   font-weight: 200;
-  padding: 0 15px;
+  padding: 0;
 }
 
 h4, h5, h6 {
   font-family: $font-family-sans-serif;
   padding: 0 15px;
+}
+
+p {
+  font-size: 1.3rem;
+  @include respond-below(sm) {
+    font-size: 1rem;
+  }
 }
 
 .wrapper {
@@ -230,6 +237,7 @@ nav {
   letter-spacing: 0.5px;
   width: 3 * $grid-width;
   margin-right: $grid-width;
+  background-color: $white;
 
   text-align: center;
   background-color: $white;
@@ -239,9 +247,11 @@ nav {
   span {
   }
   &:hover {
-    background-color: $black;
-    span {
-      color: $white;
+    @include respond-above("sm") {
+      background-color: $black;
+      span {
+        color: $white;
+      }
     }
   }
   &.toggled {
@@ -303,15 +313,29 @@ nav {
     grid-column-start: 2;
     grid-column-end: $md-columns;
   }
+  @include respond-below(sm) {
+    grid-column: 1 !important;
+    width: calc(100vw - #{$grid-width});
+    margin-left: $grid-width;
+  }
   grid-row-start: 6;
   align-self: stretch;
   padding: 15px;
   background-color: $white;
+  @include respond-below(sm) {
+    .has-text-color {
+      font-size: 30px !important;
+    }
+  }
+
   h2 {
     margin: 0px -15px;
     padding: 15px;
     &:first-of-type {
       margin-top: 50px;
+    }
+    @include respond-below(sm) {
+      font-size: 2rem;
     }
   }
   div {
@@ -355,6 +379,13 @@ nav {
     grid-column-end: 14;
     grid-row-start: 0;
   }
+  @include respond-below(sm) {
+    grid-column: 1 !important;
+    grid-row: auto;
+    grid-row-end: span 9;
+    margin-top: $grid-width;
+    width: 100vw;
+  }
   background-color: $white;
   padding: 10px;
   padding-top: 20px;
@@ -387,6 +418,9 @@ nav {
   }
   @include respond-below(md) {
     grid-area: 20 / 2 / span 8 / span 13;
+  }
+  @include respond-below(sm) {
+    max-width: 100vw;
   }
   background-position: center center;
   background-size: cover;
@@ -426,9 +460,12 @@ nav {
 
 .card-stack {
   @include respond-below(sm) {
+    display: block;
+    position: absolute;
+    top: 15 + 4 * $grid-width;
     display: flex;
     flex-direction: column;
-    padding-top: $navbar-width;
+    // padding-top: ;
   }
 }
 
@@ -455,7 +492,7 @@ nav {
   }
 
   &.card-hidden {
-    visibility: hidden;
+    display: none;
     opacity: 0;
   }
   .minimise {
@@ -772,7 +809,11 @@ nav {
   display: none;
   @include respond-below(sm) {
     display: block;
-    grid-area: 1 / span 1 / 1 / span 1;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 6;
+    grid-column-end: 5;
+    // background-color: red;
   }
 }
 
@@ -881,6 +922,10 @@ article {
     margin-left: $grid-width;
     margin-top: 3 * $grid-width
     // height: 10 * $grid-width;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    padding: 0 15px;
   }
 
   p {
@@ -1014,7 +1059,7 @@ article {
           content: "↖︎";
         }
         @include respond-below(sm) {
-          font-size: 1rem;
+          font-size: 1rem !important;
         }
       }
     }
@@ -1039,6 +1084,9 @@ article {
         transform: translateY(0px);
         &:before {
           content: "↑";
+        }
+        @include respond-below(sm) {
+          font-size: 1rem !important;
         }
       }
     }
@@ -1087,6 +1135,9 @@ article {
       transform: translateY(0px);
       &:before {
         content: "↖︎";
+      }
+      @include respond-below(sm) {
+        font-size: 1rem !important;
       }
     }
   }

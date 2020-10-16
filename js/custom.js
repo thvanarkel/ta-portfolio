@@ -53,17 +53,6 @@ jQuery(document).ready(function($) {
     updateLayout();
   });
 
-  var docWidth = document.documentElement.offsetWidth;
-
-[].forEach.call(
-  document.querySelectorAll('*'),
-  function(el) {
-    if (el.offsetWidth > docWidth) {
-      console.log(el);
-    }
-  }
-);
-
   var blocksEnd = 0;
 
   var autoHeight = function() {
@@ -136,6 +125,7 @@ jQuery(document).ready(function($) {
       $(".wp-block-image").removeClass("inline-sm")
     }
     autoHeight();
+    console.log($(".site-container").offset().top)
   }
   updateLayout();
 
@@ -173,55 +163,55 @@ jQuery(document).ready(function($) {
   //   }
   // });
 
-  $('.about-me').on("transition_start", function() {
-    if ($(window).width() < breakpoints["sm"]) {
-      if ($('.card-stack').hasClass("hidden")) {
-        $('.card-stack').removeClass("hidden");
-      }
-    }
-  });
+  // $('.about-me').on("transition_start", function() {
+  //   if ($(window).width() < breakpoints["sm"]) {
+  //     if ($('.card-stack').hasClass("hidden")) {
+  //       $('.card-stack').removeClass("hidden");
+  //     }
+  //   }
+  // });
 
-  $('.dark-mode-toggle').on('click tap',  function(e) {
-    e.preventDefault();
-    // $target = $('.dark-mode-toggle');
-    // $('body').toggleClass('dark-mode');
-    // $icon = $target.find('span');
-    // if ($('body').hasClass('dark-mode')) {
-    //   $icon.removeClass('oi-moon');
-    //   $icon.addClass('oi-sun');
-    // } else {
-    //   $icon.removeClass('oi-sun');
-    //   $icon.addClass('oi-moon');
-    // }
-    // return false;
-    $('.about-me').toggleClass("collapsed");
-  } );
+  // $('.dark-mode-toggle').on('click tap',  function(e) {
+  //   e.preventDefault();
+  //   // $target = $('.dark-mode-toggle');
+  //   // $('body').toggleClass('dark-mode');
+  //   // $icon = $target.find('span');
+  //   // if ($('body').hasClass('dark-mode')) {
+  //   //   $icon.removeClass('oi-moon');
+  //   //   $icon.addClass('oi-sun');
+  //   // } else {
+  //   //   $icon.removeClass('oi-sun');
+  //   //   $icon.addClass('oi-moon');
+  //   // }
+  //   // return false;
+  //   $('.about-me').toggleClass("collapsed");
+  // } );
 
-  $('.open-button').on('click tap',  function(e) {
-    if ($(e.target).hasClass('opened')) {
-      Barba.Pjax.goTo('/');
-    } else {
-      $('.about-me').toggleClass("collapsed");
-    }
-  });
+  // $('.open-button').on('click tap',  function(e) {
+  //   if ($(e.target).hasClass('opened')) {
+  //     Barba.Pjax.goTo('/');
+  //   } else {
+  //     $('.about-me').toggleClass("collapsed");
+  //   }
+  // });
 
-  $('.close-button').on('click tap',  function(e) {
-    $('.about-me').toggleClass("collapsed");
-  })
+  // $('.close-button').on('click tap',  function(e) {
+  //   $('.about-me').toggleClass("collapsed");
+  // })
 
-  $('.about-me-toggle').on('click tap',  function(e) {
-    e.preventDefault();
-    $target = $(e.target);
-    if ($target.attr('state') == "off") {
-      $target.attr('state', "on");
-      hideAllCards();
-      $target.text('projects');
-    } else if ($target.attr('state') == "on") {
-      $target.attr('state', "off");
-      showAllCards();
-      if ($(".site-container").attr("data-namespace").indexOf("index") != -1) $target.text('about me');
-    }
-  } );
+  // $('.about-me-toggle').on('click tap',  function(e) {
+  //   e.preventDefault();
+  //   $target = $(e.target);
+  //   if ($target.attr('state') == "off") {
+  //     $target.attr('state', "on");
+  //     hideAllCards();
+  //     $target.text('projects');
+  //   } else if ($target.attr('state') == "on") {
+  //     $target.attr('state', "off");
+  //     showAllCards();
+  //     if ($(".site-container").attr("data-namespace").indexOf("index") != -1) $target.text('about me');
+  //   }
+  // } );
 
 
 
@@ -412,21 +402,10 @@ jQuery(document).ready(function($) {
 
 
 
-
   function registerButtons() {
     $('.button').on('click tap',  function(e) {
       e.preventDefault();
-      // $target = $('.dark-mode-toggle');
-      // $('body').toggleClass('dark-mode');
-      // $icon = $target.find('span');
-      // if ($('body').hasClass('dark-mode')) {
-      //   $icon.removeClass('oi-moon');
-      //   $icon.addClass('oi-sun');
-      // } else {
-      //   $icon.removeClass('oi-sun');
-      //   $icon.addClass('oi-moon');
-      // }
-      // return false;
+      console.log(this)
       $(this).toggleClass("toggled");
 
       if ($(this).hasClass("projects")) {
@@ -552,9 +531,6 @@ jQuery(document).ready(function($) {
       // The new Container is ready and attached to the DOM.
       createGalleries();
       hideAllCards();
-      if($(window).width() < breakpoints["sm"]) {
-        $('.card-stack').addClass("hidden");
-      }
       $('.button.projects').removeClass("toggled");
       window.scrollTo(0,0);
     },
@@ -567,9 +543,6 @@ jQuery(document).ready(function($) {
       // A new Transition toward a new page has just started.
       // splitTitles('.display-title');
       $('.open-button').removeClass('opened');
-      if($(window).width() < breakpoints["sm"]) {
-        $('.card-stack').removeClass("hidden");
-      }
       blocksEnd = 0;
     },
     onLeaveCompleted: function() {
@@ -585,9 +558,6 @@ jQuery(document).ready(function($) {
       $('.open-button').addClass("opened");
       createGalleries();
       hideAllCards();
-      if($(window).width() < breakpoints["sm"]) {
-        $('.card-stack').addClass("hidden");
-      }
       window.scrollTo(0,0)
     },
     onEnterCompleted: function() {
@@ -599,9 +569,6 @@ jQuery(document).ready(function($) {
       // A new Transition toward a new page has just started.
       // splitTitles('.display-title');
       $('.open-button').removeClass('opened');
-      if($(window).width() < breakpoints["sm"]) {
-        $('.card-stack').removeClass("hidden");
-      }
       blocksEnd = 0;
     },
     onLeaveCompleted: function() {
