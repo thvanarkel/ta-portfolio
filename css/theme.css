@@ -12803,6 +12803,7 @@ article {
 
 .footnote_container_prepare p {
   border: none !important;
+  margin-bottom: 0 !important;
 }
 .footnote_container_prepare span {
   margin-left: -5px;
