@@ -209,11 +209,22 @@ jQuery(document).ready(function($) {
       $gallery = $(this);
       $gallery.find(".blocks-gallery-item").each(function(i, obj) {
         $(obj).find("figure").css("width", `calc(100% - ${i * 45}px)`)
-        console.log(obj)
-        // $(obj).css("top", `${i*25}px`);
-        $(obj).css("left", `${i*45}px`)
-        // $(obj).find("img").css("transform", `translateZ(${i}px)`)
+        $(obj).css("left", `${i*30}px`)
       })
+      if ($gallery.hasClass("inline")) {
+
+        $gallery.find(".blocks-gallery-item").each(function(i, obj) {
+          captionheight = $(obj).find("figcaption").outerHeight();
+          $(obj).find("img").css("top", `${(-i * (captionheight - 25)) + 50}px`);
+        })
+        var images = $gallery.find(".blocks-gallery-item").find("img")
+        var imageHeight = images.outerHeight();
+        var delta = images.last().offset().top - images.first().offset().top;
+        $gallery.find(".blocks-gallery-item").each(function(i, obj) {
+          $(obj).find("figcaption").css("transform", `translateY(${ imageHeight + delta + 25 }px)`)
+        })
+        $gallery.css("margin-bottom", imageHeight + delta)
+      }
 
     });
   }
