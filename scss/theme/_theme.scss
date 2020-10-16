@@ -38,6 +38,14 @@ html,body {
   margin:0;
 }
 
+// use for checking overflow
+
+// * {
+//   background: #000 !important;
+//   color: #0f0 !important;
+//   outline: solid #f00 1px !important;
+// }
+
 body {
   font-smooth: always;
   background-color: $white;
@@ -45,6 +53,7 @@ body {
   -webkit-font-smoothing: antialiased;
   cursor: url('../img/cursor-normal@1x.png') 0 0, auto;
   cursor:-webkit-image-set(url('../img/cursor-normal@1x.png') 1x, url('../img/cursor-normal@2x.png') 2x) 0 0, auto;
+
 }
 
 // Select the elements on which the cursor should change
@@ -135,7 +144,7 @@ figcaption {
   grid-auto-rows: 45px;
   column-gap: 0px;
   row-gap: 0px;
-
+  overflow: hidden;
   // height: 100%;
   background-color: $white;
   // background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='20 20 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23dddddd' fill-opacity='1.0'%3E%3Cpath d='M46,44v-4h-2v4h-4v2h4v4h2v-4h4v-2H46z M46,14v-4h-2v4h-4v2h4v4h2v-4h4v-2H46z M16,44v-4h-2v4h-4v2h4v4h2v-4 h4v-2H16z M16,14v-4h-2v4h-4v2h4v4h2v-4h4v-2H16z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
@@ -172,6 +181,9 @@ nav {
   }
   @include respond-below(md) {
     width: $md-columns * $grid-width + $grid-border-width;
+  }
+  @include respond-below(sm) {
+    width: 100vw;
   }
   left: 0; right: 0;
   margin: 0 auto;
@@ -1001,6 +1013,9 @@ article {
         &:before {
           content: "↖︎";
         }
+        @include respond-below(sm) {
+          font-size: 1rem;
+        }
       }
     }
     &.inline-sm {
@@ -1123,6 +1138,7 @@ article {
           margin: 0 !important;
           min-width: 100%;
           text-align: left;
+          font-size: 1.3rem;
           @include respond-below(sm) {
             font-size: 1rem;
           }

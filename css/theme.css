@@ -11911,6 +11911,7 @@ figcaption:before {
   grid-auto-rows: 45px;
   column-gap: 0px;
   row-gap: 0px;
+  overflow: hidden;
   background-color: #FCFAF3;
   background-image: url("data:image/svg+xml,%3Csvg%20version%3D'1.1'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%20x%3D'0px'%20y%3D'0px'%20viewBox%3D'0%200%2045%2045'%20xml%3Aspace%3D'preserve'%3E%20%3Cstyle%20type%3D'text%2Fcss'%3E%20.st0%7Bfill%3Anone%3Bstroke%3A%23231F20%3Bstroke-width%3A4px%3B%7D%20%3C%2Fstyle%3E%20%3Cpolyline%20class%3D'st0'%20points%3D'0%2C45%200%2C0%2045%2C0%20'%2F%3E%20%3C%2Fsvg%3E");
   background-size: 45px;
@@ -11973,6 +11974,11 @@ nav {
 @media (max-width: 992px) {
   nav {
     width: 767px;
+  }
+}
+@media (max-width: 768px) {
+  nav {
+    width: 100vw;
   }
 }
 nav .buttons {
@@ -12832,6 +12838,11 @@ article {
 .entry-content .wp-block-image.inline figcaption:before {
   content: "↖︎";
 }
+@media (max-width: 768px) {
+  .entry-content .wp-block-image.inline figcaption {
+    font-size: 1rem;
+  }
+}
 .entry-content .wp-block-image.inline-sm img {
   position: relative;
   margin: 0;
@@ -12946,6 +12957,7 @@ article {
   margin: 0 !important;
   min-width: 100%;
   text-align: left;
+  font-size: 1.3rem;
 }
 @media (max-width: 768px) {
   .entry-content .wp-block-gallery .blocks-gallery-item figure figcaption {
