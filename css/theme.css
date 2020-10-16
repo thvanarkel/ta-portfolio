@@ -11844,10 +11844,12 @@ body a, body .project-card, .gallery figure, .button, .nav-brand, .minimise {
 h1, h2, h3 {
   font-family: "Para", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 200;
+  padding: 0 15px;
 }
 
-h2 {
-  padding: 15px;
+h4, h5, h6 {
+  font-family: "neue-haas-grotesk-text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  padding: 0 15px;
 }
 
 .wrapper {
@@ -11884,9 +11886,9 @@ figcaption:before {
   display: table-cell;
   font-family: "Favorit", "Helvetica Neue", sans-serif;
   transform: scale(1.1) translateY(1px);
-  padding-left: 10px;
   padding-right: 10px;
   height: 100%;
+  width: 30px;
 }
 
 .display-1,
@@ -12129,9 +12131,6 @@ nav .buttons {
     grid-column-end: 14;
     grid-row-start: 0;
   }
-}
-.site-contact h3 {
-  font-family: "neue-haas-grotesk-text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 .site-contact ul {
   margin-top: 10px;
@@ -12583,6 +12582,9 @@ article {
     margin-top: 0;
   }
 }
+.entry-content p {
+  text-align: justify;
+}
 .entry-content p + p {
   text-indent: 20px;
 }
@@ -12592,16 +12594,13 @@ article {
 .entry-content h1 {
   color: #292829;
   font-size: 4.3rem;
+  margin-top: 15px;
+  margin-bottom: 30px;
 }
 @media (max-width: 1450px) {
   .entry-content h1 {
     font-size: 3.5rem;
   }
-}
-.entry-content h4 {
-  font-size: 1.3rem;
-  padding-left: 80px;
-  margin-top: 100px;
 }
 .entry-content .intro {
   font-size: 2.3vw;
@@ -12721,6 +12720,9 @@ article {
 .entry-content .wp-block-gallery {
   padding-left: 20px;
 }
+.entry-content .wp-block-gallery .blocks-gallery-grid {
+  width: 100%;
+}
 .entry-content .wp-block-gallery .blocks-gallery-item {
   background-color: #FCFAF3;
   height: auto;
@@ -12732,7 +12734,6 @@ article {
 .entry-content .wp-block-gallery .blocks-gallery-item figure {
   display: inline;
   width: 100%;
-  overflow: hidden;
 }
 .entry-content .wp-block-gallery .blocks-gallery-item figure img {
   object-fit: cover;
@@ -12756,8 +12757,9 @@ article {
   display: table;
   position: relative;
   padding: 0;
-  overflow: hidden;
   margin: 0 !important;
+  min-width: 100%;
+  text-align: left;
 }
 .entry-content .wp-block-gallery .blocks-gallery-item:nth-child(1) img {
   transform: translateZ(-1px) translateY(-25px) translateX(-95%);
@@ -12794,6 +12796,39 @@ article {
 }
 .entry-content .wp-block-gallery.contain img {
   object-fit: contain;
+}
+.entry-content .wp-block-gallery.inline {
+  margin-bottom: 300px;
+  padding-left: 0px;
+}
+.entry-content .wp-block-gallery.inline .blocks-gallery-item figure img {
+  position: absolute;
+  margin: 0;
+  margin-left: -25%;
+  -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
+  object-fit: cover;
+  background-color: #FCFAF3;
+  border: 2px solid #292829;
+  transform: translateZ(0px) translateY(-10%);
+  overflow: hidden;
+  max-width: 100%;
+}
+.entry-content .wp-block-gallery.inline .blocks-gallery-item figure img:hover {
+  transform: translateZ(100px) translateY(-10%);
+  opacity: 1;
+}
+.entry-content .wp-block-gallery.inline .blocks-gallery-item figure figcaption {
+  padding: 0;
+  padding-left: 0px;
+  margin-bottom: 0px !important;
+}
+.entry-content .wp-block-gallery.inline .blocks-gallery-item figure figcaption:before {
+  content: "↖︎";
+  transform: translateY(2px);
+}
+.entry-content .wp-block-gallery.inline .blocks-gallery-item:last-child {
+  margin-bottom: 50px;
 }
 
 .footnote_plugin_tooltip_text {
