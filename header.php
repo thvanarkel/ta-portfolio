@@ -31,6 +31,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 <div class="hfeed site" id="page">
 	<nav>
 		<div class="nav-brand"><a rel="home" class="" href="<?php echo esc_url( home_url( '/' ) ); ?>"><span class="">TvA</span></a></div>
+		<div class="break"></div>
 		<div class="buttons">
 			<div class="button projects"><a class="nav-toggle"><span class="">projects</span></a></div>
 			<?php
