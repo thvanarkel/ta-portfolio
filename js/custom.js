@@ -81,7 +81,33 @@ jQuery(document).ready(function($) {
     })
   }
 
+  var createGalleries = function() {
+    $('.wp-block-gallery').each(function() {
+      $gallery = $(this);
+      $gallery.find(".blocks-gallery-item").each(function(i, obj) {
+        $(obj).find("figure").css("width", `calc(100% - ${i * 45}px)`)
+        $(obj).css("left", `${i*30}px`)
+      })
+      if ($gallery.hasClass("inline")) {
+
+        $gallery.find(".blocks-gallery-item").each(function(i, obj) {
+          captionheight = $(obj).find("figcaption").outerHeight();
+          $(obj).find("img").css("top", `${(-i * (captionheight - 25)) + 50}px`);
+        })
+        var images = $gallery.find(".blocks-gallery-item").find("img")
+        var imageHeight = images.outerHeight();
+        var delta = images.last().offset().top - images.first().offset().top;
+        $gallery.find(".blocks-gallery-item").each(function(i, obj) {
+          $(obj).find("figcaption").css("transform", `translateY(${ imageHeight + delta + 25 }px)`)
+        })
+        $gallery.css("margin-bottom", imageHeight + delta)
+      }
+
+    });
+  }
+
   var updateLayout = function() {
+    createGalleries();
     if ($(window).width() < breakpoints["lg"]) {
       $(".site-contact").addClass("auto-footer")
     } else {
@@ -176,58 +202,7 @@ jQuery(document).ready(function($) {
     }
   } );
 
-  var createGalleries = function() {
-  //   $.each( $('.wp-block-gallery'), function() {
-  //     $e = $(this);
-  //     if ($e.hasClass('fullscreen')) {
-  //       $e.wrap("<div class='gallery fullscreen'></div>");
-  //     } else {
-  //       $e.wrap("<div class='gallery'></div>");
-  //     }
-  //     // $e.addClass('cursor-link');
-  //     if (!$e.attr('index')) $e.attr('index', '0');
-  //     $('<p class="slider-index">1/2</p>').insertBefore($e);
-  //     $e.parents('.gallery').find('p').text(1 + "/" + $e.find('li').length);
-  //     $e.on('click tap', function(e) {
-  //       $target = $(e.target).parents('ul');
-  //       let index = parseInt($target.attr('index'));
-  //       $i = $target.find('li').eq(index);
-  //       $i.css('z-index', '0');
-  //       index = index + 1;
-  //       if (index == $target.find('li').length) index = 0;
-  //       $target.attr('index', index);
-  //       $nI = $target.find('li').eq(index);
-  //       if($target.parent().hasClass('fullscreen')) {
-  //         $nI.css('z-index', '6');
-  //       } else {
-  //         $nI.css('z-index', '1');
-  //       }
-  //       $target.parents('.gallery').find('p').text((index + 1) + "/" + $target.find('li').length);
-  //     });
-  //   });
-    $('.wp-block-gallery').each(function() {
-      $gallery = $(this);
-      $gallery.find(".blocks-gallery-item").each(function(i, obj) {
-        $(obj).find("figure").css("width", `calc(100% - ${i * 45}px)`)
-        $(obj).css("left", `${i*30}px`)
-      })
-      if ($gallery.hasClass("inline")) {
 
-        $gallery.find(".blocks-gallery-item").each(function(i, obj) {
-          captionheight = $(obj).find("figcaption").outerHeight();
-          $(obj).find("img").css("top", `${(-i * (captionheight - 25)) + 50}px`);
-        })
-        var images = $gallery.find(".blocks-gallery-item").find("img")
-        var imageHeight = images.outerHeight();
-        var delta = images.last().offset().top - images.first().offset().top;
-        $gallery.find(".blocks-gallery-item").each(function(i, obj) {
-          $(obj).find("figcaption").css("transform", `translateY(${ imageHeight + delta + 25 }px)`)
-        })
-        $gallery.css("margin-bottom", imageHeight + delta)
-      }
-
-    });
-  }
 
   var lockScroll = function() {
       $html = $('html');
@@ -537,9 +512,6 @@ jQuery(document).ready(function($) {
       // The Transition has just finished.
       // splitTitles('.project-title');
       autoHeight();
-      $('.close-button').on('click tap',  function(e) {
-        $('.about-me').toggleClass("collapsed");
-      });
     },
     onLeave: function() {
       // A new Transition toward a new page has just started.
@@ -557,8 +529,6 @@ jQuery(document).ready(function($) {
     onEnter: function() {
       console.log("Will show project")
       // The new Container is ready and attached to the DOM.
-
-      $('.open-button').addClass("opened");
       createGalleries();
       hideAllCards();
       if($(window).width() < breakpoints["sm"]) {
