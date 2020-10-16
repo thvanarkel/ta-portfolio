@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<!-- <header class="entry-header"> -->
 
 
-		<b class="spacer"></b>
+		<!-- <b class="spacer"></b> -->
 		<div class="project-thumbnail">
 			<figure style="background-image: url('<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full') ?>')"></figure>
 		</div>
