@@ -63,12 +63,15 @@ jQuery(document).ready(function($) {
         height += $(this).outerHeight(true);
         height += $(this).outerHeight(true) - $(this).outerHeight();
       })
+      height = 1.01 * height;
       var blocks = Math.floor(height / 45) + 1;
       $(obj).css("grid-row-end", `span ${blocks}`);
     });
 
     $(".auto-footer").each(function() {
-      //$(this).
+      if ($(window).width() < breakpoints["sm"]) {
+        return;
+      }
       var blocks = 0;
       if (blocksEnd == 0) {
         $(".auto-footer").toggleClass("hidden");
@@ -88,7 +91,7 @@ jQuery(document).ready(function($) {
         $(obj).find("figure").css("width", `calc(100% - ${i * 45}px)`)
         $(obj).css("left", `${i*30}px`)
       })
-      if ($gallery.hasClass("inline")) {
+      if ($gallery.hasClass("inline") || $gallery.hasClass("inline-sm")) {
 
         $gallery.find(".blocks-gallery-item").each(function(i, obj) {
           captionheight = $(obj).find("figcaption").outerHeight();
@@ -113,6 +116,13 @@ jQuery(document).ready(function($) {
     } else {
       $(".site-contact").removeClass("auto-footer");
       $(".site-contact").css("grid-row", "");
+    }
+    if ($(window).width() < breakpoints["sm"]) {
+      $(".wp-block-gallery").addClass("inline-sm");
+      $(".wp-block-image").addClass("inline-sm")
+    } else {
+      $(".wp-block-gallery").removeClass("inline-sm");
+      $(".wp-block-image").removeClass("inline-sm")
     }
     autoHeight();
   }
