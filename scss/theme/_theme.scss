@@ -638,45 +638,45 @@ nav {
   }
 }
 
-#main-taxonomy {
-  @extend .row;
-
-  .taxonomy-header {
-    @extend .col-md-6;
-    position: fixed;
-    margin-top: 10%;
-    z-index: 30;
-
-    h1 {
-      width: 100vw;
-    }
-
-    .lead {
-      margin-left: 35px;
-    }
-  }
-
-  .projects {
-    @extend .col-md-8;
-    position: absolute;
-    right: 0;
-    top: 50%;
-  }
-
-  .project-thumbnail {
-    @extend .justify-content-end;
-    margin-bottom: 50px;
-
-    &:first {
-      margin-top: 50%;
-    }
-
-    a {
-      height: 100%;
-      width: 100%;
-    }
-  }
-}
+// #main-taxonomy {
+//   @extend .row;
+//
+//   .taxonomy-header {
+//     @extend .col-md-6;
+//     position: fixed;
+//     margin-top: 10%;
+//     z-index: 30;
+//
+//     h1 {
+//       width: 100vw;
+//     }
+//
+//     .lead {
+//       margin-left: 35px;
+//     }
+//   }
+//
+//   .projects {
+//     @extend .col-md-8;
+//     position: absolute;
+//     right: 0;
+//     top: 50%;
+//   }
+//
+//   .project-thumbnail {
+//     @extend .justify-content-end;
+//     margin-bottom: 50px;
+//
+//     &:first {
+//       margin-top: 50%;
+//     }
+//
+//     a {
+//       height: 100%;
+//       width: 100%;
+//     }
+//   }
+// }
 
 .project-thumbnail {
   grid-column-start: 2;
@@ -1109,6 +1109,42 @@ article {
     transform: translateY(1px);
   }
 
+
+  .wp-block-video {
+    width: 100%;
+    margin-right: 0;
+    video {
+      position: relative;
+      margin: 0;
+      margin-left: -50%;
+      -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
+      // object-fit: cover;
+      background-color: $white;
+      border: $grid-border-width solid $border-color;
+      // padding-bottom: 56.25%;
+      height: auto;
+      width: 100%;
+      // z-index: 0;
+      overflow: hidden;
+      min-width: 100%;
+      @include respond-below(sm) {
+        margin-left: #{-0.5 * $grid-width - 10};
+      }
+    }
+    figcaption {
+      padding: 0;
+      padding-left: 15px;
+      margin-bottom: 0px !important;
+      transform: translateY(0px);
+      &:before {
+        content: "↖︎";
+      }
+      @include respond-below(sm) {
+        font-size: 1rem !important;
+      }
+    }
+  }
 
 
   .wp-block-embed.is-type-video {
