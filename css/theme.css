@@ -11899,6 +11899,9 @@ figcaption:before {
   height: 100%;
   width: 30px;
 }
+figcaption a {
+  color: #878787 !important;
+}
 
 .display-1,
 .display-2,
@@ -12781,13 +12784,6 @@ article {
 }
 .entry-content p {
   text-align: justify;
-  hyphens: auto;
-  -ms-word-break: break-all;
-  word-break: break-all;
-  word-break: break-word;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  hyphens: auto;
 }
 .entry-content p + p {
   text-indent: 20px;
@@ -12803,6 +12799,11 @@ article {
 @media (max-width: 768px) {
   .entry-content p {
     font-size: 1rem;
+    hyphens: auto;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
   }
 }
 .entry-content h1 {
@@ -13109,7 +13110,7 @@ article {
 .entry-content .wp-block-gallery.inline-sm .blocks-gallery-item figure img {
   position: absolute;
   margin: 0;
-  margin-left: -10%;
+  margin-left: -32.5px;
   -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
   object-fit: cover;
