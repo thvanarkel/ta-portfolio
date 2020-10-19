@@ -63,7 +63,6 @@ jQuery(document).ready(function($) {
         height += $(this).outerHeight(true);
         height += $(this).outerHeight(true) - $(this).outerHeight();
       })
-      height = 1.01 * height;
       var blocks = Math.floor(height / 45) + 1;
       $(obj).css("grid-row-end", `span ${blocks}`);
     });

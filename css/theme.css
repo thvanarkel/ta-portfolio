@@ -12070,9 +12070,15 @@ nav .break {
   font-size: 2rem;
   background-color: #FCFAF3;
 }
+.site-description p {
+  font-size: 2rem;
+  margin: 10px;
+}
 @media (max-width: 1200px) {
   .site-description {
     grid-area: 13/2/span 3/span 6;
+  }
+  .site-description p {
     font-size: 1.8rem;
   }
 }
@@ -12080,9 +12086,6 @@ nav .break {
   .site-description {
     display: none;
   }
-}
-.site-description p {
-  margin: 10px;
 }
 
 .site-about {
@@ -12313,10 +12316,7 @@ nav .break {
   position: absolute;
   right: 0;
   top: 0;
-  width: 50px;
-  height: 50px;
   z-index: 1000;
-  opacity: 1;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -12325,6 +12325,8 @@ nav .break {
 @media (max-width: 992px) {
   .content-card .minimise {
     opacity: 1;
+    width: 40px;
+    height: 40px;
   }
 }
 @media (max-width: 768px) {
@@ -12350,7 +12352,7 @@ nav .break {
 .content-card.weight-1 {
   z-index: 101;
 }
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   .content-card.weight-1 {
     height: 10vw;
     width: 20vw;
@@ -12359,7 +12361,7 @@ nav .break {
 .content-card.weight-2 {
   z-index: 102;
 }
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   .content-card.weight-2 {
     height: 15vw;
     width: 20vw;
@@ -12368,7 +12370,7 @@ nav .break {
 .content-card.weight-3 {
   z-index: 103;
 }
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   .content-card.weight-3 {
     height: 20vw;
     width: 30vw;
@@ -12377,7 +12379,7 @@ nav .break {
 .content-card.weight-4, .content-card.publications-card {
   z-index: 104;
 }
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   .content-card.weight-4, .content-card.publications-card {
     height: 25vw;
     width: 35vw;
@@ -12386,7 +12388,7 @@ nav .break {
 .content-card.weight-5 {
   z-index: 105;
 }
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   .content-card.weight-5 {
     height: 30vw;
     width: 45vw;
@@ -13182,15 +13184,14 @@ article {
 .wp-block-file {
   z-index: 10;
   margin: 0;
-  padding: 15px;
-  font-size: 2.6rem;
+  font-size: 2rem;
   line-height: auto;
-  text-indent: 20%;
+  text-indent: 12.5%;
   background-color: #FCFAF3;
   border-top: 1px #292829 solid;
   background-image: url("../img/file.svg");
   background-repeat: no-repeat;
-  background-size: 50px;
+  background-size: 45px;
   background-origin: content-box;
 }
 
