@@ -118,6 +118,9 @@ figcaption {
     height: 100%;
     width: 30px;
   }
+  a {
+    color: $dark-gray !important;
+  }
 }
 
 .display-1,
@@ -933,13 +936,6 @@ article {
   p {
     @extend .col-md-12;
     text-align: justify;
-    hyphens: auto;
-    -ms-word-break: break-all;
-    word-break: break-all;
-    word-break: break-word;
-    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    hyphens: auto;
     & + p {
       text-indent: 20px;
     }
@@ -952,6 +948,12 @@ article {
     }
     @include respond-below(sm) {
       font-size: 1rem;
+      hyphens: auto;
+      -ms-word-break: break-all;
+      word-break: break-all;
+      // word-break: break-word;
+      -webkit-hyphens: auto;
+      -moz-hyphens: auto;
     }
 
   }
@@ -1266,7 +1268,7 @@ article {
           img {
             position: absolute;
             margin: 0;
-            margin-left: -10%;
+            margin-left: #{-0.5 * $grid-width - 10};
             -webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
             box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
             object-fit: cover;
