@@ -32,16 +32,16 @@ $container   = get_theme_mod( 'understrap_container_type' );
 		}
 	 ?>
 
-		 	<div class="site-description">
-			 	<p>Portfolio/<br>Thomas van Arkel</p>
-		 	</div>
+
 		 	<div class="site-about auto-space">
 		 	<?php
 			 	$page = get_page_by_title( 'About me' );
 			 	echo $page->post_content;
 		 	?>
-
 			</div>
+			<div class="site-description">
+			 	<p>Portfolio/<br>Thomas van Arkel</p>
+		 	</div>
 
 			<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $page->ID ), 'large' ); ?>
   		<div class="site-featured-image" style="background-image: url('<?php echo $image[0]; ?>')">
