@@ -106,7 +106,7 @@ figcaption {
   padding-left: 20px;
   background-image: none !important;
   color: $dark-gray !important;
-  margin-bottom: 150px !important;
+  // margin-bottom: 150px !important;
   margin-top: .5em !important;
   &:before {
     content: "←";
@@ -962,7 +962,7 @@ article {
     @extend .col-md-12;
     text-align: justify;
     & + p {
-      text-indent: 20px;
+      text-indent: 45px;
     }
 
     &:first-of-type {
