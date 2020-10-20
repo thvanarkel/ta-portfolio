@@ -1451,6 +1451,7 @@ article {
 .wp-block-link {
   @extend .icon;
   background-image: url('../img/link.svg');
+  text-indent: 0;
 }
 
 .project-detail {
