@@ -39,9 +39,11 @@ $container   = get_theme_mod( 'understrap_container_type' );
 			 	echo $page->post_content;
 		 	?>
 			</div>
+			<!--googleoff: snippet-->
 			<div class="site-description">
 			 	<p>Portfolio/<br>Thomas van Arkel</p>
 		 	</div>
+			<!--googleon: snippet-->
 
 			<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $page->ID ), 'large' ); ?>
   		<div class="site-featured-image" style="background-image: url('<?php echo $image[0]; ?>')">
@@ -74,10 +76,12 @@ $container   = get_theme_mod( 'understrap_container_type' );
 					</li>
 				</ul>
 			</div>
+			<!--googleoff: snippet-->
 			<div class="cookie-warning">
 				<p>This site uses cookies. By continuing to browse the site, you are agreeing to our use of cookies.</p>
 				<a class="cookie-accept"><span>Ok, got it</span></a>
 			</div>
+			<!--googleon: snippet-->
 
  			<!-- </main> -->
 			<!-- <div class="home"></div> -->
