@@ -74,6 +74,10 @@ $container   = get_theme_mod( 'understrap_container_type' );
 					</li>
 				</ul>
 			</div>
+			<div class="cookie-warning">
+				<p>This site uses cookies. By continuing to browse the site, you are agreeing to our use of cookies.</p>
+				<a class="cookie-accept"><span>Ok, got it</span></a>
+			</div>
 
  			<!-- </main> -->
 			<!-- <div class="home"></div> -->

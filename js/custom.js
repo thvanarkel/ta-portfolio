@@ -683,6 +683,30 @@ jQuery(document).ready(function($) {
   //
   // });
 
+  function createCookie(cookieName,cookieValue) {
+    // var date = new Date();
+    // date.setTime(date.getTime()+(daysToExpire*24*60*60*1000));
+    document.cookie = cookieName + "=" + cookieValue;
+  }
+	function accessCookie(cookieName) {
+    var name = cookieName + "=";
+    var allCookieArray = document.cookie.split(';');
+    for(var i=0; i<allCookieArray.length; i++)
+    {
+      var temp = allCookieArray[i].trim();
+      if (temp.indexOf(name)==0)
+      return temp.substring(name.length,temp.length);
+ 	  }
+  	return "";
+  }
+  if (accessCookie("cookiesAccepted") != "") {
+    $('.cookie-warning').css("display", "none");
+  }
+  $('.cookie-accept').on('click tap',  function(e) {
+    e.preventDefault();
+    createCookie("cookiesAccepted", "true");
+    $('.cookie-warning').addClass("accepted");
+  });
 
 
 });
