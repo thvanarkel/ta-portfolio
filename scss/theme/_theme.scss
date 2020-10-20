@@ -68,6 +68,10 @@ h1, h2, h3 {
   padding: 0;
 }
 
+h2, h3 {
+  margin-top: 40px;
+}
+
 h4, h5, h6 {
   font-family: $font-family-sans-serif;
   // padding: 0 15px;
@@ -1380,6 +1384,8 @@ article {
 
 .footnote_container_prepare {
   padding-top: 0 !important;
+  margin-top: 40px !important;
+  margin-bottom: 0.5rem !important;
   // transform: translateY(-25px);
   width: calc(100% - #{$grid-width});
   p {
@@ -1389,7 +1395,7 @@ article {
   span {
     margin-left: -20px;
     font-family: $font-family-serif;
-    font-size: 2.275rem;
+    font-size: 2.275rem !important;
   }
 }
 
