@@ -11847,6 +11847,10 @@ h1, h2, h3 {
   padding: 0;
 }
 
+h2, h3 {
+  margin-top: 40px;
+}
+
 h4, h5, h6 {
   font-family: "neue-haas-grotesk-text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
@@ -13298,6 +13302,8 @@ article {
 
 .footnote_container_prepare {
   padding-top: 0 !important;
+  margin-top: 40px !important;
+  margin-bottom: 0.5rem !important;
   width: calc(100% - 45px);
 }
 .footnote_container_prepare p {
@@ -13307,7 +13313,7 @@ article {
 .footnote_container_prepare span {
   margin-left: -20px;
   font-family: "Para", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 2.275rem;
+  font-size: 2.275rem !important;
 }
 
 .footnote_plugin_index {
