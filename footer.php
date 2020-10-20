@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $container = get_theme_mod( 'understrap_container_type' );
 ?>
-
+<!--googleoff: all-->
 <div class="card-stack">
 	<?php
 		$args = array(
@@ -51,8 +51,11 @@ $container = get_theme_mod( 'understrap_container_type' );
 		$the_query = new WP_Query( $args );
 
 		if ( $the_query->have_posts() ) : ?>
+	<!--googleon: all-->
 	<div class="content-card publications-card">
+		<!--googleoff: all-->
 		<div class="minimise"><span>●</span></div>
+		<!--googleon: all-->
 		<h3>Publications</h3>
 		<ul>
 			<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
