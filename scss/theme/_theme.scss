@@ -70,7 +70,7 @@ h1, h2, h3 {
 
 h4, h5, h6 {
   font-family: $font-family-sans-serif;
-  padding: 0 15px;
+  // padding: 0 15px;
 }
 
 p {
@@ -939,7 +939,7 @@ article {
 
 .entry-content {
   position: relative;
-  padding: 10px;
+  padding: 25px;
   padding-bottom: 80px;
   transform-style: preserve-3d;
   @include respond-below(sm) {
@@ -955,11 +955,10 @@ article {
   }
 
   h1, h2, h3, h4, h5, h6 {
-    padding: 0 15px;
+    // padding: 0 15px;
   }
 
   p {
-    @extend .col-md-12;
     text-align: justify;
     & + p {
       text-indent: 45px;
@@ -984,7 +983,7 @@ article {
   }
 
   h1 {
-    @extend .col-md-12;
+    // @extend .col-md-12;
     // @extend .bg-a;
     color: $black;
     font-size: 4.3rem;
@@ -1087,7 +1086,7 @@ article {
       }
       figcaption {
         padding: 0;
-        padding-left: 15px;
+        // padding-left: 15px;
         margin-bottom: 0px !important;
         transform: translateY(0px);
         &:before {
@@ -1114,7 +1113,7 @@ article {
       }
       figcaption {
         padding: 0;
-        padding-left: 15px;
+        // padding-left: 15px;
         margin-bottom: 0px !important;
         transform: translateY(0px);
         &:before {
@@ -1128,7 +1127,7 @@ article {
   }
 
   .wp-block-separator {
-    @extend .col-md-12;
+    // @extend .col-md-12;
     border-color: $border-color;
     margin: 0;
     transform: translateY(1px);
@@ -1159,7 +1158,7 @@ article {
     }
     figcaption {
       padding: 0;
-      padding-left: 15px;
+      // padding-left: 15px;
       margin-bottom: 0px !important;
       transform: translateY(0px);
       &:before {
@@ -1201,7 +1200,7 @@ article {
     }
     figcaption {
       padding: 0;
-      padding-left: 15px;
+      // padding-left: 15px;
       margin-bottom: 0px !important;
       transform: translateY(0px);
       &:before {
@@ -1217,7 +1216,7 @@ article {
   $image-height-sm: 25vh;
 
   .wp-block-gallery {
-    padding-left: 20px;
+    // padding-left: 20px;
     .blocks-gallery-grid {
       width: 100%;
     }
@@ -1388,7 +1387,7 @@ article {
     margin-bottom: 0 !important;
   }
   span {
-    margin-left: -5px;
+    margin-left: -20px;
     font-family: $font-family-serif;
     font-size: 2.275rem;
   }
@@ -1416,24 +1415,42 @@ article {
 }
 
 #footnote_references_container {
-  padding: 15px;
+  // padding: 15px;
   margin-bottom: 45px;
 }
 
-.wp-block-file {
-  @extend .col-md-12;
+.icon {
   z-index: 10;
   margin: 0;
-  // padding: 15px;
-  font-size: 2rem;
+  min-height: $grid-width;
   line-height: auto;
-  text-indent: 12.5%;
-  background-color: $white;
-  border-top: $border-width $border-color solid;
-  background-image: url('../img/file.svg');
+  padding: 0 0 0 45px !important;
   background-repeat: no-repeat;
-  background-size: 45px;
-  background-origin: content-box;
+  background-size: auto $grid-width - 10;
+  background-position: left top;
+  margin-bottom: 10px;
+  a {
+    font-size: 1.2rem;
+  }
+}
+
+.wp-block-file {
+  @extend .icon;
+  position: relative;
+  background-image: url('../img/file.svg');
+}
+
+.wp-block-file__button {
+  position: absolute;
+  top: 0px;
+  &:before {
+    content: "↓ ";
+  }
+}
+
+.wp-block-link {
+  @extend .icon;
+  background-image: url('../img/link.svg');
 }
 
 .project-detail {
