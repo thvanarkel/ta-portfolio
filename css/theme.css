@@ -11887,7 +11887,6 @@ figcaption {
   padding-left: 20px;
   background-image: none !important;
   color: #878787 !important;
-  margin-bottom: 150px !important;
   margin-top: 0.5em !important;
 }
 figcaption:before {
@@ -12788,7 +12787,7 @@ article {
   text-align: justify;
 }
 .entry-content p + p {
-  text-indent: 20px;
+  text-indent: 45px;
 }
 .entry-content p:first-of-type {
   font-size: 1.2em;
