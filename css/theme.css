@@ -13372,7 +13372,7 @@ article {
 
 .wp-block-link {
   background-image: url("../img/link.svg");
-  text-indent: 0;
+  text-indent: 0 !important;
 }
 
 .project-detail {
