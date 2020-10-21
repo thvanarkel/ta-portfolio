@@ -107,10 +107,8 @@ figcaption {
   font-family: $font-family-serif;
   font-size: 1.3rem;
   text-align: left !important;
-  padding-left: 20px;
   background-image: none !important;
   color: $dark-gray !important;
-  // margin-bottom: 150px !important;
   margin-top: .5em !important;
   &:before {
     content: "←";
@@ -1525,10 +1523,16 @@ article {
       margin-left: 0;
       margin-top: 10px;
       li {
+        margin-bottom: 10px;
         &::marker {
           font-variant-numeric: normal;
         }
       }
+    }
+    ul > ul {
+      margin-top: -10px;
+      list-style-type: circle;
+      padding-left: 35px;
     }
   }
   &.uagb-toc__collapse {
