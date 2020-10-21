@@ -11887,7 +11887,6 @@ figcaption {
   font-family: "Para", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1.3rem;
   text-align: left !important;
-  padding-left: 20px;
   background-image: none !important;
   color: #878787 !important;
   margin-top: 0.5em !important;
@@ -13578,8 +13577,16 @@ article {
   margin-left: 0;
   margin-top: 10px;
 }
+.wp-block-uagb-table-of-contents .uagb-toc__wrap ul li {
+  margin-bottom: 10px;
+}
 .wp-block-uagb-table-of-contents .uagb-toc__wrap ul li::marker {
   font-variant-numeric: normal;
+}
+.wp-block-uagb-table-of-contents .uagb-toc__wrap ul > ul {
+  margin-top: -10px;
+  list-style-type: circle;
+  padding-left: 35px;
 }
 .wp-block-uagb-table-of-contents.uagb-toc__collapse .uagb-toc__title:before {
   content: "↓";
