@@ -947,9 +947,8 @@ article {
   padding-bottom: 80px;
   transform-style: preserve-3d;
   @include respond-below(sm) {
+    padding: 15px;
     margin-top: 0;
-  }
-  @include respond-below(sm) {
     grid-column: 1;
     margin-top: $grid-width;
     width: calc(100vw - #{$grid-width});
@@ -1313,11 +1312,11 @@ article {
             object-fit: cover;
             background-color: $white;
             border: $grid-border-width solid $border-color;
-            transform: translateZ(0px) translateY(-10%);
+            // transform: translateZ(0px) translateY(-10%);
             overflow: hidden;
             max-width: 100%;
             &:hover {
-              transform: translateZ(100px) translateY(-10%);
+              transform: translateZ(100px) translateY(-50px);
               opacity: 1;
             }
           }
@@ -1333,6 +1332,21 @@ article {
         }
         &:last-child {
           margin-bottom: 50px;
+        }
+        @for $i from 1 through 10 {
+          &:nth-child(#{$i}) {
+            img {
+              transform: translateZ(#{10-$i}px) translateY(-50px);
+              @include respond-below(lg) {
+                width: 430px;
+                height: $image-height-sm;
+                transform: translateZ(#{10-$i}px) translateY(-50px);
+              }
+              @include respond-below(md) {
+                transform: translateZ(#{10-$i}px) translateY(-50px);
+              }
+            }
+          }
         }
       }
     }
