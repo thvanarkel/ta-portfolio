@@ -11,19 +11,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-	
+
 	<!-- <header class="entry-header"> -->
 
-		
 
+		<!-- <b class="spacer"></b> -->
 		<div class="project-thumbnail">
 			<figure style="background-image: url('<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full') ?>')"></figure>
 		</div>
-		
-		
-		
 
-	
+
+
+
+
 	<?php
 		$meta = get_post_meta( get_the_ID() );
 		if (!empty($meta['project_timeframe'])) :
@@ -42,27 +42,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 			$other = ($meta['project_other'])[0];
 		endif;
 	 ?>
-	<div class="project-summary">
-		<span class="summary-handle">Project details</span>
-		<ul class="">
-			<?php if($timeframe) : ?><li><span>Timeframe</span><p><?php echo nl2br($timeframe) ?></p></li><?php endif; ?>
-			<?php if($team) : ?><li><span>Team</span><p><?php echo $team ?></p></li><?php endif; ?>
-			<?php if($roles) : ?><li><span>Role</span><p><?php echo nl2br($roles) ?></p></li><?php endif; ?>
-			<?php if($other) : ?><li><span>Other</span><p><?php echo nl2br($other) ?></p></li><?php endif; ?>
-		</ul>
+	<div class="project-summary auto-space">
+		<div class="summary-contents">
+			<h3>Project details</h3>
+			<ul class="">
+				<?php if($timeframe) : ?><li><span>timeframe</span><p><?php echo nl2br($timeframe) ?></p></li><?php endif; ?>
+				<?php if($team) : ?><li><span>team</span><p><?php echo $team ?></p></li><?php endif; ?>
+				<?php if($roles) : ?><li><span>role</span><p><?php echo nl2br($roles) ?></p></li><?php endif; ?>
+				<?php if($other) : ?><li><span>other</span><p><?php echo nl2br($other) ?></p></li><?php endif; ?>
+			</ul>
+		</div>
 	</div>
 
 
-	<div class="entry-content">
-		
+	<div class="entry-content auto-space">
+
 		<!-- <div class="project-menu">
 			<?php //the_title( '<p class="project-name">', '</p>' ); ?>
 		</div> -->
+		<div class="contents">
 		<?php the_title( '<h1 class="project-title display-title">', '</h1>' ); ?>
 
 
 		<?php the_content(); ?>
-
+	</div>
 
 
 		<?php
@@ -74,8 +77,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="divider"></div>
 	</div><!-- .entry-content -->
 
-	<div class="project-details">
-		<div class="project-detail">
+	<!-- <div class="project-details auto-footer"> -->
+		<div class="project-detail skills auto-space auto-footer">
 			<ul>
 				<li><b>Skills</b></li>
 				<?php $terms = get_the_terms( get_the_ID(), 'skills' );
@@ -87,7 +90,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php endforeach; endif; ?>
 			</ul>
 		</div>
-		<div class="project-detail">
+		<div class="project-detail tools auto-space auto-footer">
 			<ul>
 				<li><b>Tools and methods</b></li>
 				<?php $terms = get_the_terms( get_the_ID(), 'tools' );
@@ -99,10 +102,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php endforeach; endif; ?>
 			</ul>
 		</div>
-		<div class="project-detail">
+		<div class="project-detail team auto-space auto-footer">
 			<ul>
 			<?php if($team_members) : ?><li><b>Team</b></li><li><?php echo nl2br($team_members) ?></li><?php endif; ?>
 			</ul>
 		</div>
-	</div>
+	<!-- </div> -->
 </article><!-- #post-## -->

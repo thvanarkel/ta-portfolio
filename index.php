@@ -24,7 +24,6 @@ $container   = get_theme_mod( 'understrap_container_type' );
 	<?php get_template_part( 'global-templates/hero' ); ?>
 <?php endif; ?>
 
-<div class="wrapper" id="wrapper">
 
 	<?php
 		function get_current_template() {
@@ -33,25 +32,59 @@ $container   = get_theme_mod( 'understrap_container_type' );
 		}
 	 ?>
 
-	<div class="site-container" id="content" tabindex="-1" data-namespace="<?php echo get_current_template() ?>">
-			<main class="site-main" id="main">
-				<div class="navigation"></div>
-				<div class="about-me collapsed">
-					<div class="about-header">
-						<span>Thomas van Arkel</span><span class="button close-button">↖︎</span>
-						<!-- <h1>Test</h1><h1>Test</h1> -->
-					</div>
-					<div>
-					<?php
-						$page = get_page_by_title( 'About me' );
-						echo $page->post_content;
-					?>
-					</div>
-				</div>
-			</main><!-- #main -->
 
-			<!-- The pagination component -->
-			<?php understrap_pagination(); ?>
+		 	<div class="site-about auto-space">
+		 	<?php
+			 	$page = get_page_by_title( 'About me' );
+			 	echo $page->post_content;
+		 	?>
+			</div>
+			<!--googleoff: snippet-->
+			<div class="site-description">
+			 	<p>Portfolio/<br>Thomas van Arkel</p>
+		 	</div>
+			<!--googleon: snippet-->
+
+			<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $page->ID ), 'large' ); ?>
+  		<div class="site-featured-image" style="background-image: url('<?php echo $image[0]; ?>')">
+
+ 			<!-- <main class="site-main" id="main"> -->
+			</div>
+			<div class="site-contact">
+				<h3>Contact me</h3>
+				<p>Send me an email or find me around the worldwide web.</p>
+				<ul class="">
+					<li>
+						<span class="label">mail</span>
+						<a href="mailto:hello@thomasvanarkel.nl">hello@thomasvanarkel.nl</a>
+					</li>
+					<li>
+						<span class="label">twitter</span>
+						<a href="https://twitter.com/thvanarkel">@thvanarkel</a>
+					</li>
+					<li>
+						<span class="label">linkedin</span>
+						<a href="https://nl.linkedin.com/in/thomas-van-arkel-01384468">Thomas van Arkel</a>
+					</li>
+					<li>
+						<span class="label">github</span>
+						<a href="https://github.com/thvanarkel">thvanarkel</a>
+					</li>
+					<li>
+						<span class="label">vimeo</span>
+						<a href="https://vimeo.com/user43488666">Thomas van Arkel</a>
+					</li>
+				</ul>
+			</div>
+			<!--googleoff: snippet-->
+			<div class="cookie-warning">
+				<p>This site uses cookies. By continuing to browse the site, you are agreeing to our use of cookies.</p>
+				<a class="cookie-accept"><span>Ok, got it</span></a>
+			</div>
+			<!--googleon: snippet-->
+
+ 			<!-- </main> -->
+			<!-- <div class="home"></div> -->
 
 </div><!-- Container end -->
 
