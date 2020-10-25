@@ -29,78 +29,25 @@ $container = get_theme_mod( 'understrap_container_type' );
 <body>
 
 <div class="hfeed site" id="page">
-
-	<!-- ******************* The Navbar Area ******************* -->
-	<div id="wrapper-navbar">
-		<nav class="nav">
-			<a rel="home" class="nav-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><span class="">TvA</span></a>
-			<span class="button open-button">↗︎</span>
-		</nav><!-- .site-navigation -->
-
-	</div><!-- #wrapper-navbar end -->
-
-	<div class="card-stack">
-		<div class="content-card about-card">
-			<!-- <div class="minimise"><span>●</span></div> -->
-			<p>Portfolio/<br>Thomas van Arkel</p>
-				<!-- <figure class="js-image" style="background-image: url('<?php echo get_the_post_thumbnail_url($post->ID, 'full') ?>')"></figure> -->
-		</div>
-		<?php
-			$args = array(
-				'post_type'=> 'project',
-				'order'    => 'ASC'
+	<nav>
+		<div class="nav-brand"><a rel="home" class="" href="<?php echo esc_url( home_url( '/' ) ); ?>"><span class="">TvA</span></a></div>
+		<div class="break"></div>
+		<div class="buttons">
+			<div class="button projects"><a class="nav-toggle"><span class="">projects</span></a></div>
+			<?php
+				$args = array(
+					'post_type' => 'publication',
+					'order'			=> 'ASC'
 				);
 
 				$the_query = new WP_Query( $args );
 
-			if ( $the_query->have_posts() ) : ?>
-
-			<?php /* Start the Loop */ ?>
-
-			<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-
-				<?php
-
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'loop-templates/content', get_post_format() );
-				?>
-
-			<?php endwhile; ?>
-
-		<?php endif; wp_reset_query(); ?>
-		<div class="content-card contact-card">
-			<div class="minimise"><span>●</span></div>
-			<p>Send me an email or follow me around the worldwide web.</p>
-			<ul class="">
-				<li class="primary"><a class="cursor-link" href="mailto:hello@thomasvanarkel.nl" cursor-text="✉️" cursor-text-size="40px" cursor-size="6">hello@thomasvanarkel.nl</a></li>
-				<li class="secondary"><a class="cursor-link" href="https://twitter.com/thvanarkel" cursor-text="🐦" cursor-text-size="40px" cursor-size="6">Tw</a></li>
-				<li class="secondary"><a class="cursor-link" href="https://nl.linkedin.com/in/thomas-van-arkel-01384468"  cursor-text-size="40px" cursor-text="👨🏻‍💼" cursor-size="6">Li</a></li>
-				<li class="secondary"><a class="cursor-link" href="https://vimeo.com/user43488666" cursor-text="📼" cursor-text-size="40px" cursor-size="6">Vi</a></li>
-				<li class="secondary"><a class="cursor-link" href="https://github.com/thvanarkel" cursor-text="👨🏻‍💻" cursor-text-size="40px" cursor-size="6" >Gi</a></li>
-			</ul>
+				if ( $the_query->have_posts() ) : ?>
+			<div class="button publications"><a class="nav-toggle"><span class="">publications</span></a></div>
+			<?php endif; wp_reset_query(); ?>
 		</div>
-		<?php
-			$args = array(
-				'post_type' => 'publication',
-				'order'			=> 'ASC'
-			);
+	</nav>
+	<div class="wrapper" id="wrapper">
 
-			$the_query = new WP_Query( $args );
-
-			if ( $the_query->have_posts() ) : ?>
-		<div class="content-card publications-card">
-			<div class="minimise"><span>●</span></div>
-			<h3>Publications</h3>
-			<ul>
-				<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-				<li><a href="<?php echo get_permalink() ?>"><?php echo get_the_title() ?></a><p><?php echo get_the_date( 'Y' )?><span>↗︎</span></p></li>
-				<?php endwhile; ?>
-			</ul>
-		</div>
-		<?php endif; wp_reset_query(); ?>
-
-</div>
+		<div class="site-container" id="content" tabindex="-1" data-namespace="<?php echo get_current_template() ?>">
+			<b class="spacer"></b>
