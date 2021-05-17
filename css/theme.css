@@ -12795,9 +12795,6 @@ article {
 .entry-content p {
   text-align: justify;
 }
-.entry-content p + p {
-  text-indent: 45px;
-}
 .entry-content p:first-of-type {
   font-size: 1.2em;
 }
@@ -13600,6 +13597,9 @@ article {
   margin-top: -10px;
   list-style-type: circle;
   padding-left: 35px;
+}
+.wp-block-uagb-table-of-contents .uagb-toc__wrap ul > ul li {
+  margin-bottom: 0px;
 }
 .wp-block-uagb-table-of-contents.uagb-toc__collapse .uagb-toc__title:before {
   content: "↓";
