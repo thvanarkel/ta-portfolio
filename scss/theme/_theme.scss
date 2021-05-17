@@ -974,9 +974,9 @@ article {
 
   p {
     text-align: justify;
-    & + p {
-      text-indent: 45px;
-    }
+    // & + p {
+    //   text-indent: 45px;
+    // }
 
     &:first-of-type {
       font-size: 1.2em;
@@ -1546,6 +1546,9 @@ article {
       margin-top: -10px;
       list-style-type: circle;
       padding-left: 35px;
+      li {
+        margin-bottom: 0px;
+      }
     }
   }
   &.uagb-toc__collapse {
