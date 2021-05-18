@@ -34,6 +34,7 @@ if ( ! function_exists( 'understrap_scripts' ) ) {
 		wp_enqueue_script( 'interact', 'https://cdn.jsdelivr.net/npm/interactjs@1.3.4/dist/interact.min.js', array(),null);
 		wp_enqueue_script( 'vimeo', 'https://player.vimeo.com/api/player.js', array(),null);
 		wp_enqueue_script( 'custom-scripts', get_template_directory_uri() . '/js/custom.js', array('barba', 'interact', 'vimeo'), null, true );
+		wp_enqueue_script( 'custom-scripts-alt', get_template_directory_uri() . '/dist/js/bundle.js', array('jquery'), null, true );
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
