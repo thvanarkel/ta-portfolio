@@ -268,58 +268,6 @@ jQuery(document).ready(function($) {
       $body.css({'margin-right': 0, 'margin-bottom': 0});
   }
 
-  interact('.content-card')
-    .draggable({
-      onmove: dragMoveListener
-    })
-    .on('tap', function (event) {
-      var x = event.pageX;
-      var y = event.pageY;
-      var $target = $(event.target);
-
-      if ($target.hasClass('minimise')) {
-        $target.parent('.content-card').addClass('card-hidden');
-      } else {
-        Barba.Pjax.goTo(event.target.parentElement.getAttribute('link'));
-      }
-
-
-      event.preventDefault();
-    })
-    .on('dragstart', function(event) {
-      if(previousElement) {
-        event.target.style.zIndex = parseInt(previousElement.style.zIndex) + 1;
-      } else {
-        event.target.style.zIndex = 110;
-      }
-      // lockScroll();
-    })
-    .on('dragend', function(event) {
-      previousElement = event.target;
-      // unlockScroll();
-    });
-
-  function dragMoveListener(e) {
-    if (document.selection) {
-      document.selection.empty()
-    } else {
-      window.getSelection().removeAllRanges()
-    }
-    var target = e.target,
-      // keep the dragged position in the data-x/data-y attributes
-      x = (parseFloat(target.getAttribute('data-x')) || 0) + e.dx,
-      y = (parseFloat(target.getAttribute('data-y')) || 0) + e.dy;
-
-    // translate the element
-    target.style.webkitTransform =
-      target.style.transform =
-      'translate(' + x + 'px, ' + y + 'px)';
-
-    // update the posiion attributes
-    target.setAttribute('data-x', x);
-    target.setAttribute('data-y', y);
-  }
-
   function hasClass( target, className ) {
       return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
   }
@@ -519,104 +467,104 @@ jQuery(document).ready(function($) {
 
 
 
-  var Index = Barba.BaseView.extend({
-    namespace: "index",
-    onEnter: function() {
-      // The new Container is ready and attached to the DOM.
-      // layCards();
-
-      hideAllCards();
-      // splitTitles('.display-title');
-      $('#nav').load(document.URL +  ' #nav');
-      $.each($('.project-hidden'), function() {
-        $(this).addClass('card-hidden');
-      });
-    },
-    onEnterCompleted: function() {
-      // The Transition has just finished.
-      // splitTitles('.project-title');
-      autoHeight();
-    },
-    onLeave: function() {
-      // A new Transition toward a new page has just started.
-      // splitTitles('.project-title');
-      $('.open-button').addClass('opened');
-      blocksEnd = 0;
-    },
-    onLeaveCompleted: function() {
-      // The Container has just been removed from the DOM.
-    }
-  });
-
-  var Project = Barba.BaseView.extend({
-    namespace: "single-project",
-    onEnter: function() {
-      console.log("Will show project")
-      // The new Container is ready and attached to the DOM.
-      createGalleries();
-      hideAllCards();
-      $('.button.projects').removeClass("toggled");
-      window.scrollTo(0,0);
-    },
-    onEnterCompleted: function() {
-      // The Transition has just finished.
-      // splitTitles('.display-title');
-      autoHeight();
-    },
-    onLeave: function() {
-      // A new Transition toward a new page has just started.
-      // splitTitles('.display-title');
-      $('.open-button').removeClass('opened');
-      blocksEnd = 0;
-    },
-    onLeaveCompleted: function() {
-      // The Container has just been removed from the DOM.
-    }
-  });
-
-  var Publication = Barba.BaseView.extend({
-    namespace: "single-publication",
-    onEnter: function() {
-      console.log("Will show publication")
-      // The new Container is ready and attached to the DOM.
-      $('.open-button').addClass("opened");
-      createGalleries();
-      hideAllCards();
-      window.scrollTo(0,0)
-    },
-    onEnterCompleted: function() {
-      // The Transition has just finished.
-      // splitTitles('.display-title');
-      autoHeight();
-    },
-    onLeave: function() {
-      // A new Transition toward a new page has just started.
-      // splitTitles('.display-title');
-      $('.open-button').removeClass('opened');
-      blocksEnd = 0;
-    },
-    onLeaveCompleted: function() {
-      // The Container has just been removed from the DOM.
-    }
-  });
-
-  // Don't forget to init the view!
-  Index.init();
-  Project.init();
-  Publication.init();
-  // splitTitles('.display-title');
-  Barba.Pjax.Dom.wrapperId = "wrapper";
-  Barba.Pjax.Dom.containerClass = "site-container";
-  Barba.Pjax.start();
+  // var Index = Barba.BaseView.extend({
+  //   namespace: "index",
+  //   onEnter: function() {
+  //     // The new Container is ready and attached to the DOM.
+  //     // layCards();
+  //
+  //     hideAllCards();
+  //     // splitTitles('.display-title');
+  //     $('#nav').load(document.URL +  ' #nav');
+  //     $.each($('.project-hidden'), function() {
+  //       $(this).addClass('card-hidden');
+  //     });
+  //   },
+  //   onEnterCompleted: function() {
+  //     // The Transition has just finished.
+  //     // splitTitles('.project-title');
+  //     autoHeight();
+  //   },
+  //   onLeave: function() {
+  //     // A new Transition toward a new page has just started.
+  //     // splitTitles('.project-title');
+  //     $('.open-button').addClass('opened');
+  //     blocksEnd = 0;
+  //   },
+  //   onLeaveCompleted: function() {
+  //     // The Container has just been removed from the DOM.
+  //   }
+  // });
+  //
+  // var Project = Barba.BaseView.extend({
+  //   namespace: "single-project",
+  //   onEnter: function() {
+  //     console.log("Will show project")
+  //     // The new Container is ready and attached to the DOM.
+  //     createGalleries();
+  //     hideAllCards();
+  //     $('.button.projects').removeClass("toggled");
+  //     window.scrollTo(0,0);
+  //   },
+  //   onEnterCompleted: function() {
+  //     // The Transition has just finished.
+  //     // splitTitles('.display-title');
+  //     autoHeight();
+  //   },
+  //   onLeave: function() {
+  //     // A new Transition toward a new page has just started.
+  //     // splitTitles('.display-title');
+  //     $('.open-button').removeClass('opened');
+  //     blocksEnd = 0;
+  //   },
+  //   onLeaveCompleted: function() {
+  //     // The Container has just been removed from the DOM.
+  //   }
+  // });
+  //
+  // var Publication = Barba.BaseView.extend({
+  //   namespace: "single-publication",
+  //   onEnter: function() {
+  //     console.log("Will show publication")
+  //     // The new Container is ready and attached to the DOM.
+  //     $('.open-button').addClass("opened");
+  //     createGalleries();
+  //     hideAllCards();
+  //     window.scrollTo(0,0)
+  //   },
+  //   onEnterCompleted: function() {
+  //     // The Transition has just finished.
+  //     // splitTitles('.display-title');
+  //     autoHeight();
+  //   },
+  //   onLeave: function() {
+  //     // A new Transition toward a new page has just started.
+  //     // splitTitles('.display-title');
+  //     $('.open-button').removeClass('opened');
+  //     blocksEnd = 0;
+  //   },
+  //   onLeaveCompleted: function() {
+  //     // The Container has just been removed from the DOM.
+  //   }
+  // });
+  //
+  // // Don't forget to init the view!
+  // Index.init();
+  // Project.init();
+  // Publication.init();
+  // // splitTitles('.display-title');
+  // Barba.Pjax.Dom.wrapperId = "wrapper";
+  // Barba.Pjax.Dom.containerClass = "site-container";
+  // Barba.Pjax.start();
 
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  Barba.Dispatcher.on('initStateChange', function() {
-    // modify to your needs
-    Barba.Dispatcher.on('initStateChange', function() {
-      if (typeof __gaTracker === "function") __gaTracker('send', 'pageview', location.pathname);
-    });
-  });
+  // Barba.Dispatcher.on('initStateChange', function() {
+  //   // modify to your needs
+  //   Barba.Dispatcher.on('initStateChange', function() {
+  //     if (typeof __gaTracker === "function") __gaTracker('send', 'pageview', location.pathname);
+  //   });
+  // });
 
   var convertRange = (function(value, r1, r2) {
     return (value - r1[0]) * (r2[1] - r2[0]) / (r1[1] - r1[0]) + r2[0];

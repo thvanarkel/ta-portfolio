@@ -1,4 +1,5 @@
 // bundle.js
-import './components/slider';
+import './components/transitions';
+import './components/card'
 import $ from 'jquery';
 console.log('bundle');

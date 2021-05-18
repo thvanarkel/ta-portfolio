@@ -47,7 +47,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 			<?php endif; wp_reset_query(); ?>
 		</div>
 	</nav>
-	<div class="wrapper" id="wrapper">
+	<div class="wrapper" id="wrapper" data-barba="wrapper">
 
-		<div class="site-container" id="content" tabindex="-1" data-namespace="<?php echo get_current_template() ?>">
+		<div class="site-container" id="content" tabindex="-1" data-barba="container" data-barba-namespace="<?php echo get_current_template() ?>">
 			<b class="spacer"></b>

@@ -34,6 +34,7 @@ $container   = get_theme_mod( 'understrap_container_type' );
 
 
 		 	<div class="site-about auto-space">
+				<a href="/projects/data-informed-design-experiments">link</a>
 		 	<?php
 			 	$page = get_page_by_title( 'About me' );
 			 	echo $page->post_content;
