@@ -218,3 +218,5 @@
 .sass-cache/de4bbcc48ac0cbb7fbf96f17fca714363fdbad3d/_text.scssc
 .sass-cache/de4bbcc48ac0cbb7fbf96f17fca714363fdbad3d/_visibility.scssc
 node_modules/
+bundled/
+dist/
