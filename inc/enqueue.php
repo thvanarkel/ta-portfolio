@@ -18,10 +18,13 @@ if ( ! function_exists( 'understrap_scripts' ) ) {
 		$the_theme = wp_get_theme();
 		$theme_version = $the_theme->get( 'Version' );
 
-		$css_version = $theme_version . '.' . filemtime(get_template_directory() . '/css/theme.css');
+
 		wp_enqueue_style( 'open-iconic', 'https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css', array(), $css_version );
 		wp_enqueue_style( 'web-font', "https://use.typekit.net/nry6cas.css", array(), false );
-		wp_enqueue_style( 'understrap-styles', get_stylesheet_directory_uri() . '/css/theme.css', array('open-iconic', 'web-font'), $css_version );
+		// $css_version = $theme_version . '.' . filemtime(get_template_directory() . '/css/theme.css');
+		// wp_enqueue_style( 'understrap-styles', get_stylesheet_directory_uri() . '/css/theme.css', array('open-iconic', 'web-font'), $css_version );
+		$css_version = $theme_version . '.' . filemtime(get_template_directory() . '/dist/css/theme.css');
+		wp_enqueue_style( 'understrap-styles', get_stylesheet_directory_uri() . '/dist/css/theme.css', array('open-iconic', 'web-font'), $css_version );
 
 		wp_enqueue_script( 'jquery');
 
