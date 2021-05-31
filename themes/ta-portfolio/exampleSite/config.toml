@@ -1,8 +1,5 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
-
-theme = "ta-portfolio"
+baseURL = "https://example.com"
+title = "Hugo template"
 
 [menu]
   [[menu.main]]
