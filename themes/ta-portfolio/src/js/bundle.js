@@ -1,2 +1,2 @@
-import './components/slider';
+import './components/transition';
 console.log('bundle');
