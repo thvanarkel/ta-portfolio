@@ -1,13 +1,36 @@
 /* LAYOUT */
 
+@font-face {
+  font-family: "Alliance";
+  src: local("Alliance Text Regular");
+}
+@font-face {
+  font-family: "Protokoll";
+  src: local("Protokoll Light");
+}
+
 body {
-  color: #333;
-  font-size: 125%;
+  color: #000;
+  // font-size: 125%;
   line-height: 1.5;
-  max-width: 45rem;
-  padding: 1rem;
+  // max-width: 45rem;
+  // padding: 1rem;
   margin: 0 auto;
-  background-color: orange;
+
+  font-family: "Untitled Sans", "Times", "Alliance";
+  font-style: normal;
+  // font-weight: 400;
+  font-size: 1.4rem;
+}
+
+h1 {
+  font-weight: 400;
+  margin-top: 100px;
+  text-transform: uppercase;
+}
+
+img {
+  width: 50vw;
 }
 
 .content {
@@ -17,12 +40,25 @@ body {
 /* NAVIGATION */
 
 .site-nav {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
   display: flex;
+  padding: 1rem;
+  background-color: #000;
+  color: #fff;
 }
 
 .site-nav a {
   display: block;
-  padding: 1rem;
+  color: #fff;
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+.site-nav a:hover {
+  border-bottom: 1px solid #fff;
 }
 
 .site-nav .logo {
@@ -47,6 +83,11 @@ body {
     padding: 0.5rem;
     padding-left: 0;
   }
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
 }
 
 /* LISTS */
