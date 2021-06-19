@@ -13,11 +13,9 @@
   </div>
   <div>
     {{ range ( where .Site.RegularPages "Type" "projects" | first 3 ) }}
-      <div class="card">
-        <a href="{{ .Permalink }}">
+      <div class="card"  link="{{ .Permalink }}">
           <!-- {{ if .Params.featured_image }}<img src="{{ printf `%s%s` .Dir .Params.featured_image}}">{{ end }} -->
-          <div class="card-image" style="background-image: url('{{ printf `%s%s` .Dir .Params.featured_image}}')"></div>
-        </a>
+          <div class="card-image" style="background-image: url('{{ printf `%s%s` .File.Dir .Params.featured_image}}')"></div>
       </div>
     {{end}}
   </div>
