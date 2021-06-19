@@ -18,9 +18,9 @@
   },
   "homepage": "https://github.com/thvanarkel/ta-portfolio#readme",
   "devDependencies": {
-    "@babel/core": "^7.14.3",
-    "@babel/preset-env": "^7.14.4",
-    "@babel/register": "^7.13.16",
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.5",
+    "@babel/register": "^7.14.5",
     "autoprefixer": "^10.2.6",
     "babel-loader": "^8.2.2",
     "concurrently": "^6.2.0",
@@ -40,6 +40,7 @@
   "dependencies": {
     "@barba/core": "^2.9.7",
     "animejs": "^3.2.1",
-    "postcss": "^8.3.0"
+    "interactjs": "^1.10.11",
+    "postcss": "^8.3.5"
   }
 }

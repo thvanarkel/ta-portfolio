@@ -1,2 +1,2 @@
 import './components/transition';
-console.log('bundle');
+import './components/card'
