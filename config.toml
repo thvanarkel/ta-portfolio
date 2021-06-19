@@ -12,7 +12,7 @@ theme = "ta-portfolio"
     weight = 10
 
   [[menu.main]]
-    identifier = "about"
-    name = "About"
-    url = "/about"
+    identifier = "projects"
+    name = "Projects"
+    url = "/projects"
     weight = 20
