@@ -1,23 +1,23 @@
 baseURL = "http://thomasvanarkel.nl/"
 languageCode = "en-gb"
-title = "My New Hugo Site"
+title = "Thomas van Arkel"
 
 theme = "ta-portfolio"
 
 [menu]
   [[menu.main]]
     identifier = "posts"
-    name = "Posts"
+    name = "posts"
     url = "/posts"
     weight = 10
 
   [[menu.main]]
     identifier = "projects"
-    name = "Projects"
+    name = "projects"
     url = "/projects"
     weight = 20
   [[menu.main]]
     identifier = "publications"
-    name = "Publications"
+    name = "publications"
     url = "/publications"
     weight = 30
