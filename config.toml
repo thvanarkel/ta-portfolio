@@ -16,3 +16,8 @@ theme = "ta-portfolio"
     name = "Projects"
     url = "/projects"
     weight = 20
+  [[menu.main]]
+    identifier = "publications"
+    name = "Publications"
+    url = "/publications"
+    weight = 30
