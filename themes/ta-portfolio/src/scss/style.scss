@@ -88,6 +88,14 @@ img[src$='#halftone'] {
 
 .content {
   margin-bottom: 2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+main {
+  width: calc(50vw - 2 * 30px);
+  border-left: 2px solid #000000;
+  padding: 30px;
 }
 
 /* NAVIGATION */
