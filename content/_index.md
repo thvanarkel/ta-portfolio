@@ -8,7 +8,7 @@ I am Thomas van Arkel, a design researcher from Rotterdam who works at the inter
 Currently design researcher at [TU Delft](https://www.tudelft.nl/io/)
 
 ## About me
-I'm a designer and researcher working at the Delft University of Technology. As a designer and researcher I try to understand how designers can effectuate societal change through their designs. I do this by synthesising various fields of research for understanding the act of design, and through turning abstract theories and models into concrete representations of ideas by performing experiments. In my free time I am an avid collector of books and records—as well as reading and [listening](https://www.last.fm/user/thvanarkel) them.
+I'm a designer and researcher working at the Delft University of Technology. As a designer and researcher I try to understand how designers can effectuate societal change through their designs. I do this by synthesising various fields of research for understanding the act of design, and through turning abstract theories and models into concrete representations {{% post-link href="/projects/graveyard-of-the-future" value="Graveyard of the future" %}} of ideas by performing experiments. In my free time I am an avid collector of books and records—as well as reading and [listening](https://www.last.fm/user/thvanarkel) them.
 
 
 ## Work in progress
