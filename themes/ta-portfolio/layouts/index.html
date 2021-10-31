@@ -7,7 +7,15 @@
   {{ partial "publications.html" (dict "context" . "pages" ( where .Site.RegularPages "Type" "publications" | first 5 )) }}
   See more?
 
-
+  <h2>Projects</h2>
+  <div class="projects-overview">
+  {{ range ( where .Site.RegularPages "Type" "projects" | first 5 ) }}
+    <div class="project">
+      {{ if .Params.featured_image }}<img src="{{ printf `%s%s` .Dir .Params.featured_image}}">{{ end }}
+      {{ .Params.Title}}
+    </div>
+  {{end}}
+  </div>
 </main>
 
 {{ end }}
