@@ -1,3 +1,4 @@
+{{ $currentPage := . }}
 <header class="site-header">
   <nav class="site-nav">
     <a class="logo" href="{{ .Site.BaseURL }}">
@@ -5,7 +6,7 @@
     </a>
     <ul class="main-menu">
       {{ range .Site.Menus.main }}
-      <li>
+      <li {{ if or ($currentPage.IsMenuCurrent "main" .) (eq $currentPage.Section .Identifier) }} class="active" {{ end }}>
         <a href="{{ .URL }}">{{ .Name }}</a>
       </li>
       {{ end }}
