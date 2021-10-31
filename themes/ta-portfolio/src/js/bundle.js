@@ -26,3 +26,22 @@ const authors = document.querySelectorAll('.authors');
 authors.forEach(p => {
   p.innerHTML = p.innerHTML.replace("van Arkel", "<span class=\"highlight\">van Arkel</span>");
 });
+
+document.body.classList.add("theme--default");
+
+const darkmodeToggle = document.querySelector('#darkmode-toggle');
+
+darkmodeToggle.addEventListener('click', event => {
+  if (document.body.classList.contains("theme--default")) {
+    localStorage.setItem('theme', 'theme--dark');
+    document.body.classList.replace("theme--default", "theme--dark");
+
+  } else if (document.body.classList.contains("theme--dark")) {
+    localStorage.setItem('theme', 'theme--default');
+    document.body.classList.replace("theme--dark", "theme--default");
+  }
+});
+
+if (localStorage.getItem('theme') == 'theme--dark') {
+  document.body.classList.replace("theme--default", "theme--dark");
+}
