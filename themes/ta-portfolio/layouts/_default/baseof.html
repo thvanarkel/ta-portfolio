@@ -6,7 +6,8 @@
   {{ end }}
   {{ partial "head.html" . }}
 </head>
-<body data-barba="wrapper">
+<body>
+  <div class="site">
   {{ partial "nav.html" . }}
 
 
@@ -18,4 +19,5 @@
   {{ block "footer" . }}
     {{ partial "footer.html" . }}
   {{ end }}
+  </div>
 </body>
