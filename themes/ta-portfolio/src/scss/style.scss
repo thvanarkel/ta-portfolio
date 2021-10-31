@@ -12,6 +12,10 @@
 $font-family-sans: "Untitled Sans", "Times", "Alliance";
 $font-family-serif: "Untitled Serif", "Tiempos Text";
 
+$blue: #0075ff;
+$black: #000000;
+$grey: #878787;
+
 body {
   color: #000;
   // font-size: 125%;
@@ -59,11 +63,47 @@ body {
   }
 }
 
-h1 {
-  font-weight: 400;
-  // margin-top: 100px;
-  text-transform: uppercase;
+
+
+
+
+main {
+  h1 {
+    font-weight: 400;
+    // margin-top: 100px;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  p > a {
+    color: $blue;
+    text-decoration: none;
+    &:after {
+      content: "↗︎";
+      padding-left: 2px;
+    }
+    &:hover {
+      border-bottom: 1px solid $blue;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    li {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0px;
+      border-bottom: 1px solid $black;
+    }
+  }
 }
+
+
 
 // img {
 //   width: 50vw;
@@ -77,6 +117,7 @@ img[src$='#halftone'] {
 }
 
 .post-link {
+  color: $black;
   padding: 5px 0;
   margin-right: 5px;
   border: 1px solid black;
@@ -103,6 +144,7 @@ img[src$='#halftone'] {
   }
   &:hover {
     background-color: black;
+    border-color: $black;
     .post-link__indicator {
       color: white;
     }
@@ -113,7 +155,34 @@ img[src$='#halftone'] {
       font-size: 1.43rem;
     }
   }
+  &:after {
+    content: "";
+  }
+}
 
+.publications-overview {
+  .publication {
+    span {
+      flex: 1;
+    }
+    .authors {
+      color: $grey;
+      padding-left: 25px;
+      .highlight {
+        color: $black;
+      }
+    }
+    .year {
+      flex: 0.5;
+      text-align: right;
+    }
+    &:hover {
+      span {
+        color: $blue !important;
+      }
+      cursor: pointer;
+    }
+  }
 }
 
 .halftone {

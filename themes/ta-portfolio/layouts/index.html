@@ -2,6 +2,17 @@
 
 <main aria-role="main" data-barba="container" data-barba-namespace="home">
   {{ .Content }}
+
+  <h2>Publications</h2>
+  <ul class="publications-overview">
+  {{ range ( where .Site.RegularPages "Type" "publications" | first 10 ) }}
+    <li class="publication">
+      <span class="title">{{ .Params.Title}}</span>
+      <span class="authors">{{ .Params.Authors}}</span>
+      <span class="year">({{ .Params.Year}}) <span class="link__indicator">↗︎</span></span>
+    </li>
+  {{end}}
+  </ul>
 </main>
 
 {{ end }}
