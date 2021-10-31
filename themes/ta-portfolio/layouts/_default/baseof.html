@@ -9,10 +9,11 @@
 <body data-barba="wrapper">
   {{ partial "nav.html" . }}
 
-  {{ partial "home.html" . }}
 
-  {{ block "main" . }}
-  {{ end }}
+  <div class="content">
+    {{ block "main" . }}
+    {{ end }}
+  </div>
 
   {{ block "footer" . }}
     {{ partial "footer.html" . }}
