@@ -4,13 +4,11 @@
     <a class="logo" href="{{ .Site.BaseURL }}">
       {{ .Site.Title }}
     </a>
-    <ul class="main-menu">
-      {{ range .Site.Menus.main }}
-      <li {{ if or ($currentPage.IsMenuCurrent "main" .) (eq $currentPage.Section .Identifier) }} class="active" {{ end }}>
-        <a href="{{ .URL }}">{{ .Name }}</a>
-      </li>
-      {{ end }}
-      <span id="darkmode-toggle"></span><!-- ○● -->
-    </ul>
+    {{ range .Site.Menus.main }}
+    <div {{ if or ($currentPage.IsMenuCurrent "main" .) (eq $currentPage.Section .Identifier) }} class="active" {{ end }}>
+      <a href="{{ .URL }}">{{ .Name }}</a>
+    </div>
+    {{ end }}
+    <span id="darkmode-toggle"></span><!-- ○● -->
   </nav>
 </header>
