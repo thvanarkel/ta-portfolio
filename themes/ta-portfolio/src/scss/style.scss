@@ -304,6 +304,11 @@ main {
   list-style: none;
   margin: 0;
   padding: 0;
+  li {
+    &.active {
+      a {color: $blue;}
+    }
+  }
 }
 
 @media screen and (max-width: 48rem) {
