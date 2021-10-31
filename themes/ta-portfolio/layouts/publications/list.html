@@ -1,0 +1,13 @@
+{{ define "main" }}
+<main aria-role="main" data-barba="container" data-barba-namespace="list">
+<!-- <h1>{{ .Title }}</h1> -->
+
+{{ .Content }}
+
+
+
+{{ partial "publications.html" (dict "context" . "pages" .Data.Pages) }}
+
+</main>
+
+{{ end }}
