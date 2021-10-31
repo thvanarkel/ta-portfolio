@@ -73,6 +73,29 @@ img[src$='#halftone'] {
   height: auto;
 }
 
+.project-link {
+  padding: 5px 0;
+  border: 1px solid black;
+  text-decoration: none;
+  overflow: hidden;
+  .post-link__left {
+    padding: 5px;
+    border-right: 1px solid black;
+    background-color: white;
+  }
+  .post-link__indicator {
+    padding: 5px;
+    font-size: 1.6rem;
+  }
+  &:hover {
+    background-color: black;
+    .post-link__indicator {
+      color: white;
+    }
+  }
+
+}
+
 .halftone {
     background: white;
     position: relative;
