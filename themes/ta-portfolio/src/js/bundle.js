@@ -24,5 +24,5 @@ import './components/card'
 
 const authors = document.querySelectorAll('.authors');
 authors.forEach(p => {
-  p.innerHTML = p.textContent.replace("van Arkel", "<span class=\"highlight\">van Arkel</span>");
+  p.innerHTML = p.innerHTML.replace("van Arkel", "<span class=\"highlight\">van Arkel</span>");
 });

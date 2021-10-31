@@ -63,10 +63,6 @@ body {
   }
 }
 
-
-
-
-
 main {
   h1 {
     font-weight: 400;
@@ -79,9 +75,12 @@ main {
     text-transform: uppercase;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   p > a {
     color: $blue;
-    text-decoration: none;
     &:after {
       content: "↗︎";
       padding-left: 2px;
@@ -171,9 +170,15 @@ img[src$='#halftone'] {
       .highlight {
         color: $black;
       }
+      text-align: right;
+      .link__indicator {
+        padding-left: 5px;
+        font-size: 1.5rem;
+        color: $black;
+      }
     }
     .year {
-      flex: 0.5;
+      flex: 0.25;
       text-align: right;
     }
     &:hover {
