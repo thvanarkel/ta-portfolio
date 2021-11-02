@@ -1,8 +1,7 @@
 /* LAYOUT */
-
 @import 'theme';
 @import 'navigation';
-@import 'components/gallery';
+@import 'components/figure';
 
 @font-face {
   font-family: "Alliance";
@@ -43,7 +42,16 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+$gap: 0.5rem;//calc(12/1680 * 100vw);
+
 main {
+  // display: flex;
+
+
+  h1, h2, h3, h4, h5, h6 {
+
+  }
+
   h1 {
     font-weight: 400;
     text-transform: uppercase;
@@ -56,6 +64,16 @@ main {
 
   a {
     text-decoration: none;
+  }
+
+  p {
+    width: calc(100% - (6 * (100% / 12) + 0.6 * #{$gap}));
+    margin-left: calc(4 * (100% / 12) + 0.4 * (12/1680 * 100vw));
+  }
+
+  .gallery {
+    width: calc(100% - (2 * (100% / 12) + 0.2 * #{$gap}));
+    margin-left: calc(1 * (100% / 12) + 0.2 * (12/1680 * 100vw));
   }
 
   p > a {
@@ -106,6 +124,7 @@ img[src$='#halftone'] {
   line-height: 1.7;
   text-decoration: none;
   overflow: hidden;
+  word-break:break-all;
   .post-link__left {
     padding: 5px;
     border-right: 1px solid;
@@ -142,6 +161,12 @@ img[src$='#halftone'] {
   }
   &:after {
     content: "";
+  }
+}
+
+.main-home {
+  p:first-child {
+    font-size: 2.5rem;
   }
 }
 
