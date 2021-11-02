@@ -1,0 +1,33 @@
+$minColWidth: 15rem;
+
+.site {
+  counter-reset: figures;
+}
+
+figure {
+  margin: 0;
+  counter-increment: figures;
+  img {
+    width: 100%;
+  }
+  figcaption {
+    display: flex;
+    font-size: 0.8rem;
+    line-height: 1.1;
+    padding: 0px calc(12/1680 * 100vw);
+    color: $grey;
+    &::before {
+      content: "Fig. " counter(figures) " ";
+      min-width: 50px;
+      margin-right: 10px;
+      height: 100%;
+    }
+  }
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($minColWidth, 1fr));
+  gap: calc(12/1680 * 100vw);
+
+}
