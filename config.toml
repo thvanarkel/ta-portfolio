@@ -21,6 +21,3 @@ theme = "ta-portfolio"
     name = "publications"
     url = "/publications"
     weight = 30
-
-[markup.goldmark.renderer]
-    unsafe= true

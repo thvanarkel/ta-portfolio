@@ -2,6 +2,7 @@
 
 @import 'theme';
 @import 'navigation';
+@import 'components/gallery';
 
 @font-face {
   font-family: "Alliance";
@@ -190,6 +191,8 @@ $minColWidth: 15rem;
     }
   }
 }
+
+
 
 .halftone {
     background: white;
