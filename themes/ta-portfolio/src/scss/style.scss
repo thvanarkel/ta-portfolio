@@ -118,41 +118,53 @@ img[src$='#halftone'] {
     color: t($text);
     border-color: t($border);
   }
-  padding: 5px 0;
-  margin-right: 5px;
+  display: inline-flex;
+  margin-top: -.1rem;
+  margin-bottom: -.3rem;
+  padding-left: .5rem;
   border: 1px solid;
-  line-height: 1.7;
   text-decoration: none;
-  overflow: hidden;
-  word-break:break-all;
   .post-link__left {
-    padding: 5px;
-    border-right: 1px solid;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding-right: .5rem;
+    // padding: 5px;
+    //border-right: 1px solid;
+    // margin: .1rem .5rem .1rem 0;
     // transition: background-color 0.7s;
     @include themed() {
       background-color: t($bg);
       border-color: t($border);
     }
     img {
-      padding: 0 5px;
-      padding-bottom: 5px;
-      vertical-align: middle;
-      max-height: 2rem;
+      // padding: 0 5px;
+      // padding-bottom: 5px;
+      // vertical-align: middle;
+      // max-height: 2rem;
+      margin: 0 0rem 0 .3rem;
     }
   }
   .post-link__indicator {
-    padding: 5px;
+    display: flex;
     font-size: 1.6rem;
+    align-items: baseline;
+    justify-content: center;
+    width: 2rem;
+    border-left: 1px solid;
+    vertical-align: middle;
   }
   &:hover {
-    @include themed() {
-      background-color: t($hover);
-      border-color: t($border);
-    }
+
     .post-link__indicator {
-      @include themed() { color: t($hover-text); }
+      @include themed() {
+        background-color: t($hover);
+        border-color: t($border);
+        color: t($hover-text);
+      }
     }
   }
+
   &.publication {
     .post-link__left {
       font-family: $font-family-serif;
@@ -160,7 +172,7 @@ img[src$='#halftone'] {
     }
   }
   &:after {
-    content: "";
+    display: none;
   }
 }
 
