@@ -1,14 +1,16 @@
 {{ $currentPage := . }}
 <header class="site-header">
+  <a class="logo" href="{{ .Site.BaseURL }}">
+    {{ .Site.Title }}
+  </a>
   <nav class="site-nav">
-    <a class="logo" href="{{ .Site.BaseURL }}">
-      {{ .Site.Title }}
-    </a>
+    <ul>
     {{ range .Site.Menus.main }}
-    <div {{ if or ($currentPage.IsMenuCurrent "main" .) (eq $currentPage.Section .Identifier) }} class="active" {{ end }}>
+    <li {{ if or ($currentPage.IsMenuCurrent "main" .) (eq $currentPage.Section .Identifier) }} class="active" {{ end }}>
       <a href="{{ .URL }}">{{ .Name }}</a>
-    </div>
+    </li>
     {{ end }}
+    </ul>
     <span id="darkmode-toggle"></span><!-- ○● -->
   </nav>
 </header>
