@@ -1,12 +1,12 @@
 {{ define "main" }}
-<main aria-role="main" data-barba="container" data-barba-namespace="list">
+<main aria-role="main" class="fullwidth">
 <!-- <h1>{{ .Title }}</h1> -->
 
 {{ .Content }}
 
 
 
-{{ partial "publications.html" (dict "context" . "pages" .Data.Pages) }}
+{{ partial "publications.html" (dict "context" . "pages" .Data.Pages "view" "normal") }}
 
 </main>
 
