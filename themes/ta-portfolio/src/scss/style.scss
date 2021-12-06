@@ -68,7 +68,7 @@ main {
   h2 {
     font-weight: 400;
     font-size: 1.2rem;
-    text-transform: lowercase;
+    text-transform: uppercase;
   }
 
   a {
@@ -207,6 +207,7 @@ img[src$='#halftone'] {
   border-radius: 20px;
   font-size: 0.8rem;
   vertical-align: middle;
+  text-transform: lowercase;
 }
 
 .publications-overview {
@@ -217,17 +218,19 @@ img[src$='#halftone'] {
     }
     .title {
       flex: 2;
+      // text-transform: uppercase;
     }
     .subtitle {
       // color: $grey;
+      text-transform: lowercase;
     }
     .venue {
-      color: $grey;
+      color: $light-grey;
+      text-transform: capitalize;
     }
     .status {
       @extend .tag;
       border-color: $yellow;
-
       color: $yellow;
 
       &::before {
@@ -241,7 +244,7 @@ img[src$='#halftone'] {
       }
     }
     .authors {
-      color: $grey;
+      color: $light-grey;
       padding-left: 25px;
       .highlight {
         @include themed() { color: t($text); }
