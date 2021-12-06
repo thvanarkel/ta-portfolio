@@ -1,10 +1,14 @@
 ---
-title: "Designing appropriate things for durable behaviour change"
+title: "Designing appropriate things"
+subtitle: "an experiential perspective on the effectiveness of artefacts in contributing to behaviour change"
 date: 1624104516
 draft: true
 
 year: "2022"
 authors: "van Arkel & Tromp"
+venue: "DRS 2022, Bilbao"
+publicationType: "conference paper"
+status: "in press"
 ---
 ## A design theoretical perspective on the effectiveness of artefacts in changing behaviour
 Facilisi accumsan tincidunt fringilla porttitor sodales sit sagittis habitant per taciti hendrerit rutrum natoque ut penatibus, inceptos interdum sem non lorem amet ultricies feugiat fermentum quis pretium euismod tempor. Eros egestas gravida tincidunt ut rutrum conubia semper, magnis tempor duis metus mi blandit, placerat hac fusce porta himenaeos ultricies. Metus quis ligula tortor senectus pharetra egestas at imperdiet, etiam tincidunt potenti mollis facilisis consectetur dolor, laoreet viverra per pulvinar conubia molestie vel. Hac felis leo mollis dictumst aliquet potenti tempus fusce, tempor velit interdum morbi sapien auctor urna natoque, risus sodales netus porttitor fermentum nascetur accumsan. Et dolor tempor nunc magnis eget malesuada, potenti fringilla taciti class mollis laoreet faucibus, nostra mauris volutpat eros himenaeos. Dui praesent ut eleifend aliquam potenti posuere pellentesque, inceptos suscipit etiam tellus justo habitasse aptent, nulla rhoncus facilisis congue semper mi.
