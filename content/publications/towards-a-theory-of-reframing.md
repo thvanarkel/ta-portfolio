@@ -4,7 +4,7 @@ date: 1624104516
 draft: true
 
 year: "2022"
-authors: "Tromp, van Arkel, Daalhuizen"
+authors: "Tromp, van Arkel & Daalhuizen"
 venue: "Design Studies"
 publicationType: "journal article"
 ---
