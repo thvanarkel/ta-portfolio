@@ -6,6 +6,11 @@ theme = "ta-portfolio"
 
 [menu]
   [[menu.main]]
+    identifier = "themes"
+    name = "themes"
+    url = "/themes"
+    weight = 5
+  [[menu.main]]
     identifier = "posts"
     name = "posts"
     url = "/posts"
