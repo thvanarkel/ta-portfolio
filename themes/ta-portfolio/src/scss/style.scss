@@ -86,8 +86,7 @@ main {
   }
 
   .gallery {
-    // width: calc(100% - (2 * (100% / 12) + 0.2 * #{$gap}));
-    // margin-left: calc(1 * (100% / 12) + 0.2 * (12/1680 * 100vw));
+    grid-column: #{$start-main} / #{$end-main};
   }
 
   p > a {
@@ -192,6 +191,12 @@ img[src$='#halftone'] {
   &:after {
     display: none;
   }
+}
+
+.related-post {
+  border: 1px solid black;
+  height: 275px;
+  padding: 10px;
 }
 
 .main-home {

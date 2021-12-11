@@ -1,0 +1,12 @@
+{{- $class := "related-post" -}}
+<a{{ if .id }} id="{{ .id }}"{{ end }} href="{{ if .href }}{{ .href | safeURL }}{{ end }}" target="{{ if .target }}{{ .target }}{{ end }}" class="{{ if .type }}{{print $class (print " " .type)}}{{ else }}{{ $class }}{{ end }}"{{if .disabled }} disabled{{end}}>
+  <span class="post-link__left">{{ .value | default "My Button"}}
+  {{- $page := site.GetPage .href -}}
+  {{- if $page.Params.featured_image -}}
+    {{- $image := $page.Resources.GetMatch $page.Params.featured_image -}}
+    {{- $imagethumbnail := $image.Resize "x30" -}}
+    <img src="{{ $imagethumbnail.RelPermalink }}">
+  {{- end -}}
+  </span>
+  <span class="post-link__indicator">↗︎</span>
+</a></span>
