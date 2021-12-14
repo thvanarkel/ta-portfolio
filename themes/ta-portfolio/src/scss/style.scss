@@ -57,7 +57,7 @@ main {
   h1, h2, h3, h4, h5, h6 {
     // display: none;
     margin: 0;
-    grid-column: 1 / #{$start-main};
+    grid-column: 1 / #{$start-main} !important;
   }
 
   h1 {
@@ -89,6 +89,17 @@ main {
     grid-column: #{$start-main} / #{$end-main};
   }
 
+  .aside {
+    grid-column: #{$end-main} / #{$num-columns + 1};
+    grid-row: 1 / span 2;
+    position: sticky;
+    top: 25px;
+  }
+
+  .feature-image {
+    grid-column: #{$start-main} / #{$end-main};
+  }
+
   p > a {
     color: $blue;
     &:after {
@@ -106,18 +117,26 @@ main {
     li {
       display: flex;
       justify-content: space-between;
-      padding: 10px 0px;
       border-bottom: 1px solid;
       @include themed() { border-color: t($border); }
     }
   }
 }
 
-
-
-// img {
-//   width: 50vw;
-// }
+#main-home {
+  p {
+    grid-column: #{$start-main} / #{$end-main + 1};
+  }
+  div, ul {
+    grid-column: #{$start-main} / #{$end-main + 1};
+  }
+  .gallery {
+    grid-column: #{$start-main} / #{$end-main + 2};
+  }
+  .projects-overview {
+    grid-column: #{$start-main} / #{$end-main + 2};
+  }
+}
 
 img[src$='#halftone'] {
   display: block;
@@ -218,6 +237,7 @@ img[src$='#halftone'] {
 .publications-overview {
   .publication {
     @include themed() { color: t($text); }
+    padding-bottom: 5px;
     span {
       flex: 1;
     }
@@ -278,14 +298,22 @@ $minColWidth: 15rem;
 
 .projects-overview {
   display: grid;
-  grid-template-columns: repeat(($end-main - $start-main), minmax(0,1fr));//repeat(auto-fit, minmax($minColWidth, 1fr));
+  grid-template-columns: repeat(($end-main + 2 - $start-main), minmax(0,1fr));//repeat(auto-fit, minmax($minColWidth, 1fr));
   gap: 20px;
-
+  a {
+    grid-column: span 4;
+  }
   .project {
-    grid-column: span 3;
+
     img {
       max-width: 100%;
     }
+  }
+}
+
+.fullwidth {
+  .projects-overview {
+    grid-template-columns: repeat(($num-columns + 1 - $start-main), minmax(0,1fr));//repeat(auto-fit, minmax($minColWidth, 1fr));
   }
 }
 
