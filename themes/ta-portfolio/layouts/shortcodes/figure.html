@@ -4,9 +4,9 @@
 <figure {{if $class}}class="{{$class}}"{{end}}>
   {{- with .Parent -}}
   <img src="{{$src}}">
-  <figcaption>{{ $caption }}</figcaption>
+  {{ if $caption }}<figcaption>{{ $caption }}</figcaption>{{ end }}
   {{- else -}}
   <img src="{{$src}}">
-  <figcaption>{{ $caption }}</figcaption>
+  {{ if $caption }}<figcaption>{{ $caption }}</figcaption>{{ end }}
   {{- end -}}
 </figure>

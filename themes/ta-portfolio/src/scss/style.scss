@@ -1,8 +1,8 @@
 /* LAYOUT */
-@import url('https://css.gg/css');
 @import 'reset';
 @import 'fonts';
 @import 'theme';
+@import 'responsive';
 @import 'grid';
 @import 'navigation';
 @import 'components/figure';
@@ -20,14 +20,14 @@ $font-family-sans: "Untitled Sans", "Alliance", "Helvetica Neue", Arial, sans-se
 $font-family-serif: "Untitled Serif", "Tiempos Text";
 $font-family-arrows: "Alliance", "Untitled Sans", Arial, sans-serif;
 
-
-
 body {
   margin: 0 auto;
 }
 
+$site-padding-side: 75px;
+
 .site {
-  padding: 50px 75px;
+  padding: 50px $site-padding-side;
   min-height: 100vh;
 
   // General color settings
@@ -130,6 +130,7 @@ main {
 #main-home {
   p {
     grid-column: #{$start-main} / #{$end-main + 1};
+    z-index: 2;
   }
   div, ul {
     grid-column: #{$start-main} / #{$end-main + 1};
@@ -140,23 +141,77 @@ main {
   .projects-overview {
     grid-column: #{$start-main} / #{$end-main + 2};
   }
+
+  p:first-child {
+    font-size: 2.3rem;
+    @include breakpoint($lg) {
+      font-size: 3.0rem;
+    }
+    padding-top: 75px;
+  }
+  p:nth-of-type(2) {
+    margin-bottom: 15vh;
+    @include breakpoint($xl) {
+      margin-bottom: 25vh;
+    }
+  }
+  .cover {
+    position: absolute;
+    top: 25vh;
+    opacity: 0.8;
+    right: $site-padding-side;
+    width: calc(((100% - 2 * #{$site-padding-side} - 13 * #{$grid-column-gap})/14) * 5 + 4 * #{$grid-column-gap});
+    //max-height: 25vh;
+    display: block;
+    z-index: 1;
+    &:hover {
+      opacity: 1.0;
+      z-index: 10;
+    }
+  }
+  footer {
+    grid-column: #{$start-main + 4} / #{$end-main};
+  }
 }
 
 footer {
   @include main-grid();
   margin-top: 50px;
-  p {
-    grid-column: #{$start-main} / #{$end-main};
-    font-size: 1rem;
+  .last-build {
+    grid-column: #{$start-main + 4} / #{$end-main};
+    font-size: 0.9rem;
     color: $light-grey;
-    .gg-redo {
-      display: inline-block;
-      // vertical-align: middle;
+    i {
       margin-right: 2px;
-      transform: scale(0.8) translateY(2px);
+      transform: scale(0.8) translateY(1px);
     }
   }
+  .contact {
+    display: flex;
+    padding: 0;
+    list-style: none;
+    grid-column: #{$start-main} / #{$start-main + 4};
+    li {
+      padding-right: 10px;
+      transform: scale(0.8) translateY(-8px);
+      i {
+        color: $blue;
+      }
+    }
+
+  }
   //position: fixed;
+}
+
+.alert {
+  border: 1px $yellow solid;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 1.1rem;
+  color: $yellow;
+  i {
+    margin-right: 5px;
+  }
 }
 
 img[src$='#halftone'] {
@@ -240,11 +295,7 @@ img[src$='#halftone'] {
   padding: 10px;
 }
 
-.main-home {
-  p:first-child {
-    font-size: 2.5rem;
-  }
-}
+
 
 .tag {
   display: inline-block;
@@ -325,6 +376,7 @@ $minColWidth: 15rem;
   gap: 20px;
   a {
     grid-column: span 4;
+    @include themed() { color: t($text); }
   }
   .project {
 
