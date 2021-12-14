@@ -13,9 +13,9 @@
 
     {{ range .Site.Menus.main }}
       {{ if gt (index $dict .Identifier) 0 }}
-    <li {{ if or ($currentPage.IsMenuCurrent "main" .) (eq $currentPage.Section .Identifier) }} class="active" {{ end }}>
-      <a href="{{ .URL }}">{{ .Name }}</a>
-    </li>
+      <li {{ if or ($currentPage.IsMenuCurrent "main" .) (eq $currentPage.Section .Identifier) }} class="active" {{ end }}>
+        <a href="{{ .URL }}">{{ .Name }}</a>
+      </li>
       {{ end }}
     {{ end }}
     </ul>
