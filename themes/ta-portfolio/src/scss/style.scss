@@ -1,4 +1,5 @@
 /* LAYOUT */
+@import url('https://css.gg/css');
 @import 'reset';
 @import 'fonts';
 @import 'theme';
@@ -139,6 +140,23 @@ main {
   .projects-overview {
     grid-column: #{$start-main} / #{$end-main + 2};
   }
+}
+
+footer {
+  @include main-grid();
+  margin-top: 50px;
+  p {
+    grid-column: #{$start-main} / #{$end-main};
+    font-size: 1rem;
+    color: $light-grey;
+    .gg-redo {
+      display: inline-block;
+      // vertical-align: middle;
+      margin-right: 2px;
+      transform: scale(0.8) translateY(2px);
+    }
+  }
+  //position: fixed;
 }
 
 img[src$='#halftone'] {
@@ -405,10 +423,7 @@ main {
 
 
 
-footer {
-  position: fixed;
-  bottom: 0;
-}
+
 
 /* LISTS */
 
