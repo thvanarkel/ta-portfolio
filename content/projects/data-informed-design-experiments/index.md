@@ -1,7 +1,7 @@
 ---
 title: "Data-informed design experiments"
 date: 2021-06-18T17:02:17+02:00
-draft: true
+draft: false
 
 featured_image: "cover.jpg"
 image: "cover.jpg"
@@ -12,12 +12,12 @@ When intentionally changing behaviour through design it is important to understa
 
 The effect of a design intervention in changing behaviour is generally measured in terms of its effectiveness, the long-term consolidation of the intended effect. Design interventions can produce effects like a reduction of water use and electricity consumption, however, in follow-up studies those positive effects are often not sustained (Abrahamse et al., 2005). Thus there may be another factor at play that influences the effectiveness over time. This is the appropriateness of a design, the quality of being proper and suitable to the user’s context.
 
-{{< figure src="resources/design interventions.jpg" caption="During the research I developed a typology of design interventions, mapping various design interventions aiming for behaviour change on theoretical dimensions" >}}
+{{< figure src="resources/design interventions.jpg" caption="During the research I developed a typology of design interventions, mapping various design interventions aiming for behaviour change on theoretical dimensions" class="single" >}}
 
 ## Theory development
 I operationalised these two concepts into a theoretical model that describes the transition of a design being efficacious to effective. Right after introduction of the design positive and negative effects may surface more prominently, increasing the uncertainty about the actual effect induced. For instance people may be more motivated to change their behaviour, or do not yet see all the capabilities that the design has to offer. As these effects fade over time, the actual design qualities of the intervention play a role in the formation of a stable bond between the user and the thing when integrating it into their daily lives. This is where the appropriateness comes into play, as all the elements that spark irritation or frustration influence the level to which they adhere to use, directly impacting the effectiveness.
 
-{{< figure src="resources/model.jpg" caption="Theoretical model highlighting the relations between the effectiveness and appropriateness of a design intervention" >}}
+{{< figure src="resources/model.jpg" caption="Theoretical model highlighting the relations between the effectiveness and appropriateness of a design intervention" class="single" >}}
 
 This appropriateness can be differentiated in three types: aesthetic, moral and systemic appropriateness. Aesthetic appropriateness concerns the aesthetic appreciation of the intervention in relation to its effect; building on the aesthetic principles of achieving the maximum effect with the minimum means and being most advanced yet acceptable (Hekkert, 2006). Moral appropriateness entails the tolerance of the user towards the exerted influence by the intervention (Tromp et al., 2013). Systemic appropriateness relates to the fit between the intervention and the greater whole and the ability for people to integrate and appropriate the design into their daily lives and practices—as well as the (unexpected) consequences caused by the introduction of the intervention.
 

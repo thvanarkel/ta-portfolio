@@ -4,6 +4,8 @@ title = "Thomas van Arkel"
 
 theme = "ta-portfolio"
 
+sectionPagesMenu = "main"
+
 [menu]
   [[menu.main]]
     identifier = "themes"

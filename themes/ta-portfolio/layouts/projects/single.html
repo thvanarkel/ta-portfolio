@@ -1,11 +1,15 @@
 {{ define "main" }}
 
 <main aria-role="main" data-barba="container" data-barba-namespace="project">
+  {{ with .Params.featured_image }}<img class="feature-image" src="{{ . }}">{{ end }}
   <div class="aside project-aside">
-  <h1>{{ .Title }}</h1>
+    <h1>{{ .Title }}</h1>
+    <p>Etiam fermentum neque in rutrum tempor. Nam interdum metus nec blandit efficitur. Ut laoreet ante sit amet massa tincidunt tincidunt. Sed semper ligula et dui pharetra commodo blandit nec ipsum. Nunc eu orci purus. Quisque consectetur nisl vel ante tempus venenatis. Praesent.</p>
+
+
   </div>
 
-  {{ with .Params.featured_image }}<img class="feature-image" src="{{ . }}">{{ end }}
+
   {{ .Content }}
 </main>
 

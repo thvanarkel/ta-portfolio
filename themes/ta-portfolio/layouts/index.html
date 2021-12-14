@@ -1,20 +1,17 @@
 {{ define "main" }}
 
-<main class="main-home">
+<main id="main-home">
   {{ .Content }}
 
+  {{ if gt (len (where .Site.RegularPages "Section" "==" "publications")) 0 }}
   <h2>Publications</h2>
   {{ partial "publications.html" (dict "context" . "pages" ( where .Site.RegularPages "Type" "publications" | first 5 ) "view" "compact") }}
+  {{ end }}
 
+  {{ if gt (len (where .Site.RegularPages "Section" "==" "projects")) 0 }}
   <h2>Projects</h2>
-  <div class="projects-overview">
-  {{ range ( where .Site.RegularPages "Type" "projects" | first 5 ) }}
-    <div class="project">
-      {{ if .Params.featured_image }}<img src="{{ printf `%s%s` .Dir .Params.featured_image}}">{{ end }}
-      {{ .Params.Title}}
-    </div>
-  {{end}}
-  </div>
+  {{ partial "projects.html" (dict "context" . "pages" ( where .Site.RegularPages "Type" "projects" | first 5))}}
+  {{ end }}
 </main>
 
 {{ end }}

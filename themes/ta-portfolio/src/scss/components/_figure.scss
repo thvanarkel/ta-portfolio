@@ -7,6 +7,9 @@ $minColWidth: 15rem;
 figure {
   margin: 0;
   counter-increment: figures;
+  &.single {
+    grid-column: #{$start-main} / #{$end-main};
+  }
   img {
     width: 100%;
   }
