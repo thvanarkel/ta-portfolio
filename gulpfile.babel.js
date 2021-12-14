@@ -51,6 +51,11 @@ export const images = () => {
     .pipe(dest('static/img'));
 }
 
+export const fonts = () => {
+  return src(options.path + '/static/fonts/**/*.{ttf,svg,woff,woff2}')
+    .pipe(dest('./static/fonts'));
+}
+
 export const scripts = () => {
   return src(options.path.js)
   .pipe(named())
@@ -86,6 +91,6 @@ export const watchForChanges = () => {
   watch(options.path.js, scripts);
 }
 
-export const dev = series(clean, parallel(styles, images, scripts), watchForChanges)
-export const build = series(clean, parallel(styles, images, scripts))
+export const dev = series(clean, parallel(styles, images, scripts, fonts), watchForChanges)
+export const build = series(clean, parallel(styles, images, scripts, fonts))
 export default dev;
