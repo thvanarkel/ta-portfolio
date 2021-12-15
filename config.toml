@@ -1,0 +1,30 @@
+baseURL = "http://thomasvanarkel.nl/"
+languageCode = "en-gb"
+title = "Thomas van Arkel"
+
+theme = "ta-portfolio"
+
+sectionPagesMenu = "main"
+
+[menu]
+  [[menu.main]]
+    identifier = "themes"
+    name = "themes"
+    url = "/themes"
+    weight = 5
+  [[menu.main]]
+    identifier = "posts"
+    name = "posts"
+    url = "/posts"
+    weight = 10
+
+  [[menu.main]]
+    identifier = "projects"
+    name = "projects"
+    url = "/projects"
+    weight = 20
+  [[menu.main]]
+    identifier = "publications"
+    name = "publications"
+    url = "/publications"
+    weight = 30

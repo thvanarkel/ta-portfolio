@@ -1,0 +1,10 @@
+<div class="projects-overview">
+{{ range (.pages) }}
+<a href="{{ .RelPermalink }}">
+  <div class="project">
+    {{ if .Params.featured_image }}<img src="{{ printf `/%s%s` .Dir .Params.featured_image}}">{{ end }}
+    {{ .Params.Title}}
+  </div>
+</a>
+{{end}}
+</div>

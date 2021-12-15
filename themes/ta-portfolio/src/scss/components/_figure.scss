@@ -1,0 +1,43 @@
+$minColWidth: 15rem;
+
+.site {
+  counter-reset: figures;
+}
+
+figure {
+  margin: 0;
+  counter-increment: figures;
+  &.single {
+    grid-column: #{$start-main} / #{$end-main};
+  }
+  img {
+    width: 100%;
+  }
+  figcaption {
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+    line-height: 1.1;
+    padding: 0px;
+    color: $grey;
+    &::before {
+      content: "Fig. " counter(figures) " ";
+      min-width: 50px;
+      margin-right: 10px;
+      height: 100%;
+    }
+  }
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($minColWidth, 1fr));
+  gap: calc(12/1680 * 100vw);
+}
+
+.related-posts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;//repeat(auto-fit, minmax($minColWidth, 1fr));
+  gap: calc(12/1680 * 100vw);
+}

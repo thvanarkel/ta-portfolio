@@ -1,0 +1,21 @@
+<ul class="publications-overview">
+{{ $view := (.view) }}
+{{ range (.pages) }}
+<a href="{{ .RelPermalink }}">
+  <li class="publication">
+    <span class="title">{{ .Params.Title}}{{ if not (eq $view "compact")}}{{ if .Params.subtitle }}<span class="subtitle">: {{.Params.subtitle}}</span>{{end}}
+      {{ if .Params.venue }}<br/><span class="venue">{{.Params.venue}}</span>{{end}}{{end}}
+      {{ if or (.Params.publicationType) (.Params.status) }}
+        <br/>
+        <div class="tags">
+          {{ if .Params.publicationType }}<div class="tag">{{ .Params.publicationType }}</div>{{ end }}
+          {{ if .Params.status }}<div class="tag status">{{ .Params.status }}</div>{{ end }}
+        </div>
+      {{ end }}
+      </span>
+    <span class="year">{{ .Params.Year}} </span>
+    <span class="authors">{{ .Params.Authors}}<span class="link__indicator">↗︎</span></span>
+  </li>
+</a>
+{{end}}
+</ul>
