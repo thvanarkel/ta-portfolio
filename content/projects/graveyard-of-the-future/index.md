@@ -2,6 +2,7 @@
 title: "Graveyard of the future"
 date: "01 juli 2018"
 draft: false
+weight: 50
 
 featured_image: "cover.jpg"
 ---

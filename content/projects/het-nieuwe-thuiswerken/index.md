@@ -1,7 +1,8 @@
 ---
 title: "Het nieuwe thuiswerken"
 date: "01 jul 2018"
-draft: true
+draft: false
+weight: 100
 
 featured_image: "cover.jpg"
 image: "cover.jpg"
