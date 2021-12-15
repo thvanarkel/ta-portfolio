@@ -1,0 +1,4 @@
+{{- $class := .Get "class" -}}
+<div class="{{ if $class }}{{ print $class }}{{ else }}gallery{{ end }}">
+  {{ .Inner }}
+</div>

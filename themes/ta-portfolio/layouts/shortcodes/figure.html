@@ -1,0 +1,12 @@
+{{- $src := .Get "src" -}}
+{{ $caption := .Get "caption"}}
+{{ $class := .Get "class"}}
+<figure {{if $class}}class="{{$class}}"{{end}}>
+  {{- with .Parent -}}
+  <img src="{{$src}}">
+  {{ if $caption }}<figcaption>{{ $caption }}</figcaption>{{ end }}
+  {{- else -}}
+  <img src="{{$src}}">
+  {{ if $caption }}<figcaption>{{ $caption }}</figcaption>{{ end }}
+  {{- end -}}
+</figure>

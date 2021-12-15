@@ -1,0 +1,23 @@
+{{ define "main" }}
+
+<main id="main-home">
+
+
+  {{ .Content }}
+
+  <div class="alert">
+    <i class="fas fa-exclamation-triangle"></i>Website is currently still under construction
+  </div>
+
+  {{ if gt (len (where .Site.RegularPages "Section" "==" "publications")) 0 }}
+  <h2>Publications</h2>
+  {{ partial "publications.html" (dict "context" . "pages" ( where .Site.RegularPages "Type" "publications" | first 5 ) "view" "compact") }}
+  {{ end }}
+
+  {{ if gt (len (where .Site.RegularPages "Section" "==" "projects")) 0 }}
+  <h2>Projects</h2>
+  {{ partial "projects.html" (dict "context" . "pages" ( where .Site.RegularPages "Type" "projects" | first 5))}}
+  {{ end }}
+</main>
+
+{{ end }}

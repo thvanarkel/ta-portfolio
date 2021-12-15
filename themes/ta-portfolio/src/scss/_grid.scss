@@ -1,0 +1,16 @@
+$num-columns: 14;
+$grid-column-gap: 20px;
+$grid-row-gap: 20px;
+$start-main: 4; // +1
+$end-main: 11;
+
+@mixin main-grid() {
+  display: grid;
+  grid-template-columns: repeat($num-columns,1fr);
+  grid-column-gap: $grid-column-gap;
+  grid-row-gap: $grid-row-gap;
+}
+
+.fullwidth > * {
+  grid-column: #{$start-main} / #{$num-columns + 1};
+}
