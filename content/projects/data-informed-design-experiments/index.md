@@ -2,6 +2,7 @@
 title: "Data-informed design experiments"
 date: 2021-06-18T17:02:17+02:00
 draft: false
+weight: 10
 
 featured_image: "cover.jpg"
 image: "cover.jpg"
