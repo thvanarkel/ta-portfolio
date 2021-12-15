@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Portfolio on Thomas van Arkel</title>
+    <link>http://thomasvanarkel.nl/</link>
+    <description>Recent content in Portfolio on Thomas van Arkel</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Fri, 28 May 2021 12:32:44 +0200</lastBuildDate><atom:link href="http://thomasvanarkel.nl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data-informed design experiments</title>
+      <link>http://thomasvanarkel.nl/projects/data-informed-design-experiments/</link>
+      <pubDate>Fri, 18 Jun 2021 17:02:17 +0200</pubDate>
+      
+      <guid>http://thomasvanarkel.nl/projects/data-informed-design-experiments/</guid>
+      <description>When intentionally changing behaviour through design it is important to understand the degree to which that change manifests itself and what the consequences that the introduction of the design has. However, changing behaviour is something that takes a long time to materialise durably and thus conventional qualitative user-centered approaches to evaluation may not be the most suitable. On the other hand, quantitative approaches measuring only the outcomes of the behaviour similarly do not provide detailed insight into the performance of the intervention.</description>
+    </item>
+    
+    <item>
+      <title>Graveyard of the future</title>
+      <link>http://thomasvanarkel.nl/projects/graveyard-of-the-future/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://thomasvanarkel.nl/projects/graveyard-of-the-future/</guid>
+      <description>The goal of this project was to design and prototype an interactive artefact from a speculative future, which was to be featured at a public exhibition. Apart from offering a provocative, reflective and interactive experience, the artefact had to make visitors reflect on the role technology plays in our current and future worlds.
+Concept The exhibition reimagined the graveyard of the future to be a museological experience, where people can explore the premises to learn from the deceased.</description>
+    </item>
+    
+  </channel>
+</rss>
