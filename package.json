@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "start": "concurrently 'gulp' 'hugo server -D' 'open http://localhost:1313'",
     "build": "gulp build --prod && hugo"
   },
@@ -42,5 +43,9 @@
     "animejs": "^3.2.1",
     "interactjs": "^1.10.11",
     "postcss": "^8.4.5"
+  },
+  "resolutions": {
+    "glob-parent": "^5.1.2",
+    "semver-regex": "^3.1.3"
   }
 }
