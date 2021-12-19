@@ -2,6 +2,15 @@
 
 .site-header {
   @include main-grid();
+  @include breakpoint($xs) {
+    grid-template-columns: 50% 50%;
+    .logo {
+      grid-column: 1 !important;
+    }
+    nav {
+      grid-column: 2 !important;
+    }
+  }
   font-size: 1rem;
   border-bottom: 1px solid;
   .logo {
@@ -38,26 +47,58 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    @include breakpoint($xs) {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
     li {
       padding-right: 25px;
     }
+    .mobile-title {
+      display: none;
+      color: $grey;
+      cursor: pointer;
+      @include breakpoint($xs) {
+        display: block;
+      }
+    }
   }
-
-
   .logo {
     grid-column: span 8
   }
-  #darkmode-toggle {
-    border-radius: 9999px;
-    border: 2px solid;
-    //border-color: #000;
-    width: 12px;
-    height: 12px;
-    transform: translateY(8px);
-    // justify-self: end;
+  .darkmode {
+    .darkmode-title {
+      display: none;
+      cursor: pointer;
+      margin-right: 5px;
+      @include breakpoint($xs) {
+        margin-top: 15px;
+        display: inline-block;
+      }
+    }
+    #darkmode-toggle {
+      display: inline-block;
+      border-radius: 9999px;
+      border: 2px solid;
+      //border-color: #000;
+      width: 12px;
+      height: 12px;
+      transform: translateY(1px);
+      // justify-self: end;
+    }
     &:hover {
-      @include themed() {
-        background-color: t($hover);
+      #darkmode-toggle {
+        @include themed() {
+          background-color: t($hover);
+        }
+      }
+    }
+  }
+  &.collapsed {
+    @include breakpoint($xs) {
+      .nav-item {
+        display: none;
       }
     }
   }
