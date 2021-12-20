@@ -5,14 +5,14 @@
   </a>
   <nav class="site-nav collapsed">
     <ul>
-      <li class="mobile-title">menu<li>
-    {{ $dict := (dict "" "") }}
+      <li class="mobile-title">menu</li>
+    {{ $scratch := newScratch }}
     {{ range .Site.Sections }}
-      {{ $dict = merge $dict (dict .Section (len (where .Site.RegularPages "Section" "==" .Section)) ) }}
+      {{ $scratch.Set .Section (len (where .Site.RegularPages "Section" "==" .Section)) }}
     {{ end }}
 
     {{ range .Site.Menus.main }}
-      {{ if gt (index $dict .Identifier) 0 }}
+      {{ if gt ($scratch.Get .Identifier) 0 }}
       <li class="nav-item {{ if or ($currentPage.IsMenuCurrent "main" .) (eq $currentPage.Section .Identifier) }} active {{ end }}">
         <a href="{{ .URL }}">{{ .Name }}</a>
       </li>
