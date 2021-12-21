@@ -1,13 +1,14 @@
 import { src, dest, watch, series, parallel } from 'gulp';
 import yargs from 'yargs';
-import sass from 'gulp-sass';
+import compSass from 'sass';
+import gulpSass from 'gulp-sass';
+const sass = gulpSass(compSass)
 import cleanCss from 'gulp-clean-css';
 import gulpif from 'gulp-if';
 import postcss from 'gulp-postcss';
 import sourcemaps from 'gulp-sourcemaps';
 import autoprefixer from 'autoprefixer';
 import flatten from 'gulp-flatten';
-import imagemin from 'gulp-imagemin';
 import webpack from 'webpack-stream';
 import del from 'del';
 import named from 'vinyl-named';
@@ -47,7 +48,7 @@ export const styles = () => {
 
 export const images = () => {
   return src('src/img/**/*.{jpg,jpeg,png,svg,gif}')
-    .pipe(gulpif(PRODUCTION, imagemin()))
+    //.pipe(gulpif(PRODUCTION, imagemin()))
     .pipe(dest('static/img'));
 }
 
