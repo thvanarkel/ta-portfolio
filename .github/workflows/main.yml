@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Deploy file
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.1
+        uses: milanmk/actions-file-deployer@1.9
 
       - name: Install dependencies
         run: npm install
