@@ -36,12 +36,12 @@ jobs:
           LASTFM_KEY: ${{ secrets.LASTFM_KEY }}
           LASTFM_SECRET: ${{ secrets.LASTFM_SECRET }}
         with:
-        # The name of the file to be written. | file.json
-        name: keys.json
-        # The json string that can be a secret of the github repo or a string of a json. | "{"title": "my json"}"
-        json: "{'apiKey': '$LASTFM_KEY', 'apiSecret': '$LASTFM_SECRET'}"
-        # Optional subfolder directory to save the json file. | src/
-        dir: themes/ta-portfolio/src/js
+          # The name of the file to be written. | file.json
+          name: keys.json
+          # The json string that can be a secret of the github repo or a string of a json. | "{"title": "my json"}"
+          json: "{'apiKey': '$LASTFM_KEY', 'apiSecret': '$LASTFM_SECRET'}"
+          # Optional subfolder directory to save the json file. | src/
+          dir: themes/ta-portfolio/src/js
       - name: Build
         run: npm run build
       - name: Deploy to server
