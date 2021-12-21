@@ -1,4 +1,6 @@
 /node_modules
+/static
 /static/fonts
 /themes/ta-portfolio/static/fonts
+/public
 /public/fonts
