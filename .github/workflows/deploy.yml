@@ -55,5 +55,5 @@ jobs:
           remote-host: '${{ secrets.SERVER_HOST }}'
           remote-password: ${{ secrets.SERVER_PASSWORD }}
           local-path: './public'
-          remote-path: '/www/'
+          remote-path: '/www'
           sync: "full"
