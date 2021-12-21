@@ -46,6 +46,8 @@ jobs:
         uses: peaceiris/actions-hugo@v2
       - name: Build
         run: npm run build
+      - name: List output files
+        run: ls public
       - name: Deploy to server
         uses: milanmk/actions-file-deployer@1.9
         with:
