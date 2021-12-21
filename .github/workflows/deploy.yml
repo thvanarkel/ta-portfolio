@@ -56,4 +56,4 @@ jobs:
           remote-password: ${{ secrets.SERVER_PASSWORD }}
           local-path: './public'
           remote-path: '/www/'
-          debug: true
+          sync: "full"
