@@ -49,11 +49,24 @@ jobs:
       - name: List output files
         run: ls public
       - name: Deploy to server
-        uses: milanmk/actions-file-deployer@1.9
-        with:
-          remote-user: '${{ secrets.SERVER_USERNAME }}'
-          remote-host: '${{ secrets.SERVER_HOST }}'
-          remote-password: ${{ secrets.SERVER_PASSWORD }}
-          local-path: './public'
-          remote-path: '/www'
-          sync: "full"
+        # uses: milanmk/actions-file-deployer@1.9
+        # with:
+        #   remote-user: '${{ secrets.SERVER_USERNAME }}'
+        #   remote-host: '${{ secrets.SERVER_HOST }}'
+        #   remote-password: ${{ secrets.SERVER_PASSWORD }}
+        #   local-path: './public'
+        #   remote-path: '/www'
+        #   sync: "full"
+        uses: sand4rt/ftp-deployer@v1.3
+          with:
+            sftp: true # optional
+            host: ${{ secrets.SERVER_HOST }} # e.g. ftp.host.com or sftp.host.com (without ftp:// or ftps://)
+            port: 22 # optional, default is: 21
+            username: ${{ secrets.SERVER_USERNAME }} # FTP username
+            password: ${{ secrets.SERVER_PASSWORD }} # FTP password
+            remote_folder: /www # optional, remote path of your FTP server
+            local_folder: public # optional, local path, default is: dist
+            cleanup: false # optional, remove existing files inside FTP remote folder
+            # include: [] # optional, e.g. ['dist']
+            # exclude: [] # optional, e.g. ['node_modules/**', '.git/**', '*.env']
+            # pasive: true # optional
