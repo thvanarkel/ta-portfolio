@@ -41,9 +41,12 @@
   },
   "dependencies": {
     "@barba/core": "^2.9.7",
+    "@toplast/lastfm": "^0.1.5",
     "animejs": "^3.2.1",
+    "corejs": "^1.0.0",
     "interactjs": "^1.10.11",
-    "postcss": "^8.4.5"
+    "postcss": "^8.4.5",
+    "regenerator-runtime": "^0.13.9"
   },
   "resolutions": {
     "glob-parent": "^5.1.2",
