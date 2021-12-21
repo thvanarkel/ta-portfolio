@@ -482,7 +482,6 @@ main ul li {
 #main-home footer {
   grid-column: 8/11;
 }
-
 @keyframes wiggle {
   0% {
     transform: rotate(-3deg);
