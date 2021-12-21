@@ -3,22 +3,22 @@
   <a class="logo" href="{{ .Site.BaseURL }}">
     {{ .Site.Title }}
   </a>
-  <nav class="site-nav">
+  <nav class="site-nav collapsed">
     <ul>
-
-    {{ $dict := (dict "" "") }}
+      <li class="mobile-title">menu</li>
+    {{ $scratch := newScratch }}
     {{ range .Site.Sections }}
-      {{ $dict = merge $dict (dict .Section (len (where .Site.RegularPages "Section" "==" .Section)) ) }}
+      {{ $scratch.Set .Section (len (where .Site.RegularPages "Section" "==" .Section)) }}
     {{ end }}
 
     {{ range .Site.Menus.main }}
-      {{ if gt (index $dict .Identifier) 0 }}
-      <li {{ if or ($currentPage.IsMenuCurrent "main" .) (eq $currentPage.Section .Identifier) }} class="active" {{ end }}>
+      {{ if gt ($scratch.Get .Identifier) 0 }}
+      <li class="nav-item {{ if or ($currentPage.IsMenuCurrent "main" .) (eq $currentPage.Section .Identifier) }} active {{ end }}">
         <a href="{{ .URL }}">{{ .Name }}</a>
       </li>
       {{ end }}
     {{ end }}
     </ul>
-    <span id="darkmode-toggle"></span><!-- ○● -->
+    <div class="nav-item darkmode"><span class="darkmode-title">lights off?</span><span id="darkmode-toggle"></span></div><!-- ○● -->
   </nav>
 </header>

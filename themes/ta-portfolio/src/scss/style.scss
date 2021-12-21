@@ -28,6 +28,9 @@ $site-padding-side: 75px;
 
 .site {
   padding: 50px $site-padding-side;
+  @include breakpoint($xs) {
+    padding: 20px 15px;
+  }
   min-height: 100vh;
 
   // General color settings
@@ -56,6 +59,7 @@ main {
   // grid-row-gap: 20px;
 
   @include main-grid();
+
 
   h1, h2, h3, h4, h5, h6 {
     // display: none;
@@ -199,6 +203,15 @@ footer {
       }
     }
 
+  }
+  @include breakpoint($xs) {
+    grid-template-columns: 50% 50%;
+    .contact {
+      grid-column: 1 !important;
+    }
+    .last-build {
+      grid-column: 2 !important;
+    }
   }
   //position: fixed;
 }
@@ -383,6 +396,9 @@ $minColWidth: 15rem;
     img {
       max-width: 100%;
     }
+  }
+  @include breakpoint($xs) {
+    grid-template-columns: 50%;
   }
 }
 

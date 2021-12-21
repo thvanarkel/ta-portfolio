@@ -2,5 +2,7 @@
 /static
 /static/fonts
 /themes/ta-portfolio/static/fonts
+/static
 /public
 /public/fonts
+/themes/ta-portfolio/src/js/keys.json
