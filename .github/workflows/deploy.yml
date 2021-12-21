@@ -39,7 +39,7 @@ jobs:
           # The name of the file to be written. | file.json
           name: keys.json
           # The json string that can be a secret of the github repo or a string of a json. | "{"title": "my json"}"
-          json: "{\"apiKey\": \"${{ env.LASTFM_KEY }}\", \"apiSecret\": \"${{ env.LASTFM_SECRET }}\"}"
+          json: {\"apiKey\": \"${{ env.LASTFM_KEY }}\", \"apiSecret\": \"${{ env.LASTFM_SECRET }}\"}
           # Optional subfolder directory to save the json file. | src/
           dir: themes/ta-portfolio/src/js
       - name: Setup Hugo
@@ -67,6 +67,7 @@ jobs:
           remote_folder: /www # optional, remote path of your FTP server
           local_folder: public # optional, local path, default is: dist
           cleanup: false # optional, remove existing files inside FTP remote folder
+          include:  ['*']
           # include: [] # optional, e.g. ['dist']
           # exclude: [] # optional, e.g. ['node_modules/**', '.git/**', '*.env']
           # pasive: true # optional
