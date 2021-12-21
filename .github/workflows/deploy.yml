@@ -32,15 +32,10 @@ jobs:
         run: npm install
       - name: Add secrets
         uses: jsdaniell/create-json@1.1.2
-        env:
-          LASTFM_KEY: ${{ secrets.LASTFM_KEY }}
-          LASTFM_SECRET: ${{ secrets.LASTFM_SECRET }}
         with:
           # The name of the file to be written. | file.json
           name: keys.json
-          # The json string that can be a secret of the github repo or a string of a json. | "{"title": "my json"}"
-          json: {\"apiKey\": \"${{ env.LASTFM_KEY }}\", \"apiSecret\": \"${{ env.LASTFM_SECRET }}\"}
-          # Optional subfolder directory to save the json file. | src/
+          json: ${{ secrets.LASTFM_CREDENTIALS }}
           dir: themes/ta-portfolio/src/js
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
