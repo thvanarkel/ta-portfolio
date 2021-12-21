@@ -30,6 +30,15 @@ jobs:
           fetch-depth: 0
       - name: Install dependencies
         run: npm install
+      - name: Add secrets
+        uses: jsdaniell/create-json@1.1.2
+        with:
+        # The name of the file to be written. | file.json 
+        name: keys.json
+        # The json string that can be a secret of the github repo or a string of a json. | "{"title": "my json"}" 
+        json: "{"apiKey": "${{ secrets.LASTFM_KEY }}", "apiSecret": "${{ secrets.LASTFM_SECRET }}"}"
+        # Optional subfolder directory to save the json file. | src/ 
+        dir: themes/ta-portfolio/src/js
       - name: Build
         run: npm run build
       - name: Deploy to server
