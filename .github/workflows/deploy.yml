@@ -16,7 +16,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    name: "master branch"
+    name: "deploy"
     if: ${{ github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -51,7 +51,7 @@ jobs:
         with:
           remote-user: '${{ secrets.SERVER_USERNAME }}'
           remote-host: '${{ secrets.SERVER_HOST }}'
-          remote-password: ${{ secrets.SSH_PRIVATE_KEY }}
+          remote-password: ${{ secrets.SERVER_PASSWORD }}
           local-path: './public'
           remote-path: '/www'
           debug: true
