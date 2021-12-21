@@ -42,6 +42,8 @@ jobs:
           json: "{\"apiKey\": \"${ env.LASTFM_KEY }\", \"apiSecret\": \"${ env.LASTFM_SECRET }\"}"
           # Optional subfolder directory to save the json file. | src/
           dir: themes/ta-portfolio/src/js
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
       - name: Build
         run: npm run build
       - name: Deploy to server
