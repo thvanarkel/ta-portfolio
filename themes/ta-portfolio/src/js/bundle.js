@@ -29,16 +29,26 @@ authors.forEach(p => {
 
 document.body.classList.add("theme--default");
 
-const darkmodeToggle = document.querySelector('#darkmode-toggle');
+const menuToggle = document.querySelector('.mobile-title');
+
+menuToggle.addEventListener('click', event => {
+  console.log("click!");
+  var element = document.querySelector(".site-nav");
+  element.classList.toggle("collapsed");
+})
+
+const darkmodeToggle = document.querySelector('.darkmode');
 
 darkmodeToggle.addEventListener('click', event => {
   if (document.body.classList.contains("theme--default")) {
     localStorage.setItem('theme', 'theme--dark');
     document.body.classList.replace("theme--default", "theme--dark");
+    darkmodeToggle.querySelector('.darkmode-title').innerHTML = "lights on?";
 
   } else if (document.body.classList.contains("theme--dark")) {
     localStorage.setItem('theme', 'theme--default');
     document.body.classList.replace("theme--dark", "theme--default");
+    darkmodeToggle.querySelector('.darkmode-title').innerHTML = "lights off?"
   }
 });
 

@@ -2,7 +2,6 @@
   "name": "ta-portfolio",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "preinstall": "npx npm-force-resolutions",
     "start": "concurrently 'gulp' 'hugo server -D' 'open http://localhost:1313'",
@@ -34,7 +33,9 @@
     "gulp-postcss": "^9.0.1",
     "gulp-sass": "^5.0.0",
     "gulp-sourcemaps": "^3.0.0",
+    "sass": "^1.45.0",
     "vinyl-named": "^1.1.0",
+    "webpack": "^5.65.0",
     "webpack-stream": "^7.0.0",
     "yargs": "^17.3.0"
   },

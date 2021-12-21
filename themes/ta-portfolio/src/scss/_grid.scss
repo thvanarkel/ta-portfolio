@@ -6,11 +6,27 @@ $end-main: 11;
 
 @mixin main-grid() {
   display: grid;
-  grid-template-columns: repeat($num-columns,1fr);
+  grid-template-columns: repeat($num-columns, 1fr);
+  grid-auto-rows: auto;
   grid-column-gap: $grid-column-gap;
   grid-row-gap: $grid-row-gap;
+
+  @include breakpoint($xs) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+
+    & > * {
+      grid-column: 1 !important;
+      grid-row: auto !important;
+    }
+  }
+  //grid-template-columns: repeat($num-columns,1fr);
+  // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+
 }
 
 .fullwidth > * {
-  grid-column: #{$start-main} / #{$num-columns + 1};
+  // grid-column: #{$start-main} / #{$num-columns + 1};
 }
