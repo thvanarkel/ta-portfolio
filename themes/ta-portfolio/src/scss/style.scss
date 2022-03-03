@@ -78,18 +78,32 @@ main {
     text-decoration: none;
   }
 
+  // p {
+  //   // width: calc(100% - (6 * (100% / 12) + 0.6 * #{$gap}));
+  //   // margin-left: calc(4 * (100% / 12) + 0.4 * (12/1680 * 100vw));
+  //   grid-column: #{$start-main} / #{$end-main};
+  // }
+
+  // div, ul {
+  //   grid-column: #{$start-main} / #{$end-main};
+  // }
+  //
+  // .gallery {
+  //   grid-column: #{$start-main} / #{$end-main};
+  // }
+
   p {
-    // width: calc(100% - (6 * (100% / 12) + 0.6 * #{$gap}));
-    // margin-left: calc(4 * (100% / 12) + 0.4 * (12/1680 * 100vw));
-    grid-column: #{$start-main} / #{$end-main};
+    grid-column: #{$start-main} / #{$end-text + 1};
+    z-index: 2;
   }
-
   div, ul {
-    grid-column: #{$start-main} / #{$end-main};
+    grid-column: #{$start-main} / #{$end-main + 1};
   }
-
   .gallery {
-    grid-column: #{$start-main} / #{$end-main};
+    grid-column: #{$start-main} / #{$end-main + 2};
+  }
+  .projects-overview {
+    grid-column: #{$start-main} / #{$end-main + 2};
   }
 
   .aside {
@@ -170,7 +184,7 @@ main {
     }
   }
   footer {
-    grid-column: #{$start-main + 4} / #{$end-main};
+    grid-column: #{$start-main + 6} / #{$end-main};
   }
 }
 
@@ -226,9 +240,9 @@ footer {
   @include main-grid();
   margin-top: 50px;
   .last-build {
-    grid-column: #{$start-main + 4} / #{$end-main};
+    grid-column: #{$start-main + 5} / #{$end-main};
     font-size: 0.9rem;
-    color: $light-grey;
+    color: $grey;
     i {
       margin-right: 2px;
       transform: scale(0.8) translateY(1px);
@@ -367,6 +381,7 @@ img[src$='#halftone'] {
 .publications-overview {
   .publication {
     @include themed() { color: t($text); }
+    border-color: $light-grey;
     padding-bottom: 5px;
     span {
       flex: 1;
@@ -380,7 +395,7 @@ img[src$='#halftone'] {
       text-transform: lowercase;
     }
     .venue {
-      color: $light-grey;
+      color: $grey;
       text-transform: capitalize;
     }
     .status {
@@ -399,7 +414,7 @@ img[src$='#halftone'] {
       }
     }
     .authors {
-      color: $light-grey;
+      color: $grey;
       padding-left: 25px;
       .highlight {
         @include themed() { color: t($text); }
@@ -441,7 +456,7 @@ $minColWidth: 15rem;
       max-width: 100%;
     }
     .project-category {
-      color: $light-grey;
+      color: $grey;
     }
   }
   @include breakpoint($xs) {
