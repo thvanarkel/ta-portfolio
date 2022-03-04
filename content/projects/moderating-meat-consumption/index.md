@@ -2,6 +2,8 @@
 title: "Moderating meat consumption"
 date: "01 feb 2019"
 draft: true
+categories:
+  - "design for behaviour change"
 
 featured_image: "cover.jpg"
 image: "cover.jpg"
