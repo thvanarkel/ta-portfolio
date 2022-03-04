@@ -3,7 +3,7 @@
 <a href="{{ .RelPermalink }}">
   <div class="project">
     {{ if .Params.featured_image }}<img src="{{ printf `/%s%s` .Dir .Params.featured_image}}">{{ end }}
-    <p>{{ .Params.Title}}</p>
+    <p class="project-title">{{ .Params.Title}}</p>
     <span class="project-category">
       {{ range $i, $e := .Params.categories }}{{ if ne $i 0 }}, {{ end }}{{ . }}{{ end }}
     </span>

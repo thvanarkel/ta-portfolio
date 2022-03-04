@@ -3,8 +3,11 @@ title: "Graveyard of the future"
 date: "01 juli 2018"
 draft: false
 weight: 50
+categories:
+  - "speculative design"
 
 featured_image: "cover.jpg"
+
 ---
 The goal of this project was to design and prototype an interactive artefact from a speculative future, which was to be featured at a public exhibition. Apart from offering a provocative, reflective and interactive experience, the artefact had to make visitors reflect on the role technology plays in our current and future worlds.
 
