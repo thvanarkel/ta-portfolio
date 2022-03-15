@@ -6,6 +6,7 @@ weight: 100
 categories:
   - "future vision"
   - "social design"
+timespan: "2018"
 
 featured_image: "cover.jpg"
 image: "cover.jpg"

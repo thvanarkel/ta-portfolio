@@ -85,22 +85,22 @@ main {
   }
 
   div, ul {
-    grid-column: #{$start-main} / #{$end-main};
+    grid-column: #{$start-main} / #{$end-main + 1};
   }
 
   .gallery {
-    grid-column: #{$start-main} / #{$end-main};
+    grid-column: #{$start-main} / #{$end-main + 1};
   }
 
-  .aside {
-    grid-column: #{$end-main} / #{$num-columns + 1};
-    grid-row: 1 / span 2;
-    position: sticky;
-    top: 25px;
-  }
+  // .aside {
+  //   grid-column: #{$end-main} / #{$num-columns + 1};
+  //   grid-row: 1 / span 2;
+  //   position: sticky;
+  //   top: 25px;
+  // }
 
   .feature-image {
-    grid-column: #{$start-main} / #{$end-main};
+    grid-column: #{$start-main} / #{$end-main + 1};
   }
 
   p > a {
@@ -465,6 +465,7 @@ $minColWidth: 15rem;
     font-size: 1.2rem;
     line-height: 1.3;
     padding-bottom: 5px;
+
     img {
       max-width: 100%;
     }
@@ -477,6 +478,37 @@ $minColWidth: 15rem;
   }
   @include breakpoint($xs) {
     grid-template-columns: 50%;
+  }
+}
+
+.project {
+  h1 {
+    padding: 10px 0;
+  }
+}
+
+.project-intro {
+  display: grid;
+  grid-template-columns: repeat(($num-columns + 1 - $start-main), minmax(0,1fr));
+  grid-column-gap: $grid-column-gap;
+  padding-bottom: 25px;
+  h1 {
+    padding: 0 50px;
+  }
+  p {
+    grid-column: span 6;
+  }
+  ul {
+    color: $grey;
+    align-self: flex-end;
+    li {
+      font-size: 1.2rem;
+      border-color: $grey !important;
+      span:nth-of-type(2) {
+        text-align: right;
+      }
+    }
+    grid-column: span 5;
   }
 }
 

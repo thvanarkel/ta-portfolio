@@ -6,6 +6,7 @@ weight: 10
 categories:
   - "design research"
   - "design for behaviour change"
+timespan: "2019 → 2020"
 
 featured_image: "cover.jpg"
 image: "cover.jpg"

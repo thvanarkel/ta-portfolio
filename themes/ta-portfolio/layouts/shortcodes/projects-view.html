@@ -1,0 +1,6 @@
+{{ $workInProgress := .Get "workInProgress" }}
+{{ $title := .Get "title" }}
+{{ if gt (len (where .Site.RegularPages "Section" "==" "projects")) 0 }}
+{{ if ne $title false }}<h2>Projects</h2>{{ end }}
+{{ partial "projects.html" (dict "context" . "pages" (where ( where .Site.RegularPages "Type" "projects" | first 5 ) ".Params.work-in-progress" $workInProgress ))}}
+{{ end }}
