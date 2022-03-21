@@ -172,6 +172,46 @@ main {
   footer {
     grid-column: #{$start-main + 6} / #{$end-main};
   }
+  .job-status {
+    position: absolute;
+    z-index: 0;
+    left: 51%;
+    top: 425px;
+    background-color: $orange;
+    @include themed() { color: t($bg); };
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .6s cubic-bezier(0.22, 1, 0.36, 1);
+    p {
+      font-size: 20px;
+      line-height: 28px;
+      padding: 0;
+    }
+    &:hover {
+      transform: scale(1.25);
+    }
+
+
+
+    @include breakpoint($sm) {
+      left: 10%;
+      top: 350px;
+    }
+    // @include breakpoint($lg) {
+    //   left: 48%;
+    //   top: 550px;
+    // }
+    @include breakpoint($xl) {
+      left: 51%;
+      top: 425px;
+    }
+  }
 }
 
 @keyframes wiggle {
