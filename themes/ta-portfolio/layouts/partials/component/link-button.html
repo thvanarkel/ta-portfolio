@@ -4,7 +4,7 @@
   {{- $page := site.GetPage .href -}}
   {{- if $page.Params.featured_image -}}
     {{- $image := $page.Resources.GetMatch $page.Params.featured_image -}}
-    {{- $imagethumbnail := $image.Resize "x30" -}}
+    {{- $imagethumbnail := $image.Resize "x60" -}}
     <img src="{{ $imagethumbnail.RelPermalink }}">
   {{- end -}}
   </span>
