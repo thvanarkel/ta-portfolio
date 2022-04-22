@@ -1,0 +1,29 @@
+$minColWidth: 15rem;
+
+.site {
+  counter-reset: tables;
+}
+
+.table {
+  margin: 0;
+  counter-increment: tables;
+  grid-column: #{$start-main} / #{$end-main};
+  table {
+    width: 100%;
+  }
+  figcaption {
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+    line-height: 1.1;
+    padding: 0px;
+    color: $grey;
+    &::before {
+      content: "Table " counter(tables) " ";
+      min-width: 50px;
+      margin-right: 10px;
+      height: 100%;
+    }
+  }
+}

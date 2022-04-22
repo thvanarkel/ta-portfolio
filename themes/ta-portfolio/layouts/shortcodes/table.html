@@ -1,0 +1,23 @@
+<!-- {{- $src := .Get "src" -}}
+{{ $caption := .Get "caption"}}
+{{ $class := .Get "class"}}
+<figure {{if $class}}class="{{$class}}"{{end}}>
+  {{- with .Parent -}}
+  <img src="{{$src}}">
+  {{ if $caption }}<figcaption>{{ $caption }}</figcaption>{{ end }}
+  {{- else -}}
+  <img src="{{$src}}">
+  {{ if $caption }}<figcaption>{{ $caption }}</figcaption>{{ end }}
+  {{- end -}}
+</figure> -->
+
+{{ $caption := .Get "caption"}}
+<figure class="table">
+  {{ if $caption }}<figcaption>{{ $caption }}</figcaption>{{ end }}
+{{ $htmlTable := .Inner | markdownify }}
+{{ $class := .Get 0 }}
+{{ $old := "<table>" }}
+{{ $new := printf "<table class=\"%s\">" $class }}
+{{ $htmlTable := replace $htmlTable $old $new }}
+{{ $htmlTable | safeHTML }}
+</figure>
