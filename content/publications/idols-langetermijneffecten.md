@@ -1,12 +1,14 @@
 ---
-title: "Towards a theory of reframing"
-date: "2015-01-01"
-draft: true
+title: "IDOLS* Langetermijneffecten—Sociale innovatie met de culturele en creatieve sector"
+subtitle: "een onderzoek naar de langetermijneffecten van het IDOLS*-programma"
+date: "2022-07-01"
 
 year: "2022"
-authors: "Tromp, van Arkel & Daalhuizen"
-venue: "Design Studies"
-publicationType: "journal article"
+authors: "van Arkel & van der Bijl-Brouwer"
+venue: "TU Delft"
+publicationType: "report"
+externalPublication: true
+externalLink: "https://research.tudelft.nl/en/publications/idols-langetermijneffecten-een-onderzoek-naar-de-langetermijneffe"
 ---
 Facilisi accumsan tincidunt fringilla porttitor sodales sit sagittis habitant per taciti hendrerit rutrum natoque ut penatibus, inceptos interdum sem non lorem amet ultricies feugiat fermentum quis pretium euismod tempor. Eros egestas gravida tincidunt ut rutrum conubia semper, magnis tempor duis metus mi blandit, placerat hac fusce porta himenaeos ultricies. Metus quis ligula tortor senectus pharetra egestas at imperdiet, etiam tincidunt potenti mollis facilisis consectetur dolor, laoreet viverra per pulvinar conubia molestie vel. Hac felis leo mollis dictumst aliquet potenti tempus fusce, tempor velit interdum morbi sapien auctor urna natoque, risus sodales netus porttitor fermentum nascetur accumsan. Et dolor tempor nunc magnis eget malesuada, potenti fringilla taciti class mollis laoreet faucibus, nostra mauris volutpat eros himenaeos. Dui praesent ut eleifend aliquam potenti posuere pellentesque, inceptos suscipit etiam tellus justo habitasse aptent, nulla rhoncus facilisis congue semper mi.
 
