@@ -2,12 +2,13 @@
 
 <main id="main-home">
 
-
   {{ .Content }}
 
-  <div class="alert">
-    <i class="fas fa-exclamation-triangle"></i>Website is currently still under construction
-  </div>
+  {{ if eq .Page.Params.openToWork true }}
+  <a class="job-status" href="mailto:hello@thomasvanarkel.nl?subject=Hey👋">
+    <p>open to new opportunities!</p>
+  </a>
+  {{ end }}
 
   {{ if gt (len (where .Site.RegularPages "Section" "==" "publications")) 0 }}
   <h2>Publications</h2>
@@ -16,7 +17,7 @@
 
   {{ if gt (len (where .Site.RegularPages "Section" "==" "projects")) 0 }}
   <h2>Projects</h2>
-  {{ partial "projects.html" (dict "context" . "pages" ( where .Site.RegularPages "Type" "projects" | first 5))}}
+  {{ partial "projects.html" (dict "context" . "pages" ( where ( where .Site.RegularPages "Type" "projects" | first 5) ".Params.work-in-progress" "!=" true))}}
   {{ end }}
 </main>
 

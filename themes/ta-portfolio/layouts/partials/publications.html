@@ -1,7 +1,11 @@
 <ul class="publications-overview">
 {{ $view := (.view) }}
 {{ range (.pages) }}
-<a href="{{ .RelPermalink }}">
+  {{ if .Params.externalPublication }}
+    <a href="{{ .Params.externalLink }}">
+  {{ else }}
+    <a href="{{ .RelPermalink }}">
+  {{ end }}
   <li class="publication">
     <span class="title">{{ .Params.Title}}{{ if not (eq $view "compact")}}{{ if .Params.subtitle }}<span class="subtitle">: {{.Params.subtitle}}</span>{{end}}
       {{ if .Params.venue }}<br/><span class="venue">{{.Params.venue}}</span>{{end}}{{end}}

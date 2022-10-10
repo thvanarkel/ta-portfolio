@@ -4,6 +4,7 @@ date: "01 feb 2019"
 draft: true
 categories:
   - "design for behaviour change"
+timespan: "2018 → 2019"
 
 featured_image: "cover.jpg"
 image: "cover.jpg"

@@ -5,6 +5,7 @@ draft: false
 weight: 50
 categories:
   - "speculative design"
+timespan: "2018"
 
 featured_image: "cover.jpg"
 
