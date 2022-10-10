@@ -2,7 +2,7 @@
 {{ range (.pages) }}
 <a href="{{ .RelPermalink }}">
   <div class="project">
-    {{ if .Params.featured_image }}<img src="{{ printf `/%s%s` .Dir .Params.featured_image}}">{{ end }}
+    {{ if .Params.featured_image }}<img src="{{ printf `/%s%s` .File.Dir .Params.featured_image}}">{{ end }}
     <p class="project-title">{{ .Params.Title}}</p>
     <span class="project-category">
       {{ range $i, $e := .Params.categories }}{{ if ne $i 0 }}, {{ end }}{{ . }}{{ end }}
