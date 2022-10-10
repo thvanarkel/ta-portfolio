@@ -2,7 +2,7 @@
 title: "Portfolio"
 date: 2021-05-28T12:32:44+02:00
 draft: false
-openToWork: true
+openToWork: false
 ---
 I am Thomas van Arkel, a design/researcher from Rotterdam who works at the intersection of design and research for societal change.
 
