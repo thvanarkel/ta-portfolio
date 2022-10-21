@@ -6,6 +6,7 @@
 @import 'grid';
 @import 'navigation';
 @import 'components/figure';
+@import 'components/table';
 
 @font-face {
   font-family: "Alliance";
@@ -60,7 +61,7 @@ main {
   h1, h2, h3, h4, h5, h6 {
     // display: none;
     margin: 0;
-    grid-column: 1 / #{$start-main} !important;
+    grid-column: 1 / #{$start-main};
   }
 
   h1 {
@@ -536,22 +537,29 @@ $minColWidth: 15rem;
   grid-column-gap: $grid-column-gap;
   padding-bottom: 25px;
   h1 {
-    padding: 0 50px;
+    //padding: 0 50px;
+    grid-column: span $num-columns;
+    @include breakpoint($md) {
+      grid-column: 1 / (span (0.5 * $num-columns) - 1);
+    }
   }
   p {
-    grid-column: span 6;
+    //grid-column: span 6;
   }
   ul {
-    color: $grey;
+    //color: $grey;
     align-self: flex-end;
     li {
       font-size: 1.2rem;
-      border-color: $grey !important;
+      //border-color: $grey !important;
       span:nth-of-type(2) {
         text-align: right;
       }
     }
-    grid-column: span 5;
+    grid-column: span $num-columns;
+    @include breakpoint($md) {
+      grid-column: (0.5 * $num-columns) / span (0.5 * $num-columns);
+    }
   }
 }
 

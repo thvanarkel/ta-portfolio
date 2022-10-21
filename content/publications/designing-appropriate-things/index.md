@@ -1,14 +1,15 @@
 ---
 title: "Designing appropriate things"
 subtitle: "an experiential perspective on the effectiveness of artefacts in contributing to behaviour change"
-date: 1624104516
+date: "2022-06-15"
 draft: true
 
 year: "2022"
 authors: "van Arkel & Tromp"
 venue: "DRS 2022, Bilbao"
 publicationType: "conference paper"
-status: "in press"
+externalPublication: true
+externalLink: "https://dl.designresearchsociety.org/drs-conference-papers/drs2022/researchpapers/262/"
 ---
 ## A design theoretical perspective on the effectiveness of artefacts in changing behaviour
 **Abstract:** Behavioural design is an emergent discipline that aims to harness design’s influence on behaviour in an intentional way. However, there is limited knowledge on how to translate knowledge on behaviour and its determinants to specific design properties in ways that can maintain such change. We adopt a user experiential view to discuss the role that artefacts and their materiality play in effectively changing behaviour by introducing the notion of appropriateness, a quality of user-artefact interaction that describes the fitness of an artefact to the user and context that may play a moderating role in effectiveness of a design intervention in contributing to behaviour change. Based on an in-situ exploratory study with two conceptual artefacts we show that this appropriateness could help to investigate the long-term effectiveness of artefacts.
@@ -101,5 +102,3 @@ A single-case reversal design was used in which participants serve as their own 
 |            | - Statements related to the mechanism of the design intervention
 |            | - Statements related to the use of the design intervention |
 {{</table>}}
-
-
