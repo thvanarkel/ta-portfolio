@@ -1,7 +1,7 @@
 ---
 title: "Building synergistic collaborations"
 date: "01 jun 2021"
-draft: true
+draft: false
 work-in-progress: true
 categories:
   - "design research"
