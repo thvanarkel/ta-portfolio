@@ -1,5 +1,5 @@
 ---
-title: "Synergistic collaborations in the safety sector"
+title: "Building synergistic collaborations"
 date: "01 jun 2021"
 draft: true
 work-in-progress: true
