@@ -2,7 +2,7 @@
 title: "Designing appropriate things"
 subtitle: "an experiential perspective on the effectiveness of artefacts in contributing to behaviour change"
 date: "2022-06-15"
-draft: true
+draft: false
 
 year: "2022"
 authors: "van Arkel & Tromp"
