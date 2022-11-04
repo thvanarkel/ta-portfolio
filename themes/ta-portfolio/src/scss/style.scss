@@ -61,18 +61,23 @@ main {
   h1, h2, h3, h4, h5, h6 {
     // display: none;
     margin: 0;
-    grid-column: 1 / #{$start-main};
+    //grid-column: 1 / #{$start-main};
+    //grid-column: #{$start-main} / #{$end-main};
   }
 
   h1 {
     font-weight: 400;
-    text-transform: uppercase;
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+    grid-column: #{$start-main} / #{$end-main};
+    //text-transform: uppercase;
   }
 
   h2 {
     font-weight: 400;
     font-size: 1.2rem;
     text-transform: uppercase;
+    grid-column: 1 / #{$start-main};
   }
 
   a {
@@ -533,34 +538,45 @@ $minColWidth: 15rem;
 
 .project-intro {
   display: grid;
-  grid-template-columns: repeat(($num-columns + 1 - $start-main), minmax(0,1fr));
+  grid-template-columns: subgrid;//repeat(($num-columns - $start-main), minmax(0,1fr));
   grid-column-gap: $grid-column-gap;
   padding-bottom: 25px;
-  h1 {
-    //padding: 0 50px;
+  align-self: end;
+  margin-top: 25px;
+  .title {
     grid-column: span $num-columns;
     @include breakpoint($md) {
       grid-column: 1 / (span (0.5 * $num-columns) - 1);
+    }
+    h1 {
+      //padding: 0 50px;
+
+    }
+    h2 {
+      text-transform: none;
+      margin-top: 10px;
     }
   }
   p {
     //grid-column: span 6;
   }
-  ul {
-    //color: $grey;
-    align-self: flex-end;
-    li {
-      font-size: 1.2rem;
-      //border-color: $grey !important;
-      span:nth-of-type(2) {
-        text-align: right;
-      }
-    }
-    grid-column: span $num-columns;
-    @include breakpoint($md) {
-      grid-column: (0.5 * $num-columns) / span (0.5 * $num-columns);
+}
+
+.project-details {
+  //color: $grey;
+  align-self: flex-end;
+  li {
+    font-size: 1.2rem;
+    //border-color: $grey !important;
+    span:nth-of-type(2) {
+      text-align: right;
     }
   }
+  grid-column: span $num-columns;
+  @include breakpoint($md) {
+    grid-column: (0.5 * $num-columns) / span (0.5 * $num-columns);
+  }
+
 }
 
 .fullwidth {
