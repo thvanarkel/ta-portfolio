@@ -1,7 +1,10 @@
 /* NAVIGATION */
 
 .site-header {
-  @include main-grid();
+  //@include main-grid();
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / #{$num-columns};
   @include breakpoint($xs) {
     grid-template-columns: 50% 50%;
     .logo {

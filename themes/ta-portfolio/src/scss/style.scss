@@ -25,6 +25,7 @@ $site-padding-side: 75px;
 
 .site {
   padding: 50px $site-padding-side;
+  @include main-grid();
   @include breakpoint($xs) {
     padding: 20px 15px;
   }
@@ -54,8 +55,10 @@ main {
   // grid-template-columns: repeat(14,1fr);
   // grid-column-gap: 20px;
   // grid-row-gap: 20px;
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / #{$num-columns};
 
-  @include main-grid();
 
 
   h1, h2, h3, h4, h5, h6 {
@@ -269,7 +272,9 @@ main {
  }
 
 footer {
-  @include main-grid();
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / #{$num-columns};
   margin-top: 50px;
   .last-build {
     grid-column: #{$start-main + 5} / #{$end-main};

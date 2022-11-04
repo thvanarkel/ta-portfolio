@@ -10,11 +10,8 @@
   <div class="site">
   {{ partial "nav.html" . }}
 
-
-  <div class="content">
-    {{ block "main" . }}
-    {{ end }}
-  </div>
+  {{ block "main" . }}
+  {{ end }}
 
   {{ block "footer" . }}
     {{ partial "footer.html" . }}
