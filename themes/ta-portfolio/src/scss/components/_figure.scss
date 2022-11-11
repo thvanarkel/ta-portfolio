@@ -38,6 +38,7 @@ figure {
 
 .related-posts {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;//repeat(auto-fit, minmax($minColWidth, 1fr));
-  gap: calc(12/1680 * 100vw);
+  grid-template-columns: subgrid;
+  //grid-template-columns: 1fr 1fr 1fr;//repeat(auto-fit, minmax($minColWidth, 1fr));
+  //gap: calc(12/1680 * 100vw);
 }

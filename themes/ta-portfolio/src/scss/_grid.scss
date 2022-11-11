@@ -13,13 +13,14 @@ $end-text: 11;
   grid-row-gap: $grid-row-gap;
 
   @include breakpoint($xs) {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: repeat($num-columns, 1fr);
+    //grid-template-rows: 1fr;
     grid-column-gap: 0px;
 
-    & > * {
-      grid-column: 1 !important;
-      grid-row: auto !important;
+    @include breakpoint($xs) {
+      & > * {
+        grid-column: 1 / #{$num-columns} !important;
+      }
     }
   }
   //grid-template-columns: repeat($num-columns,1fr);

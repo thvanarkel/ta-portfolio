@@ -1,12 +1,32 @@
 {{- $class := "related-post" -}}
-<a{{ if .id }} id="{{ .id }}"{{ end }} href="{{ if .href }}{{ .href | safeURL }}{{ end }}" target="{{ if .target }}{{ .target }}{{ end }}" class="{{ if .type }}{{print $class (print " " .type)}}{{ else }}{{ $class }}{{ end }}"{{if .disabled }} disabled{{end}}>
-  <span class="post-link__left">{{ .value | default "My Button"}}
-  {{- $page := site.GetPage .href -}}
-  {{- if $page.Params.featured_image -}}
-    {{- $image := $page.Resources.GetMatch $page.Params.featured_image -}}
-    {{- $imagethumbnail := $image.Resize "x30" -}}
-    <img src="{{ $imagethumbnail.RelPermalink }}">
+{{ $data := newScratch }}
+
+{{ if .href }}
+  {{- $data.Set "url" .href -}}
+  {{- $data.Set "title" .title -}}
+{{ else if .page }}
+  {{- $page := site.GetPage .page }}
+  {{- if eq $page.Type "publications" }}
+    {{- if $page.Params.externalPublication }}
+      {{- $data.Set "url" $page.Params.externalLink -}}
+    {{- end -}}
+  {{- else -}}
+    {{- $data.Set "url" $page.Permalink -}}
   {{- end -}}
+
+  {{- $data.Set "page" $page -}}
+  {{- $data.Set "title" $page.Title -}}
+{{ end }}
+
+<a{{ if .id }} id="{{ .id }}"{{ end }} href="{{ $data.Get "url" | safeURL }}" target="{{ if .target }}{{ .target }}{{ end }}" class="{{ if .type }}{{print $class (print " " .type)}}{{ else }}{{ $class }}{{ end }}"{{if .disabled }} disabled{{end}}>
+  <span class="post-link__left">{{ $data.Get "title" | default "My Button"}}
+    {{- $page := ($data.Get "page") -}}
+    {{- if $page -}}
+      {{- if eq $page.Type "publications" -}}
+        <br><span class="post-authors">{{$page.Params.Authors}} ({{$page.Params.Year}})</span>
+      {{- end -}}
+    {{- end -}}
   </span>
+
   <span class="post-link__indicator">↗︎</span>
-</a></span>
+</a>

@@ -1,5 +1,6 @@
 ---
 title: "Data-informed design experiments"
+subtitle: "Assessing the effectiveness and appropriateness of design for behaviour change"
 date: 2021-06-18T17:02:17+02:00
 draft: false
 weight: 10
@@ -75,5 +76,6 @@ The results of the project were compiled into a comprehensive thesis, which can 
 
 ## Publications
 {{< gallery class="related-posts" >}}
-  {{< related-post href="https://repository.tudelft.nl/islandora/object/uuid%3A54287da0-ebe0-42b0-bbc6-43376c8befa9?collection=education" value="Data-Informed Design Experiments" >}}
+  {{< related-post page="/publications/designing-appropriate-things" >}}
+  {{< related-post href="https://repository.tudelft.nl/islandora/object/uuid%3A54287da0-ebe0-42b0-bbc6-43376c8befa9?collection=education" title="Data-Informed Design Experiments" >}}
 {{< /gallery >}}

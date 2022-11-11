@@ -1,5 +1,6 @@
 ---
 title: "Building synergistic collaborations"
+subtitle: "Collaborating across boundaries with public security organisations and creative makers"
 date: "01 jun 2021"
 draft: false
 work-in-progress: true

@@ -25,6 +25,7 @@ $site-padding-side: 75px;
 
 .site {
   padding: 50px $site-padding-side;
+  @include main-grid();
   @include breakpoint($xs) {
     padding: 20px 15px;
   }
@@ -54,25 +55,37 @@ main {
   // grid-template-columns: repeat(14,1fr);
   // grid-column-gap: 20px;
   // grid-row-gap: 20px;
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / #{$num-columns};
 
-  @include main-grid();
+  @include breakpoint($xs) {
+    & > * {
+      grid-column: 1 / #{$num-columns} !important;
+    }
+  }
 
 
   h1, h2, h3, h4, h5, h6 {
     // display: none;
     margin: 0;
-    grid-column: 1 / #{$start-main};
+    //grid-column: 1 / #{$start-main};
+    //grid-column: #{$start-main} / #{$end-main};
   }
 
   h1 {
     font-weight: 400;
-    text-transform: uppercase;
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+    grid-column: #{$start-main} / #{$end-main};
+    //text-transform: uppercase;
   }
 
   h2 {
     font-weight: 400;
     font-size: 1.2rem;
     text-transform: uppercase;
+    grid-column: 1 / #{$start-main};
   }
 
   a {
@@ -141,6 +154,11 @@ main {
   }
   .projects-overview {
     grid-column: #{$start-main} / #{$end-main + 2};
+  }
+  @include breakpoint($xs) {
+    & > * {
+      grid-column: 1 / #{$num-columns} !important;
+    }
   }
 
   p:first-child {
@@ -215,6 +233,17 @@ main {
   }
 }
 
+.main-project {
+  h2, h3 {
+    grid-column: #{$start-main}/#{$end-main};
+    margin-top: 15px;
+  }
+  p {
+    margin: 5px 0;
+    grid-column: $start-main / span 8;
+  }
+}
+
 @keyframes wiggle {
      0% { transform: rotate(-3deg); }
     50% { transform: rotate(3deg); }
@@ -264,7 +293,9 @@ main {
  }
 
 footer {
-  @include main-grid();
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / #{$num-columns};
   margin-top: 50px;
   .last-build {
     grid-column: #{$start-main + 5} / #{$end-main};
@@ -358,26 +389,7 @@ img[src$='#halftone'] {
       width: auto;
     }
   }
-  .post-link__indicator {
-    font-family: $font-family-arrows;
-    display: flex;
-    font-size: 1.6rem;
-    align-items: baseline;
-    justify-content: center;
-    width: 2rem;
-    border-left: 1px solid;
-    vertical-align: middle;
-  }
-  &:hover {
-    .post-link__indicator {
-      font-family: $font-family-arrows;
-      @include themed() {
-        background-color: t($hover);
-        border-color: t($border);
-        color: t($hover-text);
-      }
-    }
-  }
+
 
   &.publication {
     .post-link__left {
@@ -388,12 +400,60 @@ img[src$='#halftone'] {
   &:after {
     display: none;
   }
+
+  .post-link__indicator {
+    border-left: 1px solid;
+  }
+
+  &:hover {
+    .post-link__indicator {
+      font-family: $font-family-arrows;
+      @include themed() {
+        background-color: t($hover);
+        border-color: t($border);
+        color: t($hover-text);
+      }
+    }
+  }
 }
 
+.post-link__indicator {
+  font-family: $font-family-arrows;
+  display: flex;
+  font-size: 1.6rem;
+  align-items: baseline;
+  justify-content: center;
+  width: 2rem;
+  vertical-align: middle;
+}
+
+
+
 .related-post {
+  grid-column: span 3;
+  @include breakpoint($xl) {
+    grid-column: span 2;
+  }
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border: 1px solid black;
+  @include themed() { border-color: t($text); }
+  @include themed() { color: t($text); }
+
   height: 275px;
   padding: 10px;
+  .post-authors {
+    position: absolute;
+    font-size: 0.8rem;
+    margin-top: 2px;
+  }
+  .post-link__indicator {
+    align-self: flex-end;
+    font-size: 2.5rem;
+    line-height: 2rem;
+  }
 }
 
 
@@ -533,34 +593,45 @@ $minColWidth: 15rem;
 
 .project-intro {
   display: grid;
-  grid-template-columns: repeat(($num-columns + 1 - $start-main), minmax(0,1fr));
+  grid-template-columns: subgrid;//repeat(($num-columns - $start-main), minmax(0,1fr));
   grid-column-gap: $grid-column-gap;
   padding-bottom: 25px;
-  h1 {
-    //padding: 0 50px;
+  align-self: end;
+  margin-top: 25px;
+  .title {
     grid-column: span $num-columns;
     @include breakpoint($md) {
       grid-column: 1 / (span (0.5 * $num-columns) - 1);
+    }
+    h1 {
+      //padding: 0 50px;
+
+    }
+    h2 {
+      text-transform: none;
+      margin-top: 10px;
     }
   }
   p {
     //grid-column: span 6;
   }
-  ul {
-    //color: $grey;
-    align-self: flex-end;
-    li {
-      font-size: 1.2rem;
-      //border-color: $grey !important;
-      span:nth-of-type(2) {
-        text-align: right;
-      }
-    }
-    grid-column: span $num-columns;
-    @include breakpoint($md) {
-      grid-column: (0.5 * $num-columns) / span (0.5 * $num-columns);
+}
+
+.project-details {
+  //color: $grey;
+  align-self: flex-end;
+  li {
+    font-size: 1.2rem;
+    //border-color: $grey !important;
+    span:nth-of-type(2) {
+      text-align: right;
     }
   }
+  grid-column: span $num-columns;
+  @include breakpoint($md) {
+    grid-column: (0.5 * $num-columns) / span (0.5 * $num-columns);
+  }
+
 }
 
 .fullwidth {
