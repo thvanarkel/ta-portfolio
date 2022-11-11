@@ -379,26 +379,7 @@ img[src$='#halftone'] {
       width: auto;
     }
   }
-  .post-link__indicator {
-    font-family: $font-family-arrows;
-    display: flex;
-    font-size: 1.6rem;
-    align-items: baseline;
-    justify-content: center;
-    width: 2rem;
-    border-left: 1px solid;
-    vertical-align: middle;
-  }
-  &:hover {
-    .post-link__indicator {
-      font-family: $font-family-arrows;
-      @include themed() {
-        background-color: t($hover);
-        border-color: t($border);
-        color: t($hover-text);
-      }
-    }
-  }
+
 
   &.publication {
     .post-link__left {
@@ -409,12 +390,50 @@ img[src$='#halftone'] {
   &:after {
     display: none;
   }
+
+  .post-link__indicator {
+    border-left: 1px solid;
+  }
+
+  &:hover {
+    .post-link__indicator {
+      font-family: $font-family-arrows;
+      @include themed() {
+        background-color: t($hover);
+        border-color: t($border);
+        color: t($hover-text);
+      }
+    }
+  }
 }
 
+.post-link__indicator {
+  font-family: $font-family-arrows;
+  display: flex;
+  font-size: 1.6rem;
+  align-items: baseline;
+  justify-content: center;
+  width: 2rem;
+  vertical-align: middle;
+}
+
+
+
 .related-post {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border: 1px solid black;
+  @include themed() { border-color: t($text); }
+  @include themed() { color: t($text); }
+
   height: 275px;
   padding: 10px;
+  .post-link__indicator {
+    align-self: flex-end;
+    font-size: 2.5rem;
+    line-height: 2rem;
+  }
 }
 
 
