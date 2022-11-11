@@ -19,6 +19,14 @@
 {{ end }}
 
 <a{{ if .id }} id="{{ .id }}"{{ end }} href="{{ $data.Get "url" | safeURL }}" target="{{ if .target }}{{ .target }}{{ end }}" class="{{ if .type }}{{print $class (print " " .type)}}{{ else }}{{ $class }}{{ end }}"{{if .disabled }} disabled{{end}}>
-  <span class="post-link__left">{{ $data.Get "title" | default "My Button"}}</span>
+  <span class="post-link__left">{{ $data.Get "title" | default "My Button"}}
+    {{- $page := ($data.Get "page") -}}
+    {{- if $page -}}
+      {{- if eq $page.Type "publications" -}}
+        <br><span class="post-authors">{{$page.Params.Authors}} ({{$page.Params.Year}})</span>
+      {{- end -}}
+    {{- end -}}
+  </span>
+
   <span class="post-link__indicator">↗︎</span>
 </a>

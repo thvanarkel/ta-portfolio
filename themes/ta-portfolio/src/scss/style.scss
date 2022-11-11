@@ -429,6 +429,11 @@ img[src$='#halftone'] {
 
   height: 275px;
   padding: 10px;
+  .post-authors {
+    position: absolute;
+    font-size: 0.8rem;
+    margin-top: 2px;
+  }
   .post-link__indicator {
     align-self: flex-end;
     font-size: 2.5rem;
