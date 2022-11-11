@@ -420,6 +420,11 @@ img[src$='#halftone'] {
 
 
 .related-post {
+  grid-column: span 3;
+  @include breakpoint($xl) {
+    grid-column: span 2;
+  }
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
