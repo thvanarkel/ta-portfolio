@@ -59,6 +59,11 @@ main {
   grid-template-columns: subgrid;
   grid-column: 1 / #{$num-columns};
 
+  @include breakpoint($xs) {
+    & > * {
+      grid-column: 1 / #{$num-columns} !important;
+    }
+  }
 
 
   h1, h2, h3, h4, h5, h6 {
@@ -149,6 +154,11 @@ main {
   }
   .projects-overview {
     grid-column: #{$start-main} / #{$end-main + 2};
+  }
+  @include breakpoint($xs) {
+    & > * {
+      grid-column: 1 / #{$num-columns} !important;
+    }
   }
 
   p:first-child {
