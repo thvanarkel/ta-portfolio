@@ -1,6 +1,6 @@
 {{ define "main" }}
 
-<main aria-role="main" data-barba="container" data-barba-namespace="project">
+<main class="main-project" aria-role="main" data-barba="container" data-barba-namespace="project">
     <div class="project-intro">
       <div class="title">
         <h1>{{ .Title }}</h1>
@@ -15,7 +15,6 @@
     {{ with .Params.featured_image }}<img class="feature-image" src="{{ . }}">{{ end }}
 
   <!-- </div> -->
-
 
   {{ .Content }}
 </main>

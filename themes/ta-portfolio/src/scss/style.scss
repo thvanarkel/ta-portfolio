@@ -223,6 +223,17 @@ main {
   }
 }
 
+.main-project {
+  h2, h3 {
+    grid-column: #{$start-main}/#{$end-main};
+    margin-top: 15px;
+  }
+  p {
+    margin: 5px 0;
+    grid-column: $start-main / span 8;
+  }
+}
+
 @keyframes wiggle {
      0% { transform: rotate(-3deg); }
     50% { transform: rotate(3deg); }
