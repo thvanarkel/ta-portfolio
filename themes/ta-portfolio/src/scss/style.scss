@@ -83,7 +83,8 @@ main {
 
   h2 {
     font-weight: 400;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    line-height: 1.5;
     text-transform: uppercase;
     grid-column: 1 / #{$start-main};
   }
