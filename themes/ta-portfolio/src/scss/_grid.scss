@@ -8,7 +8,7 @@ $end-text: 11;
 @mixin main-grid() {
   display: grid;
   grid-template-columns: repeat($num-columns, 1fr);
-  grid-auto-rows: auto;
+  grid-auto-rows: min-content;
   grid-column-gap: $grid-column-gap;
   grid-row-gap: $grid-row-gap;
 
