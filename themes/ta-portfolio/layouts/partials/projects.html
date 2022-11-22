@@ -1,4 +1,4 @@
-<div class="projects-overview">
+<div class="projects-overview {{ if .workInProgress }}work-in-progress{{ end }}">
 {{ range (.pages) }}
 <a href="{{ .RelPermalink }}">
   <div class="project">
