@@ -1,7 +1,7 @@
 baseURL = "http://thomasvanarkel.nl/"
 languageCode = "en-gb"
 title = "Thomas van Arkel"
-googleAnalytics = 'UA-75844633-1'
+googleAnalytics = 'G-Z7VW38YF0T'
 
 theme = "ta-portfolio"
 
