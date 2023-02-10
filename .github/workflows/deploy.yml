@@ -80,5 +80,5 @@ jobs:
           target-server: ${{ secrets.SERVER_HOST }}
           remote-user: ${{ secrets.SERVER_USERNAME }}
           private-ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          destination-path: ./www/
-          source-path: ./public/
+          destination-path: 'www/'
+          source-path: 'public/'
