@@ -70,6 +70,6 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           server: ${{ secrets.SERVER_HOST }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} 
-          local_path: './static/*'
-          remote_path: '/www/'
+          local_path: 'public/'
+          remote_path: 'www/'
           sftpArgs: '-o ConnectTimeout=5'
