@@ -52,16 +52,24 @@ jobs:
         #   local-path: './public'
         #   remote-path: '/www'
         #   sync: "full"
-        uses: sand4rt/ftp-deployer@v1.3
-        with:
-          sftp: true # optional
-          host: ${{ secrets.SERVER_HOST }} # e.g. ftp.host.com or sftp.host.com (without ftp:// or ftps://)
-          port: 22 # optional, default is: 21
-          username: ${{ secrets.SERVER_USERNAME }} # FTP username
-          password: ${{ secrets.SERVER_PASSWORD }} # FTP password
-          remote_folder: ${{ secrets.SERVER_TARGET }} # optional, remote path of your FTP server
-          local_folder: public # optional, local path, default is: dist
-          cleanup: false # optional, remove existing files inside FTP remote folder
+        #uses: sand4rt/ftp-deployer@v1.3
+        #with:
+          #sftp: true # optional
+          #host: ${{ secrets.SERVER_HOST }} # e.g. ftp.host.com or sftp.host.com (without ftp:// or ftps://)
+          #port: 22 # optional, default is: 21
+          #username: ${{ secrets.SERVER_USERNAME }} # FTP username
+          #password: ${{ secrets.SERVER_PASSWORD }} # FTP password
+          #remote_folder: ${{ secrets.SERVER_TARGET }} # optional, remote path of your FTP server
+          #local_folder: public # optional, local path, default is: dist
+          #cleanup: false # optional, remove existing files inside FTP remote folder
           # include: [] # optional, e.g. ['dist']
           # exclude: [] # optional, e.g. ['node_modules/**', '.git/**', '*.env']
           # pasive: true # optional
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          username: ${{ secrets.SERVER_USERNAME }}
+          server: ${{ secrets.SERVER_HOST }}
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} 
+          local_path: './static/*'
+          remote_path: '/www/'
+          sftpArgs: '-o ConnectTimeout=5'
