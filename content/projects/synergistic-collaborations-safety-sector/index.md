@@ -24,3 +24,8 @@ In addition, boundaries to be crossed within a project: between different discip
 In this research, we undertake some initial steps towards developing working methods that support synergistic collaborations. To develop increased synergy between security organisations and creative professionals – enabling and strengthening their collaborative impact on these complex security issues and the collaborator’s organisational approaches – requires boundary spanning practices. To this end, we are developing a model with sixteen building blocks for sustainable collaborations, as well as a series of creative methods and tools.
 
 This research was made possible with a KIEM GoCI subsidy, an initiative of the Creative Industry/CLICKNL top sector and the SIA Directorate.
+
+## Publications
+{{< gallery class="related-posts" >}}
+  {{< related-post page="/publications/bouwen-aan-synergetische-samenwerkingen" >}}
+{{< /gallery >}}
