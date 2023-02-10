@@ -52,16 +52,25 @@ jobs:
         #   local-path: './public'
         #   remote-path: '/www'
         #   sync: "full"
-        uses: sand4rt/ftp-deployer@v1.3
-        with:
-          sftp: true # optional
-          host: ${{ secrets.SERVER_HOST }} # e.g. ftp.host.com or sftp.host.com (without ftp:// or ftps://)
-          port: 22 # optional, default is: 21
-          username: ${{ secrets.SERVER_USERNAME }} # FTP username
-          password: ${{ secrets.SERVER_PASSWORD }} # FTP password
-          remote_folder: /www # optional, remote path of your FTP server
-          local_folder: public # optional, local path, default is: dist
-          cleanup: false # optional, remove existing files inside FTP remote folder
+        #uses: sand4rt/ftp-deployer@v1.3
+        #with:
+          #sftp: true # optional
+          #host: ${{ secrets.SERVER_HOST }} # e.g. ftp.host.com or sftp.host.com (without ftp:// or ftps://)
+          #port: 22 # optional, default is: 21
+          #username: ${{ secrets.SERVER_USERNAME }} # FTP username
+          #password: ${{ secrets.SERVER_PASSWORD }} # FTP password
+          #remote_folder: /www # optional, remote path of your FTP server
+          #local_folder: public # optional, local path, default is: dist
+          #cleanup: false # optional, remove existing files inside FTP remote folder
           # include: [] # optional, e.g. ['dist']
           # exclude: [] # optional, e.g. ['node_modules/**', '.git/**', '*.env']
           # pasive: true # optional
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: "-rlgoDzvc -i"
+          SOURCE: "public/"
+          REMOTE_HOST: ${{ secrets.SERVER_USERNAME }}
+          REMOTE_USER: ${{ secrets.SERVER_PASSWORD }}
+          TARGET: ${{ secrets.SERVER_TARGET }}
+          EXCLUDE: "/dist/, /node_modules/"
