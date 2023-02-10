@@ -75,10 +75,11 @@ jobs:
 #           remote_path: 'www/'
 #           sftp_only: true
 #           sftpArgs: '-o ConnectTimeout=10'
-        uses: SamKirkland/web-deploy@v1
-        with:
-          target-server: ${{ secrets.SERVER_HOST }}
-          remote-user: ${{ secrets.SERVER_USERNAME }}
-          private-ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          destination-path: 'www/'
-          source-path: 'public/'
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: "-rlgoDzvc -i --delete"
+          SOURCE: "public/"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: "www/"
