@@ -15,9 +15,9 @@ I'm a designer and researcher working at the Delft University of Technology. As 
 
 {{< under-construction >}}
 
-<!-- ## Work in progress
-I am currently working on a project where we explore {{< post-link href="/projects/synergistic-collaborations-safety-sector" value="Building synergistic collaborations" >}}, where we explore how the cooperation between the creative industry and the public security sector can be improved, as well as on a project that aims to understand the role of frames on human behaviour during reintegration processes. Next to that I am partly involved in a research project in which we try to understand what reasoning patterns designers use while reframing issues.
+## Work in progress
+I am currently finalising several projects, among them a project {{< post-link href="/projects/a-precarious-equilibrium" value="A precarious equilibrium" >}} where we explore  a new approach to interactions between professionals and people with temporary disability benefits, focusing on self-awareness and collaborative decision-making to stimulate a more sustainable road to employment. Next to that I am finishing an article on {{< post-link href="/projects/defining-design-practices-for-societal-challenges" value="Defining design practices for societal challenges" >}} where we explore the repertoire that designers bring to the table when working on complex societal issues.
 
-{{< projects-view title=false workInProgress=true >}} -->
+{{< projects-view title=false workInProgress=true >}}
 
 <!-- {{< projects-view >}} -->
