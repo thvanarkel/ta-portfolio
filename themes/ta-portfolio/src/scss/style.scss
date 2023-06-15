@@ -46,6 +46,7 @@ $site-padding-side: 75px;
   font-size: 1.4rem;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 $gap: 0.5rem;//calc(12/1680 * 100vw);
