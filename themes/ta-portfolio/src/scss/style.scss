@@ -565,7 +565,7 @@ $minColWidth: 15rem;
 
 .projects-overview {
   display: grid;
-  grid-template-columns: repeat(($end-main + 2 - $start-main), minmax(0,1fr));//repeat(auto-fit, minmax($minColWidth, 1fr));
+  grid-template-columns: repeat(($end-main + 1 - $start-main), minmax(0,1fr));//repeat(auto-fit, minmax($minColWidth, 1fr));
   gap: 20px;
   a {
     grid-column: span 5;
