@@ -6,7 +6,7 @@ openToWork: false
 ---
 I am Thomas van Arkel, a design/researcher from Rotterdam who works at the intersection of design and research for societal change.
 
-Currently design researcher at [TU Delft](https://www.tudelft.nl/io/)
+Currently PhD candidate at [TU Delft](https://www.tudelft.nl/io/)
 
 {{< figure src="/img/profile.jpg" class="cover" >}}
 
