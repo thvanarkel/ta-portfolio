@@ -23,50 +23,55 @@
 
 $blue: #0075ff;
 $black: #000000;
-$white: #fff;//#f2f1ef;
+$white: #fff; //#f2f1ef;
 //$grey: #878787;
 $grey: #bdc3c7;
 $light-grey: #ccc;
 $yellow: #f3b14f;
-$orange: #FCA311;
+$orange: #fca311;
 
-$text: 'text';
-$bg: 'bg';
-$hover: 'hover';
-$hover-text: 'hover-text';
-$border: 'border-color';
+$text: "text";
+$bg: "bg";
+$hover: "hover";
+$hover-text: "hover-text";
+$border: "border-color";
 
 $themes: (
-  default: (
-    bg: $white,
-    text: $black,
-    hover: $black,
-    hover-text: $white,
-    border-color: $black
-  ),
-  dark: (
-    bg: $black,
-    text: $white,
-    hover: $white,
-    hover-text: $black,
-    border-color: $white
-  ),
+    default: (
+        bg: $white,
+        text: $black,
+        hover: $black,
+        hover-text: $white,
+        border-color: $black,
+    ),
+    dark: (
+        bg: $black,
+        text: $white,
+        hover: $white,
+        hover-text: $black,
+        border-color: $white,
+    ),
 );
 
 @mixin themed() {
-  @each $theme, $map in $themes {
-    .theme--#{$theme} & {
-      $theme-map: () !global;
-      @each $key, $submap in $map {
-        $value: map-get(map-get($themes, $theme), '#{$key}');
-        $theme-map: map-merge($theme-map, ($key: $value)) !global;
-      }
-      @content;
-      $theme-map: null !global;
+    @each $theme, $map in $themes {
+        .theme--#{$theme} & {
+            $theme-map: () !global;
+            @each $key, $submap in $map {
+                $value: map-get(map-get($themes, $theme), "#{$key}");
+                $theme-map: map-merge(
+                    $theme-map,
+                    (
+                        $key: $value,
+                    )
+                ) !global;
+            }
+            @content;
+            $theme-map: null !global;
+        }
     }
-  }
 }
 
 @function t($key) {
-  @return map-get($theme-map, $key);
+    @return map-get($theme-map, $key);
 }

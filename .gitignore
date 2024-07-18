@@ -6,3 +6,5 @@
 /public
 /public/fonts
 /themes/ta-portfolio/src/js/keys.json
+.DS_Store
+.hugo_build.lock
