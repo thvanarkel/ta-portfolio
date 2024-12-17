@@ -123,6 +123,7 @@ main {
 
     .feature-image {
         grid-column: #{$start-main} / #{$end-main + 1};
+        margin-bottom: 25px;
     }
 
     p > a {
