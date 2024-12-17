@@ -92,6 +92,6 @@ export const watchForChanges = () => {
   watch(options.path.js, scripts);
 }
 
-export const dev = series(clean, parallel(styles, images, scripts, fonts), watchForChanges)
+export const dev = series(parallel(styles, images, scripts, fonts), watchForChanges)
 export const build = series(clean, parallel(styles, images, scripts, fonts))
 export default dev;

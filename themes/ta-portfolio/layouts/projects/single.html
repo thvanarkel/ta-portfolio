@@ -12,8 +12,12 @@
       </ul>
     </div>
 
-    {{ with .Params.featured_image }}<img class="feature-image" src="{{ . }}">{{ end }}
-
+    <figure class="feature-image">
+    {{ with .Params.featured_image }}
+        <img  src="{{ . }}">
+    {{ end }}
+    {{ with .Params.featured_caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+    </figure>
   <!-- </div> -->
 
   {{ .Content }}
