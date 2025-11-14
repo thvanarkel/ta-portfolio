@@ -1,6 +1,6 @@
 ---
 title: "From ideas to change"
-subtitle: "Emergent Design Practices to Overcome Implementation Challenges When Designing in the Public Sector"
+subtitle: "Emergent design practices to overcome implementation challenges when designing in the public sector"
 date: "2025-08-31"
 draft: false
 
