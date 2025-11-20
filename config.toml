@@ -18,7 +18,6 @@ sectionPagesMenu = "main"
     name = "posts"
     url = "/posts"
     weight = 10
-
   [[menu.main]]
     identifier = "projects"
     name = "projects"
@@ -29,3 +28,8 @@ sectionPagesMenu = "main"
     name = "publications"
     url = "/publications"
     weight = 30
+[[menu.main]]
+    identifier = "tools"
+    name = "tools"
+    url = "/tools"
+    weight = 40
