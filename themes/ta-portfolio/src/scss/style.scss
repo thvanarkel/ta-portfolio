@@ -160,7 +160,7 @@ main {
     }
     div,
     ul {
-        grid-column: 1 / #{$end-main + 2};
+        //grid-column: 1 / #{$end-main + 2};
     }
     .gallery {
         grid-column: #{$start-main} / #{$end-main + 2};
@@ -498,19 +498,31 @@ img[src$="#halftone"] {
 }
 
 .publications-overview {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 0 / -1;
+    a {
+        display: contents; // Makes the <a> transparent to grid layout
+    }
+
     .publication {
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-column: 1 / -1;
+        //grid-template-columns: repeat(14, minmax(0, 1fr));
         font-size: 0.8em;
         @include themed() {
             color: t($text);
         }
         border-color: $light-grey;
         padding-bottom: 5px;
-        span {
-            flex: 1;
-        }
         .title {
-            flex: 2;
+            //flex: 2;
+            grid-column: 1 / 8;
             // text-transform: uppercase;
+        }
+        .year {
+            grid-column: 9 / 10;
         }
         .subtitle {
             // color: $grey;
@@ -536,14 +548,16 @@ img[src$="#halftone"] {
             }
         }
         .authors {
-            padding-left: 25px;
+            grid-column: 10 / 15;
+            text-align: right;
+            //padding-left: 25px;
             .highlight {
                 @include themed() {
                     color: t($text);
                     font-weight: 500;
                 }
             }
-            text-align: right;
+            //text-align: right;
             .link__indicator {
                 font-family: $font-family-arrows;
                 padding-left: 5px;
@@ -552,10 +566,6 @@ img[src$="#halftone"] {
                     color: t($text);
                 }
             }
-        }
-        .year {
-            flex: 0.25;
-            text-align: right;
         }
     }
     &:hover {
@@ -594,10 +604,8 @@ $minColWidth: 15rem;
 
 .projects-overview {
     display: grid;
-    grid-template-columns: repeat(
-        ($end-main + 1 - $start-main),
-        minmax(0, 1fr)
-    ); //repeat(auto-fit, minmax($minColWidth, 1fr));
+    grid-template-columns: subgrid;
+    //repeat(auto-fit, minmax($minColWidth, 1fr));
     gap: 20px;
     a {
         grid-column: span 5;
