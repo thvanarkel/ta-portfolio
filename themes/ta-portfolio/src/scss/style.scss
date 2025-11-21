@@ -13,8 +13,8 @@
     src: local("Alliance Text Regular");
 }
 
-$font-family-sans: "Untitled Sans", "Alliance", "Helvetica Neue", Arial,
-    sans-serif;
+$font-family-sans:
+    "Untitled Sans", "Alliance", "Helvetica Neue", Arial, sans-serif;
 $font-family-serif: "Untitled Serif", "Tiempos Text";
 $font-family-arrows: "Alliance", "Untitled Sans", Arial, sans-serif;
 
@@ -59,7 +59,7 @@ main {
     // grid-row-gap: 20px;
     display: grid;
     grid-template-columns: subgrid;
-    grid-column: 1 / #{$num-columns};
+    grid-column: 1 / #{$num-columns + 1};
 
     @include breakpoint($xs) {
         & > * {
@@ -92,7 +92,7 @@ main {
         font-size: 1.4rem;
         line-height: 1.5;
         text-transform: uppercase;
-        grid-column: 1 / #{$start-main};
+        grid-column: #{$start-main} / #{$end-main};
     }
 
     a {
@@ -107,7 +107,7 @@ main {
 
     div,
     ul {
-        grid-column: #{$start-main} / #{$end-main + 1};
+        grid-column: 1 / #{$end-main + 2};
     }
 
     .gallery {
@@ -160,7 +160,7 @@ main {
     }
     div,
     ul {
-        grid-column: #{$start-main} / #{$end-main + 1};
+        grid-column: 1 / #{$end-main + 2};
     }
     .gallery {
         grid-column: #{$start-main} / #{$end-main + 2};
@@ -193,7 +193,13 @@ main {
         opacity: 0.8;
         right: $site-padding-side;
         width: calc(
-            ((100% - 2 * #{$site-padding-side} - 13 * #{$grid-column-gap}) / 14) *
+            (
+                    (
+                            100% - 2 * #{$site-padding-side} - 13 *
+                                #{$grid-column-gap}
+                        ) /
+                        14
+                ) *
                 5 + 4 * #{$grid-column-gap}
         );
         //max-height: 25vh;
@@ -493,6 +499,7 @@ img[src$="#halftone"] {
 
 .publications-overview {
     .publication {
+        font-size: 0.8em;
         @include themed() {
             color: t($text);
         }
@@ -529,11 +536,11 @@ img[src$="#halftone"] {
             }
         }
         .authors {
-            color: $grey;
             padding-left: 25px;
             .highlight {
                 @include themed() {
                     color: t($text);
+                    font-weight: 500;
                 }
             }
             text-align: right;
@@ -695,7 +702,8 @@ $minColWidth: 15rem;
     right: -100%;
     bottom: -100%;
     background-blend-mode: multiply;
-    background: radial-gradient(8px 8px, cyan, white),
+    background:
+        radial-gradient(8px 8px, cyan, white),
         radial-gradient(8px 8px, magenta, white),
         radial-gradient(8px 8px, yellow, white);
     background-size: 8px 8px;
