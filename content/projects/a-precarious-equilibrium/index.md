@@ -2,7 +2,7 @@
 title: "A precarious equilibrium"
 subtitle: "How can we better support people receiving temporary disability benefits on their way to employment?"
 date: "31 jun 2023"
-weight: 1
+weight: 10
 draft: false
 work-in-progress: true
 categories:

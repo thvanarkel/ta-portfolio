@@ -16,7 +16,7 @@ I'm a designer and researcher working at the Delft University of Technology. As 
 <!-- {{< under-construction >}} -->
 
 ## Work in progress
-In my PhD research I adopt a co-evolutionary, practice-based and impact-driven approach. I combine two ways of doing research in praxis: by collaborating with partners from design practice on the implementation and institutionalisation of their design interventions; and consciously exploring the research topic in a project where we aim to transform an organisational practice within UWV by continuing to develop, implement and institutionalise an intervention developed previously in {{< post-link href="/projects/a-precarious-equilibrium" value="A precarious equilibrium" >}}.
+In my PhD research {{< post-link href="/projects/designing-with-institutions" value="Designing with institutions" >}}, I adopt a co-evolutionary, practice-based and impact-driven approach. I combine two ways of doing research in praxis: by collaborating with partners from design practice on the implementation and institutionalisation of their design interventions; and consciously exploring the research topic in a project where we aim to transform an organisational practice within UWV by continuing to develop, implement and institutionalise an intervention developed previously in {{< post-link href="/projects/a-precarious-equilibrium" value="A precarious equilibrium" >}}.
 
 {{< projects-view title=false workInProgress=true >}}
 
