@@ -1,24 +1,20 @@
 {{ define "main" }}
 
 <main id="main-home">
-
-  {{ .Content }}
-
-  {{ if eq .Page.Params.openToWork true }}
-  <a class="job-status" href="mailto:hello@thomasvanarkel.nl?subject=Hey👋">
-    <p>open to new opportunities!</p>
-  </a>
-  {{ end }}
-
-  {{ if gt (len (where .Site.RegularPages "Section" "==" "publications")) 0 }}
-  <h2>Publications</h2>
-  {{ partial "publications.html" (dict "context" . "pages" ( where .Site.RegularPages "Type" "publications" | first 5 ) "view" "compact") }}
-  {{ end }}
-
-  {{ if gt (len (where .Site.RegularPages "Section" "==" "projects")) 0 }}
-  <h2>Projects</h2>
-  {{ partial "projects.html" (dict "context" . "pages" ( where ( where .Site.RegularPages "Type" "projects" | first 5) ".Params.work-in-progress" "!=" true))}}
-  {{ end }}
+    {{ .Content }} {{ if eq .Page.Params.openToWork true }}
+    <a class="job-status" href="mailto:hello@thomasvanarkel.nl?subject=Hey👋">
+        <p>open to new opportunities!</p>
+    </a>
+    {{ end }} {{ if gt (len (where .Site.RegularPages "Section" "=="
+    "publications")) 0 }}
+    <h2>Publications</h2>
+    {{ partial "publications.html" (dict "context" . "pages" ( where
+    .Site.RegularPages "Type" "publications" | first 5 )) }} {{ end }} {{ if gt
+    (len (where .Site.RegularPages "Section" "==" "projects")) 0 }}
+    <h2>Projects</h2>
+    {{ partial "projects.html" (dict "context" . "pages" ( where ( where
+    .Site.RegularPages "Type" "projects" | first 5) ".Params.work-in-progress"
+    "!=" true))}} {{ end }}
 </main>
 
 {{ end }}
