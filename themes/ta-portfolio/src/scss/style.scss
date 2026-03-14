@@ -1,5 +1,6 @@
 /* LAYOUT */
 @import "reset";
+@import "variables";
 @import "fonts";
 @import "theme";
 @import "responsive";
@@ -122,7 +123,7 @@ main {
     p > a {
         color: $blue;
         &:after {
-            font-family: $font-family-arrows;
+            // font-family: $font-family-arrows;
             content: "↗︎";
             padding-left: 2px;
         }
@@ -257,9 +258,14 @@ main {
         grid-column: #{$start-main}/#{$end-main};
         margin-top: 15px;
     }
+    p:first-of-type {
+        grid-column: $start-main / span 10;
+        font-size: $body-large;
+    }
     p {
         margin: 5px 0;
-        grid-column: $start-main / span 8;
+        grid-column: ($start-main + 1) / span 8;
+        font-size: $body-small;
     }
 }
 
@@ -440,13 +446,18 @@ img[src$="#halftone"] {
 }
 
 .post-link__indicator {
-    font-family: $font-family-arrows;
+    //font-family: $font-family-arrows;
     display: flex;
     font-size: 1.6rem;
     align-items: baseline;
     justify-content: center;
     width: 2rem;
     vertical-align: middle;
+}
+
+.related-posts {
+    color: red;
+    grid-column: $start-main / span 8;
 }
 
 .related-post {
@@ -552,7 +563,7 @@ img[src$="#halftone"] {
             }
             //text-align: right;
             .link__indicator {
-                font-family: $font-family-arrows;
+                // font-family: $font-family-arrows;
                 padding-left: 5px;
                 font-size: 1.5rem;
                 @include themed() {
