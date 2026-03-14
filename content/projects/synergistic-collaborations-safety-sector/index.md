@@ -40,4 +40,5 @@ This research was made possible with a KIEM GoCI subsidy, an initiative of the C
 ## Publications
 {{< gallery class="related-posts" >}}
   {{< related-post page="/publications/bouwen-aan-synergetische-samenwerkingen" >}}
+  {{< related-post page="/publications/from-ideas-to-change" >}}
 {{< /gallery >}}

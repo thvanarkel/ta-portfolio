@@ -1,45 +1,45 @@
 $minColWidth: 15rem;
 
 .site {
-  counter-reset: figures;
+    counter-reset: figures;
 }
 
 figure {
-  margin: 0;
-  //counter-increment: figures;
-  &.single {
-    grid-column: #{$start-main} / #{$end-main};
-  }
-  img {
-    width: 100%;
-  }
-  figcaption {
-    display: flex;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-    line-height: 1.1;
-    padding: 0px;
-    color: $grey;
-    &::before {
-      //content: "Fig. " counter(figures) " ";
-      content: "↳";
-      //min-width: 50px;
-      margin-right: 15px;
-      height: 100%;
+    margin: 0;
+    //counter-increment: figures;
+    &.single {
+        grid-column: #{$start-main} / #{$end-main + 2};
     }
-  }
+    img {
+        width: 100%;
+    }
+    figcaption {
+        display: flex;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+        line-height: 1.1;
+        padding: 0px;
+        color: $grey;
+        &::before {
+            //content: "Fig. " counter(figures) " ";
+            content: "↳";
+            //min-width: 50px;
+            margin-right: 15px;
+            height: 100%;
+        }
+    }
 }
 
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax($minColWidth, 1fr));
-  gap: calc(12/1680 * 100vw);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($minColWidth, 1fr));
+    gap: calc(12 / 1680 * 100vw);
 }
 
 .related-posts {
-  display: grid;
-  grid-template-columns: subgrid;
-  //grid-template-columns: 1fr 1fr 1fr;//repeat(auto-fit, minmax($minColWidth, 1fr));
-  //gap: calc(12/1680 * 100vw);
+    display: grid;
+    grid-template-columns: subgrid;
+    //grid-template-columns: 1fr 1fr 1fr;//repeat(auto-fit, minmax($minColWidth, 1fr));
+    //gap: calc(12/1680 * 100vw);
 }

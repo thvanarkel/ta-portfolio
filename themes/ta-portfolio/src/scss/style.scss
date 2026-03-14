@@ -116,7 +116,7 @@ main {
     // }
 
     .feature-image {
-        grid-column: #{$start-main} / #{$end-main + 1};
+        grid-column: #{$start-main} / #{$end-main + 2};
         margin-bottom: 25px;
     }
 
@@ -255,17 +255,19 @@ main {
 .main-project {
     h2,
     h3 {
-        grid-column: #{$start-main}/#{$end-main};
-        margin-top: 15px;
+        grid-column: #{$start-main + 2}/#{$end-main};
+        margin-top: 30px;
+        margin-bottom: 10px;
     }
     p:first-of-type {
-        grid-column: $start-main / span 10;
+        grid-column: ($start-main) / span 10;
         font-size: $body-large;
     }
     p {
         margin: 5px 0;
-        grid-column: ($start-main + 1) / span 8;
+        grid-column: ($start-main + 2) / span 9;
         font-size: $body-small;
+        text-align: justify;
     }
 }
 
@@ -456,8 +458,7 @@ img[src$="#halftone"] {
 }
 
 .related-posts {
-    color: red;
-    grid-column: $start-main / span 8;
+    grid-column: $start-main / span 7;
 }
 
 .related-post {
@@ -651,9 +652,9 @@ $minColWidth: 15rem;
     align-self: end;
     margin-top: 25px;
     .title {
-        grid-column: span $num-columns;
+        grid-column: 1 / span 6 !important;
         @include breakpoint($md) {
-            grid-column: 1 / (span (0.5 * $num-columns) - 1);
+            grid-column: 1 / (span (0.5 * $num-columns));
         }
         h1 {
             //padding: 0 50px;
@@ -680,7 +681,7 @@ $minColWidth: 15rem;
     }
     grid-column: span $num-columns;
     @include breakpoint($md) {
-        grid-column: (0.5 * $num-columns) / span (0.5 * $num-columns);
+        grid-column: (0.5 * $num-columns + 1) / span (0.5 * $num-columns + 1);
     }
 }
 
