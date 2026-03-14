@@ -2,7 +2,7 @@
 title: "Graveyard of the future"
 date: "01 juli 2018"
 draft: false
-weight: 50
+weight: 60
 categories:
   - "speculative design"
 timespan: "2018"

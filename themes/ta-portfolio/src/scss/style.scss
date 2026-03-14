@@ -1,5 +1,6 @@
 /* LAYOUT */
 @import "reset";
+@import "variables";
 @import "fonts";
 @import "theme";
 @import "responsive";
@@ -8,15 +9,8 @@
 @import "components/figure";
 @import "components/table";
 
-@font-face {
-    font-family: "Alliance";
-    src: local("Alliance Text Regular");
-}
-
-$font-family-sans:
-    "Untitled Sans", "Alliance", "Helvetica Neue", Arial, sans-serif;
+$font-family-sans: "Basel Grotesk", "Helvetica Neue", Arial, sans-serif;
 $font-family-serif: "Untitled Serif", "Tiempos Text";
-$font-family-arrows: "Alliance", "Untitled Sans", Arial, sans-serif;
 
 body {
     margin: 0 auto;
@@ -122,14 +116,14 @@ main {
     // }
 
     .feature-image {
-        grid-column: #{$start-main} / #{$end-main + 1};
+        grid-column: #{$start-main} / #{$end-main + 2};
         margin-bottom: 25px;
     }
 
     p > a {
         color: $blue;
         &:after {
-            font-family: $font-family-arrows;
+            // font-family: $font-family-arrows;
             content: "↗︎";
             padding-left: 2px;
         }
@@ -261,12 +255,19 @@ main {
 .main-project {
     h2,
     h3 {
-        grid-column: #{$start-main}/#{$end-main};
-        margin-top: 15px;
+        grid-column: #{$start-main + 2}/#{$end-main};
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+    p:first-of-type {
+        grid-column: ($start-main) / span 10;
+        font-size: $body-large;
     }
     p {
         margin: 5px 0;
-        grid-column: $start-main / span 8;
+        grid-column: ($start-main + 2) / span 9;
+        font-size: $body-small;
+        text-align: justify;
     }
 }
 
@@ -436,7 +437,7 @@ img[src$="#halftone"] {
 
     &:hover {
         .post-link__indicator {
-            font-family: $font-family-arrows;
+            //font-family: $font-family-arrows;
             @include themed() {
                 background-color: t($hover);
                 border-color: t($border);
@@ -447,13 +448,17 @@ img[src$="#halftone"] {
 }
 
 .post-link__indicator {
-    font-family: $font-family-arrows;
+    //font-family: $font-family-arrows;
     display: flex;
     font-size: 1.6rem;
     align-items: baseline;
     justify-content: center;
     width: 2rem;
     vertical-align: middle;
+}
+
+.related-posts {
+    grid-column: $start-main / span 7;
 }
 
 .related-post {
@@ -559,7 +564,7 @@ img[src$="#halftone"] {
             }
             //text-align: right;
             .link__indicator {
-                font-family: $font-family-arrows;
+                // font-family: $font-family-arrows;
                 padding-left: 5px;
                 font-size: 1.5rem;
                 @include themed() {
@@ -647,9 +652,9 @@ $minColWidth: 15rem;
     align-self: end;
     margin-top: 25px;
     .title {
-        grid-column: span $num-columns;
+        grid-column: 1 / span 6 !important;
         @include breakpoint($md) {
-            grid-column: 1 / (span (0.5 * $num-columns) - 1);
+            grid-column: 1 / (span (0.5 * $num-columns));
         }
         h1 {
             //padding: 0 50px;
@@ -676,7 +681,7 @@ $minColWidth: 15rem;
     }
     grid-column: span $num-columns;
     @include breakpoint($md) {
-        grid-column: (0.5 * $num-columns) / span (0.5 * $num-columns);
+        grid-column: (0.5 * $num-columns + 1) / span (0.5 * $num-columns + 1);
     }
 }
 

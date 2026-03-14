@@ -2,7 +2,7 @@
 title: "Building synergistic collaborations"
 subtitle: "What can collaborating with creative professionals bring to the public security sector?"
 date: "01 feb 2023"
-weight: 1
+weight: 40
 draft: false
 work-in-progress: false
 categories:
@@ -40,4 +40,5 @@ This research was made possible with a KIEM GoCI subsidy, an initiative of the C
 ## Publications
 {{< gallery class="related-posts" >}}
   {{< related-post page="/publications/bouwen-aan-synergetische-samenwerkingen" >}}
+  {{< related-post page="/publications/from-ideas-to-change" >}}
 {{< /gallery >}}
