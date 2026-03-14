@@ -1,9 +1,9 @@
 ---
 title: "Data-informed design experiments"
 subtitle: "Assessing the effectiveness and appropriateness of design for behaviour change"
-date: 2021-06-18T17:02:17+02:00
+date: 2020-09-03
 draft: false
-weight: 10
+weight: 50
 categories:
   - "design research"
   - "design for behaviour change"

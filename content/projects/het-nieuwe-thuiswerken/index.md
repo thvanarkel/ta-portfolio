@@ -2,7 +2,7 @@
 title: "Het nieuwe thuiswerken"
 date: "01 jul 2018"
 draft: false
-weight: 100
+weight: 70
 categories:
   - "future vision"
   - "social design"

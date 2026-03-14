@@ -2,7 +2,7 @@
 title: "Building synergistic collaborations"
 subtitle: "What can collaborating with creative professionals bring to the public security sector?"
 date: "01 feb 2023"
-weight: 1
+weight: 40
 draft: false
 work-in-progress: false
 categories:

@@ -1,5 +1,6 @@
 ---
 title: "Moderating meat consumption"
+weight: 80
 date: "01 feb 2019"
 draft: true
 categories:
@@ -8,6 +9,7 @@ timespan: "2018 → 2019"
 
 featured_image: "cover.jpg"
 image: "cover.jpg"
+weight: 80
 ---
 This project explored how we can moderate our meat consumption—while being sensitive to people’s values and traditions. After investigating how people shopped and what causes their behaviour—I am now working on an interactive shopping buddy to help people stay true to their long-term beliefs.
 

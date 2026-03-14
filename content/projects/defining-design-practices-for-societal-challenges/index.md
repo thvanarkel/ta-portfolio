@@ -2,7 +2,7 @@
 title: "Defining design practices for societal challenges"
 subtitle: "What do designers bring to the table when designing for complex societal issues?"
 date: "31 jun 2023"
-weight: 1
+weight: 30
 draft: false
 work-in-progress: false
 categories:
