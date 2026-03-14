@@ -8,15 +8,8 @@
 @import "components/figure";
 @import "components/table";
 
-@font-face {
-    font-family: "Alliance";
-    src: local("Alliance Text Regular");
-}
-
-$font-family-sans:
-    "Untitled Sans", "Alliance", "Helvetica Neue", Arial, sans-serif;
+$font-family-sans: "Basel Grotesk", "Helvetica Neue", Arial, sans-serif;
 $font-family-serif: "Untitled Serif", "Tiempos Text";
-$font-family-arrows: "Alliance", "Untitled Sans", Arial, sans-serif;
 
 body {
     margin: 0 auto;
@@ -436,7 +429,7 @@ img[src$="#halftone"] {
 
     &:hover {
         .post-link__indicator {
-            font-family: $font-family-arrows;
+            //font-family: $font-family-arrows;
             @include themed() {
                 background-color: t($hover);
                 border-color: t($border);

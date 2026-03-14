@@ -11,96 +11,88 @@
 }
 
 @font-face {
-    font-family: 'Untitled Sans';
-    src: local('Untitled Sans Bold'), local('UntitledSans-Bold'),
-        url('../fonts/UntitledSans-Bold.woff2') format('woff2'),
-        url('../fonts/UntitledSans-Bold.woff') format('woff'),
-        url('../fonts/UntitledSans-Bold.ttf') format('truetype'),
-        url('../fonts/UntitledSans-Bold.svg#UntitledSans-Bold') format('svg');
+    font-family: 'Basel Grotesk';
+    src: local('Basel Grotesk Bold'), local('BaselGrotesk-Bold'),
+        url('../fonts/BaselGrotesk-Bold.woff2') format('woff2'),
+        url('../fonts/BaselGrotesk-Bold.woff') format('woff'),
+        url('../fonts/BaselGrotesk-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Untitled Sans';
-    src: local('Untitled Sans Regular'), local('UntitledSans-Regular'),
-        url('../fonts/UntitledSans-Regular.woff2') format('woff2'),
-        url('../fonts/UntitledSans-Regular.woff') format('woff'),
-        url('../fonts/UntitledSans-Regular.ttf') format('truetype'),
-        url('../fonts/UntitledSans-Regular.svg#UntitledSans-Regular') format('svg');
+    font-family: 'Basel Grotesk';
+    src: local('Basel Grotesk Regular'), local('BaselGrotesk-Regular'),
+        url('../fonts/BaselGrotesk-Regular.woff2') format('woff2'),
+        url('../fonts/BaselGrotesk-Regular.woff') format('woff'),
+        url('../fonts/BaselGrotesk-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Untitled Sans';
-    src: local('Untitled Sans Regular Italic'), local('UntitledSans-RegularItalic'),
-        url('../fonts/UntitledSans-RegularItalic.woff2') format('woff2'),
-        url('../fonts/UntitledSans-RegularItalic.woff') format('woff'),
-        url('../fonts/UntitledSans-RegularItalic.ttf') format('truetype'),
-        url('../fonts/UntitledSans-RegularItalic.svg#UntitledSans-RegularItalic') format('svg');
+    font-family: 'Basel Grotesk';
+    src: local('Basel Grotesk Regular Italic'), local('BaselGrotesk-RegularItalic'),
+        url('../fonts/BaselGrotesk-RegularItalic.woff2') format('woff2'),
+        url('../fonts/BaselGrotesk-RegularItalic.woff') format('woff'),
+        url('../fonts/BaselGrotesk-RegularItalic.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Untitled Sans';
-    src: local('Untitled Sans Bold Italic'), local('UntitledSans-BoldItalic'),
-        url('../fonts/UntitledSans-BoldItalic.woff2') format('woff2'),
-        url('../fonts/UntitledSans-BoldItalic.woff') format('woff'),
-        url('../fonts/UntitledSans-BoldItalic.ttf') format('truetype'),
-        url('../fonts/UntitledSans-BoldItalic.svg#UntitledSans-BoldItalic') format('svg');
+    font-family: 'Basel Grotesk';
+    src: local('Basel Grotesk Bold Italic'), local('BaselGrotesk-BoldItalic'),
+        url('../fonts/BaselGrotesk-BoldItalic.woff2') format('woff2'),
+        url('../fonts/BaselGrotesk-BoldItalic.woff') format('woff'),
+        url('../fonts/BaselGrotesk-BoldItalic.ttf') format('truetype');
     font-weight: bold;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Untitled Sans';
-    src: local('Untitled Sans Medium Italic'), local('UntitledSans-MediumItalic'),
-        url('../fonts/UntitledSans-MediumItalic.woff2') format('woff2'),
-        url('../fonts/UntitledSans-MediumItalic.woff') format('woff'),
-        url('../fonts/UntitledSans-MediumItalic.ttf') format('truetype'),
-        url('../fonts/UntitledSans-MediumItalic.svg#UntitledSans-MediumItalic') format('svg');
+    font-family: 'Basel Grotesk';
+    src: local('Basel Grotesk Medium Italic'), local('BaselGrotesk-MediumItalic'),
+        url('../fonts/BaselGrotesk-MediumItalic.woff2') format('woff2'),
+        url('../fonts/BaselGrotesk-MediumItalic.woff') format('woff'),
+        url('../fonts/BaselGrotesk-MediumItalic.ttf') format('truetype');
     font-weight: 500;
     font-style: italic;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Untitled Sans';
-    src: local('Untitled Sans Medium'), local('UntitledSans-Medium'),
-        url('../fonts/UntitledSans-Medium.woff2') format('woff2'),
-        url('../fonts/UntitledSans-Medium.woff') format('woff'),
-        url('../fonts/UntitledSans-Medium.ttf') format('truetype'),
-        url('../fonts/UntitledSans-Medium.svg#UntitledSans-Medium') format('svg');
+    font-family: 'Basel Grotesk';
+    src: local('Basel Grotesk Medium'), local('BaselGrotesk-Medium'),
+        url('../fonts/BaselGrotesk-Medium.woff2') format('woff2'),
+        url('../fonts/BaselGrotesk-Medium.woff') format('woff'),
+        url('../fonts/BaselGrotesk-Medium.ttf') format('truetype');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Untitled Sans';
-    src: local('Untitled Sans Light'), local('UntitledSans-Light'),
-        url('../fonts/UntitledSans-Light.woff2') format('woff2'),
-        url('../fonts/UntitledSans-Light.woff') format('woff'),
-        url('../fonts/UntitledSans-Light.ttf') format('truetype'),
-        url('../fonts/UntitledSans-Light.svg#UntitledSans-Light') format('svg');
+    font-family: 'Basel Grotesk';
+    src: local('Basel Grotesk Light'), local('BaselGrotesk-Light'),
+        url('../fonts/BaselGrotesk-Light.woff2') format('woff2'),
+        url('../fonts/BaselGrotesk-Light.woff') format('woff'),
+        url('../fonts/BaselGrotesk-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Untitled Sans';
-    src: local('Untitled Sans Light Italic'), local('UntitledSans-LightItalic'),
-        url('../fonts/UntitledSans-LightItalic.woff2') format('woff2'),
-        url('../fonts/UntitledSans-LightItalic.woff') format('woff'),
-        url('../fonts/UntitledSans-LightItalic.ttf') format('truetype'),
-        url('../fonts/UntitledSans-LightItalic.svg#UntitledSans-LightItalic') format('svg');
+    font-family: 'Basel Grotesk';
+    src: local('Basel Grotesk Light Italic'), local('BaselGrotesk-LightItalic'),
+        url('../fonts/BaselGrotesk-LightItalic.woff2') format('woff2'),
+        url('../fonts/BaselGrotesk-LightItalic.woff') format('woff'),
+        url('../fonts/BaselGrotesk-LightItalic.ttf') format('truetype');
     font-weight: 300;
     font-style: italic;
     font-display: swap;
