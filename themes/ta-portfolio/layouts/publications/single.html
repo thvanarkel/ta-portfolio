@@ -1,9 +1,87 @@
 {{ define "main" }}
 
-<main class="publication" aria-role="main" data-barba="container" data-barba-namespace="publication">
-<h1>{{ .Title }}</h1>
+{{ $pubType := lower (.Params.publicationType | default "") }}
+{{ $isBook   := or (eq $pubType "book")   (eq $pubType "thesis") }}
+{{ $isReport := or (eq $pubType "report") (eq $pubType "essay")  }}
 
-    {{ .Content }}
+<main class="publication" aria-role="main" data-barba="container" data-barba-namespace="publication">
+
+  {{/* ── Hero visual (only when a cover image is supplied) ── */}}
+  {{ with .Params.cover_image }}
+  <div class="pub-hero pub-hero--{{ if $isBook }}book{{ else if $isReport }}report{{ else }}paper{{ end }}">
+    <div class="pub-visual">
+
+      {{ if $isBook }}
+      {{/* Book / thesis — CSS 3D perspective mockup */}}
+      <div class="book-display">
+        <div class="book-3d">
+          <div class="book-face book-cover">
+            <img src="{{ . }}" alt="{{ $.Title }} cover">
+          </div>
+          <div class="book-face book-spine">
+            {{ with $.Params.spine_image }}
+              <img src="{{ . }}" alt="{{ $.Title }} spine">
+            {{ else }}
+              <span class="spine-title">{{ $.Title }}</span>
+            {{ end }}
+          </div>
+          <div class="book-face book-pages"></div>
+        </div>
+      </div>
+
+      {{ else if $isReport }}
+      {{/* Report — flat cover with CSS-generated binding needles */}}
+      <div class="report-display">
+        <div class="report-binding">
+          <div class="needle"></div>
+          <div class="needle"></div>
+          <div class="needle"></div>
+          <div class="needle"></div>
+          <div class="needle"></div>
+        </div>
+        <div class="report-cover">
+          <img src="{{ . }}" alt="{{ $.Title }} cover">
+        </div>
+      </div>
+
+      {{ else }}
+      {{/* Paper / article — flat cover with subtle perspective tilt */}}
+      <div class="paper-display">
+        <img src="{{ . }}" alt="{{ $.Title }} cover">
+      </div>
+      {{ end }}
+
+    </div>
+  </div>
+  {{ end }}
+
+  {{/* ── Title, metadata and external link ── */}}
+  <div class="pub-header">
+    <div class="pub-header__info">
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.subtitle }}
+        <p class="pub-subtitle">{{ . }}</p>
+      {{ end }}
+      <div class="pub-meta">
+        {{ with .Params.venue }}<span class="pub-venue">{{ . }}</span>{{ end }}
+        {{ with .Params.year }}<span class="pub-year">{{ . }}</span>{{ end }}
+        {{ if or .Params.publicationType .Params.status }}
+        <div class="tags">
+          {{ with .Params.publicationType }}<div class="tag">{{ . }}</div>{{ end }}
+          {{ with .Params.status }}<div class="tag status">{{ . }}</div>{{ end }}
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ with .Params.externalLink }}
+    <a href="{{ . }}" class="pub-action" target="_blank" rel="noopener">
+      <span>Read publication</span>
+      <span class="pub-action__arrow">↗︎</span>
+    </a>
+    {{ end }}
+  </div>
+
+  {{ .Content }}
 
 </main>
 

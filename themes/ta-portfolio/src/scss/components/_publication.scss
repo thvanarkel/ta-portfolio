@@ -1,0 +1,339 @@
+// ============================================================
+// Publication single page hero
+// ============================================================
+
+// --- Shared hero shell ---
+
+.pub-hero {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 55vh;
+    position: relative;
+
+    @include breakpoint($xs) {
+        min-height: 40vh;
+    }
+}
+
+// Theme-aware background — subtly different from page bg
+.theme--default .pub-hero { background-color: #ebebea; }
+.theme--dark    .pub-hero { background-color: #131313; }
+
+.pub-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+
+// ============================================================
+// Book / Thesis — CSS 3D perspective mockup
+// ============================================================
+
+$book-w:   220px;
+$book-h:   305px;
+$book-d:   28px;
+
+.book-display {
+    perspective: 900px;
+    perspective-origin: center 45%;
+}
+
+.book-3d {
+    position: relative;
+    width:  $book-w;
+    height: $book-h;
+    transform-style: preserve-3d;
+    transform: rotateY(-28deg) rotateX(5deg);
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    cursor: default;
+
+    &:hover {
+        transform: rotateY(-13deg) rotateX(2deg);
+    }
+}
+
+.book-face {
+    position: absolute;
+    top: 0;
+}
+
+// Front face — sits at z = 0
+.book-cover {
+    left: 0;
+    width:  $book-w;
+    height: $book-h;
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        box-shadow: 4px 6px 30px rgba(0, 0, 0, 0.28);
+    }
+}
+
+// Spine (left face) — positioned to the left, rotated
+// perpendicular so it extends toward the viewer.
+//
+// Geometry: element starts at x = -$book-d to x = 0.
+// transform-origin: right center → pivot at x = 0 (the cover's left edge).
+// rotateY(-90deg): left edge of spine goes from (-$book-d, y, 0)
+//   to (0, y, +$book-d) — i.e. toward the viewer.
+// After the parent's rotateY(-28deg) the spine appears on the left. ✓
+.book-spine {
+    width:  $book-d;
+    height: $book-h;
+    left:  -$book-d;
+    transform-origin: right center;
+    transform: rotateY(-90deg);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include themed() {
+        background: mix(t($text), t($bg), 72%);
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .spine-title {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        font-size: 0.58rem;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-height: calc(#{$book-h} - 30px);
+        padding: 0 4px;
+    }
+}
+
+// Page stack (right face) — extends behind the cover.
+//
+// Geometry: element at x = $book-w to $book-w + $book-d.
+// transform-origin: left center → pivot at x = $book-w (cover's right edge).
+// rotateY(-90deg): right edge goes from ($book-w + $book-d, y, 0)
+//   to ($book-w, y, -$book-d) — i.e. away from viewer.
+// After the parent rotation the pages appear as a strip on the right. ✓
+.book-pages {
+    width:  $book-d;
+    height: $book-h;
+    left:   $book-w;
+    transform-origin: left center;
+    transform: rotateY(-90deg);
+    background: repeating-linear-gradient(
+        to bottom,
+        #f5f3ef 0px,
+        #eae8e4 1px,
+        #f5f3ef 2px
+    );
+}
+
+
+// ============================================================
+// Report — flat cover + CSS-generated binding needles
+// ============================================================
+
+.report-display {
+    display: flex;
+    align-items: stretch;
+    transform: perspective(1000px) rotateX(3deg) rotateY(-8deg);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    filter: drop-shadow(12px 20px 35px rgba(0, 0, 0, 0.18));
+
+    &:hover {
+        transform: perspective(1000px) rotateX(1.5deg) rotateY(-4deg);
+        filter: drop-shadow(16px 24px 40px rgba(0, 0, 0, 0.22));
+    }
+}
+
+// Left binding strip that holds the needles
+.report-binding {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 22px;
+    padding: 28px 5px;
+
+    @include themed() {
+        background: mix(t($text), t($bg), 10%);
+    }
+}
+
+// Individual binding needle — elongated oval resembling a
+// sewn-pamphlet stitch puncture with a metallic sheen.
+.needle {
+    width:  6px;
+    height: 20px;
+    border-radius: 3px;
+    position: relative;
+
+    @include themed() {
+        background: linear-gradient(
+            to right,
+            mix(t($text), t($bg), 35%),
+            mix(t($text), t($bg), 60%),
+            mix(t($text), t($bg), 40%)
+        );
+        box-shadow:
+            inset 0 2px 3px rgba(255, 255, 255, 0.25),
+            0 1px 2px rgba(0, 0, 0, 0.35);
+    }
+
+    // Thread-eye highlight
+    &::before {
+        content: '';
+        display: block;
+        width: 2px;
+        height: 60%;
+        margin: 20% auto 0;
+        border-radius: 1px;
+        background: rgba(255, 255, 255, 0.35);
+    }
+}
+
+.report-cover {
+    width:  210px;
+    height: 295px;
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+
+// ============================================================
+// Paper / article — flat cover with subtle perspective
+// ============================================================
+
+.paper-display {
+    transform: perspective(900px) rotateX(3deg) rotateY(-6deg);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    filter: drop-shadow(10px 16px 30px rgba(0, 0, 0, 0.18));
+
+    &:hover {
+        transform: perspective(900px) rotateX(1.5deg) rotateY(-3deg);
+        filter: drop-shadow(14px 20px 38px rgba(0, 0, 0, 0.22));
+    }
+
+    img {
+        display: block;
+        width:  210px;
+        height: 295px;
+        object-fit: cover;
+    }
+}
+
+
+// ============================================================
+// Publication metadata header (title + action link)
+// ============================================================
+
+.pub-header {
+    grid-column: #{$start-main} / #{$end-main};
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 30px 0 15px;
+
+    @include breakpoint($xs) {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+
+.pub-header__info {
+    flex: 1;
+
+    h1 {
+        grid-column: unset; // override main h1 if needed
+        margin-bottom: 8px;
+    }
+}
+
+.pub-subtitle {
+    font-family: $font-family-serif;
+    font-style: italic;
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
+    color: $grey;
+    margin: 4px 0 12px !important;
+    grid-column: unset !important;
+}
+
+.pub-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: $grey;
+}
+
+.pub-venue {
+    &::after {
+        content: '·';
+        margin-left: 10px;
+    }
+}
+
+// Read / external link button — mirrors the existing link-button style
+.pub-action {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid;
+    text-decoration: none;
+    padding: 10px 0 10px 18px;
+    align-self: center;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    @include themed() {
+        color:        t($text);
+        border-color: t($border);
+    }
+
+    .pub-action__arrow {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        font-size: 1.35rem;
+        border-left: 1px solid;
+        margin-left: 18px;
+        padding: 0;
+
+        @include themed() { border-color: t($border); }
+    }
+
+    &:hover {
+        @include themed() {
+            background-color: t($hover);
+            color:            t($hover-text);
+        }
+
+        .pub-action__arrow {
+            @include themed() { border-color: t($hover-text); }
+        }
+    }
+}
