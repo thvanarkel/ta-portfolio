@@ -6,10 +6,8 @@
   {{- $data.Set "title" .title -}}
 {{ else if .page }}
   {{- $page := site.GetPage .page }}
-  {{- if eq $page.Type "publications" }}
-    {{- if $page.Params.externalPublication }}
-      {{- $data.Set "url" $page.Params.externalLink -}}
-    {{- end -}}
+  {{- if and (eq $page.Type "publications") $page.Params.externalPublication -}}
+    {{- $data.Set "url" $page.Params.externalLink -}}
   {{- else -}}
     {{- $data.Set "url" $page.Permalink -}}
   {{- end -}}

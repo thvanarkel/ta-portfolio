@@ -1,10 +1,68 @@
-{{ define "main" }}
+{{ define "main" }} {{ $mockupType := .Params.mockupType | default "paper" }} {{
+$spineLabel := .Params.spineLabel | default "" }} {{ $spineColor :=
+.Params.spineColor | default "#555555" }} {{/* Resolve cover/spine image paths:
+relative paths are page-bundle resources */}} {{ $coverImage := "" }} {{ with
+.Params.coverImage }} {{ if strings.HasPrefix . "/" }} {{ $coverImage = . }} {{
+else }} {{ $coverImage = printf "%s%s" $.RelPermalink . }} {{ end }} {{ end }}
+{{ $spineImage := "" }} {{ with .Params.spineImage }} {{ if strings.HasPrefix .
+"/" }} {{ $spineImage = . }} {{ else }} {{ $spineImage = printf "%s%s"
+$.RelPermalink . }} {{ end }} {{ end }}
 
-<main class="publication" aria-role="main" data-barba="container" data-barba-namespace="publication">
-<h1>{{ .Title }}</h1>
+<main
+    class="publication"
+    aria-role="main"
+    data-barba="container"
+    data-barba-namespace="publication"
+>
+    <!-- ── Full-width mockup hero ──────────────────────────────── -->
+    <div class="pub-hero">
+        <div
+            class="mockup-stage"
+            id="pub-mockup-stage"
+            data-mockup="{{ $mockupType }}"
+            data-cover="{{ $coverImage }}"
+            data-spine="{{ $spineImage }}"
+            data-spine-label="{{ $spineLabel }}"
+            data-spine-color="{{ $spineColor }}"
+        ></div>
+    </div>
+
+    <!-- ── Metadata ────────────────────────────────────────────── -->
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.subtitle }}
+    <p class="pub-subtitle">{{ . }}</p>
+    {{ end }}
+
+    <div class="pub-meta">
+        <div class="pub-details">
+            {{ with .Params.publicationType }}<span class="pub-type-tag"
+                >{{ . }}</span
+            >{{ end }} {{ if or .Params.publicationType (or .Params.venue (or
+            .Params.year .Params.authors)) }}<span class="sep">·</span>{{ end }}
+            {{ with .Params.venue }}<span class="pub-venue">{{ . }}</span>{{ end
+            }} {{ with .Params.year }}<span class="sep">·</span
+            ><span class="pub-year">{{ . }}</span>{{ end }} {{ with
+            .Params.authors }}<span class="sep">·</span
+            ><span class="pub-authors">{{ . }}</span>{{ end }}
+        </div>
+        {{ with .Params.externalLink }}
+        <a href="{{ . }}" target class="post-link pub-external-link">
+            <span class="post-link__left">Read publication</span>
+            <span class="post-link__indicator">↗︎</span>
+        </a>
+        {{ end }}
+    </div>
 
     {{ .Content }}
-
 </main>
+
+<script src="/js/mockups.js"></script>
+<script>
+    (function () {
+        var stageEl = document.getElementById("pub-mockup-stage");
+        if (!stageEl || !window.PublicationMockup) return;
+        PublicationMockup.init("#pub-mockup-stage");
+    })();
+</script>
 
 {{ end }}
