@@ -25,66 +25,60 @@
 
 <main class="publication" aria-role="main" data-barba="container" data-barba-namespace="publication">
 
-    <!-- ── Publication header ─────────────────────────────── -->
-    <div class="publication-header">
+    <!-- ── Full-width mockup hero ──────────────────────────────── -->
+    <div class="pub-hero">
+        <div class="mockup-stage"
+            id="pub-mockup-stage"
+            data-mockup="{{ $mockupType }}"
+            data-cover="{{ $coverImage }}"
+            data-spine="{{ $spineImage }}"
+            data-spine-label="{{ $spineLabel }}"
+            data-spine-color="{{ $spineColor }}"
+        ></div>
 
-        <!-- Left: 3D mockup + controls -->
-        <div class="pub-mockup-col">
-            <div class="mockup-viewport">
-                <div class="mockup-stage"
-                    id="pub-mockup-stage"
-                    data-mockup="{{ $mockupType }}"
-                    data-cover="{{ $coverImage }}"
-                    data-spine="{{ $spineImage }}"
-                    data-spine-label="{{ $spineLabel }}"
-                    data-spine-color="{{ $spineColor }}"
-                ></div>
-            </div>
+        <div class="pub-mockup-controls" id="pub-mockup-controls">
 
-            <div class="pub-mockup-controls" id="pub-mockup-controls">
-
-                <!-- Type selector -->
-                <div class="control-row">
-                    <span class="control-label">Type</span>
-                    <div class="type-buttons">
-                        <button class="type-btn{{ if eq $mockupType "book" }} active{{ end }}" data-type="book">Book&thinsp;/&thinsp;Thesis</button>
-                        <button class="type-btn{{ if eq $mockupType "report" }} active{{ end }}" data-type="report">Report&thinsp;/&thinsp;Essay</button>
-                        <button class="type-btn{{ if eq $mockupType "paper" }} active{{ end }}" data-type="paper">Paper&thinsp;/&thinsp;Article</button>
-                    </div>
+            <!-- Type selector -->
+            <div class="control-row">
+                <span class="control-label">Type</span>
+                <div class="type-buttons">
+                    <button class="type-btn{{ if eq $mockupType "book" }} active{{ end }}" data-type="book">Book&thinsp;/&thinsp;Thesis</button>
+                    <button class="type-btn{{ if eq $mockupType "report" }} active{{ end }}" data-type="report">Report&thinsp;/&thinsp;Essay</button>
+                    <button class="type-btn{{ if eq $mockupType "paper" }} active{{ end }}" data-type="paper">Paper&thinsp;/&thinsp;Article</button>
                 </div>
-
-                <!-- Cover upload -->
-                <div class="control-row">
-                    <span class="control-label">Cover image</span>
-                    <label class="upload-label">
-                        ↑ Upload
-                        <input type="file" accept="image/*" id="cover-upload">
-                    </label>
-                </div>
-
-                <!-- Spine options (populated by JS based on type) -->
-                <div class="control-row" id="spine-controls"></div>
-
             </div>
-        </div>
 
-        <!-- Right: metadata -->
-        <div class="pub-info-col">
-            <h1>{{ .Title }}</h1>
-            {{ with .Params.subtitle }}<p class="pub-subtitle">{{ . }}</p>{{ end }}
-            <div class="pub-details">
-                {{ with .Params.publicationType }}<span class="pub-type-tag">{{ . }}</span>{{ end }}
-                {{ if or .Params.publicationType (or .Params.venue (or .Params.year .Params.authors)) }}<span class="sep">·</span>{{ end }}
-                {{ with .Params.venue }}<span class="pub-venue">{{ . }}</span>{{ end }}
-                {{ with .Params.year }}<span class="sep">·</span><span class="pub-year">{{ . }}</span>{{ end }}
-                {{ with .Params.authors }}<span class="sep">·</span><span class="pub-authors">{{ . }}</span>{{ end }}
+            <!-- Cover upload -->
+            <div class="control-row">
+                <span class="control-label">Cover image</span>
+                <label class="upload-label">
+                    ↑ Upload
+                    <input type="file" accept="image/*" id="cover-upload">
+                </label>
             </div>
-            {{ with .Params.externalLink }}
-            <a class="pub-external-link" href="{{ . }}">Read publication ↗︎</a>
-            {{ end }}
-        </div>
 
-    </div><!-- /.publication-header -->
+            <!-- Spine options (populated by JS based on type) -->
+            <div class="control-row" id="spine-controls"></div>
+
+        </div>
+    </div>
+
+    <!-- ── Metadata ────────────────────────────────────────────── -->
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.subtitle }}<p class="pub-subtitle">{{ . }}</p>{{ end }}
+
+    <div class="pub-meta">
+        <div class="pub-details">
+            {{ with .Params.publicationType }}<span class="pub-type-tag">{{ . }}</span>{{ end }}
+            {{ if or .Params.publicationType (or .Params.venue (or .Params.year .Params.authors)) }}<span class="sep">·</span>{{ end }}
+            {{ with .Params.venue }}<span class="pub-venue">{{ . }}</span>{{ end }}
+            {{ with .Params.year }}<span class="sep">·</span><span class="pub-year">{{ . }}</span>{{ end }}
+            {{ with .Params.authors }}<span class="sep">·</span><span class="pub-authors">{{ . }}</span>{{ end }}
+        </div>
+        {{ with .Params.externalLink }}
+        <a class="pub-external-link" href="{{ . }}">Read publication ↗︎</a>
+        {{ end }}
+    </div>
 
     {{ .Content }}
 

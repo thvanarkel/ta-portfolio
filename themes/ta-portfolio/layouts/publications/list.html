@@ -35,6 +35,15 @@
             spineColor: spineColor
         });
         mockupWrap.appendChild(currentStage);
+
+        // Align vertically with hovered row, clamped to viewport
+        var rect = li.getBoundingClientRect();
+        var centerY = rect.top + rect.height / 2;
+        var halfH = 230;
+        var clampedY = Math.max(halfH, Math.min(window.innerHeight - halfH, centerY));
+        overlay.style.top = clampedY + 'px';
+        overlay.style.transform = 'translate(-50%, -50%)';
+
         overlay.classList.add('active');
     }
 
