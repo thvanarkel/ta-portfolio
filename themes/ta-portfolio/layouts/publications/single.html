@@ -1,10 +1,27 @@
 {{ define "main" }}
 
 {{ $mockupType  := .Params.mockupType  | default "paper" }}
-{{ $coverImage  := .Params.coverImage  | default "" }}
-{{ $spineImage  := .Params.spineImage  | default "" }}
 {{ $spineLabel  := .Params.spineLabel  | default "" }}
 {{ $spineColor  := .Params.spineColor  | default "#555555" }}
+
+{{/* Resolve cover/spine image paths: relative paths are page-bundle resources */}}
+{{ $coverImage := "" }}
+{{ with .Params.coverImage }}
+  {{ if strings.HasPrefix . "/" }}
+    {{ $coverImage = . }}
+  {{ else }}
+    {{ $coverImage = printf "%s%s" $.RelPermalink . }}
+  {{ end }}
+{{ end }}
+
+{{ $spineImage := "" }}
+{{ with .Params.spineImage }}
+  {{ if strings.HasPrefix . "/" }}
+    {{ $spineImage = . }}
+  {{ else }}
+    {{ $spineImage = printf "%s%s" $.RelPermalink . }}
+  {{ end }}
+{{ end }}
 
 <main class="publication" aria-role="main" data-barba="container" data-barba-namespace="publication">
 
