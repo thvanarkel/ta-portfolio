@@ -35,32 +35,6 @@
             data-spine-label="{{ $spineLabel }}"
             data-spine-color="{{ $spineColor }}"
         ></div>
-
-        <div class="pub-mockup-controls" id="pub-mockup-controls">
-
-            <!-- Type selector -->
-            <div class="control-row">
-                <span class="control-label">Type</span>
-                <div class="type-buttons">
-                    <button class="type-btn{{ if eq $mockupType "book" }} active{{ end }}" data-type="book">Book&thinsp;/&thinsp;Thesis</button>
-                    <button class="type-btn{{ if eq $mockupType "report" }} active{{ end }}" data-type="report">Report&thinsp;/&thinsp;Essay</button>
-                    <button class="type-btn{{ if eq $mockupType "paper" }} active{{ end }}" data-type="paper">Paper&thinsp;/&thinsp;Article</button>
-                </div>
-            </div>
-
-            <!-- Cover upload -->
-            <div class="control-row">
-                <span class="control-label">Cover image</span>
-                <label class="upload-label">
-                    ↑ Upload
-                    <input type="file" accept="image/*" id="cover-upload">
-                </label>
-            </div>
-
-            <!-- Spine options (populated by JS based on type) -->
-            <div class="control-row" id="spine-controls"></div>
-
-        </div>
     </div>
 
     <!-- ── Metadata ────────────────────────────────────────────── -->
@@ -89,86 +63,7 @@
 (function () {
     var stageEl = document.getElementById('pub-mockup-stage');
     if (!stageEl || !window.PublicationMockup) return;
-
-    var currentType  = stageEl.dataset.mockup     || 'paper';
-    var coverSrc     = stageEl.dataset.cover       || '';
-    var spineSrc     = stageEl.dataset.spine       || '';
-    var spineLabel   = stageEl.dataset.spineLabel  || '';
-    var spineColor   = stageEl.dataset.spineColor  || '#555555';
-
-    function render() {
-        stageEl.dataset.mockup      = currentType;
-        stageEl.dataset.cover       = coverSrc;
-        stageEl.dataset.spine       = spineSrc || coverSrc;
-        stageEl.dataset.spineLabel  = spineLabel;
-        stageEl.dataset.spineColor  = spineColor;
-        PublicationMockup.init('#pub-mockup-stage');
-        updateTypeButtons();
-        updateSpineControls();
-    }
-
-    function updateTypeButtons() {
-        document.querySelectorAll('.type-btn').forEach(function (btn) {
-            btn.classList.toggle('active', btn.dataset.type === currentType);
-        });
-    }
-
-    function updateSpineControls() {
-        var el = document.getElementById('spine-controls');
-        if (!el) return;
-        el.innerHTML = '';
-
-        if (currentType === 'book') {
-            el.innerHTML =
-                '<span class="control-label">Spine</span>' +
-                '<label class="upload-label">↑ Spine image<input type="file" accept="image/*" id="spine-img-upload"></label>' +
-                '<label class="control-label" style="margin-top:4px;">Spine label</label>' +
-                '<input type="text" class="spine-text-input" id="spine-label-input"' +
-                '  value="' + spineLabel.replace(/"/g, '&quot;') + '"' +
-                '  placeholder="Title · Author Name">';
-
-            document.getElementById('spine-img-upload').addEventListener('change', function (e) {
-                var file = e.target.files[0];
-                if (!file) return;
-                var r = new FileReader();
-                r.onload = function (ev) { spineSrc = ev.target.result; render(); };
-                r.readAsDataURL(file);
-            });
-            document.getElementById('spine-label-input').addEventListener('input', function () {
-                spineLabel = this.value;
-                render();
-            });
-
-        } else if (currentType === 'report') {
-            el.innerHTML =
-                '<span class="control-label">Spine color</span>' +
-                '<input type="color" class="spine-color-input" id="spine-color-input" value="' + spineColor + '">';
-
-            document.getElementById('spine-color-input').addEventListener('input', function () {
-                spineColor = this.value;
-                render();
-            });
-        }
-    }
-
-    // Type buttons
-    document.querySelectorAll('.type-btn').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-            currentType = this.dataset.type;
-            render();
-        });
-    });
-
-    // Cover upload
-    document.getElementById('cover-upload').addEventListener('change', function (e) {
-        var file = e.target.files[0];
-        if (!file) return;
-        var r = new FileReader();
-        r.onload = function (ev) { coverSrc = ev.target.result; render(); };
-        r.readAsDataURL(file);
-    });
-
-    render();
+    PublicationMockup.init('#pub-mockup-stage');
 }());
 </script>
 

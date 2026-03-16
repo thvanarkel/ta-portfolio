@@ -89,17 +89,13 @@ function buildReport({ coverSrc, spineColor }) {
 function buildPaper({ coverSrc }) {
   const paper = el('div', 'paper');
 
-  /* 3 backing sheets */
-  [3, 2, 1].forEach(i => paper.appendChild(el('div', `paper__sheet paper__sheet--${i}`)));
-
   /* Front cover sheet */
   const front = el('div', 'paper__sheet paper__sheet--0');
   front.appendChild(mkImg(coverSrc, 'Cover'));
   paper.appendChild(front);
 
-  /* Edge faces */
+  /* Edge faces — left and bottom only */
   paper.appendChild(pivot('paper__left-pivot',   'paper__left-panel',   []));
-  paper.appendChild(pivot('paper__right-pivot',  'paper__right-panel',  []));
   paper.appendChild(pivot('paper__bottom-pivot', 'paper__bottom-panel', []));
 
   return paper;

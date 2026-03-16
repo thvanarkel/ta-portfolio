@@ -8,7 +8,7 @@
    PUBLICATION HERO (single page — full-width mockup)
 ════════════════════════════════════════════════════════════════ */
 
-/* Full-width hero: centered mockup + controls */
+/* Full-width hero: centered mockup at 2× scale */
 main .pub-hero {
     grid-column: 1 / -1;
     display: flex;
@@ -22,14 +22,11 @@ main .pub-hero {
         display: none;
     }
 
-    /* Controls run horizontally below the mockup */
-    .pub-mockup-controls {
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        gap: 20px;
-        margin-top: 20px;
-        width: 540px; // align with stage width
+    /* Scale mockup 2× — margin-bottom compensates for layout/visual size gap */
+    .mockup-stage {
+        transform: scale(2);
+        transform-origin: top center;
+        margin-bottom: 460px;
     }
 }
 
