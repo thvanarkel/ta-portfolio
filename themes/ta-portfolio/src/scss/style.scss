@@ -692,9 +692,11 @@ $minColWidth: 15rem;
 .fullwidth {
     .projects-overview {
         grid-template-columns: repeat(
-            ($num-columns + 1 - $start-main),
+            ($num-columns - $start-main),
             minmax(0, 1fr)
         ); //repeat(auto-fit, minmax($minColWidth, 1fr));
+        grid-row-start: 1;
+        grid-column-start: $start-main;
     }
 }
 
