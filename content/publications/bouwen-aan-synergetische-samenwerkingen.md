@@ -7,6 +7,8 @@ year: "2023"
 authors: "van Arkel & Tromp"
 venue: "TU Delft"
 publicationType: "report"
+mockupType: "report"
+spineColor: "#e8312a"
 externalPublication: true
 externalLink: "https://research.tudelft.nl/en/publications/bouwen-aan-synergetische-samenwerkingen-een-onderzoek-naar-werken"
 ---

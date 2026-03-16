@@ -6,6 +6,8 @@ year: "2023"
 authors: "van Arkel & Tromp"
 venue: "TU Delft"
 publicationType: "essay"
+mockupType: "report"
+spineColor: "#0075ff"
 externalPublication: true
 externalLink: "https://research.tudelft.nl/en/publications/een-ontwerpende-aanpak-voor-maatschappelijke-opgaven-waar-hebben-"
 ---

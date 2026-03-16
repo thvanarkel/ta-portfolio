@@ -1,8 +1,57 @@
 {{ define "main" }}
 
 <main aria-role="main" class="fullwidth">
-    {{ partial "publications.html" (dict "context" . "pages" .Data.Pages "view"
-    "normal") }}
+    {{ partial "publications.html" (dict "context" . "pages" .Data.Pages "view" "normal") }}
 </main>
+
+<!-- Hover mockup overlay (fixed, centered) -->
+<div class="pub-hover-overlay" id="pub-hover-overlay" aria-hidden="true">
+    <div id="pub-hover-mockup"></div>
+</div>
+
+<script src="/js/mockups.js"></script>
+<script>
+(function () {
+    var overlay    = document.getElementById('pub-hover-overlay');
+    var mockupWrap = document.getElementById('pub-hover-mockup');
+    if (!overlay || !mockupWrap || !window.PublicationMockup) return;
+
+    var hideTimer = null;
+    var currentStage = null;
+
+    function showMockup(li) {
+        clearTimeout(hideTimer);
+
+        var type       = li.dataset.pubType       || 'paper';
+        var cover      = li.dataset.pubCover       || '';
+        var spineLabel = li.dataset.pubSpineLabel  || '';
+        var spineColor = li.dataset.pubSpineColor  || '#555555';
+
+        mockupWrap.innerHTML = '';
+        currentStage = PublicationMockup.createMockup({
+            type:       type,
+            coverSrc:   cover,
+            spineLabel: spineLabel,
+            spineColor: spineColor
+        });
+        mockupWrap.appendChild(currentStage);
+        overlay.classList.add('active');
+    }
+
+    function hideMockup() {
+        hideTimer = setTimeout(function () {
+            overlay.classList.remove('active');
+        }, 150);
+    }
+
+    document.querySelectorAll('.publications-overview .publication').forEach(function (li) {
+        li.addEventListener('mouseenter', function () { showMockup(li); });
+        li.addEventListener('mouseleave', hideMockup);
+    });
+
+    overlay.addEventListener('mouseenter', function () { clearTimeout(hideTimer); });
+    overlay.addEventListener('mouseleave', hideMockup);
+}());
+</script>
 
 {{ end }}

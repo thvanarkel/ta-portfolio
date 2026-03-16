@@ -6,7 +6,12 @@
   {{ else }}
     <a href="{{ .RelPermalink }}">
   {{ end }}
-  <li class="publication">
+  <li class="publication"
+    data-pub-type="{{ .Params.mockupType | default "paper" }}"
+    data-pub-cover="{{ .Params.coverImage | default "" }}"
+    data-pub-spine-label="{{ .Params.spineLabel | default "" }}"
+    data-pub-spine-color="{{ .Params.spineColor | default "#555555" }}"
+  >
     <div class="title">{{ .Params.Title}}{{ if not (eq $view "compact")}}{{ if .Params.subtitle }}<span class="subtitle">: {{.Params.subtitle}}</span>{{end}}
       {{ if .Params.venue }}<br/><span class="venue">{{.Params.venue}}</span>{{end}}{{end}}
       {{ if or (.Params.publicationType) (.Params.status) }}

@@ -8,6 +8,7 @@ year: "2025"
 authors: "van Arkel, Tromp, Ozkaramanli & van Eekelen"
 venue: "International Journal of Design"
 publicationType: "journal article"
+mockupType: "paper"
 externalPublication: true
 externalLink: "https://research.tudelft.nl/en/publications/from-ideas-to-change-emergent-design-practices-to-overcome-implem"
 ---
