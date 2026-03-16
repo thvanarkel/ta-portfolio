@@ -8,7 +8,8 @@ authors: "van Arkel & van der Bijl-Brouwer"
 venue: "TU Delft"
 publicationType: "report"
 mockupType: "report"
-spineColor: "#fca311"
+coverImage: "cover.jpg"
+spineColor: "#32538f"
 externalPublication: true
 externalLink: "https://research.tudelft.nl/en/publications/idols-langetermijneffecten-een-onderzoek-naar-de-langetermijneffe"
 ---

@@ -9,6 +9,7 @@ authors: "van Arkel & Tromp"
 venue: "DRS 2022, Bilbao"
 publicationType: "conference paper"
 mockupType: "paper"
+coverImage: "cover.jpg"
 externalPublication: true
 externalLink: "https://dl.designresearchsociety.org/drs-conference-papers/drs2022/researchpapers/262/"
 ---
