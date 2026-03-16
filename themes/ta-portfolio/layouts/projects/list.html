@@ -1,7 +1,6 @@
 {{ define "main" }}
 
 <main aria-role="main" class="fullwidth">
-    <h2>Projects</h2>
     {{ partial "projects.html" (dict "context" . "pages" .Data.Pages "view"
     "normal") }}
 </main>
