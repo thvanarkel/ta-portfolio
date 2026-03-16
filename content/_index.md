@@ -4,7 +4,7 @@ date: 2021-05-28T12:32:44+02:00
 draft: false
 openToWork: false
 ---
-I am Thomas van Arkel, a design/researcher from Rotterdam who works at the intersection of design and research for societal change.
+I am Thomas van Arkel, a design/researcher from Rotterdam who works at the intersection of design practice and research for societal change.
 
 Currently PhD candidate at [TU Delft](https://www.tudelft.nl/io/)
 
