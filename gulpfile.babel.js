@@ -12,6 +12,11 @@ import flatten from 'gulp-flatten';
 import webpack from 'webpack-stream';
 import del from 'del';
 import named from 'vinyl-named';
+import { execSync } from 'child_process';
+import fs from 'fs';
+import path from 'path';
+import { globSync } from 'glob';
+import sharp from 'sharp';
 const PRODUCTION = yargs.argv.prod;
 
 var options = {};
@@ -84,6 +89,36 @@ export const scripts = () => {
   .pipe(dest('./static/js'));
 }
 
+export const covers = async (done) => {
+  const pubDirs = globSync('content/publications/*/');
+
+  for (const dir of pubDirs) {
+    const pdfs = globSync(`${dir}/*.pdf`);
+    if (pdfs.length === 0) continue;
+
+    const pdf = path.resolve(pdfs[0]);
+    const tmpPng = path.resolve(dir, 'cover_tmp.png');
+    const outWebp = path.resolve(dir, 'cover.webp');
+
+    console.log(`→ Generating cover for ${path.basename(dir)}`);
+
+    try {
+      execSync(
+        `gs -dNOPAUSE -dBATCH -sDEVICE=png16m -r300 -dFirstPage=1 -dLastPage=1 -dTextAlphaBits=4 -dGraphicsAlphaBits=4` +
+        ` -sOutputFile="${tmpPng}" "${pdf}"`,
+        { stdio: 'pipe' }
+      );
+      await sharp(tmpPng).webp({ quality: 92 }).toFile(outWebp);
+      fs.unlinkSync(tmpPng);
+      console.log(`   Saved: ${outWebp}`);
+    } catch (e) {
+      console.warn(`   Skipped ${path.basename(dir)}: ${e.message}`);
+      if (fs.existsSync(tmpPng)) fs.unlinkSync(tmpPng);
+    }
+  }
+  done();
+};
+
 export const clean = () => del(['public']);
 
 export const watchForChanges = () => {
@@ -92,6 +127,6 @@ export const watchForChanges = () => {
   watch(options.path.js, scripts);
 }
 
-export const dev = series(parallel(styles, images, scripts, fonts), watchForChanges)
-export const build = series(clean, parallel(styles, images, scripts, fonts))
+export const dev = series(parallel(styles, images, scripts, fonts, covers), watchForChanges)
+export const build = series(clean, parallel(styles, images, scripts, fonts, covers))
 export default dev;

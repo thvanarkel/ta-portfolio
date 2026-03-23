@@ -20,11 +20,10 @@ main .pub-hero {
         display: none;
     }
 
-    /* Scale mockup 2× — margin-bottom compensates for layout/visual size gap */
+    /* zoom: 2 renders elements at actual double resolution (unlike transform: scale which only scales after painting) */
     .mockup-stage {
-        transform: scale(2);
-        //transform-origin: top center;
-        //margin-bottom: 25px;
+        zoom: 2;
+        margin-bottom: 0;
     }
 }
 

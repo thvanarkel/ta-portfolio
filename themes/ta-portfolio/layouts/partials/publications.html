@@ -3,11 +3,15 @@
 {{ range (.pages) }}
   {{ $page := . }}
   {{ $cover := "" }}
-  {{ with $page.Params.coverImage }}
-    {{ if strings.HasPrefix . "/" }}
-      {{ $cover = . }}
-    {{ else }}
-      {{ $cover = printf "%s%s" $page.RelPermalink . }}
+  {{ with $page.Resources.GetMatch "cover.webp" }}
+    {{ $cover = .RelPermalink }}
+  {{ else }}
+    {{ with $page.Params.coverImage }}
+      {{ if strings.HasPrefix . "/" }}
+        {{ $cover = . }}
+      {{ else }}
+        {{ $cover = printf "%s%s" $page.RelPermalink . }}
+      {{ end }}
     {{ end }}
   {{ end }}
   {{ if .Params.externalPublication }}
