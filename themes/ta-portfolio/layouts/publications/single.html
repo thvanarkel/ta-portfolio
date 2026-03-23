@@ -71,6 +71,25 @@ $.RelPermalink . }} {{ end }} {{ end }}
         var stageEl = document.getElementById("pub-mockup-stage");
         if (!stageEl || !window.PublicationMockup) return;
         PublicationMockup.init("#pub-mockup-stage");
+
+        // Parallax: hero scrolls at 80% speed so content flows underneath
+        // and the mockup drifts up over the title and nav.
+        var hero = document.querySelector(".pub-hero");
+        if (!hero) return;
+        var ticking = false;
+        var active = true;
+        function onScroll() {
+            if (!active) return;
+            if (!document.contains(hero)) { active = false; return; }
+            if (!ticking) {
+                requestAnimationFrame(function () {
+                    hero.style.transform = "translateY(" + (window.scrollY * 0.2) + "px)";
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+        window.addEventListener("scroll", onScroll, { passive: true });
     })();
 </script>
 
