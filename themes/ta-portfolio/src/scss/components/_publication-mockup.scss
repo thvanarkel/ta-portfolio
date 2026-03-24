@@ -34,6 +34,31 @@ main .pub-hero {
     .mockup-stage {
         zoom: 2;
         margin-bottom: 0;
+
+        // Report/book covers are 320px tall vs paper's 297px.
+        // Scale down by the height ratio so all types share the same
+        // vertical footprint and extend equally into the nav.
+        &[data-mockup="report"],
+        &[data-mockup="book"] {
+            zoom: 2 * (297 / 320); // ≈ 1.856
+            margin: 20px 0;
+        }
+    }
+
+    /* Larger, softer shadow to match the ambient depth of the reference */
+    .mockup-stage .cast-shadow {
+        width: 520px;
+        height: 170px;
+        bottom: 24px;
+        transform: translateX(-50%);
+        background: radial-gradient(
+            ellipse 68% 80% at 50% 50%,
+            rgba(0, 0, 0, 0.8) 0%,
+            rgba(0, 0, 0, 0.2) 42%,
+            rgba(0, 0, 0, 0.05) 66%,
+            transparent 82%
+        );
+        filter: blur(18px);
     }
 }
 
