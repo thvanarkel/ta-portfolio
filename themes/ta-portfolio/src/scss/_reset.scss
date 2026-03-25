@@ -58,6 +58,13 @@ select {
   font: inherit;
 }
 
+/* Consistently show pointer cursor on interactive elements */
+a,
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {

@@ -4,6 +4,10 @@
   Adapted from mockups.css — global resets excluded (handled by _reset.scss).
 */
 
+// How much the hero mockup overlaps the nav above and the title below.
+// Increase for more overlap, decrease (or set to 0) for no overlap.
+$pub-hero-overlap: 120px;
+
 /* ════════════════════════════════════════════════════════════════
    PUBLICATION HERO (single page — full-width mockup)
 ════════════════════════════════════════════════════════════════ */
@@ -14,17 +18,47 @@ main .pub-hero {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 0;
+    padding: 0;
+    margin-top: -$pub-hero-overlap;
+    margin-bottom: -$pub-hero-overlap;
+    position: relative;
+    z-index: 250;
+    will-change: transform;
+    pointer-events: none;
 
     @include breakpoint($xs) {
         display: none;
     }
 
-    /* Scale mockup 2× — margin-bottom compensates for layout/visual size gap */
+    /* zoom: 2 renders elements at actual double resolution (unlike transform: scale which only scales after painting) */
     .mockup-stage {
-        transform: scale(2);
-        //transform-origin: top center;
-        //margin-bottom: 25px;
+        zoom: 2;
+        margin-bottom: 0;
+
+        // Report/book covers are 320px tall vs paper's 297px.
+        // Scale down by the height ratio so all types share the same
+        // vertical footprint and extend equally into the nav.
+        &[data-mockup="report"],
+        &[data-mockup="book"] {
+            zoom: 2 * (297 / 320); // ≈ 1.856
+            margin: 20px 0;
+        }
+    }
+
+    /* Larger, softer shadow to match the ambient depth of the reference */
+    .mockup-stage .cast-shadow {
+        width: 520px;
+        height: 170px;
+        bottom: 24px;
+        transform: translateX(-50%);
+        background: radial-gradient(
+            ellipse 68% 80% at 50% 50%,
+            rgba(0, 0, 0, 0.8) 0%,
+            rgba(0, 0, 0, 0.2) 42%,
+            rgba(0, 0, 0, 0.05) 66%,
+            transparent 82%
+        );
+        filter: blur(18px);
     }
 }
 
