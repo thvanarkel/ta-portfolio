@@ -24,15 +24,20 @@
 
         var type       = li.dataset.pubType       || 'paper';
         var cover      = li.dataset.pubCover       || '';
+        var spine      = li.dataset.pubSpine       || '';
+        var spineDepth = li.dataset.pubSpineDepth  || '';
         var spineLabel = li.dataset.pubSpineLabel  || '';
         var spineColor = li.dataset.pubSpineColor  || '#555555';
 
         mockupWrap.innerHTML = '';
         currentStage = PublicationMockup.createMockup({
-            type:       type,
-            coverSrc:   cover,
-            spineLabel: spineLabel,
-            spineColor: spineColor
+            type:          type,
+            coverSrc:      cover,
+            spineSrc:      spine || cover,
+            hasSpineImage: !!spine,
+            spineDepth:    spineDepth ? parseInt(spineDepth, 10) : null,
+            spineLabel:    spineLabel,
+            spineColor:    spineColor
         });
         mockupWrap.appendChild(currentStage);
 

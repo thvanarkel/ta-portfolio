@@ -392,8 +392,10 @@ main p.pub-subtitle {
 }
 .mockup-stage .book__spine-panel {
     top: 0;
-    left: -32px;
-    width: 32px;
+    // --book-depth is set by JS after the spine image loads (default 32px).
+    // calc() is required because CSS doesn't allow bare custom-property negation.
+    left: calc(-1 * var(--book-depth, 32px));
+    width: var(--book-depth, 32px);
     height: 320px;
     overflow: hidden;
     background: #111;
@@ -404,8 +406,10 @@ main p.pub-subtitle {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    filter: brightness(0.18) saturate(0.4);
+    // fill — never crops. When --book-depth is derived from the image's own
+    // aspect ratio the panel is proportional to the image, so fill = no distortion.
+    object-fit: fill;
+    filter: brightness(0.72) saturate(0.85);
 }
 .mockup-stage .book__spine-panel::after {
     content: "";
@@ -444,7 +448,7 @@ main p.pub-subtitle {
     top: 0px;
     left: 0;
     width: 240px;
-    height: 32px;
+    height: var(--book-depth, 32px);  // matches spine depth
     background: repeating-linear-gradient(
         to bottom,
         #f0ebe2 0,
