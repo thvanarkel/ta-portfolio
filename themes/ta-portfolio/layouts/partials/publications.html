@@ -14,6 +14,18 @@
       {{ end }}
     {{ end }}
   {{ end }}
+  {{ $spine := "" }}
+  {{ with $page.Resources.GetMatch "spine.webp" }}
+    {{ $spine = .RelPermalink }}
+  {{ else }}
+    {{ with $page.Params.spineImage }}
+      {{ if strings.HasPrefix . "/" }}
+        {{ $spine = . }}
+      {{ else }}
+        {{ $spine = printf "%s%s" $page.RelPermalink . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
   {{ if .Params.externalPublication }}
     <a href="{{ .Params.externalLink }}">
   {{ else }}
@@ -22,18 +34,16 @@
   <li class="publication"
     data-pub-type="{{ .Params.mockupType | default "paper" }}"
     data-pub-cover="{{ $cover }}"
+    data-pub-spine="{{ $spine }}"
+    data-pub-spine-depth="{{ .Params.spineDepth | default "" }}"
     data-pub-spine-label="{{ .Params.spineLabel | default "" }}"
     data-pub-spine-color="{{ .Params.spineColor | default "#555555" }}"
   >
     <div class="title">{{ .Params.Title}}{{ if not (eq $view "compact")}}{{ if .Params.subtitle }}<span class="subtitle">: {{.Params.subtitle}}</span>{{end}}
-      {{ if .Params.venue }}<br/><span class="venue">{{.Params.venue}}</span>{{end}}{{end}}
-      {{ if or (.Params.publicationType) (.Params.status) }}
-        <br/>
-        <div class="tags">
-          {{ if .Params.publicationType }}<div class="tag">{{ .Params.publicationType }}</div>{{ end }}
-          {{ if .Params.status }}<div class="tag status">{{ .Params.status }}</div>{{ end }}
-        </div>
-      {{ end }}
+      <br/>{{ if or (.Params.publicationType) (.Params.status) }}<span class="tags">
+          {{ if .Params.publicationType }}<span class="tag">{{ .Params.publicationType }}</span>{{ end }}
+          {{ if .Params.status }}<span class="tag status">{{ .Params.status }}</span>{{ end }}
+        </span>{{ end }}{{ if .Params.venue }}<span class="venue"> — {{.Params.venue}}</span>{{end}}{{end}}
       </div>
     <div class="year">{{ .Params.Year}} </div>
     <div class="authors">{{ .Params.Authors}}<span class="link__indicator">↗︎</span></div>

@@ -1,28 +1,78 @@
 {{- $class := "related-post" -}}
 {{ $data := newScratch }}
+{{ $mockup := newScratch }}
 
 {{ if .href }}
   {{- $data.Set "url" .href -}}
   {{- $data.Set "title" .title -}}
 {{ else if .page }}
-  {{- $page := site.GetPage .page }}
+  {{- $page := site.GetPage .page -}}
   {{- if and (eq $page.Type "publications") $page.Params.externalPublication -}}
     {{- $data.Set "url" $page.Params.externalLink -}}
   {{- else -}}
     {{- $data.Set "url" $page.Permalink -}}
   {{- end -}}
-
   {{- $data.Set "page" $page -}}
   {{- $data.Set "title" $page.Title -}}
+
+  {{- if eq $page.Type "publications" -}}
+    {{/* Resolve cover image: prefer processed cover.webp, fall back to param */}}
+    {{- $coverImage := "" -}}
+    {{- with $page.Resources.GetMatch "cover.webp" -}}
+      {{- $coverImage = .RelPermalink -}}
+    {{- else -}}
+      {{- with $page.Params.coverImage -}}
+        {{- if strings.HasPrefix . "/" -}}
+          {{- $coverImage = . -}}
+        {{- else -}}
+          {{- $coverImage = printf "%s%s" $page.RelPermalink . -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $spineImage := "" -}}
+    {{- with $page.Resources.GetMatch "spine.webp" -}}
+      {{- $spineImage = .RelPermalink -}}
+    {{- else -}}
+      {{- with $page.Params.spineImage -}}
+        {{- if strings.HasPrefix . "/" -}}
+          {{- $spineImage = . -}}
+        {{- else -}}
+          {{- $spineImage = printf "%s%s" $page.RelPermalink . -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $mockup.Set "type"       ($page.Params.mockupType  | default "paper")   -}}
+    {{- $mockup.Set "cover"      $coverImage                                     -}}
+    {{- $mockup.Set "spine"      $spineImage                                     -}}
+    {{- $mockup.Set "spineDepth" ($page.Params.spineDepth  | default "")        -}}
+    {{- $mockup.Set "spineLabel" ($page.Params.spineLabel  | default "")        -}}
+    {{- $mockup.Set "spineColor" ($page.Params.spineColor  | default "#555555") -}}
+  {{- end -}}
 {{ end }}
 
-<a{{ if .id }} id="{{ .id }}"{{ end }} href="{{ $data.Get "url" | safeURL }}" target="{{ if .target }}{{ .target }}{{ end }}" class="{{ if .type }}{{print $class (print " " .type)}}{{ else }}{{ $class }}{{ end }}"{{if .disabled }} disabled{{end}}>
-  <span class="post-link__left">{{ $data.Get "title" | default "My Button"}}
-    {{- $page := ($data.Get "page") -}}
-    {{- if $page -}}
-      {{- if eq $page.Type "publications" -}}
-        <br><span class="post-authors">{{$page.Params.Authors}} ({{$page.Params.Year}})</span>
-      {{- end -}}
+{{- $page := ($data.Get "page") -}}
+<a{{ if .id }} id="{{ .id }}"{{ end }}
+   href="{{ $data.Get "url" | safeURL }}"
+   target="{{ if .target }}{{ .target }}{{ end }}"
+   class="{{ if .type }}{{ print $class " " .type }}{{ else }}{{ $class }}{{ end }}"
+   {{- if .disabled }} disabled{{ end }}>
+
+  {{- if and $page (eq $page.Type "publications") -}}
+  <div class="related-post__mockup">
+    <div class="mockup-stage"
+         data-mockup="{{ $mockup.Get "type" }}"
+         data-cover="{{ $mockup.Get "cover" }}"
+         data-spine="{{ $mockup.Get "spine" }}"
+         data-spine-depth="{{ $mockup.Get "spineDepth" }}"
+         data-spine-label="{{ $mockup.Get "spineLabel" }}"
+         data-spine-color="{{ $mockup.Get "spineColor" }}">
+    </div>
+  </div>
+  {{- end -}}
+
+  <span class="post-link__left">{{ $data.Get "title" | default "My Button" }}
+    {{- if and $page (eq $page.Type "publications") -}}
+      <span class="post-authors">{{ $page.Params.Authors }} ({{ $page.Params.Year }})</span>
     {{- end -}}
   </span>
 

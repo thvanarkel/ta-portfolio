@@ -38,7 +38,7 @@ function pivot(pivCls, panCls, children) {
 }
 
 /* ── BOOK ───────────────────────────────────────────────────── */
-function buildBook({ coverSrc, spineSrc, spineLabel }) {
+function buildBook({ coverSrc, spineSrc, spineLabel, hasSpineImage, spineDepth }) {
   const book = el('div', 'book');
 
   /* Front cover */
@@ -46,8 +46,31 @@ function buildBook({ coverSrc, spineSrc, spineLabel }) {
   front.appendChild(mkImg(coverSrc, 'Cover'));
   book.appendChild(front);
 
-  /* Spine */
-  const spineChildren = [mkImg(spineSrc || coverSrc, '')];
+  /* Spine depth — three-tier priority:
+     1. Explicit spineDepth param (CSS px at the book's native 320px scale).
+     2. Computed from the spine image's natural aspect ratio (clamped 20–60 px)
+        — only when a dedicated spine image is supplied (not the cover fallback).
+     3. CSS default var(--book-depth, 32px) — no JS needed. */
+  const spineImg = mkImg(spineSrc, '');
+  if (spineDepth) {
+    // Explicit value — set immediately, no image load needed.
+    book.style.setProperty('--book-depth', spineDepth + 'px');
+  } else if (hasSpineImage) {
+    var applyDepth = function() {
+      if (spineImg.naturalWidth && spineImg.naturalHeight) {
+        // Scale the natural spine width to the book's 320 px CSS height.
+        // This preserves the image's aspect ratio exactly, so object-fit: fill
+        // fills the panel without any distortion or cropping.
+        var depth = spineImg.naturalWidth / spineImg.naturalHeight * 320;
+        book.style.setProperty('--book-depth', depth + 'px');
+      }
+    };
+    // Fire immediately if the image is already cached, otherwise wait for load.
+    if (spineImg.complete) { applyDepth(); }
+    else { spineImg.addEventListener('load', applyDepth); }
+  }
+
+  const spineChildren = [spineImg];
   if (spineLabel) {
     const lbl = el('span', 'book__spine-label');
     lbl.textContent = spineLabel;
@@ -106,26 +129,40 @@ const builders = { book: buildBook, report: buildReport, paper: buildPaper };
 
 function createMockup(opts) {
   if (!builders[opts.type]) throw new Error('Unknown type: ' + opts.type);
+  var resolved = Object.assign({}, opts);
+  // Derive hasSpineImage when not explicit: true only when a real dedicated spine
+  // was passed (spineSrc set and differs from coverSrc).
+  if (resolved.hasSpineImage === undefined) {
+    resolved.hasSpineImage = !!(resolved.spineSrc && resolved.spineSrc !== resolved.coverSrc);
+  }
+  // Normalise spineDepth: accept number or numeric string; null means "auto".
+  if (resolved.spineDepth != null) {
+    resolved.spineDepth = parseInt(resolved.spineDepth, 10) || null;
+  }
   const stage = el('div', 'mockup-stage');
   stage.appendChild(el('div', 'cast-shadow'));
   const scene = el('div', 'scene');
-  scene.appendChild(builders[opts.type](opts));
+  scene.appendChild(builders[opts.type](resolved));
   stage.appendChild(scene);
   return stage;
 }
 
 function init(selector) {
   document.querySelectorAll(selector || '[data-mockup]').forEach(function(stageEl) {
-    const type       = stageEl.dataset.mockup;
-    const coverSrc   = stageEl.dataset.cover      || '';
-    const spineSrc   = stageEl.dataset.spine      || coverSrc;
-    const spineLabel = stageEl.dataset.spineLabel || '';
-    const spineColor = stageEl.dataset.spineColor || '';
+    const type          = stageEl.dataset.mockup;
+    const coverSrc      = stageEl.dataset.cover      || '';
+    const rawSpineSrc   = stageEl.dataset.spine      || '';  // empty if not explicitly set
+    const spineSrc      = rawSpineSrc || coverSrc;           // fallback for rendering
+    const hasSpineImage = !!rawSpineSrc;                     // true only when a real spine was supplied
+    const rawDepth      = stageEl.dataset.spineDepth  || ''; // optional explicit CSS-px depth
+    const spineDepth    = rawDepth ? parseInt(rawDepth, 10) : null;
+    const spineLabel    = stageEl.dataset.spineLabel || '';
+    const spineColor    = stageEl.dataset.spineColor || '';
     if (!builders[type]) { console.error('[mockups] Unknown type:', type); return; }
     stageEl.innerHTML = '';
     stageEl.appendChild(el('div', 'cast-shadow'));
     const scene = el('div', 'scene');
-    scene.appendChild(builders[type]({ coverSrc, spineSrc, spineLabel, spineColor }));
+    scene.appendChild(builders[type]({ coverSrc, spineSrc, hasSpineImage, spineDepth, spineLabel, spineColor }));
     stageEl.appendChild(scene);
   });
 }

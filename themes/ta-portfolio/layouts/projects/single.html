@@ -23,4 +23,13 @@
   {{ .Content }}
 </main>
 
+<script src="/js/mockups.js"></script>
+<script>
+  (function () {
+    if (window.PublicationMockup) {
+      PublicationMockup.init('.related-post .mockup-stage');
+    }
+  })();
+</script>
+
 {{ end }}
