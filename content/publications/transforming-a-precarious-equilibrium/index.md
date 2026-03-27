@@ -10,7 +10,7 @@ venue: "DRS 2026, Edinburgh"
 publicationType: "conference paper"
 mockupType: "paper"
 coverImage: "cover.jpg"
-externalPublication: false
+externalPublication: true
 externalLink: "https://www.researchgate.net/publication/403200742_Transforming_a_precarious_equilibrium_Embracing_complexity_in_public_design_practices"
 ---
 This paper examines how design space for engaging with complexity was
