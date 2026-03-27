@@ -43,7 +43,7 @@
       <br/>{{ if or (.Params.publicationType) (.Params.status) }}<span class="tags">
           {{ if .Params.publicationType }}<span class="tag">{{ .Params.publicationType }}</span>{{ end }}
           {{ if .Params.status }}<span class="tag status">{{ .Params.status }}</span>{{ end }}
-        </span>{{ end }}{{ if .Params.venue }}<span class="venue"> — {{.Params.venue}}</span>{{end}}{{end}}
+        </span>{{ end }}{{ if .Params.venue }}<span class="venue"> · {{.Params.venue}}</span>{{end}}{{end}}
       </div>
     <div class="year">{{ .Params.Year}} </div>
     <div class="authors">{{ .Params.Authors}}<span class="link__indicator">↗︎</span></div>
