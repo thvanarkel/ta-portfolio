@@ -11,7 +11,7 @@ publicationType: "conference paper"
 mockupType: "paper"
 coverImage: "cover.jpg"
 externalPublication: false
-# externalLink: "https://research.tudelft.nl/en/publications/what-do-designers-bring-to-the-table-identifying-key-design-compe"
+externalLink: "https://www.researchgate.net/publication/403200742_Transforming_a_precarious_equilibrium_Embracing_complexity_in_public_design_practices"
 ---
 This paper examines how design space for engaging with complexity was
 constrained, negotiated and expanded within a Dutch public sector organisation

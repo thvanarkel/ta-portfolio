@@ -31,6 +31,7 @@ $.RelPermalink . }} {{ end }} {{ end }}
             data-mockup="{{ $mockupType }}"
             data-cover="{{ $coverImage }}"
             data-spine="{{ $spineImage }}"
+            data-spine-depth="{{ .Params.spineDepth | default "" }}"
             data-spine-label="{{ $spineLabel }}"
             data-spine-color="{{ $spineColor }}"
         ></div>
