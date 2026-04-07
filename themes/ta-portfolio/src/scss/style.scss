@@ -170,11 +170,18 @@ main {
     }
 
     p:first-child {
-        font-size: 2.3rem;
-        @include breakpoint($lg) {
-            font-size: 3rem;
+        // Scale with viewport; sized to feel proportional alongside the cover image
+        font-size: clamp(2.6rem, 2vw, 4.5rem);
+        padding-top: 150px;
+        @include breakpoint($xxl) {
+            // Tighten to 6 cols on very large screens so text stays compact
+            // while font continues to grow with the viewport
+            grid-column: #{$start-main} / #{$end-text - 1};
         }
-        padding-top: 75px;
+        @include breakpoint($xs) {
+            font-size: 1.8rem; // fixed on mobile — text fills screen anyway
+            padding-top: 30px;
+        }
     }
     p:nth-of-type(2) {
         margin-bottom: 15vh;
@@ -184,7 +191,7 @@ main {
     }
     .cover {
         position: absolute;
-        top: 25vh;
+        top: 250px;
         opacity: 0.8;
         right: $site-padding-side;
         width: calc(
@@ -197,12 +204,24 @@ main {
                 ) *
                 5 + 4 * #{$grid-column-gap}
         );
-        //max-height: 25vh;
+        max-width: 560px; // cap on very large viewports
         display: block;
         z-index: 1;
+        will-change: transform; // promoted layer for smooth parallax
         &:hover {
             opacity: 1;
             z-index: 10;
+        }
+
+        @include breakpoint($xs) {
+            // Peek from the right edge on mobile
+            position: absolute;
+            top: 150px;
+            right: -15%;
+            width: 55%;
+            max-width: none;
+            opacity: 0.45;
+            will-change: auto;
         }
     }
     footer {
