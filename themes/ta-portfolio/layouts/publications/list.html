@@ -1,7 +1,80 @@
 {{ define "main" }}
 
 <main aria-role="main" class="fullwidth">
+
+    <div class="publications-view-toggle" role="group" aria-label="View style">
+        <button class="view-btn" data-view="list" aria-label="List view">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <rect x="0" y="2" width="16" height="2" fill="currentColor"/>
+                <rect x="0" y="7" width="16" height="2" fill="currentColor"/>
+                <rect x="0" y="12" width="16" height="2" fill="currentColor"/>
+            </svg>
+        </button>
+        <button class="view-btn" data-view="tile" aria-label="Tile view">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <rect x="0" y="0" width="7" height="7" fill="currentColor"/>
+                <rect x="9" y="0" width="7" height="7" fill="currentColor"/>
+                <rect x="0" y="9" width="7" height="7" fill="currentColor"/>
+                <rect x="9" y="9" width="7" height="7" fill="currentColor"/>
+            </svg>
+        </button>
+    </div>
+
     {{ partial "publications.html" (dict "context" . "pages" .Data.Pages "view" "normal") }}
+
+    <div class="publications-tiles">
+    {{ range .Data.Pages }}
+        {{ $page := . }}
+        {{ $cover := "" }}
+        {{ with $page.Resources.GetMatch "cover.webp" }}
+            {{ $cover = .RelPermalink }}
+        {{ else }}
+            {{ with $page.Params.coverImage }}
+                {{ if strings.HasPrefix . "/" }}
+                    {{ $cover = . }}
+                {{ else }}
+                    {{ $cover = printf "%s%s" $page.RelPermalink . }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+        {{ $spine := "" }}
+        {{ with $page.Resources.GetMatch "spine.webp" }}
+            {{ $spine = .RelPermalink }}
+        {{ else }}
+            {{ with $page.Params.spineImage }}
+                {{ if strings.HasPrefix . "/" }}
+                    {{ $spine = . }}
+                {{ else }}
+                    {{ $spine = printf "%s%s" $page.RelPermalink . }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+        {{ if .Params.externalPublication }}
+        <a class="related-post" href="{{ .Params.externalLink }}">
+        {{ else }}
+        <a class="related-post" href="{{ .RelPermalink }}">
+        {{ end }}
+            <div class="related-post__mockup">
+                <div class="mockup-stage"
+                     data-mockup="{{ .Params.mockupType | default "paper" }}"
+                     data-cover="{{ $cover }}"
+                     data-spine="{{ $spine }}"
+                     data-spine-depth="{{ .Params.spineDepth | default "" }}"
+                     data-spine-label="{{ .Params.spineLabel | default "" }}"
+                     data-spine-color="{{ .Params.spineColor | default "#555555" }}">
+                </div>
+            </div>
+            <span class="post-link__left">{{ .Title }}
+                <span class="post-authors">{{ .Params.Authors }} ({{ .Params.Year }})</span>
+            </span>
+            <span class="post-link__bottom-row">
+                {{ if .Params.publicationType }}<span class="tag">{{ .Params.publicationType }}</span>{{ end }}
+                <span class="post-link__indicator">↗︎</span>
+            </span>
+        </a>
+    {{ end }}
+    </div>
+
 </main>
 
 <!-- Hover mockup overlay (fixed, centered) -->
@@ -12,6 +85,34 @@
 <script src="/js/mockups.js"></script>
 <script>
 (function () {
+    var listView  = document.querySelector('.publications-overview');
+    var tileView  = document.querySelector('.publications-tiles');
+    var btns      = document.querySelectorAll('.view-btn');
+    var tilesInited = false;
+
+    function setView(view) {
+        var isТile = view === 'tile';
+        listView.style.display  = isТile ? 'none' : '';
+        tileView.style.display  = isТile ? 'grid' : 'none';
+        btns.forEach(function (btn) {
+            btn.classList.toggle('active', btn.dataset.view === view);
+        });
+        if (isТile && !tilesInited && window.PublicationMockup) {
+            PublicationMockup.init('.publications-tiles .mockup-stage');
+            tilesInited = true;
+        }
+        try { localStorage.setItem('publications-view', view); } catch (e) {}
+    }
+
+    btns.forEach(function (btn) {
+        btn.addEventListener('click', function () { setView(btn.dataset.view); });
+    });
+
+    var saved = 'list';
+    try { saved = localStorage.getItem('publications-view') || 'list'; } catch (e) {}
+    setView(saved);
+
+    // ── List view: hover mockup overlay ──────────────────────────────
     var overlay    = document.getElementById('pub-hover-overlay');
     var mockupWrap = document.getElementById('pub-hover-mockup');
     if (!overlay || !mockupWrap || !window.PublicationMockup) return;

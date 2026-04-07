@@ -17,4 +17,23 @@
     "!=" true))}} {{ end }}
 </main>
 
+<script>
+(function () {
+    if (window.matchMedia('(max-width: 767px)').matches) return;
+    var cover = document.querySelector('#main-home .cover');
+    if (!cover) return;
+    var ticking = false;
+    function applyParallax() {
+        cover.style.transform = 'translateY(' + (window.pageYOffset * 0.3) + 'px)';
+        ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+        if (!ticking) {
+            requestAnimationFrame(applyParallax);
+            ticking = true;
+        }
+    }, { passive: true });
+}());
+</script>
+
 {{ end }}
