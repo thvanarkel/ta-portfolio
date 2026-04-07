@@ -478,20 +478,22 @@ img[src$="#halftone"] {
     flex-direction: column;
 
     // ── Tweak these three variables to adjust the card layout ──────
-    $mockup-zoom:   0.6;          // stage scale (540×300 → 324×180px layout)
-    $mockup-top:    100px;        // how far the stage rises ABOVE the card top border
+    $mockup-zoom: 0.6; // stage scale (540×300 → 324×180px layout)
+    $mockup-top: 100px; // how far the stage rises ABOVE the card top border
     // Centre the stage (540px wide) inside the card at this zoom level.
     // calc(50% - half_stage_width) puts the stage mid-point at 50% of the card.
-    $mockup-left:  calc(50% - #{540px * $mockup-zoom / 2}); // = calc(50% - 162px)
+    $mockup-left: calc(
+        50% - #{540px * $mockup-zoom / 2}
+    ); // = calc(50% - 162px)
     // ──────────────────────────────────────────────────────────────
-    $mockup-height: 300px * $mockup-zoom;    // 180px — layout footprint of the stage
+    $mockup-height: 300px * $mockup-zoom; // 180px — layout footprint of the stage
     // The stage bottom sits at ($mockup-height − $mockup-top) inside the card.
     // padding-top carves that well plus a small gap so text never overlaps the mockup.
     $content-start: $mockup-height - $mockup-top + 20px; // (180−100)+20 = 100px
 
     padding: 15px;
     padding-top: $content-start;
-    margin-top: $mockup-top;     // lift the card so the overhanging mockup has visual room
+    margin-top: $mockup-top; // lift the card so the overhanging mockup has visual room
     border: 1px solid;
     text-decoration: none;
     min-height: 300px;
@@ -505,9 +507,9 @@ img[src$="#halftone"] {
     // the matching well so content always starts below the mockup.
     &__mockup {
         position: absolute;
-        top: -$mockup-top;   // rises above the card's top border
-        left: $mockup-left;  // straddles the left border by a fixed amount
-        z-index: 10;         // paints on top of the card border
+        top: -$mockup-top; // rises above the card's top border
+        left: $mockup-left; // straddles the left border by a fixed amount
+        z-index: 10; // paints on top of the card border
 
         .mockup-stage {
             zoom: $mockup-zoom;
@@ -562,6 +564,63 @@ img[src$="#halftone"] {
     font-size: 0.8rem;
     vertical-align: middle;
     text-transform: lowercase;
+}
+
+.publications-view-toggle {
+    grid-column: #{$start-main} / -1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-bottom: 16px;
+
+    .view-btn {
+        background: transparent;
+        border: 1px solid;
+        padding: 6px 10px;
+        cursor: pointer;
+        line-height: 0;
+        opacity: 0.35;
+        @include themed() {
+            border-color: t($text);
+            color: t($text);
+        }
+        &.active {
+            opacity: 1;
+        }
+    }
+}
+
+.publications-tiles {
+    display: none; // hidden by default; JS sets display:grid
+    grid-template-columns: repeat(3, 1fr);
+    grid-column: #{$start-main} / -1;
+    gap: 20px;
+    //padding-top: 70px;
+
+    .related-post {
+        $tile-zoom: 0.7;
+        $tile-top: 100px;
+        $tile-height: 300px * $tile-zoom; // 135px
+        $tile-content-start: $tile-height - $tile-top + 15px; // 80px
+
+        grid-column: span 1;
+        margin-top: $tile-top;
+        padding-top: $tile-content-start;
+        min-height: 220px;
+
+        &__mockup {
+            top: -$tile-top;
+            left: calc(50% - #{540px * $tile-zoom / 2}); // calc(50% - 121.5px)
+
+            .mockup-stage {
+                zoom: $tile-zoom;
+                &[data-mockup="report"],
+                &[data-mockup="book"] {
+                    zoom: $tile-zoom * (297 / 320);
+                }
+            }
+        }
+    }
 }
 
 .publications-overview {
