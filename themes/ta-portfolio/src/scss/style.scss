@@ -454,7 +454,7 @@ img[src$="#halftone"] {
     display: flex;
     font-size: 1.6rem;
     align-items: baseline;
-    justify-content: center;
+    justify-content: flex-end;
     width: 2rem;
     vertical-align: middle;
 }
@@ -491,7 +491,7 @@ img[src$="#halftone"] {
     // padding-top carves that well plus a small gap so text never overlaps the mockup.
     $content-start: $mockup-height - $mockup-top + 20px; // (180−100)+20 = 100px
 
-    padding: 15px;
+    padding: 10px;
     padding-top: $content-start;
     margin-top: $mockup-top; // lift the card so the overhanging mockup has visual room
     border: 1px solid;
@@ -553,6 +553,13 @@ img[src$="#halftone"] {
         font-size: 2.5rem;
         line-height: 2rem;
         font-weight: 300;
+        transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    &:hover {
+        .post-link__indicator {
+            transform: translate(2px, -2px);
+        }
     }
 }
 
@@ -618,7 +625,18 @@ img[src$="#halftone"] {
                 &[data-mockup="book"] {
                     zoom: $tile-zoom * (297 / 320);
                 }
+
+                // Smooth rotation on card hover
+                .scene {
+                    transition: transform 0.2s
+                        cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                }
             }
+        }
+
+        // Rotate mockup toward the viewer on hover
+        &:hover .related-post__mockup .mockup-stage .scene {
+            transform: rotateX(46deg) rotateZ(-33deg);
         }
     }
 }
