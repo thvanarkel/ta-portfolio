@@ -524,6 +524,11 @@ img[src$="#halftone"] {
                 zoom: $mockup-zoom * (297 / 320); // ≈ 0.557
             }
         }
+
+        // Smooth rotation on card hover
+        .scene {
+            transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
     }
 
     // ── Title + authors ────────────────────────────────────────────
@@ -564,6 +569,9 @@ img[src$="#halftone"] {
     &:hover {
         .post-link__indicator {
             transform: translate(2px, -2px);
+        }
+        .related-post__mockup .mockup-stage .scene {
+            transform: rotateX(46deg) rotateZ(-33deg);
         }
     }
 }
@@ -606,7 +614,7 @@ img[src$="#halftone"] {
 
 .publications-tiles {
     display: none; // hidden by default; JS sets display:grid
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     grid-column: #{$start-main} / -1;
     gap: 20px;
     //padding-top: 70px;
@@ -632,12 +640,6 @@ img[src$="#halftone"] {
                 &[data-mockup="book"] {
                     zoom: $tile-zoom * (297 / 320);
                 }
-
-                // Smooth rotation on card hover
-                .scene {
-                    transition: transform 0.2s
-                        cubic-bezier(0.25, 0.46, 0.45, 0.94);
-                }
             }
         }
 
@@ -652,11 +654,6 @@ img[src$="#halftone"] {
                 margin-top: 0;
                 align-self: auto;
             }
-        }
-
-        // Rotate mockup toward the viewer on hover
-        &:hover .related-post__mockup .mockup-stage .scene {
-            transform: rotateX(46deg) rotateZ(-33deg);
         }
     }
 }
