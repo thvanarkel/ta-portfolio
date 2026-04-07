@@ -536,6 +536,11 @@ img[src$="#halftone"] {
         white-space: normal;
         overflow: hidden; // keeps long titles inside the card
         min-height: 0; // allows flex child to shrink
+        margin-bottom: 15px;
+
+        .tag {
+            margin-top: 6px;
+        }
 
         .post-authors {
             position: static; // was accidentally absolute → spilled out of box
@@ -571,6 +576,8 @@ img[src$="#halftone"] {
     font-size: 0.8rem;
     vertical-align: middle;
     text-transform: lowercase;
+    color: $grey;
+    border-color: $grey;
 }
 
 .publications-view-toggle {
@@ -631,6 +638,19 @@ img[src$="#halftone"] {
                     transition: transform 0.2s
                         cubic-bezier(0.25, 0.46, 0.45, 0.94);
                 }
+            }
+        }
+
+        // Bottom row: type pill on the left, arrow on the right
+        .post-link__bottom-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+
+            .post-link__indicator {
+                margin-top: 0;
+                align-self: auto;
             }
         }
 

@@ -67,7 +67,10 @@
             <span class="post-link__left">{{ .Title }}
                 <span class="post-authors">{{ .Params.Authors }} ({{ .Params.Year }})</span>
             </span>
-            <span class="post-link__indicator">↗︎</span>
+            <span class="post-link__bottom-row">
+                {{ if .Params.publicationType }}<span class="tag">{{ .Params.publicationType }}</span>{{ end }}
+                <span class="post-link__indicator">↗︎</span>
+            </span>
         </a>
     {{ end }}
     </div>
