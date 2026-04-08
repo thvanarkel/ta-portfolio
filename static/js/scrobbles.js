@@ -25491,7 +25491,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"_from":"axios@^0.21.1","_id":"axios@
 /***/ ((module) => {
 
 "use strict";
-module.exports = /*#__PURE__*/JSON.parse('{"apiKey":"51b5d62bd6a165f1ff2b85da6b881279","apiSecret":"178fc9f25c9bd19cbf7f304655fa9327"}');
+module.exports = /*#__PURE__*/JSON.parse('{"apiKey":"51b5d62bd6a165f1ff2b85da6b881279","apiSecret":"178fc9f25c9bd19cbf7f304655fa9327","xboxApiKey":"a220d776-3bad-412d-b99f-48cb72a01402"}');
 
 /***/ })
 
