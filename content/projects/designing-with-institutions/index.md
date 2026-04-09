@@ -9,6 +9,9 @@ categories:
   - "design research"
   - "systemic design"
   - "policy and governance"
+themes:
+  - "public design practices"
+  - "stewarding change"
 timespan: "2023 → present"
 
 featured_image: "cover.jpeg"

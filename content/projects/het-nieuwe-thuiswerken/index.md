@@ -6,6 +6,9 @@ weight: 70
 categories:
   - "future vision"
   - "social design"
+themes:
+  - "caring organisations and services"
+  - "public design practices"
 timespan: "2018"
 
 featured_image: "cover.jpg"

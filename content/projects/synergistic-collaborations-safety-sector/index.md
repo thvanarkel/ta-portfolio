@@ -7,6 +7,9 @@ draft: false
 work-in-progress: false
 categories:
   - "design research"
+themes:
+  - "stewarding change"
+  - "public design practices"
 timespan: "2021 → 2023"
 
 featured_image: "bsc_cover.jpg"

@@ -7,6 +7,9 @@ theme = "ta-portfolio"
 
 sectionPagesMenu = "main"
 
+[taxonomies]
+  theme = "themes"
+
 [menu]
   [[menu.main]]
     identifier = "themes"

@@ -1,0 +1,220 @@
+// _themes.scss
+// Styles for the themes taxonomy: list page, single page, and badges.
+
+// ── Shared circle base ───────────────────────────────────────────────────────
+%theme-circle-base {
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gradient-from, #0075ff), var(--gradient-to, #00c2ff));
+    display: block;
+    flex-shrink: 0;
+}
+
+// ── Themes list page ─────────────────────────────────────────────────────────
+
+.themes-list {
+    padding-top: 40px;
+    row-gap: 100px !important;
+}
+
+.theme-card {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / #{$num-columns + 1};
+    align-items: center;
+    min-height: 320px;
+
+    @include breakpoint($xs) {
+        min-height: auto;
+        row-gap: 24px;
+    }
+}
+
+.theme-circle {
+    @extend %theme-circle-base;
+    grid-column: 1 / #{$start-main};
+    width: 240px;
+    height: 240px;
+    justify-self: center;
+    will-change: transform;
+
+    @include breakpoint($md) {
+        width: 280px;
+        height: 280px;
+    }
+
+    @include breakpoint($xl) {
+        width: 340px;
+        height: 340px;
+    }
+
+    @include breakpoint($xs) {
+        grid-column: 1 / -1;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+    }
+}
+
+.theme-meta {
+    grid-column: #{$start-main} / #{$end-main};
+
+    h2 {
+        font-size: 3.5rem;
+        line-height: 3.5rem;
+        font-weight: 400;
+        margin-bottom: 16px;
+        text-transform: none;
+    }
+
+    p {
+        font-size: $body-large;
+        margin-bottom: 24px;
+        max-width: 50ch;
+        grid-column: unset;
+    }
+
+    @include breakpoint($xs) {
+        grid-column: 1 / -1;
+    }
+}
+
+// Alternating (right) variant: circle on the right, text on the left
+.theme-card--right {
+    .theme-circle {
+        grid-column: 12 / #{$num-columns + 1};
+        order: 2;
+
+        @include breakpoint($xs) {
+            grid-column: 1 / -1;
+            order: 0;
+        }
+    }
+
+    .theme-meta {
+        grid-column: #{$start-main} / 12;
+        order: 1;
+
+        @include breakpoint($xs) {
+            grid-column: 1 / -1;
+            order: 0;
+        }
+    }
+}
+
+// ── Theme single page ────────────────────────────────────────────────────────
+
+.theme-single {
+    h1 {
+        margin-top: 290px;
+
+        @include breakpoint($xs) {
+            margin-top: 120px;
+        }
+    }
+
+    h2 {
+        grid-column: #{$start-main} / #{$end-main};
+        margin-top: 60px;
+        margin-bottom: 20px;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .projects-overview {
+        grid-column: #{$start-main} / #{$end-main + 2};
+    }
+
+    .publications-tiles {
+        grid-column: #{$start-main} / #{$end-main + 2};
+        display: grid !important;
+    }
+}
+
+.theme-hero {
+    grid-column: 1 / -1;
+    height: 0;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 5;
+    will-change: transform;
+    pointer-events: none;
+}
+
+.theme-hero__circle {
+    @extend %theme-circle-base;
+    width: 520px;
+    height: 520px;
+    margin-top: -260px;
+    flex-shrink: 0;
+
+    @include breakpoint($md) {
+        width: 600px;
+        height: 600px;
+        margin-top: -300px;
+    }
+
+    @include breakpoint($xs) {
+        width: 200px;
+        height: 200px;
+        margin-top: -100px;
+    }
+}
+
+.theme-description {
+    grid-column: #{$start-main} / #{$end-text};
+    font-size: $body-large;
+    margin-top: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+// ── Small badge circles ──────────────────────────────────────────────────────
+
+.theme-badges {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    gap: 5px;
+    flex-direction: row;
+    z-index: 5;
+}
+
+.theme-circle--small {
+    @extend %theme-circle-base;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+// ── Publications overview: themes column ─────────────────────────────────────
+
+.publications-overview .publication {
+    .title {
+        grid-column: 1 / 8;
+    }
+    .year {
+        grid-column: 8 / 9;
+    }
+    .pub-themes {
+        grid-column: 9 / 10;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        flex-wrap: wrap;
+    }
+    .authors {
+        grid-column: 10 / 15;
+    }
+}
+
+// ── Projects: position badge relative to .project ────────────────────────────
+
+.project {
+    position: relative;
+}

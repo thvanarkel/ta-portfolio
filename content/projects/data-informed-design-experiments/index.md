@@ -7,6 +7,8 @@ weight: 50
 categories:
   - "design research"
   - "design for behaviour change"
+themes:
+  - "caring organisations and services"
 timespan: "2019 → 2020"
 
 featured_image: "cover.jpg"

@@ -11,6 +11,8 @@ mockupType: "book"
 coverImage: "cover.jpg"
 spineImage: "spine3.jpeg"
 spineColor: "#f9e376"
+themes:
+  - "caring organisations and services"
 externalPublication: false
 externalLink: "https://repository.tudelft.nl/record/uuid:54287da0-ebe0-42b0-bbc6-43376c8befa9"
 ---

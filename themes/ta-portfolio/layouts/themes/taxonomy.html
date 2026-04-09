@@ -1,0 +1,72 @@
+{{ define "main" }}
+
+<main aria-role="main" class="themes-list" data-barba="container" data-barba-namespace="themes-list">
+
+  {{ $termPages := slice }}
+  {{ range site.Taxonomies.themes.Alphabetical }}
+    {{ $slug := urlize .Name }}
+    {{ $tp := site.GetPage (printf "/themes/%s" $slug) }}
+    {{ if $tp }}
+      {{ $termPages = $termPages | append $tp }}
+    {{ end }}
+  {{ end }}
+  {{ $termPages = sort $termPages "Weight" "asc" }}
+
+  {{ range $i, $termPage := $termPages }}
+    {{ $gradientFrom := $termPage.Params.gradientFrom | default "#0075ff" }}
+    {{ $gradientTo   := $termPage.Params.gradientTo   | default "#00c2ff" }}
+
+    <div class="theme-card{{ if eq (mod $i 2) 1 }} theme-card--right{{ end }}">
+
+      <div class="theme-circle"
+           style="--gradient-from: {{ $gradientFrom }}; --gradient-to: {{ $gradientTo }};"
+           aria-hidden="true">
+      </div>
+
+      <div class="theme-meta">
+        <h2>{{ $termPage.Title }}</h2>
+        {{ with $termPage.Params.description }}
+          <p>{{ . }}</p>
+        {{ end }}
+        <a href="{{ $termPage.RelPermalink }}" class="post-link">
+          <span class="post-link__left">View theme</span>
+          <span class="post-link__indicator">↗︎</span>
+        </a>
+      </div>
+
+    </div>
+  {{ end }}
+
+</main>
+
+<script>
+(function () {
+  var cards = document.querySelectorAll('.theme-card');
+  if (!cards.length) return;
+
+  var ticking = false;
+
+  function updateParallax() {
+    cards.forEach(function (card) {
+      var circle = card.querySelector('.theme-circle');
+      if (!circle) return;
+      var rect = card.getBoundingClientRect();
+      var progress = 1 - (rect.bottom / (window.innerHeight + rect.height));
+      var shift = (progress - 0.5) * 80;
+      circle.style.transform = 'translateY(' + shift + 'px)';
+    });
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  updateParallax();
+})();
+</script>
+
+{{ end }}

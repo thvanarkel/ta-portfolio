@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "hugo",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["start"],
+      "runtimeExecutable": "/usr/local/bin/hugo",
+      "runtimeArgs": ["server", "-D", "--disableFastRender"],
       "port": 1313
     }
   ]

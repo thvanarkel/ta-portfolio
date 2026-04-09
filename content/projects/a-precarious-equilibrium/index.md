@@ -9,6 +9,9 @@ categories:
   - "design research"
   - "systemic design"
   - "social design"
+themes:
+  - "stewarding change"
+  - "caring organisations and services"
 timespan: "2021 → present"
 
 featured_image: "cover.jpeg"

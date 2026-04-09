@@ -1,6 +1,19 @@
 /* NAVIGATION */
 
 .site-header {
+  position: relative;
+  z-index: 10;
+  @include themed() { background-color: t($bg); }
+  // Cover the .site padding-top gap above the header (so hero circles don't show through)
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -100vw;
+    right: -100vw;
+    height: 50px;
+    @include themed() { background-color: t($bg); }
+  }
   //@include main-grid();
   display: grid;
   grid-template-columns: subgrid;

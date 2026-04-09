@@ -7,6 +7,8 @@ draft: false
 work-in-progress: false
 categories:
   - "design research"
+themes:
+  - "public design practices"
 timespan: "2023"
 
 featured_image: "cover.jpg"

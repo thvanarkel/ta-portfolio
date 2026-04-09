@@ -1,0 +1,52 @@
+<div class="publications-tiles">
+{{ range (.pages) }}
+  {{ $page := . }}
+  {{ $cover := "" }}
+  {{ with $page.Resources.GetMatch "cover.webp" }}
+    {{ $cover = .RelPermalink }}
+  {{ else }}
+    {{ with $page.Params.coverImage }}
+      {{ if strings.HasPrefix . "/" }}
+        {{ $cover = . }}
+      {{ else }}
+        {{ $cover = printf "%s%s" $page.RelPermalink . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ $spine := "" }}
+  {{ with $page.Resources.GetMatch "spine.webp" }}
+    {{ $spine = .RelPermalink }}
+  {{ else }}
+    {{ with $page.Params.spineImage }}
+      {{ if strings.HasPrefix . "/" }}
+        {{ $spine = . }}
+      {{ else }}
+        {{ $spine = printf "%s%s" $page.RelPermalink . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ if .Params.externalPublication }}
+  <a class="related-post" href="{{ .Params.externalLink }}">
+  {{ else }}
+  <a class="related-post" href="{{ .RelPermalink }}">
+  {{ end }}
+    <div class="related-post__mockup">
+      <div class="mockup-stage"
+           data-mockup="{{ .Params.mockupType | default "paper" }}"
+           data-cover="{{ $cover }}"
+           data-spine="{{ $spine }}"
+           data-spine-depth="{{ .Params.spineDepth | default "" }}"
+           data-spine-label="{{ .Params.spineLabel | default "" }}"
+           data-spine-color="{{ .Params.spineColor | default "#555555" }}">
+      </div>
+    </div>
+    <span class="post-link__left">{{ .Title }}
+      <span class="post-authors">{{ .Params.Authors }} ({{ .Params.Year }})</span>
+    </span>
+    <span class="post-link__bottom-row">
+      {{ if .Params.publicationType }}<span class="tag">{{ .Params.publicationType }}</span>{{ end }}
+      <span class="post-link__indicator">↗︎</span>
+    </span>
+  </a>
+{{ end }}
+</div>
