@@ -4,6 +4,7 @@
 /public
 /public/fonts
 /themes/ta-portfolio/src/js/keys.json
+/data/xbox.json
 .DS_Store
 .hugo_build.lock
 content/publications/**/*.pdf

@@ -26,4 +26,5 @@ Based on these insights, we have developed a new approach to client conversation
 ## Publications
 {{< gallery class="related-posts" >}}
   {{< related-post page="/publications/transforming-a-precarious-equilibrium" >}}
+  {{< related-post page="/publications/een-wankel-evenwicht" >}}
 {{< /gallery >}}
