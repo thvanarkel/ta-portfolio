@@ -44,7 +44,7 @@ $_circle-x: calc(
     }
 }
 
-$circle-size: 240px;
+$circle-size: 300px;
 
 .theme-meta {
     grid-column: #{$start-main} / #{$end-main};
@@ -66,23 +66,18 @@ $circle-size: 240px;
         height: $circle-size;
         // Horizontal center = left edge of $start-main column
         //left: $_circle-x;
-        left: -0.5 * $circle-size;
+        left: -0.5 * $circle-size + 10px;
         // top: align circle center with h2 title (~28% down the card at min-height: 320px)
         //top: calc(50% - 71px);
-        top: -0.5 * $circle-size;
+        top: -0.5 * $circle-size + 25px;
         transform: translateY(var(--parallax-y, 0px));
         pointer-events: none;
         will-change: transform;
 
-        @include breakpoint($md) {
+        /* @include breakpoint($md) {
             width: 280px;
             height: 280px;
-        }
-
-        @include breakpoint($xl) {
-            width: 340px;
-            height: 340px;
-        }
+        } */
 
         @include breakpoint($xs) {
             width: 120px;
