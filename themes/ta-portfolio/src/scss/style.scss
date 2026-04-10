@@ -9,8 +9,6 @@
 @import "components/figure";
 @import "components/table";
 @import "components/publication-mockup";
-@import "components/themes";
-
 $font-family-sans: "Basel Grotesk", "Helvetica Neue", Arial, sans-serif;
 $font-family-serif: "Untitled Serif", "Tiempos Text";
 
@@ -1041,3 +1039,5 @@ main {
         margin-top: 70px;
     }
 }
+
+@import "components/themes";

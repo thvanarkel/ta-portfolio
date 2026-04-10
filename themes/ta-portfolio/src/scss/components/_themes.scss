@@ -4,7 +4,11 @@
 // ── Shared circle base ───────────────────────────────────────────────────────
 %theme-circle-base {
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--gradient-from, #0075ff), var(--gradient-to, #00c2ff));
+    background: linear-gradient(
+        135deg,
+        var(--gradient-from, #0075ff),
+        var(--gradient-to, #00c2ff)
+    );
     display: block;
     flex-shrink: 0;
 }
@@ -12,9 +16,18 @@
 // ── Themes list page ─────────────────────────────────────────────────────────
 
 .themes-list {
-    padding-top: 40px;
-    row-gap: 100px !important;
+    padding-top: 60px;
+    row-gap: 50px !important;
+    //overflow-x: clip; // clip circles that extend beyond nav right edge
 }
+
+// Left edge of column $start-main within a full-width grid container.
+// Formula: (N-1) columns * column_width + (N-1) gaps
+//   column_width = (100% - (num_cols - 1) * gap) / num_cols
+$_circle-x: calc(
+    #{$start-main - 1} * (100% - #{($num-columns - 1) * $grid-column-gap}) /
+        #{$num-columns} + #{($start-main - 1) * $grid-column-gap}
+);
 
 .theme-card {
     display: grid;
@@ -22,41 +35,63 @@
     grid-column: 1 / #{$num-columns + 1};
     align-items: center;
     min-height: 320px;
+    position: relative;
 
     @include breakpoint($xs) {
         min-height: auto;
         row-gap: 24px;
+        padding-top: 80px;
     }
 }
 
-.theme-circle {
-    @extend %theme-circle-base;
-    grid-column: 1 / #{$start-main};
-    width: 240px;
-    height: 240px;
-    justify-self: center;
-    will-change: transform;
-
-    @include breakpoint($md) {
-        width: 280px;
-        height: 280px;
-    }
-
-    @include breakpoint($xl) {
-        width: 340px;
-        height: 340px;
-    }
-
-    @include breakpoint($xs) {
-        grid-column: 1 / -1;
-        width: 100px;
-        height: 100px;
-        margin: 0 auto;
-    }
-}
+$circle-size: 240px;
 
 .theme-meta {
     grid-column: #{$start-main} / #{$end-main};
+    position: relative;
+    z-index: 1;
+
+    // Circle as ::before — out of grid flow, freely overlaps text
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: -5;
+        border-radius: 50%;
+        background: linear-gradient(
+            135deg,
+            var(--gradient-from, #0075ff),
+            var(--gradient-to, #00c2ff)
+        );
+        width: $circle-size;
+        height: $circle-size;
+        // Horizontal center = left edge of $start-main column
+        //left: $_circle-x;
+        left: -0.5 * $circle-size;
+        // top: align circle center with h2 title (~28% down the card at min-height: 320px)
+        //top: calc(50% - 71px);
+        top: -0.5 * $circle-size;
+        transform: translateY(var(--parallax-y, 0px));
+        pointer-events: none;
+        will-change: transform;
+
+        @include breakpoint($md) {
+            width: 280px;
+            height: 280px;
+        }
+
+        @include breakpoint($xl) {
+            width: 340px;
+            height: 340px;
+        }
+
+        @include breakpoint($xs) {
+            width: 120px;
+            height: 120px;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%) translateY(var(--parallax-y, 0px));
+        }
+    }
 
     h2 {
         font-size: 3.5rem;
@@ -78,25 +113,30 @@
     }
 }
 
-// Alternating (right) variant: circle on the right, text on the left
+// Alternating (right) variant: circle mirrored, text right-aligned
 .theme-card--right {
-    .theme-circle {
-        grid-column: 12 / #{$num-columns + 1};
-        order: 2;
-
-        @include breakpoint($xs) {
-            grid-column: 1 / -1;
-            order: 0;
-        }
-    }
-
+    grid-column: 2 / #{$num-columns};
     .theme-meta {
-        grid-column: #{$start-main} / 12;
-        order: 1;
+        text-align: right;
+        &::before {
+            left: auto;
+            right: -0.5 * $circle-size;
+            @include breakpoint($xs) {
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%) translateY(var(--parallax-y, 0px));
+            }
+        }
+
+        p {
+            margin-left: auto;
+        }
 
         @include breakpoint($xs) {
-            grid-column: 1 / -1;
-            order: 0;
+            text-align: left;
+            p {
+                margin-left: 0;
+            }
         }
     }
 }
@@ -147,13 +187,13 @@
     @extend %theme-circle-base;
     width: 520px;
     height: 520px;
-    margin-top: -260px;
+    margin-top: -350px;
     flex-shrink: 0;
 
     @include breakpoint($md) {
         width: 600px;
         height: 600px;
-        margin-top: -300px;
+        margin-top: -350px;
     }
 
     @include breakpoint($xs) {
@@ -190,6 +230,11 @@
     display: inline-block;
     vertical-align: middle;
     flex-shrink: 0;
+    margin-top: 0;
+    margin-left: 0;
+    will-change: auto;
+    z-index: auto;
+    justify-self: auto;
 }
 
 // ── Publications overview: themes column ─────────────────────────────────────
@@ -217,4 +262,10 @@
 
 .project {
     position: relative;
+}
+
+// ── Themes list: transparent button background ────────────────────────────────
+
+.theme-card .post-link .post-link__left {
+    background-color: transparent;
 }
