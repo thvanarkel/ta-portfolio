@@ -69,7 +69,7 @@ $circle-size: 300px;
         left: -0.5 * $circle-size + 10px;
         // top: align circle center with h2 title (~28% down the card at min-height: 320px)
         //top: calc(50% - 71px);
-        top: -0.5 * $circle-size + 25px;
+        top: -0.5 * $circle-size + 50px;
         transform: translateY(var(--parallax-y, 0px));
         pointer-events: none;
         will-change: transform;
@@ -80,10 +80,10 @@ $circle-size: 300px;
         } */
 
         @include breakpoint($xs) {
-            width: 120px;
-            height: 120px;
+            width: 0.75 * $circle-size;
+            height: 0.75 * $circle-size;
             left: 50%;
-            top: 0;
+            top: -25%;
             transform: translateX(-50%) translateY(var(--parallax-y, 0px));
         }
     }
