@@ -11,8 +11,8 @@ publicationType: "conference paper"
 mockupType: "paper"
 coverImage: "cover.jpg"
 themes:
-  - "public design practices"
   - "stewarding change"
+  - "caring organisations and services"
 externalPublication: false
 externalLink: "https://www.researchgate.net/publication/403200742_Transforming_a_precarious_equilibrium_Embracing_complexity_in_public_design_practices"
 ---

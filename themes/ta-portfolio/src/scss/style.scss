@@ -778,7 +778,8 @@ img[src$="#halftone"] {
             .link__indicator {
                 // font-family: $font-family-arrows;
                 padding-left: 5px;
-                font-size: 1.5rem;
+                //font-size: 1.5rem;
+
                 @include themed() {
                     color: t($text);
                 }

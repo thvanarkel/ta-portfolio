@@ -12,6 +12,7 @@ categories:
 themes:
   - "public design practices"
   - "stewarding change"
+  - "caring organisations and services"
 timespan: "2023 → present"
 
 featured_image: "cover.jpeg"
