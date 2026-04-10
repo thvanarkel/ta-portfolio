@@ -1,12 +1,13 @@
-{{- if .IsNamedParams -}}
-  {{- $href := .Get "href" -}}
-  {{- $value := .Get "value" | default "Theme" -}}
-  {{- $page := site.GetPage $href -}}
-  {{- $from := "#888888" -}}
-  {{- $to := "#888888" -}}
-  {{- if $page -}}
-    {{- $from = $page.Params.gradientFrom | default "#888888" -}}
-    {{- $to = $page.Params.gradientTo | default "#888888" -}}
-  {{- end -}}
-  <a href="{{ $href | safeURL }}" class="post-link theme-link" style="--dot-from: {{ $from }}; --dot-to: {{ $to }};"><span class="post-link__left">{{ $value }}</span><span class="post-link__indicator">↗︎</span></a>
+{{- if .IsNamedParams -}} {{- $href := .Get "href" -}} {{- $value := .Get
+"value" | default "Theme" -}} {{- $page := site.GetPage $href -}} {{- $from :=
+"#888888" -}} {{- $to := "#888888" -}} {{- if $page -}} {{- $from =
+$page.Params.gradientFrom | default "#888888" -}} {{- $to =
+$page.Params.gradientTo | default "#888888" -}} {{- end -}}
+<a
+    href="{{ $href | safeURL }}"
+    class="post-link theme-link"
+    style="--dot-from: {{ $from }}; --dot-to: {{ $to }};"
+    ><span class="post-link__left">{{ $value }}</span
+    ><span class="post-link__indicator">↗︎</span></a
+>
 {{- end -}}
