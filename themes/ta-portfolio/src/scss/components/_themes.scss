@@ -174,7 +174,8 @@ $circle-size: 300px;
     justify-content: center;
     position: relative;
     z-index: 5;
-    will-change: transform;
+    // will-change: transform intentionally omitted — set via JS only during active scroll
+    // to prevent Safari from creating a persistent GPU layer that bleeds through navigation
     pointer-events: none;
 }
 
@@ -269,36 +270,92 @@ $circle-size: 300px;
     background-color: transparent;
 }
 
-// ── theme-link: pill shape with gradient dot ───────────────────────────────────
+// ── theme-link: pill with gradient circle cap on the right ───────────────────
+//
+// Structure: <a class="post-link theme-link">
+//              <span class="post-link__left">Title</span>
+//              <span class="post-link__indicator">↗︎</span>
+//            </a>
+// The ::after pseudo-element is the gradient circle, clipped by the pill's
+// overflow: hidden + border-radius, showing a curved D-shape on the right.
 
 .post-link.theme-link {
     border-radius: 1.5em;
     overflow: hidden;
-    padding-left: 0.4rem;
+    padding-left: 0.5rem;     // restore default left padding (circle is now on right)
+    padding-right: 0;         // circle fills right edge
 
     &::before {
-        content: '';
-        width: 0.6em;
-        height: 0.6em;
+        display: none;        // remove old left circle
+    }
+
+    &::after {
+        content: "";
+        display: block;       // override base .post-link:after { display: none }
+        width: 3em;
+        height: 3em;
         border-radius: 50%;
-        background: linear-gradient(135deg, var(--dot-from, #888), var(--dot-to, #888));
+        background: linear-gradient(
+            135deg,
+            var(--dot-from, #888),
+            var(--dot-to, #888)
+        );
         flex-shrink: 0;
         align-self: center;
-        margin-right: 0.1em;
+        margin-left: 0.3em;
+        margin-right: -2em;   // push most of circle beyond pill edge → curved left edge visible
     }
 
     .post-link__left {
         background-color: transparent;
-        padding-left: 0.2em;
     }
 }
 
-// ── publication-link: serif italic ───────────────────────────────────────────
+// ── publication-link: pill with inline citation, no arrow ─────────────────────
+//
+// Structure: <a class="post-link publication-link">
+//              <span class="post-link__left">Title</span>
+//              <span class="post-link__citation">Author et al., Year</span>
+//            </a>
 
 .post-link.publication-link {
+    border-radius: 1.5em;
+    overflow: hidden;
+
+    .post-link__indicator {
+        display: none;         // guard: shortcode doesn't emit one
+    }
+
     .post-link__left {
         font-family: $font-family-serif;
         font-style: italic;
+        padding-right: 0.6rem;
+        border-right: 1px solid;
+        @include themed() {
+            border-color: t($border);
+        }
+    }
+
+    .post-link__citation {
+        font-family: $font-family-sans;
+        font-style: normal;
+        font-size: 0.8em;
+        opacity: 0.65;
+        padding: 0 0.6rem;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        background-color: rgba(128, 128, 128, 0.1); // faint fill, works in both themes
+    }
+
+    &:hover {
+        .post-link__citation {
+            opacity: 1;
+            @include themed() {
+                background-color: t($hover);
+                color: t($hover-text);
+            }
+        }
     }
 }
 
@@ -306,7 +363,7 @@ $circle-size: 300px;
 
 .theme-single p:not(.theme-description) {
     font-size: $body-small;
-    grid-column: #{$start-main + 2} / #{$end-text + 1};
-    text-align: justify;
+    grid-column: #{$start-main + 1} / #{$num-columns + 1};
+    text-align: left;
     margin: 5px 0;
 }

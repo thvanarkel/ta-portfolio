@@ -1,3 +1,35 @@
-{{ if .IsNamedParams }}
-{{- partial "component/link-button" (merge $.Params (dict "type" "publication-link")) -}}
+{{- if .IsNamedParams -}}
+  {{- $href  := .Get "href" -}}
+  {{- $value := .Get "value" | default "Publication" -}}
+  {{- $page  := site.GetPage $href -}}
+  {{- $authors := "" -}}
+  {{- $year    := "" -}}
+  {{- if $page -}}
+    {{- $authors = $page.Params.authors | default "" -}}
+    {{- $year    = $page.Params.year    | default "" -}}
+  {{- end -}}
+  {{- $displayAuthors := $authors -}}
+  {{- if $authors -}}
+    {{- $commaCount  := len (split $authors ",") -}}
+    {{- $ampCount    := len (split $authors "&") -}}
+    {{- $authorCount := sub (add $commaCount $ampCount) 1 -}}
+    {{- if gt $authorCount 3 -}}
+      {{- $firstAuthor := trim (index (split $authors ",") 0) " " -}}
+      {{- $displayAuthors = printf "%s et al." $firstAuthor -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $citation := "" -}}
+  {{- if and $displayAuthors $year -}}
+    {{- $citation = printf "%s, %s" $displayAuthors $year -}}
+  {{- else if $displayAuthors -}}
+    {{- $citation = $displayAuthors -}}
+  {{- else if $year -}}
+    {{- $citation = $year -}}
+  {{- end -}}
+  <a href="{{ $href | safeURL }}" class="post-link publication-link">
+    <span class="post-link__left">{{ $value }}</span>
+    {{- if $citation -}}
+    <span class="post-link__citation">{{ $citation }}</span>
+    {{- end -}}
+  </a>
 {{- end -}}

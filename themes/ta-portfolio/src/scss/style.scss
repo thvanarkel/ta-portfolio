@@ -282,9 +282,9 @@ main {
     }
     p {
         margin: 5px 0;
-        grid-column: ($start-main + 2) / span 9;
+        grid-column: #{$start-main + 1} / #{$num-columns + 1};
         font-size: $body-small;
-        text-align: justify;
+        text-align: left;
     }
 }
 
@@ -1036,6 +1036,12 @@ main {
         font-size: 4rem;
         text-transform: none;
         margin-top: 70px;
+    }
+    p:not(.pub-subtitle) {
+        font-size: $body-small;
+        grid-column: #{$start-main + 1} / #{$num-columns + 1};
+        margin: 5px 0;
+        text-align: left;
     }
 }
 

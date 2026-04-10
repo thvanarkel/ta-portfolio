@@ -57,7 +57,16 @@
     if (!document.contains(hero)) { active = false; return; }
     if (!ticking) {
       requestAnimationFrame(function () {
-        hero.style.transform = 'translateY(' + (window.scrollY * 0.2) + 'px)';
+        var y = window.scrollY;
+        if (y === 0) {
+          // Remove transform entirely at top — clears any GPU compositing layer
+          // so the hero circle cannot bleed through the navigation bar in Safari
+          hero.style.transform = '';
+          hero.style.willChange = '';
+        } else {
+          hero.style.willChange = 'transform';
+          hero.style.transform = 'translateY(' + (y * 0.2) + 'px)';
+        }
         ticking = false;
       });
       ticking = true;

@@ -3,7 +3,7 @@ $grid-column-gap: 20px;
 $grid-row-gap: 20px;
 $start-main: 4; // +1
 $end-main: 13;
-$end-text: 11;
+$end-text: 13;
 
 @mixin main-grid() {
     display: grid;

@@ -3,6 +3,7 @@
 .site-header {
   position: relative;
   z-index: 10;
+  transform: translateZ(0); // Force GPU compositing layer above parallax hero circle (Safari fix)
   @include themed() { background-color: t($bg); }
   // Cover the .site padding-top gap above the header (so hero circles don't show through)
   &::before {

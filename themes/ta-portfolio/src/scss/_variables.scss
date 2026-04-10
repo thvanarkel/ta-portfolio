@@ -1,2 +1,10 @@
 $body-large: 1.4rem;
 $body-small: 1.2rem;
+
+// Grid variables
+$num-columns: 14;
+$grid-column-gap: 20px;
+$grid-row-gap: 20px;
+$start-main: 4; // +1
+$end-main: 14;
+$end-text: 11;
