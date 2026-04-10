@@ -20,6 +20,7 @@ $site-padding-side: 75px;
 
 .site {
     padding: 50px $site-padding-side;
+    overflow-x: clip; // prevent site-header::before (-100vw extensions) from causing horizontal scroll
     @include main-grid();
     @include breakpoint($xs) {
         padding: 20px 15px;
