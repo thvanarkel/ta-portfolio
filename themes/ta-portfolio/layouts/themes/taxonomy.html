@@ -33,33 +33,43 @@
 </main>
 
 <script>
-(function () {
-  var cards = document.querySelectorAll('.theme-card');
-  if (!cards.length) return;
-  var ticking = false;
+    (function () {
+        var cards = document.querySelectorAll(".theme-card");
+        if (!cards.length) return;
+        var ticking = false;
 
-  function calcShift(card) {
-    var rect = card.getBoundingClientRect();
-    var progress = 1 - (rect.bottom / (window.innerHeight + rect.height));
-    return (progress - 0.5) * 80;
-  }
+        function calcShift(card) {
+            var rect = card.getBoundingClientRect();
+            var progress = 1 - rect.bottom / (window.innerHeight + rect.height);
+            return (progress - 0.5) * 500;
+        }
 
-  // Record each card's shift at load so we can zero it out
-  var baseShifts = Array.prototype.map.call(cards, calcShift);
+        // Record each card's shift at load so we can zero it out
+        var baseShifts = Array.prototype.map.call(cards, calcShift);
 
-  function updateParallax() {
-    cards.forEach(function (card, i) {
-      card.style.setProperty('--parallax-y', (calcShift(card) - baseShifts[i]) + 'px');
-    });
-    ticking = false;
-  }
+        function updateParallax() {
+            cards.forEach(function (card, i) {
+                card.style.setProperty(
+                    "--parallax-y",
+                    calcShift(card) - baseShifts[i] + "px",
+                );
+            });
+            ticking = false;
+        }
 
-  window.addEventListener('scroll', function () {
-    if (!ticking) { requestAnimationFrame(updateParallax); ticking = true; }
-  }, { passive: true });
+        window.addEventListener(
+            "scroll",
+            function () {
+                if (!ticking) {
+                    requestAnimationFrame(updateParallax);
+                    ticking = true;
+                }
+            },
+            { passive: true },
+        );
 
-  updateParallax();
-})();
+        updateParallax();
+    })();
 </script>
 
 {{ end }}
