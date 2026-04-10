@@ -268,3 +268,45 @@ $circle-size: 300px;
 .theme-card .post-link .post-link__left {
     background-color: transparent;
 }
+
+// ── theme-link: pill shape with gradient dot ───────────────────────────────────
+
+.post-link.theme-link {
+    border-radius: 1.5em;
+    overflow: hidden;
+    padding-left: 0.4rem;
+
+    &::before {
+        content: '';
+        width: 0.6em;
+        height: 0.6em;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--dot-from, #888), var(--dot-to, #888));
+        flex-shrink: 0;
+        align-self: center;
+        margin-right: 0.1em;
+    }
+
+    .post-link__left {
+        background-color: transparent;
+        padding-left: 0.2em;
+    }
+}
+
+// ── publication-link: serif italic ───────────────────────────────────────────
+
+.post-link.publication-link {
+    .post-link__left {
+        font-family: $font-family-serif;
+        font-style: italic;
+    }
+}
+
+// ── theme-single: intro vs body paragraph distinction ────────────────────────
+
+.theme-single p:not(.theme-description) {
+    font-size: $body-small;
+    grid-column: #{$start-main + 2} / #{$end-text + 1};
+    text-align: justify;
+    margin: 5px 0;
+}

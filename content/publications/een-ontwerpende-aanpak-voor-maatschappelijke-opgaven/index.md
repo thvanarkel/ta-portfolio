@@ -8,6 +8,8 @@ venue: "TU Delft"
 publicationType: "essay"
 mockupType: "paper"
 coverImage: "cover.jpg"
+themes:
+  - "public design practices"
 externalPublication: false
 externalLink: "https://research.tudelft.nl/en/publications/een-ontwerpende-aanpak-voor-maatschappelijke-opgaven-waar-hebben-"
 ---
