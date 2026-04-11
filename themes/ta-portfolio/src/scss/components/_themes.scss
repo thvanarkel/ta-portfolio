@@ -345,6 +345,8 @@ $circle-size: 300px;
 .post-link.publication-link {
     border-radius: 1.5em;
     overflow: hidden;
+    // inherits display: inline-flex from .post-link base — do NOT override to flex/block
+    align-items: center;  // align title and citation text at the same vertical center
 
     .post-link__indicator {
         display: none; // guard: shortcode doesn't emit one
@@ -361,20 +363,16 @@ $circle-size: 300px;
     }
 
     .post-link__citation {
+        display: flex;
+        align-items: center;  // center text vertically within stretched area
+        align-self: stretch;  // fill full pill height so hover covers the whole right side
         font-family: $font-family-sans;
         font-style: normal;
         font-size: 0.8em;
         opacity: 0.65;
         padding: 0 0.6rem;
         white-space: nowrap;
-        display: flex;
-        align-items: center;
-        background-color: rgba(
-            128,
-            128,
-            128,
-            0.1
-        ); // faint fill, works in both themes
+        background-color: rgba(128, 128, 128, 0.1);
     }
 
     &:hover {
