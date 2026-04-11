@@ -168,8 +168,8 @@ $circle-size: 300px;
 
 .main-project {
     .publications-tiles {
-        grid-column: #{$start-main + 2} / #{$end-main};
-        display: grid !important;
+        display: grid;
+        grid-column: #{$start-main} / #{$end-main + 2};
     }
 }
 
@@ -353,7 +353,7 @@ $circle-size: 300px;
     border-radius: 1.5em;
     overflow: hidden;
     // inherits display: inline-flex from .post-link base — do NOT override to flex/block
-    align-items: center;  // align title and citation text at the same vertical center
+    align-items: center; // align title and citation text at the same vertical center
 
     .post-link__indicator {
         display: none; // guard: shortcode doesn't emit one
@@ -371,8 +371,8 @@ $circle-size: 300px;
 
     .post-link__citation {
         display: flex;
-        align-items: center;  // center text vertically within stretched area
-        align-self: stretch;  // fill full pill height so hover covers the whole right side
+        align-items: center; // center text vertically within stretched area
+        align-self: stretch; // fill full pill height so hover covers the whole right side
         font-family: $font-family-sans;
         font-style: normal;
         font-size: 0.8em;

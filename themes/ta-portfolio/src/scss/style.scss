@@ -69,14 +69,13 @@ main {
         // display: none;
         margin: 0;
         //grid-column: 1 / #{$start-main};
-        //grid-column: #{$start-main} / #{$end-main};
+        grid-column: #{$start-main} / #{$end-main};
     }
 
     h1 {
         font-weight: 400;
         font-size: 3.5rem;
         line-height: 3.5rem;
-        grid-column: #{$start-main} / #{$end-main};
         //text-transform: uppercase;
     }
 
@@ -85,8 +84,12 @@ main {
         font-size: 1.8rem;
         line-height: 1.2;
         margin-top: 20px;
-        //text-transform: uppercase;
-        grid-column: #{$start-main} / #{$end-main};
+    }
+
+    h3 {
+        font-weight: 400;
+        font-size: 1.5rem;
+        line-height: 1;
     }
 
     a {
@@ -272,7 +275,7 @@ main {
 .main-project {
     h2,
     h3 {
-        grid-column: #{$start-main + 2}/#{$end-main};
+        grid-column: #{$start-main + 1}/#{$end-main};
         margin-top: 30px;
         margin-bottom: 10px;
     }
@@ -665,7 +668,7 @@ img[src$="#halftone"] {
 .publications-tiles {
     display: none; // hidden by default; JS sets display:grid
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    grid-column: #{$start-main} / -1;
+    grid-column: #{$start-main} / 13;
     gap: 20px;
     //padding-top: 70px;
 
@@ -869,13 +872,13 @@ $minColWidth: 15rem;
     display: grid;
     grid-template-columns: subgrid; //repeat(($num-columns - $start-main), minmax(0,1fr));
     grid-column-gap: $grid-column-gap;
+    justify-content: space-between;
     padding-bottom: 25px;
-    align-self: end;
     margin-top: 25px;
     .title {
-        grid-column: 1 / span 6 !important;
+        //grid-column: 1 / span 6 !important;
         @include breakpoint($md) {
-            grid-column: 1 / (span (0.5 * $num-columns));
+            grid-column: 1 / 9;
         }
         h1 {
             //padding: 0 50px;
@@ -885,24 +888,20 @@ $minColWidth: 15rem;
             margin-top: 10px;
         }
     }
-    p {
-        //grid-column: span 6;
-    }
-}
-
-.project-details {
-    //color: $grey;
-    align-self: flex-end;
-    li {
-        font-size: 1.2rem;
-        //border-color: $grey !important;
-        span:nth-of-type(2) {
-            text-align: right;
+    .project-details {
+        //color: $grey;
+        align-self: flex-end;
+        li {
+            font-size: 1.2rem;
+            //border-color: $grey !important;
+            span:nth-of-type(2) {
+                text-align: right;
+            }
         }
-    }
-    grid-column: span $num-columns;
-    @include breakpoint($md) {
-        grid-column: (0.5 * $num-columns + 1) / span (0.5 * $num-columns + 1);
+        grid-column: span $num-columns;
+        @include breakpoint($md) {
+            grid-column: 9 / -1;
+        }
     }
 }
 
