@@ -44,9 +44,30 @@
       <span class="post-authors">{{ .Params.Authors }} ({{ .Params.Year }})</span>
     </span>
     <span class="post-link__bottom-row">
-      {{ if .Params.publicationType }}<span class="tag">{{ .Params.publicationType }}</span>{{ end }}
-      <span class="post-link__indicator">↗︎</span>
-    </span>
+        <span>
+            {{ if .Params.publicationType }}
+                <span class="tag">
+                    {{ .Params.publicationType }}
+                </span>
+            {{ end }}
+            <span class="pub-themes">
+                {{ range $page.Params.themes }}
+                    {{ $slug := urlize . }}
+                    {{ $termPage := site.GetPage (printf "/themes/%s" $slug) }}
+                    {{ $from := "#0075ff" }}
+                    {{ $to   := "#00c2ff" }}
+                    {{ $termTitle := . }}
+
+                    {{ if $termPage }}
+                      {{ $from = $termPage.Params.gradientFrom | default "#0075ff" }}
+                      {{ $to   = $termPage.Params.gradientTo   | default "#00c2ff" }}
+                      {{ $termTitle = $termPage.Title }}
+                    {{ end }}
+                    <span class="theme-circle theme-circle--small" style="--gradient-from: {{ $from }}; --gradient-to: {{ $to }};" title="{{ $termTitle }}"></span>
+                {{ end }}
+            </span>
+        </span>
+        <span class="post-link__indicator">↗︎</span>
   </a>
 {{ end }}
 </div>
