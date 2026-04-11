@@ -14,6 +14,9 @@ timespan: "2021 → 2023"
 
 featured_image: "bsc_cover.jpg"
 image: "bsc_cover.jpg"
+related_publications:
+  - /publications/bouwen-aan-synergetische-samenwerkingen
+  - /publications/from-ideas-to-change
 ---
 Public security organisations, such as Public Prosecution Service and the police, are increasingly collaborating with creative professionals. These collaborations are promising, yet also difficult and vulnerable. Hence the Systemic Design Lab, TU Delft researched these collaborations to gain insight into the question: how does collaborating with creative professionals lead to outcomes that could not be realised otherwise?
 
@@ -40,8 +43,3 @@ These are only a few of the insights from our research. More can be found in fin
 
 This research was made possible with a KIEM GoCI subsidy, an initiative of the Creative Industry/CLICKNL top sector and the SIA Directorate.
 
-## Publications
-{{< gallery class="related-posts" >}}
-  {{< related-post page="/publications/bouwen-aan-synergetische-samenwerkingen" >}}
-  {{< related-post page="/publications/from-ideas-to-change" >}}
-{{< /gallery >}}

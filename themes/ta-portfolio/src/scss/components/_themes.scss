@@ -166,6 +166,13 @@ $circle-size: 300px;
     }
 }
 
+.main-project {
+    .publications-tiles {
+        grid-column: #{$start-main + 2} / #{$end-main};
+        display: grid !important;
+    }
+}
+
 .theme-hero {
     grid-column: 1 / -1;
     height: 0;

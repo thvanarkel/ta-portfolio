@@ -16,6 +16,9 @@ timespan: "2021 → present"
 
 featured_image: "cover.jpeg"
 image: "cover.jpeg"
+related_publications:
+  - /publications/transforming-a-precarious-equilibrium
+  - /publications/een-wankel-evenwicht
 ---
 For years, individuals receiving disability benefits have been less employed than the rest of the working population. This difference is larger than expected based on their limitations. A significant portion of individuals entitled to sickness benefits (ZW), work-related disability benefits (WGA), and disability benefits for young people (Wajong) can still work (partially) but face difficulties in doing so. Various professionals from the Employee Insurance Agency (UWV) and rehabilitation companies strive to assist their clients in the best possible way on their path to employment.
 
@@ -23,8 +26,3 @@ In this research, we examine how the desires, abilities, and actions of benefit 
 
 Based on these insights, we have developed a new approach to client conversations. This approach focuses on fostering self-awareness among individuals receiving disability benefits and making joint decisions regarding appropriate next steps for sustainable reintegration. We are evaluating this new approach in practice to both to refine this new approach and to learn about the systemic nature of this complex problem situation.
 
-## Publications
-{{< gallery class="related-posts" >}}
-  {{< related-post page="/publications/transforming-a-precarious-equilibrium" >}}
-  {{< related-post page="/publications/een-wankel-evenwicht" >}}
-{{< /gallery >}}

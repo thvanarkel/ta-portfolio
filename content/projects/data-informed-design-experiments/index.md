@@ -13,6 +13,9 @@ timespan: "2019 → 2020"
 
 featured_image: "cover.jpg"
 image: "cover.jpg"
+related_publications:
+  - /publications/designing-appropriate-things
+  - /publications/data-informed-design-experiments
 ---
 When intentionally changing behaviour through design it is important to understand the degree to which that change manifests itself and what the consequences that the introduction of the design has. However, changing behaviour is something that takes a long time to materialise durably and thus conventional qualitative user-centered approaches to evaluation may not be the most suitable. On the other hand, quantitative approaches measuring only the outcomes of the behaviour similarly do not provide detailed insight into the performance of the intervention. Hence for my graduation project I explored how designers can be supported in the critical assessment of the effectiveness and appropriateness of designs for behaviour change through combining several quantitative and qualitative data sources.
 
@@ -76,8 +79,3 @@ By turning the sensor data in a design material through the use of the data work
 
 The results of the project were compiled into a comprehensive thesis, which can be found in the TU Delft repository.
 
-## Publications
-{{< gallery class="related-posts" >}}
-  {{< related-post page="/publications/designing-appropriate-things" >}}
-  {{< related-post page="/publications/data-informed-design-experiments" >}}
-{{< /gallery >}}
