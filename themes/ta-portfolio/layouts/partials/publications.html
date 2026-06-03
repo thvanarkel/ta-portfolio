@@ -31,6 +31,19 @@
   {{ else }}
     <a href="{{ .RelPermalink }}">
   {{ end }}
+  {{/* In-text citation for small screens: up to 4 authors, then "et al.", with year */}}
+  {{ $cite := "" }}
+  {{ with $page.Params.Authors }}
+    {{ $list := split (replace . " & " ", ") ", " }}
+    {{ $n := len $list }}
+    {{ $names := index $list 0 }}
+    {{ if gt $n 4 }}
+      {{ $names = printf "%s et al." (delimit (first 4 $list) ", ") }}
+    {{ else if gt $n 1 }}
+      {{ $names = printf "%s & %s" (delimit (first (sub $n 1) $list) ", ") (index $list (sub $n 1)) }}
+    {{ end }}
+    {{ $cite = printf "(%s, %v)" $names $page.Params.Year }}
+  {{ end }}
   <li class="publication"
     data-pub-type="{{ .Params.mockupType | default "paper" }}"
     data-pub-cover="{{ $cover }}"
@@ -39,7 +52,7 @@
     data-pub-spine-label="{{ .Params.spineLabel | default "" }}"
     data-pub-spine-color="{{ .Params.spineColor | default "#555555" }}"
   >
-    <div class="title">{{ .Params.Title}}{{ if not (eq $view "compact")}}{{ if .Params.subtitle }}<span class="subtitle">: {{.Params.subtitle}}</span>{{end}}
+    <div class="title">{{ .Params.Title}}{{ if not (eq $view "compact")}}{{ if .Params.subtitle }}<span class="subtitle">: {{.Params.subtitle}}</span>{{end}}{{end}}{{ with $cite }}<span class="pub-citation"> {{ . }}</span>{{ end }}{{ if not (eq $view "compact")}}
       <br/>{{ if or (.Params.publicationType) (.Params.status) }}<span class="tags">
           {{ if .Params.publicationType }}<span class="tag">{{ .Params.publicationType }}</span>{{ end }}
           {{ if .Params.status }}<span class="tag status">{{ .Params.status }}</span>{{ end }}

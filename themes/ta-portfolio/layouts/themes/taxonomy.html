@@ -14,9 +14,12 @@
     "#0075ff" }} {{ $gradientTo := $termPage.Params.gradientTo | default
     "#00c2ff" }}
 
+    {{/* Small deterministic vertical offset per card so the bubbles aren't all identical */}}
+    {{ $ry := index (slice -45 35 -20 50 -30 25) (mod $i 6) }}
+
     <div
         class="theme-card{{ if eq (mod $i 2) 1 }} theme-card--right{{ end }}"
-        style="--gradient-from: {{ $gradientFrom }}; --gradient-to: {{ $gradientTo }};"
+        style="--gradient-from: {{ $gradientFrom }}; --gradient-to: {{ $gradientTo }}; --rand-y: {{ $ry }}px;"
     >
         <div class="theme-meta">
             <h2>{{ $termPage.Title }}</h2>
@@ -38,13 +41,16 @@
         if (!cards.length) return;
         var ticking = false;
 
+        // Parallax speed for the bubbles — higher = more movement on scroll.
+        var SPEED = 450;
+
         function calcShift(card) {
             var rect = card.getBoundingClientRect();
             var progress = 1 - rect.bottom / (window.innerHeight + rect.height);
-            return (progress - 0.5) * 500;
+            return (progress - 0.5) * SPEED;
         }
 
-        // Record each card's shift at load so we can zero it out
+        // Zero each card's shift at load so the parallax is a delta from rest.
         var baseShifts = Array.prototype.map.call(cards, calcShift);
 
         function updateParallax() {

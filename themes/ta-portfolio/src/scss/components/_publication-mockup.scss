@@ -67,8 +67,11 @@ main .pub-meta {
     grid-column: #{$start-main} / #{$end-main};
     margin-top: 20px;
     margin-bottom: 20px;
+    // Stack the "Read publication" link below the details instead of beside them.
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
     .post-link {
         margin-top: 10px;
         margin-bottom: 5px;
