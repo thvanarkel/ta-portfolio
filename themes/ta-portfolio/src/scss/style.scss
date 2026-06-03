@@ -56,7 +56,7 @@ main {
 
     @include breakpoint($xs) {
         & > * {
-            grid-column: 1 / #{$num-columns} !important;
+            grid-column: 1 / #{$num-columns + 1} !important;
         }
     }
 
@@ -74,21 +74,21 @@ main {
 
     h1 {
         font-weight: 400;
-        font-size: 3.5rem;
-        line-height: 3.5rem;
+        font-size: clamp(2rem, 6vw, 3.5rem);
+        line-height: 1.1;
         //text-transform: uppercase;
     }
 
     h2 {
         font-weight: 400;
-        font-size: 1.8rem;
+        font-size: clamp(1.5rem, 3vw, 1.8rem);
         line-height: 1.2;
         margin-top: 20px;
     }
 
     h3 {
         font-weight: 400;
-        font-size: 1.5rem;
+        font-size: clamp(1.3rem, 2.5vw, 1.5rem);
         line-height: 1;
     }
 
@@ -167,7 +167,7 @@ main {
     }
     @include breakpoint($xs) {
         & > * {
-            grid-column: 1 / #{$num-columns} !important;
+            grid-column: 1 / #{$num-columns + 1} !important;
         }
     }
 
@@ -257,6 +257,17 @@ main {
             transform: scale(1.25);
         }
 
+        @include breakpoint($xs) {
+            left: auto;
+            right: 0;
+            top: 320px;
+            width: 130px;
+            height: 130px;
+            p {
+                font-size: 15px;
+                line-height: 20px;
+            }
+        }
         @include breakpoint($sm) {
             left: 10%;
             top: 350px;
@@ -672,6 +683,11 @@ img[src$="#halftone"] {
     gap: 20px;
     //padding-top: 70px;
 
+    // Single column on phones so the overhanging mockup fits within the card.
+    @include breakpoint($xs) {
+        grid-template-columns: 1fr;
+    }
+
     .related-post {
         $tile-zoom: 0.7;
         $tile-top: 100px;
@@ -858,7 +874,10 @@ $minColWidth: 15rem;
         }
     }
     @include breakpoint($xs) {
-        grid-template-columns: 50%;
+        grid-template-columns: 1fr 1fr;
+        a {
+            grid-column: span 1;
+        }
     }
 }
 
@@ -913,6 +932,13 @@ $minColWidth: 15rem;
         ); //repeat(auto-fit, minmax($minColWidth, 1fr));
         grid-row-start: 1;
         grid-column-start: $start-main;
+
+        @include breakpoint($xs) {
+            grid-template-columns: 1fr 1fr;
+            a {
+                grid-column: span 1;
+            }
+        }
     }
 }
 
@@ -1032,9 +1058,9 @@ main {
     h1 {
         //font-family: "Signifier", "Times";
         //font-weight: 300;
-        font-size: 4rem;
+        font-size: clamp(2.2rem, 8vw, 4rem);
         text-transform: none;
-        margin-top: 70px;
+        margin-top: clamp(30px, 8vw, 70px);
     }
     p:not(.pub-subtitle) {
         font-size: $body-small;

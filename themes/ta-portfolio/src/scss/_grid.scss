@@ -19,7 +19,7 @@ $end-text: 13;
 
         @include breakpoint($xs) {
             & > * {
-                grid-column: 1 / #{$num-columns} !important;
+                grid-column: 1 / #{$num-columns + 1} !important;
             }
         }
     }

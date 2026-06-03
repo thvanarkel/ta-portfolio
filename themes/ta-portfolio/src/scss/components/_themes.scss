@@ -29,6 +29,9 @@ $_circle-x: calc(
         #{$num-columns} + #{($start-main - 1) * $grid-column-gap}
 );
 
+$circle-size: 300px;
+$circle-size-mobile: 0.75 * $circle-size;
+
 .theme-card {
     display: grid;
     grid-template-columns: subgrid;
@@ -44,14 +47,17 @@ $_circle-x: calc(
     }
 }
 
-$circle-size: 300px;
-
 .theme-meta {
     grid-column: #{$start-main} / #{$end-main};
     position: relative;
-    z-index: 1;
+    z-index: 1; // paint above the gradient bubble
 
-    // Circle as ::before — out of grid flow, freely overlaps text
+    // Gradient bubble behind the text.
+    //  · Mobile (default): half-shown past the right edge of the screen.
+    //  · Desktop (≥768): original position — left here, flipped to the right by
+    //    the alternating .theme-card--right variant.
+    // --rand-y nudges each card vertically so they aren't all identical;
+    // --parallax-y is updated on scroll (taxonomy.html) for a gentle parallax.
     &::before {
         content: "";
         position: absolute;
@@ -62,35 +68,30 @@ $circle-size: 300px;
             var(--gradient-from, #0075ff),
             var(--gradient-to, #00c2ff)
         );
-        width: $circle-size;
-        height: $circle-size;
-        // Horizontal center = left edge of $start-main column
-        //left: $_circle-x;
-        left: -0.5 * $circle-size + 10px;
-        // top: align circle center with h2 title (~28% down the card at min-height: 320px)
-        //top: calc(50% - 71px);
-        top: -0.5 * $circle-size + 50px;
-        transform: translateY(var(--parallax-y, 0px));
         pointer-events: none;
         will-change: transform;
+        transform: translateY(var(--parallax-y, 0px));
 
-        /* @include breakpoint($md) {
-            width: 280px;
-            height: 280px;
-        } */
+        // Mobile default: half-shown on the right edge.
+        width: $circle-size-mobile;
+        height: $circle-size-mobile;
+        left: auto;
+        right: -1 * (15px + $circle-size-mobile * 0.5);
+        top: calc(50% - #{$circle-size-mobile * 0.5} + var(--rand-y, 0px));
 
-        @include breakpoint($xs) {
-            width: 0.75 * $circle-size;
-            height: 0.75 * $circle-size;
-            left: 50%;
-            top: -25%;
-            transform: translateX(-50%) translateY(var(--parallax-y, 0px));
+        // Desktop: original size and left-hand position.
+        @include breakpoint($sm) {
+            width: $circle-size;
+            height: $circle-size;
+            right: auto;
+            left: -0.5 * $circle-size + 10px;
+            top: calc(#{-0.5 * $circle-size + 50px} + var(--rand-y, 0px));
         }
     }
 
     h2 {
-        font-size: 3.5rem;
-        line-height: 3.5rem;
+        font-size: clamp(2rem, 7vw, 3.5rem);
+        line-height: 1.05;
         font-weight: 400;
         margin-bottom: 16px;
         text-transform: none;
@@ -108,29 +109,21 @@ $circle-size: 300px;
     }
 }
 
-// Alternating (right) variant: circle mirrored, text right-aligned
+// Alternating variant — on desktop the bubble flips to the right and the text
+// right-aligns. On mobile every card keeps the same right-side bubble.
 .theme-card--right {
     grid-column: 2 / #{$num-columns};
     .theme-meta {
-        text-align: right;
         &::before {
-            left: auto;
-            right: -0.5 * $circle-size;
-            @include breakpoint($xs) {
-                right: auto;
-                left: 50%;
-                transform: translateX(-50%) translateY(var(--parallax-y, 0px));
+            @include breakpoint($sm) {
+                left: auto;
+                right: -0.5 * $circle-size;
             }
         }
-
-        p {
-            margin-left: auto;
-        }
-
-        @include breakpoint($xs) {
-            text-align: left;
+        @include breakpoint($sm) {
+            text-align: right;
             p {
-                margin-left: 0;
+                margin-left: auto;
             }
         }
     }
@@ -265,6 +258,45 @@ $circle-size: 300px;
     }
 }
 
+// In-text citation "(Author et al., Year)" rendered after the title in the
+// markup. Hidden on desktop (the table columns carry author/year there); shown
+// only on small screens.
+.publications-overview .pub-citation {
+    display: none;
+    opacity: 0.55;
+}
+
+// On phone & tablet the 4-column subgrid row is too cramped. Drop the table
+// columns and read the entry as a citation: "Title (Author et al., Year)".
+// Placed after the column defs above so it wins by source order.
+// NB: use a max-only map — $mobile-only derives min from $xs which has no `min`
+// key, producing an invalid "(min-width: )" query that browsers drop.
+@include breakpoint((max: map-get($md, min) - 1)) {
+    .publications-overview .publication {
+        display: block;
+        padding-bottom: 8px;
+
+        .title {
+            grid-column: auto;
+        }
+
+        // The citation replaces the separate author + year columns.
+        .pub-citation {
+            display: inline;
+        }
+        .year,
+        .authors {
+            display: none;
+        }
+
+        // Keep the theme circles as a small row beneath the title.
+        .pub-themes {
+            grid-column: auto;
+            margin-top: 6px;
+        }
+    }
+}
+
 // ── Projects: position badge relative to .project ────────────────────────────
 
 .project {
@@ -388,6 +420,33 @@ $circle-size: 300px;
             @include themed() {
                 background-color: t($hover);
                 color: t($hover-text);
+            }
+        }
+    }
+}
+
+// ── Inline pills: keep them tidy on phones ───────────────────────────────────
+// Long (often Dutch) titles otherwise either run off the right edge or wrap
+// across several lines. Cap the pill to the container width and keep the title
+// on a single line, truncating with an ellipsis. Covers every inline link pill
+// (plain .post-link project refs, .publication-link, .theme-link). The
+// .related-post cards override .post-link__left themselves, so they're unaffected.
+@include breakpoint($xs) {
+    .post-link {
+        max-width: 100%;
+        vertical-align: bottom; // sit on the text baseline rather than overhang
+
+        .post-link__left {
+            display: block; // so text-overflow applies to the title text
+            min-width: 0;
+            flex: 0 1 auto; // allow the title to shrink within the capped pill
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            // The inline thumbnail (project links) bloats the pill — drop it here.
+            img {
+                display: none;
             }
         }
     }
