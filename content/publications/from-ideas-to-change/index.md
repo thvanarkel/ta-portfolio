@@ -10,6 +10,9 @@ venue: "International Journal of Design"
 publicationType: "journal article"
 mockupType: "paper"
 coverImage: "cover.jpg"
+themes:
+  - "stewarding change"
+  - "public design practices"
 externalPublication: false
 externalLink: "https://research.tudelft.nl/en/publications/from-ideas-to-change-emergent-design-practices-to-overcome-implem"
 ---

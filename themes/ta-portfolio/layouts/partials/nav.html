@@ -10,6 +10,9 @@
     {{ range .Site.Sections }}
       {{ $scratch.Set .Section (len (where .Site.RegularPages "Section" "==" .Section)) }}
     {{ end }}
+    {{ if site.Taxonomies.themes }}
+      {{ $scratch.Set "themes" (len site.Taxonomies.themes) }}
+    {{ end }}
 
     {{ range .Site.Menus.main }}
       {{ if gt ($scratch.Get .Identifier) 0 }}

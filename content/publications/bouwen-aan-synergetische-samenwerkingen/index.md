@@ -10,6 +10,9 @@ publicationType: "report"
 mockupType: "report"
 coverImage: "cover.jpg"
 spineColor: "#f9e376"
+themes:
+  - "stewarding change"
+  - "public design practices"
 externalPublication: false
 externalLink: "https://research.tudelft.nl/en/publications/bouwen-aan-synergetische-samenwerkingen-een-onderzoek-naar-werken"
 ---

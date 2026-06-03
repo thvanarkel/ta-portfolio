@@ -21,13 +21,26 @@
   <!-- </div> -->
 
   {{ .Content }}
+
+  {{ $pubPaths := .Params.related_publications }}
+  {{ if $pubPaths }}
+    {{ $pubPages := slice }}
+    {{ range $pubPaths }}
+      {{ $p := site.GetPage . }}
+      {{ if $p }}{{ $pubPages = $pubPages | append $p }}{{ end }}
+    {{ end }}
+    {{ if $pubPages }}
+      <h2>Publications</h2>
+      {{ partial "publications-tiles.html" (dict "context" . "pages" $pubPages) }}
+    {{ end }}
+  {{ end }}
 </main>
 
 <script src="/js/mockups.js"></script>
 <script>
   (function () {
     if (window.PublicationMockup) {
-      PublicationMockup.init('.related-post .mockup-stage');
+      PublicationMockup.init('.publications-tiles .mockup-stage');
     }
   })();
 </script>

@@ -1,0 +1,73 @@
+<div class="publications-tiles">
+{{ range (.pages) }}
+  {{ $page := . }}
+  {{ $cover := "" }}
+  {{ with $page.Resources.GetMatch "cover.webp" }}
+    {{ $cover = .RelPermalink }}
+  {{ else }}
+    {{ with $page.Params.coverImage }}
+      {{ if strings.HasPrefix . "/" }}
+        {{ $cover = . }}
+      {{ else }}
+        {{ $cover = printf "%s%s" $page.RelPermalink . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ $spine := "" }}
+  {{ with $page.Resources.GetMatch "spine.webp" }}
+    {{ $spine = .RelPermalink }}
+  {{ else }}
+    {{ with $page.Params.spineImage }}
+      {{ if strings.HasPrefix . "/" }}
+        {{ $spine = . }}
+      {{ else }}
+        {{ $spine = printf "%s%s" $page.RelPermalink . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ if .Params.externalPublication }}
+  <a class="related-post" href="{{ .Params.externalLink }}">
+  {{ else }}
+  <a class="related-post" href="{{ .RelPermalink }}">
+  {{ end }}
+    <div class="related-post__mockup">
+      <div class="mockup-stage"
+           data-mockup="{{ .Params.mockupType | default "paper" }}"
+           data-cover="{{ $cover }}"
+           data-spine="{{ $spine }}"
+           data-spine-depth="{{ .Params.spineDepth | default "" }}"
+           data-spine-label="{{ .Params.spineLabel | default "" }}"
+           data-spine-color="{{ .Params.spineColor | default "#555555" }}">
+      </div>
+    </div>
+    <span class="post-link__left">{{ .Title }}
+      <span class="post-authors">{{ .Params.Authors }} ({{ .Params.Year }})</span>
+    </span>
+    <span class="post-link__bottom-row">
+        <span>
+            {{ if .Params.publicationType }}
+                <span class="tag">
+                    {{ .Params.publicationType }}
+                </span>
+            {{ end }}
+            <span class="pub-themes">
+                {{ range $page.Params.themes }}
+                    {{ $slug := urlize . }}
+                    {{ $termPage := site.GetPage (printf "/themes/%s" $slug) }}
+                    {{ $from := "#0075ff" }}
+                    {{ $to   := "#00c2ff" }}
+                    {{ $termTitle := . }}
+
+                    {{ if $termPage }}
+                      {{ $from = $termPage.Params.gradientFrom | default "#0075ff" }}
+                      {{ $to   = $termPage.Params.gradientTo   | default "#00c2ff" }}
+                      {{ $termTitle = $termPage.Title }}
+                    {{ end }}
+                    <span class="theme-circle theme-circle--small" style="--gradient-from: {{ $from }}; --gradient-to: {{ $to }};" title="{{ $termTitle }}"></span>
+                {{ end }}
+            </span>
+        </span>
+        <span class="post-link__indicator">↗︎</span>
+  </a>
+{{ end }}
+</div>

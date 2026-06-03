@@ -11,6 +11,9 @@ publicationType: "report"
 mockupType: "report"
 coverImage: "cover.jpg"
 spineColor: "#f39301"
+themes:
+  - "caring organisations and services"
+  - "stewarding change"
 externalPublication: false
 externalLink: "https://research.tudelft.nl/en/publications/een-wankel-evenwicht-gedrag-van-personen-met-een-arbeidsongeschik/"
 ---

@@ -1,8 +1,30 @@
 <div class="projects-overview {{ if .workInProgress }}work-in-progress{{ end }}">
 {{ range (.pages) }}
+{{ $page := . }}
 <a href="{{ .RelPermalink }}">
   <div class="project">
-    {{ if .Params.featured_image }}<div class="project-image"><img src="{{ printf `/%s%s` .File.Dir .Params.featured_image}}"></div>{{ end }}
+    {{ if .Params.featured_image }}
+    <div class="project-image"><img src="{{ printf `/%s%s` .File.Dir .Params.featured_image}}"></div>
+    {{ end }}
+    {{ with $page.Params.themes }}
+    <div class="theme-badges">
+      {{ range . }}
+        {{ $slug := urlize . }}
+        {{ $termPage := site.GetPage (printf "/themes/%s" $slug) }}
+        {{ $from := "#0075ff" }}
+        {{ $to   := "#00c2ff" }}
+        {{ $termTitle := . }}
+        {{ if $termPage }}
+          {{ $from = $termPage.Params.gradientFrom | default "#0075ff" }}
+          {{ $to   = $termPage.Params.gradientTo   | default "#00c2ff" }}
+          {{ $termTitle = $termPage.Title }}
+        {{ end }}
+        <span class="theme-circle theme-circle--small"
+              style="--gradient-from: {{ $from }}; --gradient-to: {{ $to }};"
+              title="{{ $termTitle }}"></span>
+      {{ end }}
+    </div>
+    {{ end }}
     <p class="project-title">{{ .Params.Title}}</p>
     <span class="project-category">
       {{ range $i, $e := .Params.categories }}{{ if ne $i 0 }}, {{ end }}{{ . }}{{ end }}

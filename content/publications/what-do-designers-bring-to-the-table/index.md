@@ -10,6 +10,8 @@ venue: "DRS 2024, Boston"
 publicationType: "conference paper"
 mockupType: "paper"
 coverImage: "cover.jpg"
+themes:
+  - "public design practices"
 externalPublication: false
 externalLink: "https://research.tudelft.nl/en/publications/what-do-designers-bring-to-the-table-identifying-key-design-compe"
 ---
